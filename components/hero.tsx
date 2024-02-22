@@ -12,7 +12,7 @@ const Hero = () => {
           a program; it&apos;s a pathway to your brighter future.
         </p>
         <div className="flex justify-center mt-6">
-          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-[6.25rem]">
+          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn">
             Get Started Now
           </button>
         </div>
