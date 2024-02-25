@@ -44,10 +44,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`  ${clashDisplay.variable}`}>
-        {/* <NavBar /> */}
+        <NavBar />
         {children}
-        {/* <Faq /> */}
-        {/* <Footer /> */}
+
+        <Faq />
+        <Footer />
       </body>
     </html>
   );
