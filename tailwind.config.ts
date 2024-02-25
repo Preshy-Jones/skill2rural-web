@@ -30,6 +30,10 @@ const config: Config = {
         cardRed: "#BE4366",
         cardAsh: "#EFEEF1",
         cardPurple: "#9723F2",
+        divideGrey: "#EAECF0",
+        inputBorder: "#808080",
+        formInputBorder: "#C4C4C4",
+        greyText:"#253B4B"
       },
       fontSize: {
         "2.5xl": "4.875rem",
@@ -49,6 +53,7 @@ const config: Config = {
         third: "0.3125rem",
         circle: "50%",
         btn: "6.25rem",
+        largeBtn: "12.5rem",
       },
       lineHeight: {
         primary: "1.8rem",
@@ -58,10 +63,18 @@ const config: Config = {
         fifth: "1.2rem",
         sixth: "3.6rem",
         seventh: "1.05rem",
-        eight:"2.75rem"
+        eight: "2.75rem",
+        ninth:"1.35rem"
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",
+        clash: ["var(--font-clash)"],
+      },
+      gridTemplateColumns: {
+        footer: "30% 70%",
+      },
+      boxShadow: {
+        form: "0px 2px 24px 4px #0000001A",
       },
     },
   },

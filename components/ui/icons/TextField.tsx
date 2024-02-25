@@ -1,0 +1,15 @@
+import React from "react";
+
+const TextField = ({
+  className,
+  placeholder,
+  type,
+}: {
+  className: string;
+  placeholder?: string;
+  type?: string;
+}) => {
+  return <input type={type} className={className} placeholder={placeholder} />;
+};
+
+export default TextField;
