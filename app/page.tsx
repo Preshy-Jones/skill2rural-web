@@ -14,7 +14,6 @@ export default function Home() {
       <Info />
       <Courses />
       <Reviews />
-      <Faq/>
     </main>
   );
 }

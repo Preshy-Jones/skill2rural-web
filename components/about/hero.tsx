@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import lightBulbLogo from "@/public/light-bulb.svg";
 import arrowPracticeLogo from "@/public/arrow-target-practice.svg";
+import dotDesign1 from "@/public/dots-home-hero.svg";
+import curvedArrow from "@/public/curved-arrow.svg";
 
 const Hero = () => {
   return (
@@ -10,11 +12,26 @@ const Hero = () => {
         <h4 className=" text-2xl leading-primary font-semibold text-center">
           About Us
         </h4>
-        <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack">
-          At Skill2Rural, Dreams find their wings
-        </p>
+        <div className="flex justify-center">
+          <div className="w-[50%] relative">
+            <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack">
+              At Skill2Rural, Dreams find their wings
+            </p>
+            <Image
+              src={dotDesign1}
+              alt="dot-1"
+              className="absolute top-0 -right-12"
+            />
+          </div>
+        </div>
 
-        <p className="text-center leading-primary font-semibold text-2xl mt-32">
+        <div className="flex justify-center">
+          <div className="w-[93%] flex justify-end">
+            <Image src={curvedArrow} alt="curved-arrow" />
+          </div>
+        </div>
+
+        <p className="text-center leading-primary font-semibold text-2xl">
           Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership and
           Career Initiative:
         </p>
@@ -47,7 +64,6 @@ const Hero = () => {
               textbooks. Acquire skills that matter in the real world.
             </p>
           </div>
-         
         </div>
       </div>
     </div>

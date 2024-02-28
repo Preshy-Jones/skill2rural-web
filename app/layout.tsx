@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Faq from "@/components/home/Faq";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Skill2rural app",
@@ -43,12 +44,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
       <body className={`  ${clashDisplay.variable}`}>
-        <NavBar />
+        {/* <NavBar /> */}
         {children}
-
+        {/* 
         <Faq />
-        <Footer />
+        <Footer /> */}
       </body>
     </html>
   );

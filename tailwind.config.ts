@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -33,7 +42,7 @@ const config: Config = {
         divideGrey: "#EAECF0",
         inputBorder: "#808080",
         formInputBorder: "#C4C4C4",
-        greyText:"#253B4B"
+        greyText: "#253B4B",
       },
       fontSize: {
         "2.5xl": "4.875rem",
@@ -64,7 +73,7 @@ const config: Config = {
         sixth: "3.6rem",
         seventh: "1.05rem",
         eight: "2.75rem",
-        ninth:"1.35rem"
+        ninth: "1.35rem",
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",

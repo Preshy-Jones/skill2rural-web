@@ -1,16 +1,25 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import learningLogo from "@/public/learning.svg";
 import careerGrowth from "@/public/career-growth.svg";
 import earthGrowth from "@/public/earth-planet.svg";
 import laptop from "@/public/laptop.svg";
 import womanComputer from "@/public/womanoncomputer.svg";
+import fineGirl from "@/public/fine-girl.svg";
 import number1 from "@/public/number1.svg";
 import number2 from "@/public/number2.svg";
 import number3 from "@/public/number3.svg";
 import number4 from "@/public/number4.svg";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Tabs from "../tab";
+import { UserType } from "@/types/global";
 
 const Info = () => {
+  const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
+  const handleTabClick = (tab: UserType) => {
+    setActiveTab(tab);
+  };
   return (
     <div>
       <h2 className="font-bold text-3.5xl leading-tertiary text-center mb-24">
@@ -89,14 +98,32 @@ const Info = () => {
           <h1 className="font-bold text-5xl leading-sixth text-center">
             Ready to redefine your future? Let&apos;s make it happen together.
           </h1>
+          {/* <Tabs /> */}
           <div className="flex justify-center mt-12">
-            <div className="border border-black rounded-btn h-[5rem] flex items-center px-4">
-              <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-                Facilitators
-              </button>
-              <button className=" text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-                Students
-              </button>
+            <div className="relative h-[5.1875rem] w-[33.4375rem]">
+              <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+                <button
+                  className={`${
+                    activeTab === UserType.FACILITATORS
+                      ? "bg-primary text-white"
+                      : "text-primary"
+                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  onClick={() => handleTabClick(UserType.FACILITATORS)}
+                >
+                  Facilitators
+                </button>
+                <button
+                  className={`${
+                    activeTab === UserType.STUDENTS
+                      ? "bg-primary text-white"
+                      : "text-primary"
+                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  onClick={() => handleTabClick(UserType.STUDENTS)}
+                >
+                  Students
+                </button>
+              </div>
+              <div className="rounded-btn h-full w-full bg-primary absolute top-1 left-1 z-0 "></div>
             </div>
           </div>
           <div className="grid grid-cols-2">

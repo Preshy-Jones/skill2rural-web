@@ -2,6 +2,7 @@ import React from "react";
 import designThinking from "@/public/design-thinking.svg";
 import moneyInPurse from "@/public/money-purse.svg";
 import sdgs from "@/public/sdgs.svg";
+import ArrowIcon from "@/public/arrow-icon.svg";
 import Image from "next/image";
 
 const Courses = () => {
@@ -26,7 +27,9 @@ const Courses = () => {
                 <h2 className="font-medium text-xl leading-fourth">
                   Design Thinking
                 </h2>
-                <h4 className="text-sm leading-seventh text-greyText">Earn a certificate</h4>
+                <h4 className="text-sm leading-seventh text-greyText">
+                  Earn a certificate
+                </h4>
               </div>
               <h2 className="text-end text-primary text-sm leading-seventh">
                 View Course
@@ -35,9 +38,10 @@ const Courses = () => {
           ))}
         </div>
         <div className="flex justify-center mt-12">
-          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
-            See More
-          </button>
+          <div className="bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn flex items-center justify-center">
+            <h3 className="text-white font-semibold mr-2">See More</h3>
+            <Image src={ArrowIcon} alt="arrow-icon" />
+          </div>
         </div>
       </div>
     </div>

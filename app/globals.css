@@ -2,5 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
+@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 @import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* .logos {
+  overflow: hidden !important;
+  padding: 60px 0 !important;
+  background: white !important;
+  white-space: nowrap !important;
+  position: relative !important;
+} */
+
+/* .logos:before,
+.logos:after {
+  position: absolute !important;
+  top: 0 !important;
+  width: 250px !important;
+  height: 100% !important;
+  content: "" !important;
+  z-index: 2 !important;
+}
+
+.logos:before {
+  left: 0 !important;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white) !important;
+}
+
+.logos:after {
+  right: 0 !important;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white) !important;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused !important;
+}
+
+.logos-slide {
+  display: inline-block !important;
+  animation: 35s slide infinite linear !important;
+} */
+
+.logos-slide img {
+  height: 50px !important;
+  margin: 0 40px !important;
+}
