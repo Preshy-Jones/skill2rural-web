@@ -46,11 +46,10 @@ export default function RootLayout({
     <html lang="en">
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
       <body className={`  ${clashDisplay.variable}`}>
-        {/* <NavBar /> */}
+        <NavBar />
         {children}
-        {/* 
         <Faq />
-        <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

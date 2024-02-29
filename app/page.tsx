@@ -2,7 +2,7 @@ import Courses from "@/components/home/Courses";
 import Faq from "@/components/home/Faq";
 import Info from "@/components/home/Info";
 import Reach from "@/components/home/Reach";
-import Reviews from "@/components/home/Reviews";
+import Reviews from "@/components/home/Reviews/Reviews";
 import Hero from "@/components/home/hero";
 import Image from "next/image";
 

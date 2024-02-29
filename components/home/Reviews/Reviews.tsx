@@ -8,6 +8,7 @@ import animoji3 from "@/public/animoji-3.svg";
 import CaretLeftIcon from "@/public/caret-left.svg";
 import CaretRightIcon from "@/public/caret-right.svg";
 import { motion, AnimatePresence } from "framer-motion";
+import { CarouselSpacing } from "./carousel";
 
 const Reviews = () => {
   const reviews = [
@@ -77,14 +78,16 @@ const Reviews = () => {
   return (
     <div className="flex justify-center mt-36">
       <div className="w-[90.69%]">
-        <h5 className="text-primary leading-fifth font-semibold text-center">
-          Reviews
-        </h5>
-        <h2 className="text-center font-semibold text-3.5xl leading-tertiary">
-          What People Are Saying
-        </h2>
-        <div className="relative">
-          <div className=" grid grid-cols-3 gap-x-12 mt-12 ">
+        <div className="mb-36">
+          <h5 className="text-primary leading-fifth font-semibold text-center">
+            Reviews
+          </h5>
+          <h2 className="text-center font-semibold text-3.5xl leading-tertiary">
+            What People Are Saying
+          </h2>
+        </div>
+        <div className="relative h-[20rem]">
+          {/* <div className=" grid grid-cols-3 gap-x-12 mt-12 ">
             {reviews
               .slice(currentIndex, currentIndex + 3)
               .map((review, index) => (
@@ -105,6 +108,9 @@ const Reviews = () => {
                   <div className="bg-primary absolute w-full top-2 right-0 left-2 mx-auto z-0 h-[10.8125rem] rounded-2xl"></div>
                 </div>
               ))}
+          </div> */}
+          <div className="relative w-full">
+            <CarouselSpacing reviews={reviews} />
           </div>
 
           {/* <div className="absolute z-40 flex justify-between w-full top-1/2 transform -translate-y-1/2">

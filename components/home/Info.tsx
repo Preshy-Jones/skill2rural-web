@@ -123,7 +123,7 @@ const Info = () => {
                   Students
                 </button>
               </div>
-              <div className="rounded-btn h-full w-full bg-primary absolute top-1 left-1 z-0 "></div>
+              {/*   */}
             </div>
           </div>
           <div className="grid grid-cols-2">
