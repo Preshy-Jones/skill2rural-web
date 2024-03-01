@@ -23,11 +23,11 @@ import Script from "next/script";
       weight: "500",
       style: "normal",
     },
-    {
-      path: "../../public/clash-display/ClashDisplay-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
+    // {
+    //   path: "../../public/clash-display/ClashDisplay-SemiBold.woff2",
+    //   weight: "600",
+    //   style: "normal",
+    // },
     {
       path: "../../public/clash-display/ClashDisplay-Bold.woff2",
       weight: "700",

@@ -1,7 +1,7 @@
 import React from "react";
 import facebookIcon from "@/public/facebook-icon.svg";
 import twitterIcon from "@/public/twitter-icon.svg";
-import linkedinIcon from "@/public/linkedin-icon.svg";
+import linkedinIcon from "../public/linkedIn-icon.svg";
 import instagramIcon from "@/public/instagram-icon.svg";
 import Image from "next/image";
 
