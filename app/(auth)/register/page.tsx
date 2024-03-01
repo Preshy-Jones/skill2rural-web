@@ -7,7 +7,11 @@ import TextField from "@/components/ui/icons/TextField";
 import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Login = () => {
+import Link from "next/link";
+import StudentsForm from "@/components/signup/StudentsForm";
+import FacilitatorForm from "@/components/signup/FacilitatorForm";
+
+const Signup = () => {
   const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
@@ -15,17 +19,19 @@ const Login = () => {
   return (
     <div className=" font-neue">
       <div className="relative">
-        <Image
-          src={studentsBackgroundImage}
-          alt="african-students"
-          className=""
-        />
+        <Link href={"/"}>
+          <Image
+            src={studentsBackgroundImage}
+            alt="african-students"
+            className=""
+          />
+        </Link>
         <div className="absolute z-10 top-0 flex justify-end w-full">
           <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
             <div className="flex flex-col items-center">
               <Image src={logo} alt="skrural-logo-onboarding" />
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
-                Login
+                Sign up
               </h1>
             </div>
             <div className="flex justify-center mt-12">
@@ -52,15 +58,20 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <Form />
+            {activeTab === UserType.FACILITATORS ? (
+              <FacilitatorForm />
+            ) : (
+              <StudentsForm />
+            )}
             <div className="flex justify-center">
-              <div className="w-[70%] mt-4">
+              <div className="w-[70%] mt-4 flex ">
+                <Checkbox className="text-white border-ashBorder" />
                 <p className=" leading-fifth text-ash2 text-center">
                   By clicking sign in, you agree to our{" "}
                   <span className=" text-ash2 font-semibold">
                     Privacy Policy
                   </span>
-                  and{" "}
+                  and
                   <span className=" text-ash2 font-semibold">
                     Terms of Service
                   </span>
@@ -68,8 +79,10 @@ const Login = () => {
               </div>
             </div>
             <div className=" flex justify-center leading-fifth font-neue mt-8">
-              <p className="mr-3 text-ash2">New to SkillHat?</p>
-              <span className="text-primary font-bold"> Sign Up</span>
+              <p className="mr-3 text-ash2">Already have an account?</p>
+              <Link href={"/register"}>
+                <span className="text-primary font-bold"> Login</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -78,46 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-const Form = () => {
-  return (
-    <div>
-      <form action="" className="px-6 pt-16">
-        <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
-        <div className="mb-8">
-          <div className="mb-3">
-            <h3 className="font-semibold">Email address</h3>
-            <TextField
-              type="email"
-              placeholder="your email Address"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-            />
-          </div>
-          <div className="mb-3">
-            <h3 className="font-semibold">Password</h3>
-            <TextField
-              placeholder="your Password"
-              type="password"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-            />
-          </div>
-        </div>
-        <div className="flex justify-between mb-10">
-          <div className="flex items-center">
-            <Checkbox className="text-white mr-3" />
-            <h3 className=" font-semibold text-ash leading-fifth">
-              Remember me
-            </h3>
-          </div>
-          <h3 className=" leading-fifth font-medium text-primary">
-            Forgot Password?
-          </h3>
-        </div>
-        <button className="bg-primary h-[3.75rem] text-white rounded-btn w-full">
-          Log in
-        </button>
-      </form>
-    </div>
-  );
-};
+export default Signup;

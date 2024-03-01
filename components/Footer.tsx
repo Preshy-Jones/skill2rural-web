@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div>
       <div className="relative bg-primary h-40">
-        <div className="absolute inset-0 bg-white  rounded-bl-full rounded-br-full"></div>
+        <div className="absolute inset-0 bg-white rounded-bl-full rounded-br-full"></div>
       </div>
       <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
         <div className="grid grid-cols-footer gap-x-10">

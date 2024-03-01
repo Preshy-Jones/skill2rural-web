@@ -44,6 +44,7 @@ const config: Config = {
         primaryBlack: "#1E1E1E",
         primaryGrey: "#101828",
         lightGrey: "#667085",
+        toggleTxt:"#555555",
         btn: "#BD00FF",
         textPrimary: "#8501B3",
         textSecondary: "#7F7C98",
@@ -51,6 +52,7 @@ const config: Config = {
         textFourth: "#D9D9D9",
         infoBg: "#F5EFFB",
         greyBg: "#181821",
+        greyBg2:"#F9F9F9",
         borderGrey: "#E8E8E8",
         cardBlue: "#51A3DA",
         cardRed: "#BE4366",
@@ -67,6 +69,7 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
         ash: "#83898C",
         ash2: "#858181",
+        ashBorder: "#CFD3D4",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",
         //   foreground: "hsl(var(--primary-foreground))",
@@ -136,6 +139,7 @@ const config: Config = {
       },
       boxShadow: {
         form: "0px 2px 24px 4px #0000001A",
+        toggleBtn: "0px 0.5px 40px 0px #1E1E1E1A",
       },
     },
   },

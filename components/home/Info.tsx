@@ -12,7 +12,6 @@ import number3 from "@/public/number3.svg";
 import number4 from "@/public/number4.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Tabs from "../tab";
 import { UserType } from "@/types/global";
 
 const Info = () => {

@@ -113,20 +113,20 @@ const Reviews = () => {
             <CarouselSpacing reviews={reviews} />
           </div>
 
-          {/* <div className="absolute z-40 flex justify-between w-full top-1/2 transform -translate-y-1/2">
-            <motion.div
+          <div className="absolute z-40 flex justify-end w-full top-1/2 transform -translate-y-1/2">
+            {/* <motion.div
               onClick={goToPreviousSlide}
               className="border border-primary bg-white w-[3.25rem] h-[4.125rem] flex justify-center items-center rounded-btn cursor-pointer"
             >
               <Image src={CaretLeftIcon} alt="caret-left" className="" />
-            </motion.div>
-            <motion.div
+            </motion.div> */}
+            {/* <motion.div
               onClick={goToNextSlide}
               className="border border-primary bg-white w-[3.25rem] h-[4.125rem] flex justify-center items-center rounded-btn cursor-pointer"
             >
               <Image src={CaretRightIcon} alt="caret-left" className="" />
-            </motion.div>
-          </div> */}
+            </motion.div> */}
+          </div>
         </div>
       </div>
     </div>

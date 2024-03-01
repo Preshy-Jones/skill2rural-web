@@ -6,9 +6,9 @@ import Image from "next/image";
 import TextField from "@/components/ui/icons/TextField";
 import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
-import ArrowIcon from "@/public/arrow-icon.svg";
+import Link from "next/link";
 
-const Signup = () => {
+const Login = () => {
   const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
@@ -16,17 +16,19 @@ const Signup = () => {
   return (
     <div className=" font-neue">
       <div className="relative">
-        <Image
-          src={studentsBackgroundImage}
-          alt="african-students"
-          className=""
-        />
+        <Link href={"/"}>
+          <Image
+            src={studentsBackgroundImage}
+            alt="african-students"
+            className=""
+          />
+        </Link>
         <div className="absolute z-10 top-0 flex justify-end w-full">
           <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
             <div className="flex flex-col items-center">
               <Image src={logo} alt="skrural-logo-onboarding" />
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
-                Sign up
+                Login
               </h1>
             </div>
             <div className="flex justify-center mt-12">
@@ -53,7 +55,7 @@ const Signup = () => {
                 </button>
               </div>
             </div>
-            <FacilitatorForm />
+            <Form />
             <div className="flex justify-center">
               <div className="w-[70%] mt-4">
                 <p className=" leading-fifth text-ash2 text-center">
@@ -61,7 +63,7 @@ const Signup = () => {
                   <span className=" text-ash2 font-semibold">
                     Privacy Policy
                   </span>
-                  and
+                  and{" "}
                   <span className=" text-ash2 font-semibold">
                     Terms of Service
                   </span>
@@ -69,8 +71,10 @@ const Signup = () => {
               </div>
             </div>
             <div className=" flex justify-center leading-fifth font-neue mt-8">
-              <p className="mr-3 text-ash2">Already have an account?</p>
-              <span className="text-primary font-bold"> Login</span>
+              <p className="mr-3 text-ash2">New to SkillHat?</p>
+              <Link href={"/register"}>
+                <span className="text-primary font-bold"> Sign Up</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -79,103 +83,9 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
 
-const FacilitatorForm = () => {
-  const [currentStep, setCurrentStep] = useState<Number>(1);
-  return (
-    <div className="">
-      <div className="my-12">
-        <div className="grid grid-cols-2 gap-x-2">
-          <div className="bg-primary rounded-lgx h-1 w-full"></div>
-          <div
-            className={`${
-              currentStep === 2 ? "bg-primary" : "bg-textFourth"
-            } rounded-lgx h-1 w-full`}
-          ></div>
-        </div>
-        <h2 className=" font-semibold text-lg leading-fourth mt-2">
-          Step {currentStep.toString()} of 2
-        </h2>
-      </div>
-      <form action="" className="px-6">
-        {currentStep === 1 ? (
-          <div className="mb-8">
-            <div className="mb-3">
-              <h3 className="font-semibold">Full Name</h3>
-              <TextField
-                type="text"
-                placeholder="Enter your full name"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-            <div className="mb-3">
-              <h3 className="font-semibold">Email address</h3>
-              <TextField
-                type="email"
-                placeholder="your email Address"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-            <div className="mb-3">
-              <h3 className="font-semibold">Password</h3>
-              <TextField
-                placeholder="your Password"
-                type="password"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className="mb-3">
-              <h3 className="font-semibold">Organization</h3>
-              <TextField
-                type="text"
-                placeholder="Enter your full name"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-            <div className="mb-3">
-              <h3 className="font-semibold">Role</h3>
-              <TextField
-                type="text"
-                placeholder="Enter your role"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-            <div className="mb-3">
-              <h3 className="font-semibold">
-                No of students you want to reach
-              </h3>
-              <TextField
-                type="text"
-                placeholder="Enter no of students"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
-            </div>
-          </div>
-        )}
-
-        {currentStep === 1 ? (
-          <div
-            onClick={() => setCurrentStep(2)}
-            className="bg-primary w-full h-[3.75rem] py-2 rounded-btn flex items-center justify-center cursor-pointer"
-          >
-            <h3 className="text-white font-semibold mr-2">Next Step</h3>
-            <Image src={ArrowIcon} alt="arrow-icon" />
-          </div>
-        ) : (
-          <button className="bg-primary h-[3.75rem] text-white rounded-btn w-full">
-            Sign Up
-          </button>
-        )}
-      </form>
-    </div>
-  );
-};
-
-const StudentsForm = () => {
+const Form = () => {
   return (
     <div>
       <form action="" className="px-6 pt-16">
@@ -200,7 +110,7 @@ const StudentsForm = () => {
         </div>
         <div className="flex justify-between mb-10">
           <div className="flex items-center">
-            <Checkbox className="text-white" />
+            <Checkbox className="text-white mr-3" />
             <h3 className=" font-semibold text-ash leading-fifth">
               Remember me
             </h3>

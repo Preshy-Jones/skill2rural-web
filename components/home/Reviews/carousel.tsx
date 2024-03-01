@@ -21,10 +21,13 @@ export function CarouselSpacing({
 }) {
   return (
     <Carousel className="w-full">
-      <CarouselContent className="ml-7">
+      <CarouselContent className="-ml-12">
         {reviews.map((review, index) => (
-          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-            <div key={index} className="relative h-[12rem] mr-16 mt-10">
+          <CarouselItem
+            key={index}
+            className="pl-12 md:basis-1/2 lg:basis-1/3"
+          >
+            <div key={index} className="relative h-[12rem] mt-10">
               <Image
                 src={review.image}
                 alt={review.name}
@@ -39,6 +42,33 @@ export function CarouselSpacing({
                 </h3>
               </div>
               <div className="bg-primary absolute w-full top-2 right-0 left-2 mx-auto z-0 h-[10.8125rem] rounded-2xl"></div>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+}
+
+export function CarouselSize() {
+  return (
+    <Carousel
+      opts={{
+        align: "start",
+      }}
+      className="w-full max-w-sm"
+    >
+      <CarouselContent>
+        {Array.from({ length: 9 }).map((_, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-3xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
             </div>
           </CarouselItem>
         ))}
