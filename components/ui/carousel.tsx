@@ -232,7 +232,7 @@ const CarouselPrevious = React.forwardRef<
     <div
       onClick={scrollPrev}
       className={cn(
-        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute -left-6 top-1/2 transform -translate-y-1/2 flex justify-center items-center rounded-btn cursor-pointer",
+        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute left-1 top-1/2 transform flex justify-center items-center rounded-btn cursor-pointer",
         // orientation === "horizontal"
         //   ? "-left-12 top-1/2 -translate-y-1/2"
         //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -273,7 +273,7 @@ const CarouselNext = React.forwardRef<
     <div
       onClick={scrollNext}
       className={cn(
-        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute top-1/2 transform -right-6 -translate-y-1/2 flex justify-center items-center rounded-btn cursor-pointer",
+        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute top-1/2 transform -right-6  flex justify-center items-center rounded-btn cursor-pointer",
         // orientation === "horizontal"
         //   ? "-left-12 top-1/2 -translate-y-1/2"
         //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",

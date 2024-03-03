@@ -140,7 +140,9 @@ const config: Config = {
       boxShadow: {
         form: "0px 2px 24px 4px #0000001A",
         toggleBtn: "0px 0.5px 40px 0px #1E1E1E1A",
+        card:"10px 40px 40px 0px #0000001A"
       },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],

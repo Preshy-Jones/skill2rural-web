@@ -20,12 +20,12 @@ const Courses = () => {
           {contentKey.map((item, index) => (
             <div
               key={index}
-              className="border border-borderGrey rounded-lg px-2 py-2"
+              className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
             >
               <Image src={contentKey[index].image} alt={item.title} />
               <div className="py-3">
                 <h2 className="font-medium text-xl leading-fourth">
-                  Design Thinking
+                  {item.title}
                 </h2>
                 <h4 className="text-sm leading-seventh text-greyText">
                   Earn a certificate

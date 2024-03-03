@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <div className="bg-white pt-3 z-20 absolute top-0 w-full">
+    <div className="bg-white pt-3 z-50 absolute top-0 w-full">
       <div className="flex justify-between px-12">
         <Link href={"/"}>
           <Image src={skill2rural} alt="skill2rural" />

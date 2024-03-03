@@ -39,13 +39,13 @@ const Footer = () => {
                 </button>
               </div>
               <div className="flex">
-                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center">
+                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center mr-6">
                   <Image src={facebookIcon} alt="Facebook Icon" />
                 </div>
-                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center">
+                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center mr-6">
                   <Image src={twitterIcon} alt="Twitter Icon" />
                 </div>
-                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center">
+                <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center mr-6">
                   <Image src={linkedinIcon} alt="Linkedin Icon" />
                 </div>
                 <div className="border border-white rounded-circle w-14 h-14 flex items-center justify-center">
