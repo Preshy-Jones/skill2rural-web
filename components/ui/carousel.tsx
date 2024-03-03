@@ -209,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
-
+  const [showBg, setShowBg] = React.useState(false);
   return (
     // <Button
     //   ref={ref}
@@ -230,16 +230,25 @@ const CarouselPrevious = React.forwardRef<
     //   <span className="sr-only">Previous slide</span> */}
     // </Button>
     <div
-      onClick={scrollPrev}
-      className={cn(
-        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute left-1 top-1/2 transform flex justify-center items-center rounded-btn cursor-pointer",
-        // orientation === "horizontal"
-        //   ? "-left-12 top-1/2 -translate-y-1/2"
-        //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className="absolute left-1 top-1/2 transform"
+      onMouseEnter={() => setShowBg(true)}
+      onMouseLeave={() => setShowBg(false)}
     >
-      <Image src={CaretLeftIcon} alt="caret-left" className="" />
+      <div
+        onClick={scrollPrev}
+        className={cn(
+          "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute top-0 z-10 flex justify-center items-center rounded-btn cursor-pointer",
+          // orientation === "horizontal"
+          //   ? "-left-12 top-1/2 -translate-y-1/2"
+          //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          className
+        )}
+      >
+        <Image src={CaretLeftIcon} alt="caret-left" className="" />
+      </div>
+      {showBg && (
+        <div className="absolute top-1 left-1 bg-primary w-[3.25rem] h-[4.125rem] rounded-btn z-0"></div>
+      )}
     </div>
   );
 });
@@ -250,6 +259,7 @@ const CarouselNext = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
+  const [showBg, setShowBg] = React.useState(false);
 
   return (
     // <Button
@@ -271,16 +281,25 @@ const CarouselNext = React.forwardRef<
     //   <span className="sr-only">Next slide</span>
     // </Button>
     <div
-      onClick={scrollNext}
-      className={cn(
-        "border border-primary bg-white w-[3.25rem] h-[4.125rem] absolute top-1/2 transform -right-6  flex justify-center items-center rounded-btn cursor-pointer",
-        // orientation === "horizontal"
-        //   ? "-left-12 top-1/2 -translate-y-1/2"
-        //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className="absolute top-1/2 transform -right-6"
+      onMouseEnter={() => setShowBg(true)}
+      onMouseLeave={() => setShowBg(false)}
     >
-      <Image src={CaretRightIcon} alt="caret-left" className="" />
+      {showBg && (
+        <div className="top-1 absolute -right-1 bg-primary w-[3.25rem] h-[4.125rem] rounded-btn z-0"></div>
+      )}
+      <div
+        onClick={scrollNext}
+        className={cn(
+          "border border-primary absolute right-0 top-0 bg-white w-[3.25rem] h-[4.125rem] z-10 flex justify-center items-center rounded-btn cursor-pointer",
+          // orientation === "horizontal"
+          //   ? "-left-12 top-1/2 -translate-y-1/2"
+          //   : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          className
+        )}
+      >
+        <Image src={CaretRightIcon} alt="caret-left" className="" />
+      </div>
     </div>
   );
 });

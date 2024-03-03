@@ -78,7 +78,7 @@ const Reviews = () => {
   return (
     <div className="flex justify-center mt-36">
       <div className="w-[90.69%]">
-        <div className="mb-36">
+        <div className="mb-28">
           <h5 className="text-primary leading-fifth font-semibold text-center">
             Reviews
           </h5>

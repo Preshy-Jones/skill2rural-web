@@ -36,7 +36,7 @@ export function CarouselSpacing({
                 className=" mb-5 rounded-tertiary border border-primary relative z-20"
               />
               <div className="relative -mt-12  z-0 ml-8 h-[12rem]">
-                <div className="  absolute h-[10.8125rem] z-10 w-[98.5%] bg-white border  border-black rounded-2xl px-8 py-10 flex flex-col justify-between ">
+                <div className="  absolute h-[10.8125rem] z-10 bg-white border  border-black rounded-2xl px-8 py-10 flex flex-col justify-between ">
                   <p className="text-sm leading-seventh font-medium text-greyText">
                     {review.review}
                   </p>
@@ -44,9 +44,7 @@ export function CarouselSpacing({
                     {review.name}
                   </h3>
                 </div>
-                <div className="absolute top-2  mx-auto z-0 h-[10.8125rem] w-full flex justify-end">
-                  <div className="w-[98.5%] h-full bg-primary rounded-2xl"></div>
-                </div>
+                <div className="bg-primary absolute top-2 left-2 mx-auto w-full z-0 h-[10.8125rem] rounded-2xl"></div>
               </div>
             </div>
           </CarouselItem>
