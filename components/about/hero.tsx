@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div className="h-[80vh] flex flex-col justify-center font-neue">
       <div>
-        <h4 className=" text-2xl leading-primary font-semibold text-center">
+        <h4 className=" text-2xl leading-primary font-semibold text-center text-black">
           About Us
         </h4>
         <div className="flex justify-center">
