@@ -38,13 +38,15 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        purpleGradient:
+          "linear-gradient(175.46deg, rgba(96, 38, 158, 0.3) 3.68%, rgba(96, 38, 158, 0.09) 96.79%)",
       },
       colors: {
         primary: "#60269E",
         primaryBlack: "#1E1E1E",
         primaryGrey: "#101828",
         lightGrey: "#667085",
-        toggleTxt:"#555555",
+        toggleTxt: "#555555",
         btn: "#BD00FF",
         textPrimary: "#8501B3",
         textSecondary: "#7F7C98",
@@ -52,7 +54,7 @@ const config: Config = {
         textFourth: "#D9D9D9",
         infoBg: "#F5EFFB",
         greyBg: "#181821",
-        greyBg2:"#F9F9F9",
+        greyBg2: "#F9F9F9",
         borderGrey: "#E8E8E8",
         cardBlue: "#51A3DA",
         cardRed: "#BE4366",
@@ -140,9 +142,8 @@ const config: Config = {
       boxShadow: {
         form: "0px 2px 24px 4px #0000001A",
         toggleBtn: "0px 0.5px 40px 0px #1E1E1E1A",
-        card:"10px 40px 40px 0px #0000001A"
+        card: "10px 40px 40px 0px #0000001A",
       },
-      
     },
   },
   plugins: [require("tailwindcss-animate")],

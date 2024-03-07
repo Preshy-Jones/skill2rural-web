@@ -7,34 +7,34 @@ import curvedArrow from "@/public/curved-arrow.svg";
 
 const Hero = () => {
   return (
-    <div className="h-[80vh] flex flex-col justify-center font-neue">
+    <div className="h-[80vh] flex flex-col justify-center font-neue relative">
       <div>
-        <h4 className=" text-2xl leading-primary font-semibold text-center text-black">
-          About Us
-        </h4>
-        <div className="flex justify-center">
-          <div className="w-[50%] relative">
-            <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack">
-              At Skill2Rural, Dreams find their wings
-            </p>
-            <Image
-              src={dotDesign1}
-              alt="dot-1"
-              className="absolute top-0 -right-12"
-            />
+        <div className=" mt-24">
+          <h4 className=" text-2xl leading-primary font-semibold text-center text-black">
+            About Us
+          </h4>
+          <div className="flex justify-center">
+            <div className="w-[50%] relative">
+              <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack">
+                At Skill2Rural, Dreams find their wings
+              </p>
+              <Image
+                src={dotDesign1}
+                alt="dot-1"
+                className="absolute top-0 -right-12"
+              />
+            </div>
           </div>
-        </div>
-
-        <div className="flex justify-center">
-          <div className="w-[93%] flex justify-end">
-            <Image src={curvedArrow} alt="curved-arrow" />
+          <div className="flex justify-center">
+            <div className="w-[93%] flex justify-end">
+              <Image src={curvedArrow} alt="curved-arrow" />
+            </div>
           </div>
+          <p className="text-center leading-primary font-semibold text-2xl">
+            Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership and
+            Career Initiative:
+          </p>
         </div>
-
-        <p className="text-center leading-primary font-semibold text-2xl">
-          Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership and
-          Career Initiative:
-        </p>
       </div>
       <div className="flex justify-center">
         <div className="w-[85.56%] flex mt-14">

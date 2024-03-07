@@ -4,7 +4,7 @@ import { contentKey } from "../home/Courses";
 
 const MainSection = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center z-20">
       <div className="w-[84.86%]">
         <h1 className="text-[2.875rem] font-bold">Our Courses</h1>
         <h3 className="text-2xl font-semibold">
