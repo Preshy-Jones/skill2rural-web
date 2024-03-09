@@ -37,7 +37,7 @@ export function CarouselSpacing({
               />
               <div className="relative -mt-12  z-0 ml-8 h-[12rem]">
                 <div className="absolute h-[10.8125rem] z-10 w-[98%] bg-white border  border-black rounded-2xl px-8 py-10 flex flex-col justify-between ">
-                  <p className="text-[0.875] leading-seventh font-medium text-greyText">
+                  <p className="text-sm leading-seventh font-medium text-greyText">
                     {review.review}
                   </p>
                   <h3 className="font-bold text-sm leading-seventh mt-4">

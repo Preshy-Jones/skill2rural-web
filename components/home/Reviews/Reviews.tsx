@@ -15,7 +15,7 @@ const Reviews = () => {
     {
       name: "Adekunle Ahmed",
       review:
-        '"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"',
+        '"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"',
       color: "bg-cardBlue",
       image: animoji1,
     },
