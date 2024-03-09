@@ -4,8 +4,22 @@ import dotDesign2 from "@/public/dots-home-hero-2.svg";
 import dotDesign3 from "@/public/dots-home-hero-3.svg";
 import Image from "next/image";
 import Stats from "./Stats";
+import CarouselContainer from "./Carousel";
 
 const Reach = () => {
+  const items = [
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4",
+    "Item 5",
+    "Item 6",
+    "Item 7",
+    "Item 8",
+    "Item 9",
+    "Item 10",
+    "Item 11",
+  ];
   return (
     <div className="mb-64 font-neue">
       <div className="w-full flex justify-center">
@@ -22,10 +36,11 @@ const Reach = () => {
         <Image src={collegeStudentsImage} alt="collegeStudentsImage" />
       </div>
       <div className="mt-16">
-        <h3 className="text-center text-3.5xl leading-[2.4rem] font-semibold text-primaryBlack mb-4">
+        <h3 className="text-center text-3.5xl leading-[2.4rem] font-semibold text-primaryBlack mb-6">
           REACH
         </h3>
         <Stats />
+        {/* <CarouselContainer items={items} /> */}
       </div>
     </div>
   );
