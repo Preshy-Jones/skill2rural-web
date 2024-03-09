@@ -44,6 +44,7 @@ const config: Config = {
       colors: {
         primary: "#60269E",
         primaryBlack: "#1E1E1E",
+        pinkText:"#60269E",
         primaryGrey: "#101828",
         lightGrey: "#667085",
         toggleTxt: "#555555",

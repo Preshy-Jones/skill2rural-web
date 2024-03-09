@@ -14,9 +14,14 @@ const Hero = () => {
         <div className=" mt-40">
           <div className="flex justify-center ">
             <div className="w-[50%] relative">
-              <p className="text-[4rem] leading-[4.8rem]  text-center mt-4 font-semibold text-primaryBlack">
-                Bridging Opportunities, Transforming Lives
-              </p>
+              <div className="relative h-[9.5625rem]">
+                <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack absolute top-0">
+                  Bridging Opportunities, Transforming Lives
+                </p>
+                <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-pinkText text-opacity-30 absolute left-1 top-1">
+                  Bridging Opportunities, Transforming Lives
+                </p>
+              </div>
               <Image
                 src={dotDesign1}
                 alt="dot-1"
