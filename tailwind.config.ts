@@ -44,7 +44,7 @@ const config: Config = {
       colors: {
         primary: "#60269E",
         primaryBlack: "#1E1E1E",
-        pinkText:"#60269E",
+        pinkText: "#60269E",
         primaryGrey: "#101828",
         lightGrey: "#667085",
         toggleTxt: "#555555",
@@ -139,6 +139,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         footer: "30% 70%",
+        custom: "1fr 1fr 1fr 1fr 1fr",
       },
       boxShadow: {
         form: "0px 2px 24px 4px #0000001A",

@@ -9,7 +9,7 @@ const Hero = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 
   return (
-    <div className="h-[80vh]  bg-white relative">
+    <div className="h-[80vh]  bg-white relative overflow-hidden">
       <div className="flex flex-col justify-center absolute top-0 z-20 w-full h-full">
         <div className=" mt-40">
           <div className="flex justify-center ">

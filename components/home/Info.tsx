@@ -12,6 +12,8 @@ import number3 from "@/public/number3.svg";
 import number4 from "@/public/number4.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import netSmall from "@/public/net-sm.svg";
+import netBig from "@/public/net-lg.svg";
 import { UserType } from "@/types/global";
 
 const Info = () => {
@@ -25,8 +27,8 @@ const Info = () => {
         Everything you need to know about Skill2rural
       </h2>
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 gap-x-7 gap-y-10 w-[76.94%]">
-          <div className="bg-infoBg col-start-1 col-end-2 px-6 py-6 rounded-lgx border border-primary">
+        <div className="grid grid-cols-custom gap-x-7 gap-y-10 w-[76.94%]">
+          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary relative col-start-1 col-end-3">
             <div className="relative mb-8">
               <div className="h-[4.375rem] "></div>
               <div className="bg-white flex justify-center w-[5.15625rem] h-[4.375rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -41,8 +43,13 @@ const Info = () => {
               Embrace a comprehensive learning experience that goes beyond
               textbooks. Acquire skills that matter in the real world.
             </p>
+            <div className="absolute h-full w-full top-0 flex justify-center">
+              <div className="w-[61.041%]">
+                <Image src={netSmall} alt="net-bg" />
+              </div>
+            </div>
           </div>
-          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary col-start-2 col-end-4">
+          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary relative col-start-3 col-end-6">
             <div className="relative mb-8">
               <div className="h-[4.375rem] "></div>
               <div className="bg-white flex justify-center w-[5.15625rem] h-[4.375rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -51,14 +58,19 @@ const Info = () => {
               <div className="bg-primary w-[5.15625rem] h-[4.375rem] absolute top-1 right-0 left-2 mx-auto z-0 rounded-tertiary"></div>
             </div>
             <h3 className="font-semibold text-xl leading-6 mb-3">
-              Holistic Learning
+              Global Community
             </h3>
             <p className="leading-fifth font-medium text-primaryBlack">
               Embrace a comprehensive learning experience that goes beyond
               textbooks. Acquire skills that matter in the real world.
             </p>
+            <div className="absolute h-full w-full top-0 flex justify-center">
+              <div className="w-[61.041%]">
+                <Image src={netBig} alt="net-bg" />
+              </div>
+            </div>
           </div>
-          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary col-start-1 col-end-3">
+          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary relative col-start-1 col-end-4">
             <div className="relative mb-8">
               <div className="h-[4.375rem] "></div>
               <div className="bg-white flex justify-center w-[5.15625rem] h-[4.375rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -67,14 +79,19 @@ const Info = () => {
               <div className="bg-primary w-[5.15625rem] h-[4.375rem] absolute top-1 right-0 left-2 mx-auto z-0 rounded-tertiary"></div>
             </div>
             <h3 className="font-semibold text-xl leading-6 mb-3">
-              Holistic Learning
+              Blended Learning
             </h3>
             <p className="leading-fifth font-medium text-primaryBlack">
               Embrace a comprehensive learning experience that goes beyond
               textbooks. Acquire skills that matter in the real world.
             </p>
+            <div className="absolute h-full w-full top-0 flex justify-center">
+              <div className="w-[61.041%]">
+                <Image src={netBig} alt="net-bg" />
+              </div>
+            </div>
           </div>
-          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary col-start-3 col-end-4">
+          <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary relative col-start-4 col-end-6">
             <div className="relative mb-8">
               <div className="h-[4.375rem] "></div>
               <div className="bg-white flex justify-center w-[5.15625rem] h-[4.375rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -83,12 +100,18 @@ const Info = () => {
               <div className="bg-primary w-[5.15625rem] h-[4.375rem] absolute top-1 right-0 left-2 mx-auto z-0 rounded-tertiary"></div>
             </div>
             <h3 className="font-semibold text-xl leading-6 mb-3">
-              Holistic Learning
+              Career Ready
             </h3>
             <p className="leading-fifth font-medium text-primaryBlack">
-              Embrace a comprehensive learning experience that goes beyond
-              textbooks. Acquire skills that matter in the real world.
+              Be more than just job-ready; be career-ready. Skill2Rural Bootcamp
+              equips you with the tools and mindset to excel in any professional
+              environment.
             </p>
+            <div className="absolute h-full w-full top-0 flex justify-center">
+              <div className="w-[61.041%]">
+                <Image src={netBig} alt="net-bg" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -122,12 +145,17 @@ const Info = () => {
                   Students
                 </button>
               </div>
-              {/*   */}
+              <div className="h-[5.1875rem] w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-btn "></div>
             </div>
           </div>
           <div className="grid grid-cols-2">
-            <Image src={womanComputer} alt="womanComputer" />
-            <div className=" self-end">
+            <Image
+              src={
+                activeTab === UserType.FACILITATORS ? womanComputer : fineGirl
+              }
+              alt="womanComputer"
+            />
+            <div className="self-end">
               <div className="mb-12">
                 <div className="flex items-start mb-4">
                   <Image src={number1} alt="number1" className="mr-5" />

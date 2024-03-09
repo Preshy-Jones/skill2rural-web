@@ -15,42 +15,42 @@ const Reviews = () => {
     {
       name: "Adekunle Ahmed",
       review:
-        "The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp",
+        '"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"',
       color: "bg-cardBlue",
       image: animoji1,
     },
     {
       name: "Abdulahi Nimat",
       review:
-        "Before, I didn't keep my money when I got money from my parents. I spend them immediately. Now, I understand the difference between savings, income, and investment. I know what I should put into assets and liabilities.",
+        '"Before, I didn\'t keep my money when I got money from my parents. I spend them immediately. Now, I understand the difference between savings, income, and investment. I know what I should put into assets and liabilities"',
       color: "bg-cardRed",
       image: animoji2,
     },
     {
       name: "Haruna Khadijat",
       review:
-        "I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep.",
+        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
       color: "bg-cardAsh",
       image: animoji3,
     },
     {
       name: "Haruna Khadijat",
       review:
-        "I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep.",
+        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
       color: "bg-cardAsh",
       image: animoji3,
     },
     {
       name: "Haruna Khadijat",
       review:
-        "I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep.",
+        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
       color: "bg-cardAsh",
       image: animoji2,
     },
     {
       name: "Haruna Khadijat",
       review:
-        "I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep.",
+        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
       color: "bg-cardAsh",
       image: animoji1,
     },
@@ -76,7 +76,7 @@ const Reviews = () => {
     );
   };
   return (
-    <div className="flex justify-center mt-36">
+    <div className="flex justify-center mt-36 font-neue">
       <div className="w-[90.69%]">
         <div className="mb-28">
           <h5 className="text-primary leading-fifth font-semibold text-center">
