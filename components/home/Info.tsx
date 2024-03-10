@@ -22,10 +22,13 @@ const Info = () => {
     setActiveTab(tab);
   };
   return (
-    <div>
-      <h2 className="font-bold text-3.5xl leading-tertiary text-center mb-24">
-        Everything you need to know about Skill2rural
-      </h2>
+    <div className="relative">
+      <div className="pb-24 bg-greyBg2 pt-72 relative overflow-hidden">
+        <h2 className="font-bold text-3.5xl leading-tertiary text-center relative z-30">
+          Everything you need to know about Skill2rural
+        </h2>
+        <div className=" rounded-t-[70vw] shadow-circle absolute top-[38rem] z-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[70vw] w-[140vw] bg-white"></div>
+      </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-custom gap-x-7 gap-y-10 w-[76.94%]">
           <div className="bg-infoBg px-6 py-6 rounded-lgx border border-primary relative col-start-1 col-end-3">

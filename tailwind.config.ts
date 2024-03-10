@@ -40,6 +40,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         purpleGradient:
           "linear-gradient(175.46deg, rgba(96, 38, 158, 0.3) 3.68%, rgba(96, 38, 158, 0.09) 96.79%)",
+        customGradient: "linear-gradient(to top,#60269E, white 60%)",
       },
       colors: {
         primary: "#60269E",
@@ -145,6 +146,7 @@ const config: Config = {
         form: "0px 2px 24px 4px #0000001A",
         toggleBtn: "0px 0.5px 40px 0px #1E1E1E1A",
         card: "10px 40px 40px 0px #0000001A",
+        circle:"0px -2px 40px 1px #00000014"
       },
     },
   },

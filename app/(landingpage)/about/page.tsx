@@ -1,5 +1,6 @@
 import Hero from "@/components/about/hero";
 import Info from "@/components/about/info";
+
 import React from "react";
 
 const About = () => {

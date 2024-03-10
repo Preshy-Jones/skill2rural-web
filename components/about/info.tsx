@@ -2,13 +2,15 @@ import React from "react";
 import studentsImage from "@/public/students.svg";
 import lightBulbLogo from "@/public/light-bulb.svg";
 import arrowPracticeLogo from "@/public/arrow-target-practice.svg";
+import gradientBg from "@/public/gradient.svg";
+import circleGradient from "@/public/circle-gradient.svg";
 import Image from "next/image";
 
 const Info = () => {
   return (
     <div>
-      <div className="flex justify-center mb-20">
-        <div className="w-[85.56%] flex mt-14">
+      <div className="flex justify-center mt-14 mb-1">
+        <div className="w-[85.56%] flex ">
           <div className="relative mr-8">
             <div className="bg-infoBg px-6 relative z-20 h-[12.3125rem] rounded-lgx border border-primary flex items-center">
               <div className="relative mb-8 h-[3.6875rem] w-[3.6875rem] mr-16">
@@ -27,7 +29,7 @@ const Info = () => {
             </div>
             <div className="absolute top-2 left-1.5 z-0 w-full px-6 h-[12.3125rem] rounded-lgx border bg-primary mr-8 flex items-center"></div>
           </div>
-          <div className="relative mr-8">
+          <div className="relative">
             <div className="bg-infoBg px-6 h-[12.3125rem] rounded-lgx border border-primary flex items-center z-20 relative">
               <div className="relative mb-8 h-[3.6875rem] w-[3.6875rem] mr-16">
                 <div className="bg-white flex justify-center w-[3.5rem] h-[3.5rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -46,8 +48,12 @@ const Info = () => {
           </div>
         </div>
       </div>
-      <div className=" flex justify-between w-[94.44%] items-center">
-        <Image src={studentsImage} alt="studentsImage" className="w-[49.78%]" />
+      <div className=" flex justify-between w-[94.44%] items-center pt-32 relative">
+        <Image
+          src={studentsImage}
+          alt="studentsImage"
+          className="w-[49.78%] relative z-20"
+        />
         <div className="w-[46.18%]">
           <p className="font-semibold mb-8">
             Our tech platform is a simple-to-use digital platform for
@@ -69,6 +75,18 @@ const Info = () => {
             your journey to personal and professional development
           </p>
         </div>
+        <Image
+          src={gradientBg}
+          alt="gradient-bg"
+          layout="fill"
+          objectFit="cover"
+          className="absolute top-0 w-[100vw] z-0"
+        />
+        <Image
+          src={circleGradient}
+          alt="gradient-bg-cirlce"
+          className="absolute -left-32 z-0  h-[29.96375rem]"
+        />
       </div>
     </div>
   );

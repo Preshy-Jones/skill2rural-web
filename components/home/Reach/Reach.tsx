@@ -20,7 +20,7 @@ const Reach = () => {
     "Item 11",
   ];
   return (
-    <div className="mb-64 font-neue">
+    <div className="font-neue">
       <div className="w-full flex justify-center">
         <div className="flex justify-between w-[90%]">
           <Image src={dotDesign2} alt="dotDesign2" />
@@ -34,7 +34,7 @@ const Reach = () => {
       <div className="flex justify-center">
         <Image src={collegeStudentsImage} alt="collegeStudentsImage" />
       </div>
-      <div className="mt-16">
+      <div className="pt-16 bg-greyBg2">
         <h3 className="text-center text-3.5xl leading-[2.4rem] font-semibold text-primaryBlack mb-6">
           REACH
         </h3>
