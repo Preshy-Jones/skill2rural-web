@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="h-[80vh] flex flex-col justify-center font-neue relative overflow-hidden">
       <div className="flex flex-col justify-center items-center absolute top-0 z-20 w-full h-full">
-        <div className=" mt-24">
+        <div className=" mt-24 w-full">
           <h4 className=" text-2xl leading-primary font-semibold text-center mb-4">
             About Us
           </h4>
@@ -23,11 +23,17 @@ const Hero = () => {
               />
             </div>
           </div>
+
           <div className="flex justify-center">
-            <div className="w-[93%] flex justify-end">
-              <Image src={curvedArrow} alt="curved-arrow" />
+            <div className="flex justify-end w-[90%]">
+              <Image
+                src={curvedArrow}
+                alt="curved-arrow"
+                className="motion-safe:animate-bounce"
+              />
             </div>
           </div>
+
           <p className="text-center leading-primary font-semibold text-2xl">
             Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership and
             Career Initiative:
