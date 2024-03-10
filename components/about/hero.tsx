@@ -8,12 +8,12 @@ const Hero = () => {
     <div className="h-[80vh] flex flex-col justify-center font-neue relative overflow-hidden">
       <div className="flex flex-col justify-center items-center absolute top-0 z-20 w-full h-full">
         <div className=" mt-24">
-          <h4 className=" text-2xl leading-primary font-semibold text-center text-black">
+          <h4 className=" text-2xl leading-primary font-semibold text-center mb-4">
             About Us
           </h4>
           <div className="flex justify-center">
             <div className="w-[50%] relative">
-              <p className="text-[4rem] leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack">
+              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
                 At Skill2Rural, Dreams find their wings
               </p>
               <Image

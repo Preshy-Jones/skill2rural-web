@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import lightBulbLogo from "@/public/light-bulb.svg";
 import arrowPracticeLogo from "@/public/arrow-target-practice.svg";
+import dotDesignPurple from "@/public/courses-dots.svg";
 
 const Hero = () => {
   return (
@@ -12,10 +13,15 @@ const Hero = () => {
             Courses
           </h4>
           <div className="flex justify-center">
-            <div className="w-[60%]">
-              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack ">
+            <div className="w-[60%] relative">
+              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
                 At Skill2Rural, Dreams find their wings
               </p>
+              <Image
+                src={dotDesignPurple}
+                alt="dot-1"
+                className="absolute top-0 -right-12"
+              />
             </div>
           </div>
           <div className="flex justify-center mt-24">
