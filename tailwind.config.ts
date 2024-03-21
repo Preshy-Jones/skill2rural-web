@@ -133,6 +133,7 @@ const config: Config = {
         seventh: "1.05rem",
         eight: "2.75rem",
         ninth: "1.35rem",
+        tenth: "1.3rem",
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",
