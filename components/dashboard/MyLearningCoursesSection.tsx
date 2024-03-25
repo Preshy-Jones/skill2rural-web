@@ -8,6 +8,7 @@ import moneyInPurse from "@/public/money-purse.svg";
 import sdgs from "@/public/sdgs.svg";
 import rightArrow from "@/public/arrow-right.svg";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 const MyLearningCoursesSection = () => {
   const [activeTab, setActiveTab] = useState("ongoing");
@@ -19,26 +20,14 @@ const MyLearningCoursesSection = () => {
       <div className="flex mt-6">
         <div className="relative h-[6.1875rem] w-[33.4375rem]">
           <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
-            <button
-              className={`${
-                activeTab === CourseStatus.ONGOING
-                  ? "bg-primary text-white"
-                  : "text-primary"
-              } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-              onClick={() => handleTabClick(CourseStatus.ONGOING)}
-            >
+            <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
               Ongoing
             </button>
-            <button
-              className={`${
-                activeTab === CourseStatus.COMPLETED
-                  ? "bg-primary text-white"
-                  : "text-primary"
-              } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-              onClick={() => handleTabClick(CourseStatus.COMPLETED)}
-            >
-              Completed
-            </button>
+            <Link href={"/dashboard/my-learnings/accomplishments"}>
+              <button className="text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+                Completed
+              </button>
+            </Link>
           </div>
           <div className="h-[5.1875rem] w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-btn "></div>
         </div>
@@ -80,9 +69,11 @@ const MyLearningCoursesSection = () => {
               <Progress value={33} className="h-[0.375rem] bg-textFourth" />
             </div>
             <div className="flex justify-end items-center">
-              <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
-                Continue Watching
-              </h2>
+              <Link href={"my-learnings/course/ddd"}>
+                <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
+                  Continue Watching
+                </h2>
+              </Link>
               <Image alt="right-arrow" src={rightArrow} />
             </div>
           </div>

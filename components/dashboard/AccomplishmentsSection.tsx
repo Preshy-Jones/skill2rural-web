@@ -6,6 +6,7 @@ import window from "@/public/windom.svg";
 import anyImage from "@/public/designThinking.svg";
 import { CourseStatus } from "./MyLearningCoursesSection";
 import { Progress } from "../ui/progress";
+import Link from "next/link";
 
 const AccomplishmentsSection = () => {
   const [activeTab, setActiveTab] = useState("ongoing");
@@ -17,24 +18,12 @@ const AccomplishmentsSection = () => {
       <div className="flex mt-6">
         <div className="relative h-[6.1875rem] w-[33.4375rem]">
           <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
-            <button
-              className={`${
-                activeTab === CourseStatus.ONGOING
-                  ? "bg-primary text-white"
-                  : "text-primary"
-              } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-              onClick={() => handleTabClick(CourseStatus.ONGOING)}
-            >
-              Ongoing
-            </button>
-            <button
-              className={`${
-                activeTab === CourseStatus.COMPLETED
-                  ? "bg-primary text-white"
-                  : "text-primary"
-              } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-              onClick={() => handleTabClick(CourseStatus.COMPLETED)}
-            >
+            <Link href={"/dashboard/my-learnings"}>
+              <button className="text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+                Ongoing
+              </button>
+            </Link>
+            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
               Completed
             </button>
           </div>
@@ -90,9 +79,11 @@ const AccomplishmentsSection = () => {
               </h3>
             </div>
             <div>
-              <button className="w-[9rem] h-[2.4375rem] font-semibold bg-primary px-2 text-white rounded-tertiary">
-                View Certificate
-              </button>
+              <Link href={"/dashboard/my-learnings/accomplishments/djdhjd"}>
+                <button className="w-[9rem] h-[2.4375rem] font-semibold bg-primary px-2 text-white rounded-tertiary">
+                  View Certificate
+                </button>
+              </Link>
             </div>
           </div>
         ))}

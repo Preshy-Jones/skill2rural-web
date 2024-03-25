@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
@@ -7,6 +8,7 @@ import Faq from "@/components/home/Faq";
 import Script from "next/script";
 import TopBar from "@/components/dashboard/TopBar";
 import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
