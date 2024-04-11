@@ -7,6 +7,7 @@ import TextField from "@/components/ui/icons/TextField";
 import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import LoginForm from "@/components/auth/LoginForm";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
@@ -55,21 +56,8 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <Form />
-            <div className="flex justify-center">
-              <div className="w-[70%] mt-4">
-                <p className=" leading-fifth text-ash2 text-center">
-                  By clicking sign in, you agree to our{" "}
-                  <span className=" text-ash2 font-semibold">
-                    Privacy Policy
-                  </span>
-                  and{" "}
-                  <span className=" text-ash2 font-semibold">
-                    Terms of Service
-                  </span>
-                </p>
-              </div>
-            </div>
+            <LoginForm />
+
             <div className=" flex justify-center leading-fifth font-neue mt-8">
               <p className="mr-3 text-ash2">New to SkillHat?</p>
               <Link href={"/register"}>
@@ -84,45 +72,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const Form = () => {
-  return (
-    <div>
-      <form action="" className="px-6 pt-16">
-        <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
-        <div className="mb-8">
-          <div className="mb-3">
-            <h3 className="font-semibold">Email address</h3>
-            <TextField
-              type="email"
-              placeholder="your email Address"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-            />
-          </div>
-          <div className="mb-3">
-            <h3 className="font-semibold">Password</h3>
-            <TextField
-              placeholder="your Password"
-              type="password"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-            />
-          </div>
-        </div>
-        <div className="flex justify-between mb-10">
-          <div className="flex items-center">
-            <Checkbox className="text-white mr-3" />
-            <h3 className=" font-semibold text-ash leading-fifth">
-              Remember me
-            </h3>
-          </div>
-          <h3 className=" leading-fifth font-medium text-primary">
-            Forgot Password?
-          </h3>
-        </div>
-        <button className="bg-primary h-[3.75rem] text-white rounded-btn w-full">
-          Log in
-        </button>
-      </form>
-    </div>
-  );
-};

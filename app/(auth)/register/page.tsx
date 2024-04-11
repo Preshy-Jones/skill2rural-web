@@ -17,7 +17,6 @@ const Signup = () => {
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
-  
 
   return (
     <div className=" font-neue">
@@ -66,10 +65,10 @@ const Signup = () => {
             ) : (
               <StudentsForm />
             )}
-          
+
             <div className=" flex justify-center leading-fifth font-neue mt-8">
               <p className="mr-3 text-ash2">Already have an account?</p>
-              <Link href={"/register"}>
+              <Link href={"/login"}>
                 <span className="text-primary font-bold"> Login</span>
               </Link>
             </div>

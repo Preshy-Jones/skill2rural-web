@@ -1,71 +1,28 @@
-"use client";
+import React from "react";
 
-import React, { FormEvent } from "react";
-import TextField from "../ui/icons/TextField";
-import { useMutation } from "@tanstack/react-query";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Checkbox } from "../ui/checkbox";
-import Api from "@/api";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-interface FormData {
-  email: string;
-  password: string;
-  name: string;
-  agree: boolean;
-}
-
-interface RegistrationData {
-  email: string;
-  password: string;
-  name: string;
-}
-
-const StudentsForm = () => {
+const LoginForm = () => {
   const router = useRouter();
-  const registerUser = useMutation({
-    mutationFn: async (formData: RegistrationData) => {
-      const api = new Api();
-      const response = api.registerStudent(formData);
-      console.log(response);
-
-      return response;
-    },
-    onSuccess: () => {
-      // Handle success, for example, redirect user or show success message
-      console.log("User registered successfully");
-      toast.success("User registered successfully");
-      //route to login page
-      router.push("/login");
-    },
-    onError: (error: any) => {
-      // Handle error, for example, show error message
-      console.error("Error registering user:", error.response.data.message);
-      toast.error(error.response.data.message);
-    },
-  });
-  const handleSubmitQuery = (formData: {
-    name: string;
-    email: string;
-    password: string;
-    agree: boolean;
-  }) => {
-    registerUser.mutate(formData);
-  };
   const schema = z.object({
-    name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(8),
-    agree: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
-    }),
+    agree: z
+      .boolean({
+        required_error: "You must agree to the terms and conditions",
+      })
+      .refine((value) => value === true, {
+        message: "You must agree to the terms and conditions",
+      }),
   });
 
   type FormFields = z.infer<typeof schema>;
-
   const {
     register,
     handleSubmit,
@@ -84,66 +41,91 @@ const StudentsForm = () => {
     console.log(data);
 
     try {
+      console.log("dfgdfdfgddfdgf");
+
       const response = await handleSubmitQuery(data);
       console.log(data);
       console.log("submitted");
     } catch (error) {
-      // setError("root", {
-      //   message: "This email is already taken",
-      // });
-      console.log(error);
+      setError("root", {
+        message: "This email is already taken",
+      });
+    }
+  };
+
+  const handleSubmitQuery = async (formData: {
+    email: string;
+    password: string;
+    agree: boolean;
+  }) => {
+    console.log("shshhshs");
+
+    const response = await signIn("credentials", {
+      email: formData.email,
+      password: formData.password,
+      redirect: false,
+    });
+    console.log(response);
+
+    if (response?.error) {
+      console.log(response.error);
+
+      toast.error(response.error);
+    }
+
+    if (response?.ok && !response?.error) {
+      toast.success("User logged in successfully");
+      router.push("/");
     }
   };
 
   return (
     <div>
       <form action="" className="px-6 pt-16" onSubmit={handleSubmit(onSubmit)}>
-        <pre>{JSON.stringify(watch(), null, 2)}</pre>
         <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
         <div className="mb-8">
-          <div className="mb-7">
-            <h3 className="font-semibold">Full Name</h3>
-            <input
-              type="text"
-              {...register("name")}
-              placeholder="Enter your full name"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-            />
-            {errors.name && (
-              <div className="text-red-500">{errors.name?.message}</div>
-            )}
-          </div>
-          <div className="mb-7">
+          <div className="mb-3">
             <h3 className="font-semibold">Email address</h3>
             <input
               type="email"
-              {...register("email")}
               placeholder="your email Address"
               className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
+              {...register("email")}
             />
             {errors.email && (
               <div className="text-red-500">{errors.email?.message}</div>
             )}
           </div>
-          <div className="mb-7">
+          <div className="mb-3">
             <h3 className="font-semibold">Password</h3>
             <input
               placeholder="your Password"
               type="password"
-              {...register("password")}
               className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
+              {...register("password")}
             />
             {errors.password && (
               <div className="text-red-500">{errors.password?.message}</div>
             )}
           </div>
         </div>
+        <div className="flex justify-between mb-10">
+          <div className="flex items-center">
+            <Checkbox className="text-white mr-3" />
+            <h3 className=" font-semibold text-ash leading-fifth">
+              Remember me
+            </h3>
+          </div>
+          <h3 className=" leading-fifth font-medium text-primary">
+            Forgot Password?
+          </h3>
+        </div>
         <button
           className="bg-primary h-[3.75rem] text-white rounded-btn w-full"
           disabled={isSubmitting}
           type="submit"
         >
-          Register
+          {isSubmitting ? <div className="spinner"></div> : "Login"}
         </button>
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>
@@ -187,4 +169,4 @@ const StudentsForm = () => {
   );
 };
 
-export default StudentsForm;
+export default LoginForm;

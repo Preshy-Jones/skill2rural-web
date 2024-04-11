@@ -13,20 +13,21 @@ export const authOptions: NextAuthOptions = {
       name: "credentials",
       credentials: {},
       async authorize(credentials, req) {
+        console.log("hello helloe");
         // Add logic here to look up the user from the credentials supplied
-        const url = "http://localhost:8008";
+        const url = "http://localhost:4000";
 
         // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
         try {
-          const user = await axios.post(`${url}/v1/auth/login`, credentials);
-          //console.log(user.data);
+          const user = await axios.post(`${url}/auth/login/user`, credentials);
+          console.log(user.data);
           return {
             id: user.data.user.id,
             name: user.data.user.name,
             email: user.data.user.email,
             token: user.data.accessToken,
           };
-        } catch (error) {
+        } catch (error: any) {
           console.log(error.response.data.message);
           throw new Error(error.response.data.message);
         }
@@ -60,9 +61,12 @@ export const authOptions: NextAuthOptions = {
       }
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login",
   },
 };
 
-export default NextAuth(authOptions);
+export const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

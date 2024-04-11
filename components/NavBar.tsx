@@ -28,9 +28,11 @@ const NavBar = () => {
           <Link href={"/login"}>
             <h3 className="mr-8 font-semibold leading-fifth">Login</h3>
           </Link>
-          <button className="bg-primary text-white rounded-btn px-8 h-12 ">
-            Get Started Now
-          </button>
+          <Link href={"/register"}>
+            <button className="bg-primary text-white rounded-btn px-8 h-12 ">
+              Get Started Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
