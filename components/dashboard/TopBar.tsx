@@ -3,9 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import React from "react";
+import { useSession } from "next-auth/react";
 
 const TopBar = () => {
   const pathname = usePathname();
+  const { data: session } = useSession();
   //dashboard/:path
   // get the path from the url
 
@@ -55,9 +57,13 @@ const TopBar = () => {
             </Link>
           </div>
           <div className="pb-3">
-            <p className=" leading-fifth font-medium ">
-              Welcome Back Emmanuel Adebayo
-            </p>
+            {session?.user?.name ? (
+              <p className=" leading-fifth font-medium ">
+                Welcome Back {session?.user?.name}
+              </p>
+            ) : (
+              <div>Not logged in</div>
+            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-"use client";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
@@ -8,7 +7,10 @@ import Faq from "@/components/home/Faq";
 import Script from "next/script";
 import TopBar from "@/components/dashboard/TopBar";
 import { Inter } from "next/font/google";
+import SessionProvider from "../../components/SessionProvider";
 import { usePathname } from "next/navigation";
+
+import { getServerSession } from "next-auth";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,21 +48,24 @@ const clashDisplay = localFont({
   variable: "--font-clash",
 });
 
-export default function DashbaordPageLayout({
+export default async function DashbaordPageLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
   return (
     <html lang="en">
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
       <body
         className={`relative ${clashDisplay.variable} ${inter.variable} bg-greyBg3`}
       >
-        <NavBar />
-        <TopBar />
-        {children}
-        <Footer bgColor="bg-greyBg3" />
+        <SessionProvider session={session}>
+          <NavBar />
+          <TopBar />
+          {children}
+          <Footer bgColor="bg-greyBg3" />
+        </SessionProvider>
       </body>
     </html>
   );

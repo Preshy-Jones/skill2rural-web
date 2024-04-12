@@ -75,7 +75,7 @@ const LoginForm = () => {
 
     if (response?.ok && !response?.error) {
       toast.success("User logged in successfully");
-      router.push("/");
+      router.push("/dashboard/courses");
     }
   };
 
