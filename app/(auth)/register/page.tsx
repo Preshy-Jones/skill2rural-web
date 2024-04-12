@@ -10,12 +10,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import StudentsForm from "@/components/signup/StudentsForm";
 import FacilitatorForm from "@/components/signup/FacilitatorForm";
+import { useMutation } from "@tanstack/react-query";
+import FacilitatorFormTwo from "@/components/signup/FacilitatorFormTwo";
 
 const Signup = () => {
   const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
+
   return (
     <div className=" font-neue">
       <div className="relative">
@@ -59,28 +62,14 @@ const Signup = () => {
               </div>
             </div>
             {activeTab === UserType.FACILITATORS ? (
-              <FacilitatorForm />
+              <FacilitatorFormTwo />
             ) : (
               <StudentsForm />
             )}
-            <div className="flex justify-center">
-              <div className="w-[70%] mt-4 flex ">
-                <Checkbox className="text-white border-ashBorder" />
-                <p className=" leading-fifth text-ash2 text-center">
-                  By clicking sign in, you agree to our{" "}
-                  <span className=" text-ash2 font-semibold">
-                    Privacy Policy
-                  </span>
-                  and
-                  <span className=" text-ash2 font-semibold">
-                    Terms of Service
-                  </span>
-                </p>
-              </div>
-            </div>
+
             <div className=" flex justify-center leading-fifth font-neue mt-8">
               <p className="mr-3 text-ash2">Already have an account?</p>
-              <Link href={"/register"}>
+              <Link href={"/login"}>
                 <span className="text-primary font-bold"> Login</span>
               </Link>
             </div>
