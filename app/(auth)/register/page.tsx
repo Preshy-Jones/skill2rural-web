@@ -11,6 +11,7 @@ import Link from "next/link";
 import StudentsForm from "@/components/signup/StudentsForm";
 import FacilitatorForm from "@/components/signup/FacilitatorForm";
 import { useMutation } from "@tanstack/react-query";
+import FacilitatorFormTwo from "@/components/signup/FacilitatorFormTwo";
 
 const Signup = () => {
   const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
@@ -61,7 +62,7 @@ const Signup = () => {
               </div>
             </div>
             {activeTab === UserType.FACILITATORS ? (
-              <FacilitatorForm />
+              <FacilitatorFormTwo />
             ) : (
               <StudentsForm />
             )}
