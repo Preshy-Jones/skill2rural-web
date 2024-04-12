@@ -1,4 +1,4 @@
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         console.log("hello helloe");
         // Add logic here to look up the user from the credentials supplied
-        const url = "http://localhost:4000";
+        const url = process.env.NEXT_PUBLIC_BASE_URL as string;
 
         // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
         try {
@@ -66,3 +66,5 @@ export const authOptions: NextAuthOptions = {
     signIn: "/login",
   },
 };
+
+export const getServerAuthSession = () => getServerSession(authOptions); //(6)

@@ -90,6 +90,8 @@ const FacilitatorForm = () => {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     console.log(data);
 
+    setCurrentStep(2);
+
     try {
       // const response = await handleSubmitQuery(data);
       console.log(data);
@@ -121,7 +123,7 @@ const FacilitatorForm = () => {
         </h2>
       </div>
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
-      <form action="" className="px-6">
+      <form action="" className="px-6" onSubmit={handleSubmit(onSubmit)}>
         {currentStep === 1 ? (
           <div className="mb-8">
             <div className="mb-7">
@@ -251,7 +253,7 @@ const FacilitatorForm = () => {
 
         {currentStep === 1 ? (
           <button
-            onClick={() => setCurrentStep(2)}
+            // onClick={() => setCurrentStep(2)}
             type="submit"
             className="bg-primary w-full h-[3.75rem] py-2 rounded-btn flex items-center justify-center cursor-pointer"
           >
@@ -270,40 +272,44 @@ const FacilitatorForm = () => {
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>
         )}
-        <div className="flex justify-center">
-          <div className="w-[70%] mt-4 ">
-            <div className="flex">
-              {/* <Checkbox
+        {currentStep === 2 && (
+          <div className="flex justify-center">
+            <div className="w-[70%] mt-4 ">
+              <div className="flex">
+                {/* <Checkbox
                 className="text-white border-ashBorder"
                 {...register("agree")}
               /> */}
-              <Controller
-                control={control}
-                name="agree"
-                render={({ field }) => (
-                  //@ts-ignore
-                  <Checkbox
-                    className="text-white border-ashBorder"
-                    {...field}
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                )}
-              />
-              <p className=" leading-fifth text-ash2 text-center">
-                By clicking sign in, you agree to our{" "}
-                <span className=" text-ash2 font-semibold">Privacy Policy</span>
-                and
-                <span className=" text-ash2 font-semibold">
-                  Terms of Service
-                </span>
-              </p>
+                <Controller
+                  control={control}
+                  name="agree"
+                  render={({ field }) => (
+                    //@ts-ignore
+                    <Checkbox
+                      className="text-white border-ashBorder"
+                      {...field}
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  )}
+                />
+                <p className=" leading-fifth text-ash2 text-center">
+                  By clicking sign in, you agree to our{" "}
+                  <span className=" text-ash2 font-semibold">
+                    Privacy Policy
+                  </span>
+                  and
+                  <span className=" text-ash2 font-semibold">
+                    Terms of Service
+                  </span>
+                </p>
+              </div>
+              {errors.agree && (
+                <div className="text-red-500">{errors.agree?.message}</div>
+              )}
             </div>
-            {errors.agree && (
-              <div className="text-red-500">{errors.agree?.message}</div>
-            )}
           </div>
-        </div>
+        )}
       </form>
     </div>
   );
