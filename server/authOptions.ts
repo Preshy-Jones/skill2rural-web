@@ -54,11 +54,11 @@ export const authOptions: NextAuthOptions = {
 
       return token;
     },
-    async session({ session, token }) {
-      if (token?.id) {
-        session.user.id = token.id;
-        return session;
-      }
+    async session({ session, token, user }) {
+      // if (token?.id) {
+      session.user.id = token.id;
+      return session;
+      // }
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
