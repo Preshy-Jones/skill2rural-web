@@ -13,13 +13,6 @@ const LoginForm = () => {
   const schema = z.object({
     email: z.string().email(),
     password: z.string().min(8),
-    agree: z
-      .boolean({
-        required_error: "You must agree to the terms and conditions",
-      })
-      .refine((value) => value === true, {
-        message: "You must agree to the terms and conditions",
-      }),
   });
 
   type FormFields = z.infer<typeof schema>;
@@ -31,9 +24,7 @@ const LoginForm = () => {
     control,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
-    defaultValues: {
-      email: "test@email.com",
-    },
+    defaultValues: {},
     resolver: zodResolver(schema),
   });
 
@@ -56,7 +47,6 @@ const LoginForm = () => {
   const handleSubmitQuery = async (formData: {
     email: string;
     password: string;
-    agree: boolean;
   }) => {
     console.log("shshhshs");
 
@@ -130,40 +120,6 @@ const LoginForm = () => {
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>
         )}
-        <div className="flex justify-center">
-          <div className="w-[70%] mt-4 ">
-            <div className="flex">
-              {/* <Checkbox
-                className="text-white border-ashBorder"
-                {...register("agree")}
-              /> */}
-              <Controller
-                control={control}
-                name="agree"
-                render={({ field }) => (
-                  //@ts-ignore
-                  <Checkbox
-                    className="text-white border-ashBorder"
-                    {...field}
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                )}
-              />
-              <p className=" leading-fifth text-ash2 text-center">
-                By clicking sign in, you agree to our{" "}
-                <span className=" text-ash2 font-semibold">Privacy Policy</span>
-                and
-                <span className=" text-ash2 font-semibold">
-                  Terms of Service
-                </span>
-              </p>
-            </div>
-            {errors.agree && (
-              <div className="text-red-500">{errors.agree?.message}</div>
-            )}
-          </div>
-        </div>
       </form>
     </div>
   );

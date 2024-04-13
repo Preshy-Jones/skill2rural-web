@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import Api from "@/api";
 import { Checkbox } from "../ui/checkbox";
+import { handleErrorResponse } from "@/utils";
+import { UserType } from "@/types/global";
 
 interface RegistrationData {
   email: string;
@@ -25,7 +27,7 @@ const FacilitatorFormTwo = () => {
   const registerUser = useMutation({
     mutationFn: async (formData: RegistrationData) => {
       const api = new Api();
-      const response = api.registerStudent(formData);
+      const response = api.registerEducator(formData);
       console.log(response);
 
       return response;
@@ -40,16 +42,17 @@ const FacilitatorFormTwo = () => {
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      toast.error(error.response.data.message);
+      const errorMessage = handleErrorResponse(error);
+      toast.error(errorMessage);
     },
   });
   const handleSubmitQuery = (formData: {
     name: string;
     email: string;
     password: string;
-    organization: string;
+    organisation: string;
     role: string;
-    no_of_students_to_reach: string;
+    no_of_students_to_reach: number;
     work_with_maginalized_populations: boolean;
   }) => {
     registerUser.mutate(formData);
@@ -62,7 +65,7 @@ const FacilitatorFormTwo = () => {
   });
 
   const schema2 = z.object({
-    organization: z.string().min(3),
+    organisation: z.string().min(3),
     role: z.string().min(3),
     no_of_students_to_reach: z.string(),
     work_with_maginalized_populations: z.boolean(),
@@ -113,10 +116,16 @@ const FacilitatorFormTwo = () => {
   };
 
   const onSubmit2: SubmitHandler<FormFields2> = async (data) => {
-    const finalData = { ...data, ...watch() };
+    const payload = { ...data, ...watch(), type: UserType.EDUCATOR };
+
+    //change the no_of_students_to_reach to number in a new object
+    const finalPayload = {
+      ...payload,
+      no_of_students_to_reach: parseInt(payload.no_of_students_to_reach),
+    };
 
     try {
-      const response = await handleSubmitQuery(finalData);
+      const response = await handleSubmitQuery(finalPayload);
       console.log(data);
       console.log("submitted");
     } catch (error) {
@@ -202,16 +211,16 @@ const FacilitatorFormTwo = () => {
         <form action="" onSubmit={handleSubmit2(onSubmit2)}>
           <div>
             <div className="mb-7">
-              <h3 className="font-semibold">Organization</h3>
+              <h3 className="font-semibold">Organisation</h3>
               <input
                 type="text"
-                {...register2("organization")}
-                placeholder="Enter organization name"
+                {...register2("organisation")}
+                placeholder="Enter organisation name"
                 className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
               />
-              {errors2.organization && (
+              {errors2.organisation && (
                 <div className="text-red-500">
-                  {errors2.organization?.message}
+                  {errors2.organisation?.message}
                 </div>
               )}
             </div>
@@ -288,10 +297,10 @@ const FacilitatorFormTwo = () => {
             </div>
             <button
               className="bg-primary h-[3.75rem] text-white rounded-btn w-full"
-              disabled={isSubmitting}
+              disabled={isSubmitting2}
               type="submit"
             >
-              {isSubmitting ? <div className="spinner"></div> : "Sign Up"}
+              {isSubmitting2 ? <div className="spinner"></div> : "Sign Up"}
             </button>
             <div className="flex justify-center">
               <div className="w-[70%] mt-4 ">

@@ -59,9 +59,13 @@ const StudentsForm = () => {
     name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(8),
-    agree: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
-    }),
+    agree: z
+      .boolean({
+        required_error: "You must agree to the terms and conditions",
+      })
+      .refine((value) => value === true, {
+        message: "You must agree to the terms and conditions",
+      }),
   });
 
   type FormFields = z.infer<typeof schema>;
