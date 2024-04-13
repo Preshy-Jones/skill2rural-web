@@ -11,7 +11,6 @@ import Api from "@/api";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-
 interface FormData {
   email: string;
   password: string;
@@ -60,9 +59,13 @@ const StudentsForm = () => {
     name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(8),
-    agree: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
-    }),
+    agree: z
+      .boolean({
+        required_error: "You must agree to the terms and conditions",
+      })
+      .refine((value) => value === true, {
+        message: "You must agree to the terms and conditions",
+      }),
   });
 
   type FormFields = z.infer<typeof schema>;
@@ -89,9 +92,10 @@ const StudentsForm = () => {
       console.log(data);
       console.log("submitted");
     } catch (error) {
-      setError("root", {
-        message: "This email is already taken",
-      });
+      // setError("root", {
+      //   message: "This email is already taken",
+      // });
+      console.log(error);
     }
   };
 
@@ -168,7 +172,6 @@ const StudentsForm = () => {
                   />
                 )}
               />
-              {/* <input type="checkbox" {...register("agree")} /> */}
               <p className=" leading-fifth text-ash2 text-center">
                 By clicking sign in, you agree to our{" "}
                 <span className=" text-ash2 font-semibold">Privacy Policy</span>

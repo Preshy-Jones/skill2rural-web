@@ -11,13 +11,13 @@ import Link from "next/link";
 import StudentsForm from "@/components/signup/StudentsForm";
 import FacilitatorForm from "@/components/signup/FacilitatorForm";
 import { useMutation } from "@tanstack/react-query";
+import FacilitatorFormTwo from "@/components/signup/FacilitatorFormTwo";
 
 const Signup = () => {
-  const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
+  const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
-  
 
   return (
     <div className=" font-neue">
@@ -41,35 +41,35 @@ const Signup = () => {
               <div className="border border-black rounded-btn h-[5rem] flex items-center px-4">
                 <button
                   className={`${
-                    activeTab === UserType.FACILITATORS
+                    activeTab === UserType.EDUCATOR
                       ? "bg-primary text-white"
                       : "text-primary"
                   } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.FACILITATORS)}
+                  onClick={() => handleTabClick(UserType.EDUCATOR)}
                 >
-                  Facilitators
+                  EDUCATOR
                 </button>
                 <button
                   className={`${
-                    activeTab === UserType.STUDENTS
+                    activeTab === UserType.STUDENT
                       ? "bg-primary text-white"
                       : "text-primary"
                   } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.STUDENTS)}
+                  onClick={() => handleTabClick(UserType.STUDENT)}
                 >
                   Students
                 </button>
               </div>
             </div>
-            {activeTab === UserType.FACILITATORS ? (
-              <FacilitatorForm />
+            {activeTab === UserType.EDUCATOR ? (
+              <FacilitatorFormTwo />
             ) : (
               <StudentsForm />
             )}
-          
+
             <div className=" flex justify-center leading-fifth font-neue mt-8">
               <p className="mr-3 text-ash2">Already have an account?</p>
-              <Link href={"/register"}>
+              <Link href={"/login"}>
                 <span className="text-primary font-bold"> Login</span>
               </Link>
             </div>

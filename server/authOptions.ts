@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
@@ -13,20 +13,26 @@ export const authOptions: NextAuthOptions = {
       name: "credentials",
       credentials: {},
       async authorize(credentials, req) {
+        console.log("hello helloe");
         // Add logic here to look up the user from the credentials supplied
-        const url = "http://localhost:8008";
+        const url = process.env.NEXT_PUBLIC_BASE_URL as string;
+
+        console.log("hello heloo adele");
+
+        console.log("base", url);
 
         // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
         try {
-          const user = await axios.post(`${url}/v1/auth/login`, credentials);
-          //console.log(user.data);
+          const user = await axios.post(`${url}/auth/login/user`, credentials);
+          console.log(user);
           return {
-            id: user.data.user.id,
-            name: user.data.user.name,
-            email: user.data.user.email,
-            token: user.data.accessToken,
+            id: user.data.data.user.id,
+            name: user.data.data.user.name,
+            email: user.data.data.user.email,
+            token: user.data.data.accessToken,
           };
-        } catch (error) {
+        } catch (error: any) {
+          console.log(error);
           console.log(error.response.data.message);
           throw new Error(error.response.data.message);
         }
@@ -53,16 +59,17 @@ export const authOptions: NextAuthOptions = {
 
       return token;
     },
-    async session({ session, token }) {
-      if (token?.id) {
-        session.user.id = token.id;
-        return session;
-      }
+    async session({ session, token, user }) {
+      // if (token?.id) {
+      session.user.id = token.id;
+      return session;
+      // }
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login",
   },
 };
 
-export default NextAuth(authOptions);
+export const getServerAuthSession = () => getServerSession(authOptions); //(6)

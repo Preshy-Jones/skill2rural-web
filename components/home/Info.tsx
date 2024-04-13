@@ -17,7 +17,7 @@ import netBig from "@/public/net-lg.svg";
 import { UserType } from "@/types/global";
 
 const Info = () => {
-  const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
+  const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
@@ -129,21 +129,21 @@ const Info = () => {
               <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
                 <button
                   className={`${
-                    activeTab === UserType.FACILITATORS
+                    activeTab === UserType.EDUCATOR
                       ? "bg-primary text-white"
                       : "text-primary"
                   } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.FACILITATORS)}
+                  onClick={() => handleTabClick(UserType.EDUCATOR)}
                 >
-                  Facilitators
+                  Educator
                 </button>
                 <button
                   className={`${
-                    activeTab === UserType.STUDENTS
+                    activeTab === UserType.STUDENT
                       ? "bg-primary text-white"
                       : "text-primary"
                   } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.STUDENTS)}
+                  onClick={() => handleTabClick(UserType.STUDENT)}
                 >
                   Students
                 </button>
@@ -153,9 +153,7 @@ const Info = () => {
           </div>
           <div className="grid grid-cols-2">
             <Image
-              src={
-                activeTab === UserType.FACILITATORS ? womanComputer : fineGirl
-              }
+              src={activeTab === UserType.EDUCATOR ? womanComputer : fineGirl}
               alt="womanComputer"
             />
             <div className="self-end">

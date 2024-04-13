@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ArrowIcon from "@/public/arrow-icon.svg";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, set, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "react-toastify";
@@ -9,13 +9,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import Api from "@/api";
 import { Checkbox } from "../ui/checkbox";
-
-interface FormData {
-  email: string;
-  password: string;
-  name: string;
-  agree: boolean;
-}
+import { handleErrorResponse } from "@/utils";
+import { UserType } from "@/types/global";
 
 interface RegistrationData {
   email: string;
@@ -23,7 +18,7 @@ interface RegistrationData {
   name: string;
 }
 
-const FacilitatorForm = () => {
+const FacilitatorFormTwo = () => {
   const [currentStep, setCurrentStep] = useState<Number>(1);
 
   const [decision, setDecision] = useState<boolean>(false);
@@ -32,7 +27,7 @@ const FacilitatorForm = () => {
   const registerUser = useMutation({
     mutationFn: async (formData: RegistrationData) => {
       const api = new Api();
-      const response = api.registerStudent(formData);
+      const response = api.registerEducator(formData);
       console.log(response);
 
       return response;
@@ -47,99 +42,44 @@ const FacilitatorForm = () => {
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      toast.error(error.response.data.message);
+      const errorMessage = handleErrorResponse(error);
+      toast.error(errorMessage);
     },
   });
   const handleSubmitQuery = (formData: {
     name: string;
     email: string;
     password: string;
-    agree: boolean;
+    organisation: string;
+    role: string;
+    no_of_students_to_reach: number;
+    work_with_maginalized_populations: boolean;
   }) => {
     registerUser.mutate(formData);
   };
-  const schema = z.object({
+
+  const schema1 = z.object({
     name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(8),
-    organization: z
-      .string()
-      .optional()
-      .refine(
-        (value) => {
-          if (currentStep === 2) {
-            return value !== undefined;
-          }
-          return true;
-        },
-        {
-          message: "Organization is required",
-        }
-      ),
-    role: z
-      .string()
-      .optional()
-      .refine(
-        (value) => {
-          if (currentStep === 2) {
-            return value !== undefined;
-          }
-          return true;
-        },
-        {
-          message: "Role is required",
-        }
-      ),
-    no_of_students_to_reach: z
-      .string()
-      .optional()
-      .refine(
-        (value) => {
-          if (currentStep === 2) {
-            return value !== undefined;
-          }
-          return true;
-        },
-        {
-          message: "Number of students to reach is required",
-        }
-      ),
-    work_with_maginalized_populations: z
-      .boolean()
-      .optional()
-      .refine(
-        (value) => {
-          // return value !== false && currentStep === 1;
-          if (currentStep === 2) {
-            return value !== false;
-          }
-          return true;
-        },
-        {
-          message: "This field is required",
-        }
-      ),
-    // agree: z.boolean().refine((value) => value === true, {
-    //   message: "You must agree to the terms and conditions",
-    // }),
-    agree: z
-      .boolean()
-      .optional()
-      .refine(
-        (value) => {
-          // return value === false && currentStep === 1;
-          if (currentStep === 2) {
-            return value !== false;
-          }
-          return true;
-        },
-        {
-          message: "You must agree to the terms and conditions",
-        }
-      ),
   });
 
-  type FormFields = z.infer<typeof schema>;
+  const schema2 = z.object({
+    organisation: z.string().min(3),
+    role: z.string().min(3),
+    no_of_students_to_reach: z.string(),
+    work_with_maginalized_populations: z.boolean(),
+    agree: z
+      .boolean({
+        required_error: "You must agree to the terms and conditions",
+      })
+      .refine((value) => value === true, {
+        message: "You must agree to the terms and conditions",
+      }),
+  });
+
+  type FormFields = z.infer<typeof schema1>;
+  type FormFields2 = z.infer<typeof schema2>;
 
   const {
     register,
@@ -147,25 +87,45 @@ const FacilitatorForm = () => {
     setError,
     watch,
     control,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
+    defaultValues: {},
+    resolver: zodResolver(schema1),
+  });
+
+  const {
+    register: register2,
+    handleSubmit: handleSubmit2,
+    setError: setError2,
+    watch: watch2,
+    control: control2,
+    setValue: setValue2,
+    formState: { errors: errors2, isSubmitting: isSubmitting2 },
+  } = useForm<FormFields2>({
     defaultValues: {
-      organization: "",
-      role: "",
+      work_with_maginalized_populations: false,
     },
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema2),
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     console.log(data);
     console.log("dhdhhd");
-    if (currentStep === 1) {
-      setCurrentStep(2);
-      return;
-    }
+    setCurrentStep(2);
+  };
+
+  const onSubmit2: SubmitHandler<FormFields2> = async (data) => {
+    const payload = { ...data, ...watch(), type: UserType.EDUCATOR };
+
+    //change the no_of_students_to_reach to number in a new object
+    const finalPayload = {
+      ...payload,
+      no_of_students_to_reach: parseInt(payload.no_of_students_to_reach),
+    };
 
     try {
-      // const response = await handleSubmitQuery(data);
+      const response = await handleSubmitQuery(finalPayload);
       console.log(data);
       console.log("submitted");
     } catch (error) {
@@ -175,7 +135,6 @@ const FacilitatorForm = () => {
       console.log(error);
     }
   };
-
   console.log(errors);
 
   return (
@@ -196,10 +155,10 @@ const FacilitatorForm = () => {
           Step {currentStep.toString()} of 2
         </h2>
       </div>
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify({ ...watch(), ...watch2() }, null, 2)}</pre> */}
       {/* <pre>{JSON.stringify(errors, null, 2)}</pre> */}
-      <form action="" className="px-6" onSubmit={handleSubmit(onSubmit)}>
-        {currentStep === 1 ? (
+      {currentStep === 1 && (
+        <form action="" className="px-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-8">
             <div className="mb-7">
               <h3 className="font-semibold">Full Name</h3>
@@ -237,20 +196,31 @@ const FacilitatorForm = () => {
                 <div className="text-red-500">{errors.password?.message}</div>
               )}
             </div>
+            <button
+              // onClick={() => setCurrentStep(2)}
+              type="submit"
+              className="bg-primary w-full h-[3.75rem] py-2 rounded-btn flex items-center justify-center cursor-pointer"
+            >
+              <h3 className="text-white font-semibold mr-2">Next Step</h3>
+              <Image src={ArrowIcon} alt="arrow-icon" />
+            </button>
           </div>
-        ) : (
+        </form>
+      )}
+      {currentStep === 2 && (
+        <form action="" onSubmit={handleSubmit2(onSubmit2)}>
           <div>
             <div className="mb-7">
-              <h3 className="font-semibold">Organization</h3>
+              <h3 className="font-semibold">Organisation</h3>
               <input
                 type="text"
-                {...register("organization")}
-                placeholder="Enter organization name"
+                {...register2("organisation")}
+                placeholder="Enter organisation name"
                 className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
               />
-              {errors.organization && (
+              {errors2.organisation && (
                 <div className="text-red-500">
-                  {errors.organization?.message}
+                  {errors2.organisation?.message}
                 </div>
               )}
             </div>
@@ -258,12 +228,12 @@ const FacilitatorForm = () => {
               <h3 className="font-semibold">Role</h3>
               <input
                 type="text"
-                {...register("role")}
+                {...register2("role")}
                 placeholder="Enter your role"
                 className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
               />
-              {errors.role && (
-                <div className="text-red-500">{errors.role?.message}</div>
+              {errors2.role && (
+                <div className="text-red-500">{errors2.role?.message}</div>
               )}
             </div>
             <div className="mb-7">
@@ -272,17 +242,17 @@ const FacilitatorForm = () => {
               </h3>
               <input
                 type="number"
-                {...register("no_of_students_to_reach")}
+                {...register2("no_of_students_to_reach")}
                 placeholder="Enter no of students"
                 className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
               />
-              {errors.no_of_students_to_reach && (
+              {errors2.no_of_students_to_reach && (
                 <div className="text-red-500">
-                  {errors.no_of_students_to_reach?.message}
+                  {errors2.no_of_students_to_reach?.message}
                 </div>
               )}
             </div>
-            {/* <div className="mb-10">
+            <div className="mb-10">
               <h3 className="font-semibold">
                 Do you work with marginalised populations
               </h3>
@@ -295,6 +265,7 @@ const FacilitatorForm = () => {
                     <div
                       onClick={() => {
                         setDecision(false);
+                        setValue2("work_with_maginalized_populations", false);
                       }}
                       className=" flex items-center justify-center w-[5.65625rem] cursor-pointer"
                     >
@@ -306,6 +277,7 @@ const FacilitatorForm = () => {
                     <div
                       onClick={() => {
                         setDecision(true);
+                        setValue2("work_with_maginalized_populations", true);
                       }}
                       className=" flex items-center justify-center w-[5.65625rem] cursor-pointer"
                     >
@@ -317,76 +289,56 @@ const FacilitatorForm = () => {
                   </div>
                 )}
               </div>
-              {errors.work_with_maginalized_populations && (
+              {errors2.work_with_maginalized_populations && (
                 <div className="text-red-500">
-                  {errors.work_with_maginalized_populations?.message}
+                  {errors2.work_with_maginalized_populations?.message}
                 </div>
               )}
-            </div> */}
-          </div>
-        )}
-        {currentStep === 1 ? (
-          <button
-            // onClick={() => setCurrentStep(2)}
-            type="submit"
-            className="bg-primary w-full h-[3.75rem] py-2 rounded-btn flex items-center justify-center cursor-pointer"
-          >
-            <h3 className="text-white font-semibold mr-2">Next Step</h3>
-            <Image src={ArrowIcon} alt="arrow-icon" />
-          </button>
-        ) : (
-          <button
-            className="bg-primary h-[3.75rem] text-white rounded-btn w-full"
-            disabled={isSubmitting}
-            type="submit"
-          >
-            {isSubmitting ? <div className="spinner"></div> : "Sign Up"}
-          </button>
-        )}
-        {errors.root && (
-          <div className="text-red-500">{errors.root.message}</div>
-        )}
-        {currentStep === 2 && (
-          <div className="flex justify-center">
-            <div className="w-[70%] mt-4 ">
-              <div className="flex">
-                {/* <Checkbox
-                className="text-white border-ashBorder"
-                {...register("agree")}
-              /> */}
-                <Controller
-                  control={control}
-                  name="agree"
-                  render={({ field }) => (
-                    //@ts-ignore
-                    <Checkbox
-                      className="text-white border-ashBorder"
-                      {...field}
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  )}
-                />
-                <p className=" leading-fifth text-ash2 text-center">
-                  By clicking sign in, you agree to our{" "}
-                  <span className=" text-ash2 font-semibold">
-                    Privacy Policy
-                  </span>
-                  and
-                  <span className=" text-ash2 font-semibold">
-                    Terms of Service
-                  </span>
-                </p>
+            </div>
+            <button
+              className="bg-primary h-[3.75rem] text-white rounded-btn w-full"
+              disabled={isSubmitting2}
+              type="submit"
+            >
+              {isSubmitting2 ? <div className="spinner"></div> : "Sign Up"}
+            </button>
+            <div className="flex justify-center">
+              <div className="w-[70%] mt-4 ">
+                <div className="flex">
+                  <Controller
+                    control={control2}
+                    name="agree"
+                    render={({ field }) => (
+                      //@ts-ignore
+                      <Checkbox
+                        className="text-white border-ashBorder"
+                        {...field}
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    )}
+                  />
+                  <p className=" leading-fifth text-ash2 text-center">
+                    By clicking sign in, you agree to our{" "}
+                    <span className=" text-ash2 font-semibold">
+                      Privacy Policy
+                    </span>
+                    and
+                    <span className=" text-ash2 font-semibold">
+                      Terms of Service
+                    </span>
+                  </p>
+                </div>
+                {errors2.agree && (
+                  <div className="text-red-500">{errors2.agree?.message}</div>
+                )}
               </div>
-              {errors.agree && (
-                <div className="text-red-500">{errors.agree?.message}</div>
-              )}
             </div>
           </div>
-        )}
-      </form>
+        </form>
+      )}
     </div>
   );
 };
 
-export default FacilitatorForm;
+export default FacilitatorFormTwo;
