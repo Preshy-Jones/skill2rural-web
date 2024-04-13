@@ -126,7 +126,7 @@ const FacilitatorFormTwo = () => {
 
     try {
       const response = await handleSubmitQuery(finalPayload);
-      console.log(data);
+      //console.log(data);
       console.log("submitted");
     } catch (error) {
       // setError("root", {
