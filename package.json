@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pm2:start": "pm2 start npm --name 'skill2rural-web' -- start",
+    "pm2:stop": "pm2 stop skill2rural-web"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -16,8 +18,6 @@
     "@tanstack/query-core": "^5.28.13",
     "@tanstack/react-query": "^5.28.14",
     "@tanstack/react-query-devtools": "^5.28.14",
-    "@vidstack/player": "^1.6.5",
-    "@vidstack/player-react": "^1.6.5",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -34,7 +34,6 @@
     "react-toastify": "^10.0.5",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "video-react": "^0.16.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
