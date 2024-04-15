@@ -9,7 +9,7 @@ class Api {
 
   initializeInstance = () => {
     let baseURL = this.baseURL;
-    console.log(baseURL);
+    console.log("baseurl", baseURL);
 
     const instance = axios.create({
       baseURL,
