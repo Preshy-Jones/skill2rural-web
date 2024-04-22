@@ -7,6 +7,9 @@ import Faq from "@/components/home/Faq";
 import Script from "next/script";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../../components/SessionProvider";
+import { useRouter } from "next/navigation";
+import ProgressBar from "@/components/NpProgress";
+import ReactQueryProvider from "@/utils/ReactQueryProvider";
 
 const metadata: Metadata = {
   title: "Skill2rural app",
@@ -50,11 +53,19 @@ export default async function LandingPageLayout({
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
       <body className={`relative ${clashDisplay.variable}`}>
         <SessionProvider session={session}>
-          <NavBar />
-          {children}
-          <Faq />
-          <Footer />
+          <ReactQueryProvider>
+            <NavBar />
+            {children}
+            <Faq />
+            <Footer />
+          </ReactQueryProvider>
         </SessionProvider>
+        <ProgressBar
+          height="4px"
+          color="#60269E"
+          options={{ showSpinner: false }}
+          shallowRouting
+        />
       </body>
     </html>
   );
