@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Questions = () => {
-  return (
-    <div>Questions</div>
-  )
-}
+const Questions = ({ courseId }: { courseId: string }) => {
+  return <div>Questions</div>;
+};
 
-export default Questions
+export default Questions;

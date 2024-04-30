@@ -9,8 +9,10 @@ import sdgs from "@/public/sdgs.svg";
 import rightArrow from "@/public/arrow-right.svg";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
+import { Course } from "@/types/course";
+import freeIcon from "@/public/free.svg";
 
-const MyLearningCoursesSection = () => {
+const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
   const [activeTab, setActiveTab] = useState("ongoing");
   const handleTabClick = (tab: CourseStatus) => {
     setActiveTab(tab);
@@ -48,12 +50,29 @@ const MyLearningCoursesSection = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-12 mt-12">
-        {contentKey.map((item, index) => (
+        {courses.map((item, index) => (
           <div
             key={index}
             className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form bg-white`}
           >
-            <Image src={contentKey[index].image} alt={item.title} />
+            <div className="w-full h-[15.75rem] relative">
+              <Image
+                className=" rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
+                src={item.thumbnail_image}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "100%" }} // optional
+                alt={item.title}
+                // width={342.67}
+                // height={350}
+              />
+              <Image
+                src={freeIcon}
+                alt="free-icon"
+                className="absolute top-3 right-3"
+              />
+            </div>
             <div className="py-3">
               <h2 className="font-medium text-xl leading-fourth">
                 {item.title}
@@ -69,7 +88,7 @@ const MyLearningCoursesSection = () => {
               <Progress value={33} className="h-[0.375rem] bg-textFourth" />
             </div>
             <div className="flex justify-end items-center">
-              <Link href={"my-learnings/course/ddd"}>
+              <Link href={`my-learnings/course/dd`}>
                 <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
                   Continue Watching
                 </h2>

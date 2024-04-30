@@ -11,6 +11,7 @@ import SessionProvider from "../../components/SessionProvider";
 import { usePathname } from "next/navigation";
 
 import { getServerSession } from "next-auth";
+import ReactQueryProvider from "@/utils/ReactQueryProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,10 +62,12 @@ export default async function DashbaordPageLayout({
         className={`relative ${clashDisplay.variable} ${inter.variable} bg-greyBg3`}
       >
         <SessionProvider session={session}>
-          <NavBar />
-          <TopBar />
-          {children}
-          <Footer bgColor="bg-greyBg3" />
+          <ReactQueryProvider>
+            <NavBar />
+            <TopBar />
+            {children}
+            <Footer bgColor="bg-greyBg3" />
+          </ReactQueryProvider>
         </SessionProvider>
       </body>
     </html>
