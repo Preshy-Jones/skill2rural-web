@@ -147,7 +147,7 @@ const StudentsForm = () => {
           disabled={isSubmitting}
           type="submit"
         >
-          Register
+          {isSubmitting ? <div className="spinner"></div> : "Sign Up"}
         </button>
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>

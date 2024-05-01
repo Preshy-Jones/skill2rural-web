@@ -22,17 +22,18 @@ const Signup = () => {
   return (
     <div className=" font-neue">
       <div className="relative">
-        <Link href={"/"}>
-          <Image
-            src={studentsBackgroundImage}
-            alt="african-students"
-            className=""
-          />
-        </Link>
+        <Image
+          src={studentsBackgroundImage}
+          alt="african-students"
+          className=""
+        />
+
         <div className="absolute z-10 top-0 flex justify-end w-full">
           <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
             <div className="flex flex-col items-center">
-              <Image src={logo} alt="skrural-logo-onboarding" />
+              <Link href={"/"}>
+                <Image src={logo} alt="skrural-logo-onboarding" />
+              </Link>
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
                 Sign up
               </h1>
