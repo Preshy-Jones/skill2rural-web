@@ -132,8 +132,11 @@ class Api {
     return response.json();
   };
 
-  addCourseReview = async (courseId: string, data: { review: string }) => {
-    const url = `/course/reviews/${courseId}`;
+  addCourseReview = async (
+    courseId: string,
+    data: { rating: number; comment: string }
+  ) => {
+    const url = this.baseURL + `/course/reviews/${courseId}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

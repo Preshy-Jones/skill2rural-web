@@ -12,6 +12,8 @@ import { usePathname } from "next/navigation";
 
 import { getServerSession } from "next-auth";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,6 +70,7 @@ export default async function DashbaordPageLayout({
             {children}
             <Footer bgColor="bg-greyBg3" />
           </ReactQueryProvider>
+          <ToastContainer />
         </SessionProvider>
       </body>
     </html>

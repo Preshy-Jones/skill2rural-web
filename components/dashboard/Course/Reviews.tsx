@@ -6,9 +6,19 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import NoReviews from "@/public/no-review.svg";
 import React from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import ReviewForm from "../common/ReviewForm";
 
 const Reviews = ({ courseId }: { courseId: string }) => {
   const { data: session } = useSession();
+
   const { isLoading, isError, error, data, isSuccess } = useGetCourseReviews(
     session?.user.token || "",
     courseId
@@ -121,7 +131,12 @@ const Reviews = ({ courseId }: { courseId: string }) => {
         </div>
 
         <div className="mt-2">
-          <h1 className=" font-semibold leading-fifth mb-12">Reviews</h1>
+          <div className="flex justify-between items-center">
+            <h1 className=" font-semibold leading-fifth mb-12">Reviews</h1>
+
+            <ReviewForm courseId={courseId} />
+          </div>
+
           <div className=" divide-y divide-formInputBorder">
             {data.reviews.length > 0 &&
               data.reviews.map((review: CourseReview) => (

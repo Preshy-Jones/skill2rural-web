@@ -88,7 +88,7 @@ const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
               <Progress value={33} className="h-[0.375rem] bg-textFourth" />
             </div>
             <div className="flex justify-end items-center">
-              <Link href={`my-learnings/course/dd`}>
+              <Link href={`my-learnings/course/${item.id}`}>
                 <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
                   Continue Watching
                 </h2>

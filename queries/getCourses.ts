@@ -3,6 +3,7 @@ import { Course } from "@/types/course";
 import { useQuery } from "@tanstack/react-query";
 
 export function useGetCourses(token: string) {
+  
   return useQuery<Course[]>({
     queryKey: ["courses"],
     queryFn: async () => {

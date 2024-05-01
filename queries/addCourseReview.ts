@@ -1,9 +1,21 @@
 import Api from "@/api";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
-export const useAddCourseReview = (token: string, courseId: string) => {
+interface AddCourseReview {
+  token: string;
+  courseId: string;
+  setOpen: (value: boolean) => void;
+}
+
+export const useAddCourseReview = ({
+  token,
+  courseId,
+  setOpen,
+}: AddCourseReview) => {
+  const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (formData: { rating: number; review: string }) => {
+    mutationFn: async (formData: { rating: number; comment: string }) => {
       const api = new Api();
       api.setToken(token);
       const response = await api.addCourseReview(courseId, formData);
@@ -11,9 +23,15 @@ export const useAddCourseReview = (token: string, courseId: string) => {
     },
     onSuccess: (data) => {
       console.log("success", data);
+      setOpen(false);
+      toast.success("Review added successfully");
+      queryClient.invalidateQueries({
+        queryKey: ["courseReviews"],
+      });
     },
     onError: (error) => {
       console.log("error", error);
+      toast.error("Failed to add review");
     },
   });
 };
