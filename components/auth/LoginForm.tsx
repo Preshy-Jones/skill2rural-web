@@ -7,6 +7,9 @@ import { z } from "zod";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import passwordVisibilityToggler from "@/public/show-password.svg";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -35,8 +38,8 @@ const LoginForm = () => {
       console.log("dfgdfdfgddfdgf");
 
       const response = await handleSubmitQuery(data);
-      console.log(data);
-      console.log("submitted");
+      // console.log(data);
+      // console.log("submitted");
     } catch (error) {
       setError("root", {
         message: "This email is already taken",
@@ -55,7 +58,7 @@ const LoginForm = () => {
       password: formData.password,
       redirect: false,
     });
-    console.log(response);
+    // console.log(response);
 
     if (response?.error) {
       console.log(response.error);
@@ -68,6 +71,8 @@ const LoginForm = () => {
       router.push("/dashboard/courses");
     }
   };
+
+  const [showPassword, setShowPassword] = React.useState(false);
 
   return (
     <div>
@@ -88,12 +93,20 @@ const LoginForm = () => {
           </div>
           <div className="mb-3">
             <h3 className="font-semibold">Password</h3>
-            <input
-              placeholder="your Password"
-              type="password"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              {...register("password")}
-            />
+            <div className="relative">
+              <input
+                placeholder="your Password"
+                type={showPassword ? "text" : "password"}
+                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
+                {...register("password")}
+              />
+              <Image
+                className="absolute top-1/2 transform -translate-y-1/2 right-3 cursor-pointer"
+                src={passwordVisibilityToggler}
+                alt="password-toggler"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
             {errors.password && (
               <div className="text-red-500">{errors.password?.message}</div>
             )}
@@ -106,9 +119,12 @@ const LoginForm = () => {
               Remember me
             </h3>
           </div>
-          <h3 className=" leading-fifth font-medium text-primary">
+          <Link
+            href={"/forgot-password"}
+            className=" leading-fifth font-medium text-primary"
+          >
             Forgot Password?
-          </h3>
+          </Link>
         </div>
         <button
           className="bg-primary h-[3.75rem] text-white rounded-btn w-full"

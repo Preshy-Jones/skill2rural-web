@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import studentBackgroundImage from "@/public/african-college-student-big.svg";
 import logo from "@/public/sk2rural-logo-onboarding.svg";
 import Image from "next/image";
@@ -8,12 +8,22 @@ import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import LoginForm from "@/components/auth/LoginForm";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard/courses");
+    }
+  }, [router, status]);
   return (
     <div className=" font-neue">
       <div className="relative">

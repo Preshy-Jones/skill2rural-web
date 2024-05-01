@@ -8,10 +8,9 @@ import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import Link from "next/link";
-import StudentsForm from "@/components/signup/StudentsForm";
-import FacilitatorForm from "@/components/signup/FacilitatorForm";
+import StudentsForm from "@/components/auth/register/StudentsForm";
 import { useMutation } from "@tanstack/react-query";
-import FacilitatorFormTwo from "@/components/signup/FacilitatorFormTwo";
+import FacilitatorFormTwo from "@/components/auth/register/FacilitatorFormTwo";
 
 const Signup = () => {
   const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);

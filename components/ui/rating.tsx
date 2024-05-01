@@ -28,6 +28,7 @@ interface RatingsProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
   fill?: boolean;
   Icon?: React.ReactElement;
+  setRating?: (rating: number) => void;
   variant?: keyof typeof ratingVariants;
 }
 
@@ -39,6 +40,7 @@ const Ratings = ({ ...props }: RatingsProps) => {
     fill = true,
     Icon = <Star color="transparent" />,
     variant = "default",
+    setRating,
   } = props;
 
   const fullStars = Math.floor(rating);
@@ -60,8 +62,10 @@ const Ratings = ({ ...props }: RatingsProps) => {
           size,
           className: cn(
             fill ? "fill-current" : "fill-transparent",
-            ratingVariants[variant].star
+            ratingVariants[variant].star,
+            "cursor-pointer"
           ),
+          onClick: setRating ? () => setRating(i + 1) : undefined,
         })
       )}
       {partialStar}
@@ -69,7 +73,8 @@ const Ratings = ({ ...props }: RatingsProps) => {
         React.cloneElement(Icon, {
           key: i + fullStars + 1,
           size,
-          className: cn(ratingVariants[variant].emptyStar),
+          className: cn(ratingVariants[variant].emptyStar, "cursor-pointer"),
+          onClick: setRating ? () => setRating(fullStars + i + 1) : undefined,
         })
       )}
     </div>

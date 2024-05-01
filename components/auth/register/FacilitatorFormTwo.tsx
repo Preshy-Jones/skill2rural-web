@@ -8,9 +8,10 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import Api from "@/api";
-import { Checkbox } from "../ui/checkbox";
+import { Checkbox } from "../../ui/checkbox";
 import { handleErrorResponse } from "@/utils";
 import { UserType } from "@/types/global";
+import passwordVisibilityToggler from "@/public/show-password.svg";
 
 interface RegistrationData {
   email: string;
@@ -136,7 +137,7 @@ const FacilitatorFormTwo = () => {
     }
   };
   console.log(errors);
-
+  const [showPassword, setShowPassword] = React.useState(false);
   return (
     <div className=" font-neue">
       <div className="my-12">
@@ -186,12 +187,20 @@ const FacilitatorFormTwo = () => {
             </div>
             <div className="mb-7">
               <h3 className="font-semibold">Password</h3>
-              <input
-                {...register("password")}
-                placeholder="your Password"
-                type="password"
-                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              />
+              <div className="relative">
+                <input
+                  placeholder="your Password"
+                  type={showPassword ? "text" : "password"}
+                  className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
+                  {...register("password")}
+                />
+                <Image
+                  className="absolute top-1/2 transform -translate-y-1/2 right-3 cursor-pointer"
+                  src={passwordVisibilityToggler}
+                  alt="password-toggler"
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              </div>
               {errors.password && (
                 <div className="text-red-500">{errors.password?.message}</div>
               )}
