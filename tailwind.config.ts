@@ -44,6 +44,9 @@ const config: Config = {
       },
       colors: {
         primary: "#60269E",
+        wrong: "#FF3B30",
+        correct: "#31AE44",
+        primaryLightBg: "#E5D6F5",
         primaryBlack: "#1E1E1E",
         pinkText: "#60269E",
         primaryGrey: "#101828",
@@ -55,8 +58,8 @@ const config: Config = {
         textTertiary: "#FFFFFF",
         textFourth: "#D9D9D9",
         infoBg: "#F5EFFB",
-        star:"#DFB300",
-        emptyStar:"#626262",
+        star: "#DFB300",
+        emptyStar: "#626262",
         greyBg: "#181821",
         greyBg2: "#F9F9F9",
         greyBg3: "#F3F3F3",
@@ -80,6 +83,7 @@ const config: Config = {
         ash: "#83898C",
         ash2: "#858181",
         ashBorder: "#CFD3D4",
+        checkbox: "#7F56D9",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",
         //   foreground: "hsl(var(--primary-foreground))",
