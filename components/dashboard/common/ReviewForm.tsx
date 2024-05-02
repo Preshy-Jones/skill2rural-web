@@ -23,6 +23,7 @@ const ReviewForm = ({ courseId }: { courseId: string }) => {
   const [open, setOpen] = React.useState(false);
   const addReview = useAddCourseReview({
     courseId,
+    //@ts-ignore
     token: session?.user.token || "",
     setOpen,
   });

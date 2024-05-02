@@ -20,13 +20,16 @@ const Reviews = ({ courseId }: { courseId: string }) => {
   const { data: session } = useSession();
 
   const { isLoading, isError, error, data, isSuccess } = useGetCourseReviews(
+    //@ts-ignore
     session?.user.token || "",
     courseId
   );
 
+  //@ts-ignore
   if (isLoading || !session?.user.token) {
     return <div>Loading course reviews...</div>;
   }
+  //@ts-ignore
   if (session.user.token && isSuccess) {
     return (
       <div className="font-neue mt-14">
