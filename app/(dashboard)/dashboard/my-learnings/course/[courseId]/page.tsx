@@ -6,9 +6,9 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Player } from "video-react";
 import { motion } from "framer-motion";
-import Details from "@/components/dashboard/Course/Details";
-import Questions from "@/components/dashboard/Course/Questions";
-import Reviews from "@/components/dashboard/Course/Reviews";
+import Details from "@/components/dashboard/common/Course/Details";
+import Questions from "@/components/dashboard/common/Course/QuestionsSection";
+import Reviews from "@/components/dashboard/common/Course/Reviews";
 import { useSession } from "next-auth/react";
 import { useGetSingleCourse } from "@/queries/getSingleCourse";
 // import videoReactCss from "video-react/dist/video-react.css";
@@ -52,7 +52,7 @@ const CourseDetailPage = ({
           </div>
           <div className="flex justify-between mt-6 mb-4">
             <h2 className=" font-semibold leading-primary text-2xl">
-              Design Thinking
+              {course.title}
             </h2>
             <Image src={expandVideoIcon} alt="expand-video" />
           </div>

@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import ReviewForm from "../common/ReviewForm";
+import ReviewForm from "../ReviewForm";
 
 const Reviews = ({ courseId }: { courseId: string }) => {
   const { data: session } = useSession();
