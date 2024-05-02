@@ -22,13 +22,14 @@ const DashboardCourses = () => {
   const { data: session } = useSession();
 
   const { isLoading, isError, error, data, isSuccess } = useGetCourses(
+    //@ts-ignore
     session?.user.token || ""
   );
-
+  //@ts-ignore
   if (isLoading || !session?.user.token) {
     return <div>Loading courses...</div>;
   }
-
+  //@ts-ignore
   if (session.user.token && isSuccess) {
     return (
       <div className="flex justify-center">

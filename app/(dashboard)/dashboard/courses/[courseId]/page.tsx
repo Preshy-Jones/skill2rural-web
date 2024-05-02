@@ -33,15 +33,17 @@ const SingleCourseDetails = ({
     //rename data to course
     data: course,
     isSuccess,
+    //@ts-ignore
   } = useGetSingleCourse(session?.user.token || "", courseId);
 
   const options = ["Course details", "Questions", "Reviews"];
   const [active, setActive] = useState(0);
 
+  //@ts-ignore
   if (isLoading || !session?.user.token) {
     return <div>Loading course details</div>;
   }
-
+  //@ts-ignore
   if (session.user.token && isSuccess) {
     return (
       <div className="flex justify-center w-full">
