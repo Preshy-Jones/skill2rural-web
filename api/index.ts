@@ -152,6 +152,22 @@ class Api {
 
     return response.json();
   };
+
+  getCourseQuestions = async (courseId: string): Promise<any> => {
+    const url = this.baseURL + `/course/${courseId}/questions`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch course questions");
+    }
+
+    return response.json();
+  };
 }
 
 export default Api;

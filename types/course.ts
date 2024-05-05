@@ -32,3 +32,24 @@ export interface GetCourseReviewResponse {
     percentage: number;
   }[];
 }
+
+export interface CourseQuestion {
+  id: number;
+  question: string;
+  answer: number;
+  courseId: number;
+  options: string[];
+  point: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface GetCourseQuestionResponse {
+  questions: CourseQuestion[];
+}
+
+export interface QuizResult {
+  questionId: number;
+  point: number;
+  correct: boolean;
+}

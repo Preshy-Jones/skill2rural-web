@@ -183,3 +183,19 @@
     transform: rotate(1turn);
   }
 }
+
+.radio-indicator {
+  /* Hide default indicator */
+  background-color: transparent;
+}
+
+.radio-indicator::before {
+  content: "";
+  display: none; /* Hidden by default */
+  /* Styling for your checkmark design */
+}
+
+/* Show the checkmark when radio button is checked */
+.radio-input:checked + .radio-indicator::before {
+  display: block;
+}
