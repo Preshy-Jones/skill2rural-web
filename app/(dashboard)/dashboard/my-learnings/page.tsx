@@ -2,16 +2,18 @@
 import InfoCard from "@/components/dashboard/InfoCard";
 import MyLearningCoursesSection from "@/components/dashboard/MyLearningCoursesSection";
 import { useGetCourses } from "@/queries/getCourses";
+import { useGetUserEnrolledCourses } from "@/queries/getUserEnrolledCourses";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function Dashboard() {
   const { data: session } = useSession();
 
-  const { isLoading, isError, error, data, isSuccess } = useGetCourses(
-    //@ts-ignore
-    session?.user.token || ""
-  );
+  const { isLoading, isError, error, data, isSuccess } =
+    useGetUserEnrolledCourses(
+      //@ts-ignore
+      session?.user.token || ""
+    );
 
   //@ts-ignore
   if (isLoading || !session?.user.token) {
@@ -20,13 +22,6 @@ export default function Dashboard() {
 
   //@ts-ignore
   if (session.user.token && isSuccess) {
-    return (
-      <main className="flex justify-center">
-        <div className="w-[89.51%]">
-          <InfoCard />
-          <MyLearningCoursesSection courses={data} />
-        </div>
-      </main>
-    );
+    return <MyLearningCoursesSection data={data} />;
   }
 }

@@ -13,7 +13,7 @@ const Quiz = ({
   };
 }) => {
   const [activePage, setActivePage] = React.useState(0);
-  const [result, setResult] = React.useState<QuizResult[]>([]);
+  const [result, setResult] = React.useState<QuizResult>({});
   return (
     <div>
       {activePage === 0 && (
@@ -21,9 +21,12 @@ const Quiz = ({
           courseId={params.courseId}
           result={result}
           setResult={setResult}
+          setActivePage={setActivePage}
         />
       )}
-      {activePage === 1 && <Result />}
+      {activePage === 1 && (
+        <Result result={result} setActivePage={setActivePage} />
+      )}
     </div>
   );
 };

@@ -12,6 +12,7 @@ export function useGetCourseQuestions(token: string, courseId: string) {
       const response = await api.getCourseQuestions(courseId);
       return response.data;
     },
+    retry: false,
     enabled: token ? true : false,
   });
 }

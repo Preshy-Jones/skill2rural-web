@@ -154,7 +154,7 @@ class Api {
   };
 
   getCourseQuestions = async (courseId: string): Promise<any> => {
-    const url = this.baseURL + `/course/${courseId}/questions`;
+    const url = this.baseURL + `/questions/question/${courseId}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -163,7 +163,103 @@ class Api {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch course questions");
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+  createCertificate = async (
+    courseId: string,
+    data: {
+      gradeInPercentage: number;
+    }
+  ): Promise<any> => {
+    const url = this.baseURL + `/questions/certificate/${courseId}`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
+  getCourseCertificate = async (courseId: string): Promise<any> => {
+    const url = this.baseURL + `/questions/certificate/${courseId}`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
+  getUserCertificates = async (): Promise<any> => {
+    const url = this.baseURL + "/questions/certificate";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch course certificates");
+    }
+
+    return response.json();
+  };
+
+  updateCourseProgress = async (
+    courseId: number,
+    data: {
+      current_time: number;
+    }
+  ): Promise<any> => {
+    const url = this.baseURL + `/course-progress/${courseId}`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update course progress");
+    }
+
+    return response.json();
+  };
+
+  getUsersEnrolledCourses = async (): Promise<any> => {
+    const url = this.baseURL + "/course/enrolled";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch user's enrolled courses");
     }
 
     return response.json();

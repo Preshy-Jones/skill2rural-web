@@ -174,7 +174,10 @@ const Reviews = ({ courseId }: { courseId: string }) => {
               ))}
 
             {data.reviews.length === 0 && (
-              <div className="flex justify-center">
+              <div className="flex justify-center flex-col items-center">
+                <h2 className="text-greyText font-semibold leading-fifth mb-9">
+                  There is no review yet
+                </h2>
                 <Image alt="no-review" src={NoReviews} />
               </div>
             )}

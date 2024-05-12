@@ -4,14 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useGetSingleCourse(token: string, id: string) {
   return useQuery<Course>({
-    queryKey: ["courses"],
+    queryKey: ["singleCourse"],
     queryFn: async () => {
       const api = new Api();
       api.setToken(token);
       const response = await api.getSingleCourse(id);
       return response.data;
     },
-
     enabled: token ? true : false,
   });
 }

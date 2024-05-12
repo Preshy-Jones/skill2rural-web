@@ -2,20 +2,20 @@ import React from "react";
 
 interface RadioProps {
   checked: boolean | null;
-  onChange: (checked: boolean) => void;
-  setChecked: React.Dispatch<React.SetStateAction<boolean | null>>;
-  selected: boolean;
+  onChange: (selected: number | null) => void;
+  setSelectedOption: (value: number | null) => void;
+  index: number | null;
 }
 
 const CustomRadio: React.FC<RadioProps> = ({
   checked,
   onChange,
-  setChecked,
-  selected,
+  setSelectedOption,
+  index,
 }) => {
   const handleChange = () => {
-    setChecked(selected);
-    onChange(selected);
+    setSelectedOption(index);
+    onChange(index);
   };
 
   return (
@@ -23,18 +23,17 @@ const CustomRadio: React.FC<RadioProps> = ({
       <div
         onClick={handleChange}
         style={{
-          width: "20px",
-          height: "20px",
+          width: "16px",
+          height: "16px",
           borderRadius: "50%",
-          border: "2px solid #60269E",
-          backgroundColor:
-            checked && checked !== null ? "#60269E" : "transparent",
+          border: "2px solid #7F56D9",
+          backgroundColor: checked ? "#7F56D9" : "transparent",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {checked && checked !== null && (
+        {checked && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

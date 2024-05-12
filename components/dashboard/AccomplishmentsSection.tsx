@@ -7,12 +7,9 @@ import anyImage from "@/public/designThinking.svg";
 import { CourseStatus } from "./MyLearningCoursesSection";
 import { Progress } from "../ui/progress";
 import Link from "next/link";
+import { GetUserCertificates } from "@/types/course";
 
-const AccomplishmentsSection = () => {
-  const [activeTab, setActiveTab] = useState("ongoing");
-  const handleTabClick = (tab: CourseStatus) => {
-    setActiveTab(tab);
-  };
+const AccomplishmentsSection = ({ data }: { data: GetUserCertificates }) => {
   return (
     <div>
       <div className="flex mt-6">
@@ -34,7 +31,10 @@ const AccomplishmentsSection = () => {
         Accomplishments
       </h2>
       <div className="flex justify-between">
-        <p className=" font-medium">1 out of 3 completed</p>
+        <p className=" font-medium">
+          {data.number_of_completed_courses} out of{" "}
+          {data.total_courses_enrolled} completed
+        </p>
         <div className="flex items-center">
           <p className=" tracking-[0,1px]">
             Sort by:
@@ -46,7 +46,7 @@ const AccomplishmentsSection = () => {
         </div>
       </div>
       <div className="mt-12">
-        {Array.from({ length: 5 }).map((_, index) => (
+        {data.certificates.map((accomplishment, index) => (
           <div
             className="bg-white flex items-center py-12 px-8 mb-4"
             key={index}
@@ -56,30 +56,28 @@ const AccomplishmentsSection = () => {
               src={anyImage}
               className="w-[165px] h-[10rem] rounded-[0.264375rem] mr-4"
             />
-            <div className="flex flex-col justify-between mr-4">
+            <div className="flex flex-col justify-between mr-4 w-full">
               <h2 className=" font-semibold leading-fifth mb-3">
-                Design Thinking
+                {accomplishment.course.title}
               </h2>
               <p className="leading-fifth mb-4">
-                Lorem ipsum dolor sit amet consectetur. Ut cursus in
-                sollicitudin a rhoncus orci aliquam lacinia nisl. Morbi mi
-                ultrices velit consectetur sed lectus nunc porta. Neque amet a
-                sit id auctor congue vitae ultricies est. Senectus vestibulum
-                adipiscing consectetur quis scelerisque elit. Lorem iaculis dui
-                nibh ultrices neque ac gravida......
+                {accomplishment.course.description}
               </p>
               <div className="mb-4">
                 <h3 className=" font-medium text-xs leading-tenth">
-                  40% Complete
+                  {accomplishment.course.progress[0].progressPercentage}%
+                  Complete
                 </h3>
-                <Progress value={33} className="h-[0.375rem] bg-textFourth" />
+                <Progress value={accomplishment.course.progress[0].progressPercentage} className="h-[0.375rem] bg-textFourth" />
               </div>
               <h3 className="text-primary font-semibold text-lg leading-ninth">
                 Free
               </h3>
             </div>
             <div>
-              <Link href={"/dashboard/my-learnings/accomplishments/djdhjd"}>
+              <Link
+                href={`/dashboard/my-learnings/accomplishments/${accomplishment.id}`}
+              >
                 <button className="w-[9rem] h-[2.4375rem] font-semibold bg-primary px-2 text-white rounded-tertiary">
                   View Certificate
                 </button>
