@@ -1,6 +1,7 @@
 import React from "react";
 import flowers from "@/public/flowers.svg";
 import Image from "next/image";
+
 const InfoCard = () => {
   return (
     <div className=" text-white mt-6">

@@ -9,14 +9,14 @@ import sdgs from "@/public/sdgs.svg";
 import rightArrow from "@/public/arrow-right.svg";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
-import { Course } from "@/types/course";
+import { Course, GetUserEnrolledCourses } from "@/types/course";
 import freeIcon from "@/public/free.svg";
 
-const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
-  const [activeTab, setActiveTab] = useState("ongoing");
-  const handleTabClick = (tab: CourseStatus) => {
-    setActiveTab(tab);
-  };
+const MyLearningCoursesSection = ({
+  data,
+}: {
+  data: GetUserEnrolledCourses;
+}) => {
   return (
     <div>
       <div className="flex mt-6">
@@ -38,7 +38,10 @@ const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
         Continue Watching
       </h2>
       <div className="flex justify-between">
-        <p className=" font-medium">1 out of 3 completed</p>
+        <p className=" font-medium">
+          {data.number_of_completed_courses} out of{" "}
+          {data.total_courses_enrolled} completed
+        </p>
         <div className="flex items-center">
           <p className=" tracking-[0,1px]">
             Sort by:
@@ -50,7 +53,7 @@ const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-12 mt-12">
-        {courses.map((item, index) => (
+        {data.courses.map((item, index) => (
           <div
             key={index}
             className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form bg-white`}
@@ -83,9 +86,12 @@ const MyLearningCoursesSection = ({ courses }: { courses: Course[] }) => {
             </div>
             <div className="mb-4">
               <h3 className=" font-medium text-xs leading-tenth">
-                40% Complete
+                {item.progress[0].progressPercentage}% complete
               </h3>
-              <Progress value={33} className="h-[0.375rem] bg-textFourth" />
+              <Progress
+                value={item.progress[0].progressPercentage}
+                className="h-[0.375rem] bg-textFourth"
+              />
             </div>
             <div className="flex justify-end items-center">
               <Link href={`my-learnings/course/${item.id}`}>

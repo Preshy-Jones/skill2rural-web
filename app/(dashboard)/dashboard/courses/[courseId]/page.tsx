@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import caretRight from "@/public/caret-right-plain.svg";
 import expandVideoIcon from "@/public/expand-video-icon.svg";
 import Image from "next/image";
@@ -12,6 +12,9 @@ import Reviews from "@/components/dashboard/common/Course/Reviews";
 import { useGetCourses } from "@/queries/getCourses";
 import { useSession } from "next-auth/react";
 import { useGetSingleCourse } from "@/queries/getSingleCourse";
+import { useUpdateProgress } from "@/queries/updateCourseProgress";
+import VideoPlayer from "@/components/VideoPlayer";
+import Link from "next/link";
 // import videoReactCss from "video-react/dist/video-react.css";
 // import ReactPlayer from 'react-player'
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
@@ -33,8 +36,11 @@ const SingleCourseDetails = ({
     //rename data to course
     data: course,
     isSuccess,
+  } = useGetSingleCourse(
     //@ts-ignore
-  } = useGetSingleCourse(session?.user.token || "", courseId);
+    session?.user.token || "",
+    courseId
+  );
 
   const options = ["Course details", "Questions", "Reviews"];
   const [active, setActive] = useState(0);
@@ -50,7 +56,7 @@ const SingleCourseDetails = ({
         <div className="w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
           <div className="flex">
-            <h3>Courses</h3>
+            <Link href={"/dashboard/courses"}>Courses</Link>
             <Image src={caretRight} alt="caret-right" />
             <h3>{course.title}</h3>
           </div>
@@ -60,42 +66,46 @@ const SingleCourseDetails = ({
             </h2>
             <Image src={expandVideoIcon} alt="expand-video" />
           </div>
-          <ReactPlayer
-            url={course.video_url}
-            controls
-            width="640"
-            height="360"
-          />
+          <VideoPlayer course={course} />
           {/* <Player>
           <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
         </Player> */}
           <div className="w-[40%]">
             <div className="grid grid-cols-3 pt-6">
-              {options.map((item, index) => (
-                <div
-                  key={index}
-                  className="h-[3rem] flex flex-col items-center justify-between w-full cursor-pointer"
-                  onClick={() => setActive(index)}
-                >
-                  <h2
-                    className={`${
-                      index === active
-                        ? "text-primary font-semibold"
-                        : "text-greyText2"
-                    }`}
+              {options.map((item, index) => {
+                if (
+                  item === "Questions" &&
+                  course?.progress &&
+                  course?.progress[0]?.progressPercentage < 90
+                ) {
+                  return;
+                }
+                return (
+                  <div
+                    key={index}
+                    className="h-[3rem] flex flex-col items-center justify-between w-full cursor-pointer"
+                    onClick={() => setActive(index)}
                   >
-                    {item}
-                  </h2>
-                  {active === index && (
-                    <motion.div
-                      // animate={{ x: active === 1 ? "100%" : 0 }}
-                      // transition={{ type: "tween", duration: 0.4 }}
-                      layoutId="navbar"
-                      className="h-[4px] bg-primary w-full rounded-md"
-                    ></motion.div>
-                  )}
-                </div>
-              ))}
+                    <h2
+                      className={`${
+                        index === active
+                          ? "text-primary font-semibold"
+                          : "text-greyText2"
+                      }`}
+                    >
+                      {item}
+                    </h2>
+                    {active === index && (
+                      <motion.div
+                        // animate={{ x: active === 1 ? "100%" : 0 }}
+                        // transition={{ type: "tween", duration: 0.4 }}
+                        layoutId="navbar"
+                        className="h-[4px] bg-primary w-full rounded-md"
+                      ></motion.div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
           {active === 0 && <Details course={course} />}

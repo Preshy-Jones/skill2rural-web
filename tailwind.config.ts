@@ -15,6 +15,7 @@ const config: Config = {
       },
     },
     extend: {
+      
       animation: {
         "infinite-scroll": "infinite-scroll 25s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",

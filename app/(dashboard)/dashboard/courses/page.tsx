@@ -30,7 +30,7 @@ const DashboardCourses = () => {
     return <div>Loading courses...</div>;
   }
   //@ts-ignore
-  if (session.user.token && isSuccess) {
+  if (session.user.token && isSuccess && data.length > 0) {
     return (
       <div className="flex justify-center">
         <div className="w-[89.51%]">

@@ -1,3 +1,5 @@
+import { HttpStatus } from "@/types/global";
+
 export const handleErrorResponse = (error: any) => {
   if (error.response.data.statusCode === HttpStatus.BAD_REQUEST) {
     return error.response.data.message[0];
@@ -5,14 +7,17 @@ export const handleErrorResponse = (error: any) => {
   return error.response.data.message;
 };
 
-enum HttpStatus {
-  OK = 200,
-  CREATED = 201,
-  NO_CONTENT = 204,
-  BAD_REQUEST = 400,
-  UNAUTHORIZED = 401,
-  FORBIDDEN = 403,
-  NOT_FOUND = 404,
-  UNPROCESSABLE_ENTITY = 422,
-  INTERNAL_SERVER_ERROR = 500,
-}
+//create function to convert date to the format of February 10, 2024
+export const formatDate = (date: Date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+export const convertToHourseAndMinutes = (duration: number) => {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration % 60;
+  return `${hours} hours ${minutes} minutes`;
+};
