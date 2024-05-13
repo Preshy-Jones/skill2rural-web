@@ -14,6 +14,7 @@ import { getServerSession } from "next-auth";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProgressBar from "@/components/NpProgress";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -72,6 +73,12 @@ export default async function DashbaordPageLayout({
           </ReactQueryProvider>
           <ToastContainer />
         </SessionProvider>
+        <ProgressBar
+          height="4px"
+          color="#60269E"
+          options={{ showSpinner: false }}
+          shallowRouting
+        />
       </body>
     </html>
   );

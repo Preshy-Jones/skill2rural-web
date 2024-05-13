@@ -15,7 +15,6 @@ const config: Config = {
       },
     },
     extend: {
-      
       animation: {
         "infinite-scroll": "infinite-scroll 25s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +114,7 @@ const config: Config = {
         },
       },
       fontSize: {
+        xxs: "0.625rem",
         "2.5xl": "4.875rem",
         "3.5xl": "2rem",
       },

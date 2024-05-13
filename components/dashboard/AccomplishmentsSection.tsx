@@ -76,7 +76,7 @@ const AccomplishmentsSection = ({ data }: { data: GetUserCertificates }) => {
             </div>
             <div>
               <Link
-                href={`/dashboard/my-learnings/accomplishments/${accomplishment.id}`}
+                href={`/dashboard/my-learnings/accomplishments/${accomplishment.course.id}`}
               >
                 <button className="w-[9rem] h-[2.4375rem] font-semibold bg-primary px-2 text-white rounded-tertiary">
                   View Certificate
