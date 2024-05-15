@@ -43,7 +43,7 @@ const AcommplishmentDetails = ({
     const input = inputRef.current;
     //remove hidden class
     // input.classList.remove("hidden");
-
+    //@ts-ignore
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png");
 
@@ -70,6 +70,7 @@ const AcommplishmentDetails = ({
   const downloadImage = async () => {
     const input = inputRef.current;
     // input.classList.remove("hidden");
+    //@ts-ignore
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png"); // or 'image/jpeg'
 
@@ -97,7 +98,9 @@ const AcommplishmentDetails = ({
       <div className="flex justify-center w-full font-neue">
         <div className="w-[89.51%] py-10">
           <div className="flex mb-14 font-medium leading-fifth items-center">
-            <Link  href={"/dashboard/my-learnings"} className="">My Learnings</Link>
+            <Link href={"/dashboard/my-learnings"} className="">
+              My Learnings
+            </Link>
             <Image src={caretRight} alt="caret-right" />
             <h3>Accomplishments</h3>
           </div>
