@@ -15,7 +15,6 @@ const config: Config = {
       },
     },
     extend: {
-      
       animation: {
         "infinite-scroll": "infinite-scroll 25s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +114,7 @@ const config: Config = {
         },
       },
       fontSize: {
+        xxs: "0.625rem",
         "2.5xl": "4.875rem",
         "3.5xl": "2rem",
       },
@@ -146,11 +146,15 @@ const config: Config = {
         ninth: "1.35rem",
         tenth: "1.3rem",
         eleventh: "1.26875rem",
+        twelfth: "0.85375rem",
+        thirteenth: "1.816rem",
+        fourteenth: "0.85375rem",
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",
         clash: ["var(--font-clash)"],
         inter: ["var(--font-inter)"],
+        avenir: ["var(--font-avenir)"],
       },
       gridTemplateColumns: {
         footer: "30% 70%",

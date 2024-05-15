@@ -76,7 +76,8 @@ const SingleCourseDetails = ({
                 if (
                   item === "Questions" &&
                   course?.progress &&
-                  course?.progress[0]?.progressPercentage < 90
+                  (course?.progress[0]?.progressPercentage < 90 ||
+                    course.progress.length === 0)
                 ) {
                   return;
                 }

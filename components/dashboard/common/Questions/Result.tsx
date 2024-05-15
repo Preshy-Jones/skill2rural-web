@@ -5,9 +5,11 @@ import React from "react";
 const Result = ({
   result,
   setActivePage,
+  certificateId,
 }: {
   result: QuizResult;
   setActivePage: React.Dispatch<React.SetStateAction<number>>;
+  certificateId: number | null;
 }) => {
   const [success, setSuccess] = React.useState(false);
   const totalPoints = Object.keys(result).reduce(
@@ -32,7 +34,7 @@ const Result = ({
         <h1 className="mb-12 text-3.5xl font-medium leading-tertiary">
           Take Practice Quiz
         </h1>
-        <pre>{JSON.stringify(result, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(result, null, 2)}</pre> */}
         <div className="flex justify-between">
           <h3 className="font-semibold leading-fifth font-neue text-greyText">
             Quiz submitted
@@ -70,7 +72,9 @@ const Result = ({
                 </h1>
               </div>
               {gradeInPercentage >= 70 ? (
-                <Link href={`/dashboard/my-learnings/accomplishments/4`}>
+                <Link
+                  href={`/dashboard/my-learnings/accomplishments/${certificateId}`}
+                >
                   <button className="bg-correct h-[3.75rem] text-white rounded-btn w-60">
                     View Certificate
                   </button>
