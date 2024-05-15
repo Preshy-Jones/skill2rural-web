@@ -57,7 +57,7 @@ const CourseDetailPage = ({
         <div className="w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
 
-          <div className="flex">
+          <div className="flex font-medium leading-fifth items-center">
             <Link href={"/dashboard/my-learnings"}>My Learnings</Link>
             <Image src={caretRight} alt="caret-right" />
             <h3>Course</h3>

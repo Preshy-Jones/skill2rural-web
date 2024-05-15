@@ -9,7 +9,7 @@ import { useGetCourseQuestions } from "@/queries/getCourseQuestions";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import CustomRadio from "@/components/ui/CustomRadio";
-import { CourseQuestion, QuizResult } from "@/types/course";
+import { Certificate, CourseQuestion, QuizResult } from "@/types/course";
 import Link from "next/link";
 import { useCreateCertificate } from "@/queries/createCertificate";
 import { toast } from "react-toastify";
@@ -20,11 +20,13 @@ const Questions = ({
   result,
   setResult,
   setActivePage,
+  setCertificateId,
 }: {
   courseId: string;
   result: QuizResult;
   setResult: React.Dispatch<React.SetStateAction<QuizResult>>;
   setActivePage: React.Dispatch<React.SetStateAction<number>>;
+  setCertificateId: React.Dispatch<React.SetStateAction<number | null>>;
 }) => {
   const router = useRouter();
   const [isSubmitted, setIsSubmitted] = React.useState(false);
@@ -43,7 +45,7 @@ const Questions = ({
     courseId
   );
 
-  const createCertificate = useCreateCertificate(
+  const createCertificate = useCreateCertificate<Certificate>(
     //@ts-ignore
     session?.user.token || "",
     courseId
@@ -102,11 +104,19 @@ const Questions = ({
     setIsSubmitted(true);
   };
 
-  const handleResult = () => {
-    if (gradeInPercentage >= 70) {
-      createCertificate.mutate({ gradeInPercentage });
+  const handleResult = async () => {
+    try {
+      if (gradeInPercentage >= 70) {
+        const response = await createCertificate.mutateAsync({
+          gradeInPercentage,
+        });
+        console.log("response", response);
+        setCertificateId(response.courseId);
+      }
+      setActivePage(1);
+    } catch (error) {
+      console.error("Error creating certificate", error);
     }
-    setActivePage(1);
   };
 
   //@ts-ignore

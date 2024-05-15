@@ -146,11 +146,15 @@ const config: Config = {
         ninth: "1.35rem",
         tenth: "1.3rem",
         eleventh: "1.26875rem",
+        twelfth: "0.85375rem",
+        thirteenth: "1.816rem",
+        fourteenth: "0.85375rem",
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",
         clash: ["var(--font-clash)"],
         inter: ["var(--font-inter)"],
+        avenir: ["var(--font-avenir)"],
       },
       gridTemplateColumns: {
         footer: "30% 70%",

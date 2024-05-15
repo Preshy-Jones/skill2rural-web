@@ -52,6 +52,17 @@ const clashDisplay = localFont({
   variable: "--font-clash",
 });
 
+const avenir = localFont({
+  src: [
+    {
+      path: "../../public/Avenir/AvenirRegular/AvenirRegular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-avenir",
+});
+
 export default async function DashbaordPageLayout({
   children,
 }: Readonly<{
@@ -62,7 +73,7 @@ export default async function DashbaordPageLayout({
     <html lang="en">
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
       <body
-        className={`relative ${clashDisplay.variable} ${inter.variable} bg-greyBg3`}
+        className={`relative ${clashDisplay.variable} ${inter.variable} bg-greyBg3 ${avenir.variable}`}
       >
         <SessionProvider session={session}>
           <ReactQueryProvider>
