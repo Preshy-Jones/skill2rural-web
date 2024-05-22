@@ -89,7 +89,7 @@ const BasicInformation = ({ user }: { user: User }) => {
       className="basis-[70%] bg-white flex divide-x divide-formInputBorder  py-12 rounded-lg"
     >
       {/* <pre>{JSON.stringify(session?.user, null, 2)}</pre> */}
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
       <div className="px-6">
         <Image
           className="rounded-full w-[6.25rem] h-[6.25rem]"
