@@ -69,7 +69,8 @@ export const authOptions: NextAuthOptions = {
       // if (token?.id) {
       //console.log("session", session);
       // console.log("token", token);
-      session.user.id = token.id;
+      //@ts-ignore
+      session.user.id = token.sub;
       //@ts-ignore
       session.user.token = token.id;
       return session;

@@ -259,7 +259,42 @@ class Api {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch user's enrolled courses");
+      throw new Error("Failed to fetch enrolled courses");
+    }
+
+    return response.json();
+  };
+
+  getUserSettings = async (): Promise<any> => {
+    const url = this.baseURL + "/user/me";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch user data");
+    }
+
+    return response.json();
+  };
+
+  updateUser = async (userId: number, data: FormData): Promise<any> => {
+    const url = this.baseURL + `/user/${userId}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        // "Content-Type": "multipart/form-data",
+      },
+      body: data,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
     }
 
     return response.json();

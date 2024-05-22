@@ -19,3 +19,18 @@ export enum HttpStatus {
   UNPROCESSABLE_ENTITY = 422,
   INTERNAL_SERVER_ERROR = 500,
 }
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  type: UserType;
+  organisation: string;
+  role: string | null;
+  no_of_students_to_reach: number | null;
+  work_with_maginalized_populations: boolean | null;
+  profile_photo: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

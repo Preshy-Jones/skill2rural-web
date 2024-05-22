@@ -7,7 +7,8 @@ const nextConfig = {
       "upload.wikimedia.org",
       "i.ytimg.com",
       "img.jakpost.net",
-      "commondatastorage.googleapis.com"
+      "commondatastorage.googleapis.com",
+      "skill2rural.s3.eu-north-1.amazonaws.com",
     ],
     // remotePatterns: [
     //   {
