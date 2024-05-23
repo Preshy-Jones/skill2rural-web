@@ -47,7 +47,7 @@ const StudentsForm = () => {
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      const errorMessage = handleErrorResponse(error);
+      const errorMessage = handleErrorResponse(error.response.data)
       toast.error(errorMessage);
     },
   });
@@ -107,7 +107,7 @@ const StudentsForm = () => {
   return (
     <div>
       <form action="" className="px-6 pt-16" onSubmit={handleSubmit(onSubmit)}>
-        <pre>{JSON.stringify(watch(), null, 2)}</pre>
+        {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
         <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
         <div className="mb-8">
           <div className="mb-7">

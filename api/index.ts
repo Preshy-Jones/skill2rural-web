@@ -1,6 +1,7 @@
 import { Course, CourseReview, GetCourseReviewResponse } from "@/types/course";
 import { ApiResponse } from "@/types/global";
 import { METHOD } from "@/types/methods";
+import { handleErrorResponse } from "@/utils";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 
 class Api {
@@ -259,9 +260,76 @@ class Api {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch user's enrolled courses");
+      throw new Error("Failed to fetch enrolled courses");
     }
 
+    return response.json();
+  };
+
+  getUserSettings = async (): Promise<any> => {
+    const url = this.baseURL + "/user/me";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch user data");
+    }
+
+    return response.json();
+  };
+
+  updateUser = async (userId: number, data: FormData): Promise<any> => {
+    const url = this.baseURL + `/user/${userId}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        // "Content-Type": "multipart/form-data",
+      },
+      body: data,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
+  changePassword = async (payload: {
+    oldPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }) => {
+    const url = this.baseURL + "/user/change-password";
+
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+
+      console.log("errorData", errorData);
+
+      const errorMessages = errorData.message;
+
+      if (typeof errorMessages === "string") {
+        throw new Error(errorMessages);
+      }
+
+      throw new Error(errorMessages[0]);
+    }
     return response.json();
   };
 }

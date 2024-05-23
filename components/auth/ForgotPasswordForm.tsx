@@ -67,7 +67,7 @@ const ForgotPasswordForm = ({
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      const errorMessage = handleErrorResponse(error);
+      const errorMessage = handleErrorResponse(error.response.data);
       toast.error(errorMessage);
     },
   });
