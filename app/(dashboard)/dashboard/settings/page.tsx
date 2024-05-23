@@ -10,6 +10,7 @@ import { z } from "zod";
 import { UserType } from "@/types/global";
 import { useUpdateUserSettings } from "@/queries/useUpdateUser";
 import BasicInformation from "@/components/dashboard/settings/BasicInformation";
+import ChangePassword from "@/components/dashboard/settings/ChangePassword";
 
 const Settings = () => {
   const { data: session } = useSession();
@@ -83,40 +84,7 @@ const Settings = () => {
           {active === "basic" ? (
             <BasicInformation user={user} />
           ) : (
-            <div className="basis-[70%] bg-white py-12 pl-12 pb-48 rounded-lg">
-              <h2 className=" font-semibold leading-6 text-xl mb-6">
-                Password Settings
-              </h2>
-              <div>
-                <div className="mb-3">
-                  <h3 className="font-semibold mb-1">Current Password</h3>
-                  <input
-                    type="text"
-                    placeholder=""
-                    className="border border-formInputBorder w-[70%] h-[3.4375rem] rounded-btn pl-4"
-                  />
-                </div>
-                <div className="mb-3">
-                  <h3 className="font-semibold mb-1">New Password</h3>
-                  <input
-                    type="text"
-                    placeholder="Enter password"
-                    className="border border-formInputBorder w-[70%] h-[3.4375rem] rounded-btn pl-4"
-                  />
-                </div>
-                <div className="mb-3">
-                  <h3 className="font-semibold mb-1">Confirm Password</h3>
-                  <input
-                    type="text"
-                    placeholder="Enter password"
-                    className="border border-formInputBorder w-[70%] h-[3.4375rem] rounded-btn pl-4"
-                  />
-                </div>
-                <button className=" bg-primary text-white leading-fifth font-semibold w-[15rem] h-[3.75rem] rounded-[6.25rem] mt-16">
-                  Save Changes
-                </button>
-              </div>
-            </div>
+            <ChangePassword />
           )}
         </div>
       </div>

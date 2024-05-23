@@ -1,5 +1,4 @@
 import Api from "@/api";
-import { Certificate } from "@/types/course";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 

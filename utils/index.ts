@@ -1,10 +1,10 @@
 import { HttpStatus } from "@/types/global";
 
 export const handleErrorResponse = (error: any) => {
-  if (error.response.data.statusCode === HttpStatus.BAD_REQUEST) {
-    return error.response.data.message[0];
+  if (error.statusCode === HttpStatus.BAD_REQUEST) {
+    return error.message[0];
   }
-  return error.response.data.message;
+  return error.message;
 };
 
 //create function to convert date to the format of February 10, 2024

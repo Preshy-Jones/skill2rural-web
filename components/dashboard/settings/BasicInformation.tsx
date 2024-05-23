@@ -62,6 +62,9 @@ const BasicInformation = ({ user }: { user: User }) => {
     updateUser.mutate(data);
   };
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
+
+    // simulate 5 second delay
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log("hdhdhdhh");
 
     console.log(data);

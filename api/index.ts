@@ -1,6 +1,7 @@
 import { Course, CourseReview, GetCourseReviewResponse } from "@/types/course";
 import { ApiResponse } from "@/types/global";
 import { METHOD } from "@/types/methods";
+import { handleErrorResponse } from "@/utils";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 
 class Api {
@@ -297,6 +298,38 @@ class Api {
       throw new Error(errorData.message);
     }
 
+    return response.json();
+  };
+
+  changePassword = async (payload: {
+    oldPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }) => {
+    const url = this.baseURL + "/user/change-password";
+
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+
+      console.log("errorData", errorData);
+
+      const errorMessages = errorData.message;
+
+      if (typeof errorMessages === "string") {
+        throw new Error(errorMessages);
+      }
+
+      throw new Error(errorMessages[0]);
+    }
     return response.json();
   };
 }
