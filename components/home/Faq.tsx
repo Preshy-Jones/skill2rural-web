@@ -89,7 +89,7 @@ const faqOptions = [
   {
     title: "I am an educator and teacher, can I sign up for the courses",
     summary:
-      "Yes from 16 - 25 years old. However, those above the age range can benefit from it. ",
+      "Yes, you can sign up as a facilitator to use the courses to teach your students. The facilitator's login is different. You can also earn a certificate for your dedication to education and community service. ",
   },
   {
     title: "Do I have to pay to sign up for the courses?",
