@@ -65,7 +65,7 @@ const NavBar = () => {
               <MenubarMenu>
                 <MenubarTrigger>
                   <Image
-                    className="rounded-full w-[3.75rem] h-[3.75rem]"
+                    className="rounded-full w-[3.75rem] h-[3.75rem] cursor-pointer"
                     alt="profile-picture"
                     src={session?.user.image || ""}
                     width={60}
@@ -73,7 +73,11 @@ const NavBar = () => {
                   />
                 </MenubarTrigger>
                 <MenubarContent className="px-0">
-                  <LoggedInMenu />
+                  <LoggedInMenu
+                    logout={() => {
+                      signOut();
+                    }}
+                  />
                 </MenubarContent>
               </MenubarMenu>
             </Menubar>
