@@ -6,9 +6,8 @@ import MyCoursesIcon from "@/public/my-courses-icon.svg";
 import AccomplishmentsIcon from "@/public/my-accomplishments.svg";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
 
-const LoggedInMenu = () => {
+const LoggedInMenu = ({ logout }: { logout: () => void }) => {
   return (
     <div className=" py-8">
       {itemData.map((item, index) => (
@@ -17,6 +16,7 @@ const LoggedInMenu = () => {
           icon={item.icon}
           title={item.title}
           link={item.link}
+          logout={logout}
         />
       ))}
     </div>
@@ -29,10 +29,12 @@ const MenuItem = ({
   icon,
   title,
   link,
+  logout,
 }: {
   icon: StaticImageData;
   title: string;
   link: string;
+  logout?: () => void;
 }) => {
   return (
     <div>
@@ -44,7 +46,7 @@ const MenuItem = ({
       ) : (
         <div className="navmenuitem">
           <Image src={icon} alt="dashboard-icon" className="mr-3" />
-          <h3 onClick={() => signOut()}>{title}</h3>
+          <h3 onClick={() => logout()}>{title}</h3>
         </div>
       )}
     </div>
