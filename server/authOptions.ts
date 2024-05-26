@@ -32,6 +32,7 @@ export const authOptions: NextAuthOptions = {
             id: user.data.data.user.id,
             name: user.data.data.user.name,
             email: user.data.data.user.email,
+            image: user.data.data.user.profile_photo,
             token: user.data.data.accessToken,
           };
         } catch (error: any) {
@@ -59,6 +60,7 @@ export const authOptions: NextAuthOptions = {
         console.log("user", user);
         console.log("token", token);
         token.sub = user.id;
+        token.picture = user.image;
         //@ts-ignore
         token.id = user?.token;
       }
@@ -73,6 +75,7 @@ export const authOptions: NextAuthOptions = {
       session.user.id = token.sub;
       //@ts-ignore
       session.user.token = token.id;
+      session.user.image = token.picture;
       return session;
       // }
     },

@@ -10,6 +10,7 @@ import SessionProvider from "../../components/SessionProvider";
 import { useRouter } from "next/navigation";
 import ProgressBar from "@/components/NpProgress";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
+import { NavigationMenuDemo } from "@/components/NavMenuExample";
 
 const metadata: Metadata = {
   title: "Skill2rural app",
@@ -55,6 +56,7 @@ export default async function LandingPageLayout({
         <SessionProvider session={session}>
           <ReactQueryProvider>
             <NavBar />
+            {/* <NavigationMenuDemo /> */}
             {children}
             <Faq />
             <Footer />

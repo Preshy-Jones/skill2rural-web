@@ -79,6 +79,13 @@
   }
 }
 
+@layer components{
+  .navmenuitem {
+    @apply flex items-center py-3 pl-8 pr-24 cursor-pointer text-greyText font-medium text-sm hover:bg-primary hover:bg-opacity-20 hover:text-white;
+  }
+
+}
+
 .half-circle {
   border-radius: 0 0 1000px 1000px;
 }
