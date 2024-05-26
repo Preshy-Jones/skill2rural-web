@@ -46,6 +46,7 @@ const MenuItem = ({
       ) : (
         <div className="navmenuitem">
           <Image src={icon} alt="dashboard-icon" className="mr-3" />
+          {/* @ts-ignore */}
           <h3 onClick={() => logout()}>{title}</h3>
         </div>
       )}
