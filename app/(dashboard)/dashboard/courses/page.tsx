@@ -26,8 +26,8 @@ const DashboardCourses = () => {
     //@ts-ignore
     session?.user.token || ""
   );
-  //@ts-ignore
-  if (isLoading && session?.user.token) {
+  //@ts-ignore 
+  if (isLoading || !session?.user.token) {
     const rows = Array(12).fill(null);
     return (
       <div>
