@@ -53,7 +53,7 @@ const ChangePassword = () => {
       <h2 className=" font-semibold leading-6 text-xl mb-6">
         Password Settings
       </h2>
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
       <div>
         <div className="mb-3">
           <h3 className="font-semibold mb-1">Current Password</h3>

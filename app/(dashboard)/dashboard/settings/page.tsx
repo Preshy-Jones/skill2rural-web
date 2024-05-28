@@ -22,7 +22,7 @@ const Settings = () => {
     data: user,
   } = useGetUserSettings(
     //@ts-ignore
-    session?.user.token || ""
+    session?.user.email || ""
   );
 
   const updateUser = useUpdateUserSettings(
@@ -31,11 +31,11 @@ const Settings = () => {
   );
 
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading Settings...</div>;
   }
   //@ts-ignore
-  if (session.user.token && isSuccess && user) {
+  if (session.user.email && isSuccess && user) {
     return (
       <div className="flex justify-center mt-16">
         <div className="w-[90%] flex justify-between">
