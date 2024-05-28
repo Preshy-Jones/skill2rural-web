@@ -52,22 +52,22 @@ const DashboardCourses = () => {
   );
   // }
   //@ts-ignore
-  if (session.user.token && isSuccess && data.length > 0) {
-    return (
-      <div className="flex justify-center">
-        <div className="w-[89.51%]">
-          <pre className="text-black">
-            {/* {JSON.stringify(session?.user, null, 2)} */}
-          </pre>
-          {/* <pre className="text-black">{JSON.stringify(isError, null, 2)}</pre> */}
+  // if (session.user.token && isSuccess && data.length > 0) {
+  //   return (
+  //     <div className="flex justify-center">
+  //       <div className="w-[89.51%]">
+  //         <pre className="text-black">
+  //           {/* {JSON.stringify(session?.user, null, 2)} */}
+  //         </pre>
+  //         {/* <pre className="text-black">{JSON.stringify(isError, null, 2)}</pre> */}
 
-          <InfoCard />
-          <CoursesSection courses={data} />
-        </div>
-      </div>
-    );
-  }
-  return <div>Not logged in</div>;
+  //         <InfoCard />
+  //         <CoursesSection courses={data} />
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  // return <div>Not logged in</div>;
 };
 
 export default DashboardCourses;
