@@ -44,10 +44,11 @@ const MenuItem = ({
           <h3>{title}</h3>
         </Link>
       ) : (
-        <div className="navmenuitem">
+        //  @ts-ignore
+        <div className="navmenuitem" onClick={() => logout()}>
           <Image src={icon} alt="dashboard-icon" className="mr-3" />
-          {/* @ts-ignore */}
-          <h3 onClick={() => logout()}>{title}</h3>
+
+          <h3>{title}</h3>
         </div>
       )}
     </div>

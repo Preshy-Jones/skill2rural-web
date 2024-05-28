@@ -26,36 +26,39 @@ const DashboardCourses = () => {
     //@ts-ignore
     session?.user.token || ""
   );
-  //@ts-ignore 
-  if (isLoading || !session?.user.token) {
-    const rows = Array(12).fill(null);
-    return (
-      <div>
-        <SkeletonTheme
-          baseColor="rgba(184, 193, 213, 0.19)"
-          highlightColor="white"
-        >
-          <div className="flex justify-center">
-            <div className="w-[89.51%]">
-              <Skeleton height={187} width={824} className="mt-6" />
+  //@ts-ignore
+  // if (isLoading || !session?.user.token) {
+  const rows = Array(12).fill(null);
+  return (
+    <div>
+      <pre className="text-black">{JSON.stringify(session?.user, null, 2)}</pre>
+      <SkeletonTheme
+        baseColor="rgba(184, 193, 213, 0.19)"
+        highlightColor="white"
+      >
+        <div className="flex justify-center">
+          <div className="w-[89.51%]">
+            <Skeleton height={187} width={824} className="mt-6" />
 
-              <div className="grid grid-cols-3 gap-12 mt-12">
-                {rows.map((_, index) => (
-                  <Skeleton key={index} height={366} width={396} />
-                ))}
-              </div>
+            <div className="grid grid-cols-3 gap-12 mt-12">
+              {rows.map((_, index) => (
+                <Skeleton key={index} height={366} width={396} />
+              ))}
             </div>
           </div>
-        </SkeletonTheme>
-      </div>
-    );
-  }
+        </div>
+      </SkeletonTheme>
+    </div>
+  );
+  // }
   //@ts-ignore
   if (session.user.token && isSuccess && data.length > 0) {
     return (
       <div className="flex justify-center">
         <div className="w-[89.51%]">
-          {/* <pre className="text-black">{JSON.stringify(data, null, 2)}</pre> */}
+          <pre className="text-black">
+            {/* {JSON.stringify(session?.user, null, 2)} */}
+          </pre>
           {/* <pre className="text-black">{JSON.stringify(isError, null, 2)}</pre> */}
 
           <InfoCard />
