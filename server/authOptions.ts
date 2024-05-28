@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
           return {
             id: user.data.data.user.id,
             name: user.data.data.user.name,
-            email: user.data.data.user.email,
+            email: user.data.data.accessToken,
             image: user.data.data.user.profile_photo,
             token: user.data.data.accessToken,
           };
@@ -44,30 +44,30 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user?.id) {
-        // console.log("hello");
-        // console.log("user", user);
-        // console.log("token", token);
-        token.sub = user.id;
-        token.picture = user.image;
-        //@ts-ignore
-        token.id = user?.token;
-      }
+  // callbacks: {
+  //   async jwt({ token, user }) {
+  //     if (user?.id) {
+  //       // console.log("hello");
+  //       // console.log("user", user);
+  //       // console.log("token", token);
+  //       token.sub = user.id;
+  //       token.picture = user.image;
+  //       //@ts-ignore
+  //       token.id = user?.token;
+  //     }
 
-      return token;
-    },
-    async session({ session, token, user }) {
-      //@ts-ignore
-      session.user.id = token.sub;
-      //@ts-ignore
-      session.user.token = token.id;
-      session.user.image = token.picture;
-      return session;
-      // }
-    },
-  },
+  //     return token;
+  //   },
+  //   async session({ session, token, user }) {
+  //     //@ts-ignore
+  //     session.user.id = token.sub;
+  //     //@ts-ignore
+  //     session.user.token = token.id;
+  //     session.user.image = token.picture;
+  //     return session;
+  //     // }
+  //   },
+  // },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login",

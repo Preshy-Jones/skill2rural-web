@@ -2,11 +2,7 @@ import Api from "@/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-export const useUpdateUserSettings = (
-  token: string,
-  userId: number
-  // image: any
-) => {
+export const useUpdateUserSettings = (token: string) => {
   const queryClient = useQueryClient();
   return useMutation<
     any,
@@ -30,7 +26,7 @@ export const useUpdateUserSettings = (
       if (payload.file) {
         formData.append("file", payload.file[0]);
       }
-      const response = await api.updateUser(userId, formData);
+      const response = await api.updateUser(formData);
       return response.data;
     },
     onSuccess: (data) => {

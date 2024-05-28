@@ -34,7 +34,7 @@ const AcommplishmentDetails = ({
     isSuccess,
   } = useGetCertificate(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     courseId
   );
 
@@ -88,12 +88,12 @@ const AcommplishmentDetails = ({
     // input.classList.add("hidden");
   };
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading Accomplishments...</div>;
   }
 
   //@ts-ignore
-  if (session.user.token && isSuccess && certificate) {
+  if (session.user.email && isSuccess && certificate) {
     return (
       <div className="flex justify-center w-full font-neue">
         <div className="w-[89.51%] py-10">

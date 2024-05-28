@@ -10,16 +10,16 @@ const Accomplishments = () => {
 
   const { isLoading, isError, error, data, isSuccess } = useGetUserCertificates(
     //@ts-ignore
-    session?.user.token || ""
+    session?.user.email || ""
   );
 
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading Accomplishments...</div>;
   }
 
   //@ts-ignore
-  if (session.user.token && isSuccess) {
+  if (session.user.email && isSuccess) {
     return <AccomplishmentsSection data={data} />;
   }
 };

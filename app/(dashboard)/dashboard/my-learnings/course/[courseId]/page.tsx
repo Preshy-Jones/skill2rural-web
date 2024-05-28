@@ -38,7 +38,7 @@ const CourseDetailPage = ({
     data: course,
     isSuccess,
     //@ts-ignore
-  } = useGetSingleCourse(session?.user.token || "", courseId);
+  } = useGetSingleCourse(session?.user.email || "", courseId);
 
   // useEffect(() => {
   //   if (playerRef.current && course && course?.progress[0]?.lastWatchedTime) {

@@ -13,7 +13,7 @@ const VideoPlayer = ({ course }: { course: Course }) => {
   const { data: session } = useSession();
   const updateCourseProgress = useUpdateProgress(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     course.id
   );
   const playerRef = useRef(null);

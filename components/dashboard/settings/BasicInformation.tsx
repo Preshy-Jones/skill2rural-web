@@ -12,33 +12,30 @@ const BasicInformation = ({ user }: { user: User }) => {
   const { data: session } = useSession();
   const updateUser = useUpdateUserSettings(
     //@ts-ignore
-    session?.user.token || "",
-    //@ts-ignore
-    session?.user.id
+    session?.user.email || ""
   );
-  const schema = z
-    .object({
-      name: z.string(),
-      email: z
-        .string({
-          required_error: "Email is required",
-        })
-        .email(),
-      organisation: z.string().optional(),
-      file: z.any().optional(),
-    })
-    // .refine(
-    //   (data) => {
-    //     if (user.type === UserType.EDUCATOR && !data.organisation) {
-    //       return false;
-    //     }
-    //     return true;
-    //   },
-    //   {
-    //     message: "Organisation is requiredd",
-    //     path: ["organisation"],
-    //   }
-    // );
+  const schema = z.object({
+    name: z.string(),
+    email: z
+      .string({
+        required_error: "Email is required",
+      })
+      .email(),
+    organisation: z.string().optional(),
+    file: z.any().optional(),
+  });
+  // .refine(
+  //   (data) => {
+  //     if (user.type === UserType.EDUCATOR && !data.organisation) {
+  //       return false;
+  //     }
+  //     return true;
+  //   },
+  //   {
+  //     message: "Organisation is requiredd",
+  //     path: ["organisation"],
+  //   }
+  // );
   type FormFields = z.infer<typeof schema>;
 
   const {
@@ -62,7 +59,6 @@ const BasicInformation = ({ user }: { user: User }) => {
     updateUser.mutate(data);
   };
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-
     // simulate 5 second delay
     await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log("hdhdhdhh");

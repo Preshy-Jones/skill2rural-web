@@ -27,9 +27,7 @@ const Settings = () => {
 
   const updateUser = useUpdateUserSettings(
     //@ts-ignore
-    session?.user.token || "",
-    //@ts-ignore
-    session?.user.id
+    session?.user.email || ""
   );
 
   //@ts-ignore

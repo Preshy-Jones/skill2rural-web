@@ -282,8 +282,8 @@ class Api {
     return response.json();
   };
 
-  updateUser = async (userId: number, data: FormData): Promise<any> => {
-    const url = this.baseURL + `/user/${userId}`;
+  updateUser = async (data: FormData): Promise<any> => {
+    const url = this.baseURL + "/user";
     const response = await fetch(url, {
       method: "PATCH",
       headers: {

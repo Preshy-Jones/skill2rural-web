@@ -8,7 +8,7 @@ import { z } from "zod";
 const ChangePassword = () => {
   const { data: session } = useSession();
   //@ts-ignore
-  const changePasswordMutation = useChangePassword(session?.user.token || "");
+  const changePasswordMutation = useChangePassword(session?.user.email || "");
 
   const schema = z.object({
     oldPassword: z.string(),

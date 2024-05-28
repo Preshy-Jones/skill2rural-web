@@ -38,7 +38,7 @@ const SingleCourseDetails = ({
     isSuccess,
   } = useGetSingleCourse(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     courseId
   );
 
@@ -46,11 +46,11 @@ const SingleCourseDetails = ({
   const [active, setActive] = useState(0);
 
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading course details</div>;
   }
   //@ts-ignore
-  if (session.user.token && isSuccess) {
+  if (session.user.email && isSuccess) {
     return (
       <div className="flex justify-center w-full">
         <div className="w-[89.51%] py-10">

@@ -24,50 +24,47 @@ const DashboardCourses = () => {
 
   const { isLoading, isError, error, data, isSuccess } = useGetCourses(
     //@ts-ignore
-    session?.user.token || ""
+    session?.user.email || ""
   );
   //@ts-ignore
-  // if (isLoading || !session?.user.token) {
-  const rows = Array(12).fill(null);
-  return (
-    <div>
-      <pre className="text-black">{JSON.stringify(session?.user, null, 2)}</pre>
-      <SkeletonTheme
-        baseColor="rgba(184, 193, 213, 0.19)"
-        highlightColor="white"
-      >
-        <div className="flex justify-center">
-          <div className="w-[89.51%]">
-            <Skeleton height={187} width={824} className="mt-6" />
-
-            <div className="grid grid-cols-3 gap-12 mt-12">
-              {rows.map((_, index) => (
-                <Skeleton key={index} height={366} width={396} />
-              ))}
+  if (isLoading || !session?.user.email) {
+    const rows = Array(12).fill(null);
+    return (
+      <div>
+        <SkeletonTheme
+          baseColor="rgba(184, 193, 213, 0.19)"
+          highlightColor="white"
+        >
+          <div className="flex justify-center">
+            <div className="w-[89.51%]">
+              <Skeleton height={187} width={824} className="mt-6" />
+              {/* <pre>{JSON.stringify(session?.user)}</pre> */}
+              <div className="grid grid-cols-3 gap-12 mt-12">
+                {rows.map((_, index) => (
+                  <Skeleton key={index} height={366} width={396} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </SkeletonTheme>
-    </div>
-  );
-  // }
+        </SkeletonTheme>
+      </div>
+    );
+  }
   //@ts-ignore
-  // if (session.user.token && isSuccess && data.length > 0) {
-  //   return (
-  //     <div className="flex justify-center">
-  //       <div className="w-[89.51%]">
-  //         <pre className="text-black">
-  //           {/* {JSON.stringify(session?.user, null, 2)} */}
-  //         </pre>
-  //         {/* <pre className="text-black">{JSON.stringify(isError, null, 2)}</pre> */}
+  if (session.user.email && isSuccess && data.length > 0) {
+    return (
+      <div className="flex justify-center">
+        <div className="w-[89.51%]">
+          {/* <pre className="text-black">{JSON.stringify(data, null, 2)}</pre> */}
+          {/* <pre className="text-black">{JSON.stringify(isError, null, 2)}</pre> */}
 
-  //         <InfoCard />
-  //         <CoursesSection courses={data} />
-  //       </div>
-  //     </div>
-  //   );
-  // }
-  // return <div>Not logged in</div>;
+          <InfoCard />
+          <CoursesSection courses={data} />
+        </div>
+      </div>
+    );
+  }
+  return <div>Not logged in</div>;
 };
 
 export default DashboardCourses;
