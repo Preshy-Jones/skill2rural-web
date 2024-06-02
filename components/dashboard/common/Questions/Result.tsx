@@ -84,9 +84,12 @@ const Result = ({
                   </button>
                 </Link>
               ) : (
-                <button className="bg-primary h-[3.75rem] text-white rounded-btn w-60">
+                <Link
+                  href={`/dashboard/my-learnings/course/${courseId}`}
+                  className="bg-primary h-[3.75rem] text-white rounded-btn w-60 flex justify-center items-center"
+                >
                   View Feedback
-                </button>
+                </Link>
               )}
             </div>
           </div>
