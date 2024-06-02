@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import caretRight from "@/public/caret-right-plain.svg";
-import expandVideoIcon from "@/public/expand-video-icon.svg";
+
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Player } from "video-react";
@@ -60,12 +60,7 @@ const SingleCourseDetails = ({
             <Image src={caretRight} alt="caret-right" />
             <h3>{course.title}</h3>
           </div>
-          <div className="flex justify-between mt-6 mb-4">
-            <h2 className=" font-semibold leading-primary text-2xl">
-              {course.title}
-            </h2>
-            <Image src={expandVideoIcon} alt="expand-video" />
-          </div>
+       
           <VideoPlayer course={course} />
           {/* <Player>
           <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />

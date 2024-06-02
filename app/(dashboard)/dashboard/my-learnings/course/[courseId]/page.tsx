@@ -46,12 +46,12 @@ const CourseDetailPage = ({
   //   }
   // }, []);
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading course details</div>;
   }
 
   //@ts-ignore
-  if (session.user.token && isSuccess && course) {
+  if (session.user.email && isSuccess && course) {
     return (
       <div className="flex justify-center w-full">
         <div className="w-[89.51%] py-10">
@@ -62,12 +62,7 @@ const CourseDetailPage = ({
             <Image src={caretRight} alt="caret-right" />
             <h3>Course</h3>
           </div>
-          <div className="flex justify-between mt-6 mb-4">
-            <h2 className=" font-semibold leading-primary text-2xl">
-              {course.title}
-            </h2>
-            <Image src={expandVideoIcon} alt="expand-video" />
-          </div>
+
           {/* <ReactPlayer
             url={course.video_url}
             controls
