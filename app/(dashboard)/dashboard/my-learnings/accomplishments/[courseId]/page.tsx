@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 import skill2ruralLogo from "@/public/skill2rural-logo-certificate.svg";
 import certificateOfCompletion from "@/public/certificate-of-completion.svg";
 import { useGetCertificate } from "@/queries/getCertificate";
-import { convertToHourseAndMinutes, formatDate } from "@/utils";
+import { convertToHourseAndMinutesAndSeconds, formatDate } from "@/utils";
 import Certificate from "@/components/dashboard/Certificate";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
@@ -140,7 +140,7 @@ const AcommplishmentDetails = ({
                   Grade Achieved: {certificate.gradeInPercentage}%
                 </h2>
                 <h2 className="leading-seventh mb-2">
-                  {convertToHourseAndMinutes(certificate.course.duration)}{" "}
+                  {convertToHourseAndMinutesAndSeconds(certificate.course.duration)}{" "}
                   approximately{" "}
                 </h2>
               </div>

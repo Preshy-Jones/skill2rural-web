@@ -16,8 +16,19 @@ export const formatDate = (date: Date) => {
   });
 };
 
-export const convertToHourseAndMinutes = (duration: number) => {
-  const hours = Math.floor(duration / 60);
-  const minutes = duration % 60;
-  return `${hours} hours ${minutes} minutes`;
+export const convertToHourseAndMinutesAndSeconds = (
+  durationInSeconds: number
+) => {
+  if (durationInSeconds < 60) {
+    return `${durationInSeconds} seconds`;
+  } else if (durationInSeconds < 3600) {
+    const minutes = Math.floor(durationInSeconds / 60);
+    const seconds = durationInSeconds % 60;
+    return `${minutes} minutes ${seconds} seconds`;
+  } else {
+    const hours = Math.floor(durationInSeconds / 3600);
+    const minutes = Math.floor((durationInSeconds % 3600) / 60);
+    const seconds = durationInSeconds % 60;
+    return `${hours} hours ${minutes} minutes ${seconds} seconds`;
+  }
 };

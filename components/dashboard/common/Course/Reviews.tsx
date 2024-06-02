@@ -21,16 +21,16 @@ const Reviews = ({ courseId }: { courseId: string }) => {
 
   const { isLoading, isError, error, data, isSuccess } = useGetCourseReviews(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     courseId
   );
 
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading course reviews...</div>;
   }
   //@ts-ignore
-  if (session.user.token && isSuccess) {
+  if (session.user.email && isSuccess) {
     return (
       <div className="font-neue mt-14">
         {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}

@@ -5,29 +5,33 @@ import React from "react";
 const Result = ({
   result,
   setActivePage,
-  certificateId,
+  courseId,
+  passed,
+  gradePercentage,
 }: {
   result: QuizResult;
   setActivePage: React.Dispatch<React.SetStateAction<number>>;
-  certificateId: number | null;
+  courseId: string;
+  passed: boolean;
+  gradePercentage: number;
 }) => {
   const [success, setSuccess] = React.useState(false);
-  const totalPoints = Object.keys(result).reduce(
-    (acc, key) => acc + result[key].point,
-    0
-  );
-  //add up points in which the .correct field is equal to true
-  const totalPointsScored = Object.keys(result).reduce((total, questionId) => {
-    return result[questionId].correct
-      ? total + result[questionId].point
-      : total;
-  }, 0);
+  // const totalPoints = Object.keys(result).reduce(
+  //   (acc, key) => acc + result[key].point,
+  //   0
+  // );
+  // //add up points in which the .correct field is equal to true
+  // const totalPointsScored = Object.keys(result).reduce((total, questionId) => {
+  //   return result[questionId].correct
+  //     ? total + result[questionId].point
+  //     : total;
+  // }, 0);
 
-  const gradeInPercentage = Number(
-    ((totalPointsScored / totalPoints) * 100).toFixed(2)
-  );
+  // const gradeInPercentage = Number(
+  //   ((totalPointsScored / totalPoints) * 100).toFixed(2)
+  // );
 
-  const passed = gradeInPercentage >= 70;
+  // const passed = gradeInPercentage >= 70;
   return (
     <div className="flex justify-center w-full font-neue">
       <div className="w-[89.51%] py-10">
@@ -65,15 +69,15 @@ const Result = ({
                 <h4 className=" font-medium leading-fifth">Your grade</h4>
                 <h1
                   className={`${
-                    gradeInPercentage >= 70 ? "text-correct" : "text-wrong"
+                    passed ? "text-correct" : "text-wrong"
                   } font-semibold text-3.5xl  leading-tertiary`}
                 >
-                  {gradeInPercentage}%
+                  {gradePercentage}%
                 </h1>
               </div>
-              {gradeInPercentage >= 70 ? (
+              {passed ? (
                 <Link
-                  href={`/dashboard/my-learnings/accomplishments/${certificateId}`}
+                  href={`/dashboard/my-learnings/accomplishments/${courseId}`}
                 >
                   <button className="bg-correct h-[3.75rem] text-white rounded-btn w-60">
                     View Certificate

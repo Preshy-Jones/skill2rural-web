@@ -5,6 +5,7 @@ interface RadioProps {
   onChange: (selected: number | null) => void;
   setSelectedOption: (value: number | null) => void;
   index: number | null;
+  disabled?: boolean;
 }
 
 const CustomRadio: React.FC<RadioProps> = ({
@@ -12,10 +13,13 @@ const CustomRadio: React.FC<RadioProps> = ({
   onChange,
   setSelectedOption,
   index,
+  disabled = false,
 }) => {
   const handleChange = () => {
-    setSelectedOption(index);
-    onChange(index);
+    if (!disabled) {
+      setSelectedOption(index);
+      onChange(index);
+    }
   };
 
   return (

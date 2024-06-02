@@ -1,9 +1,13 @@
 import Api from "@/api";
-import { Certificate } from "@/types/course";
+import {
+  Certificate,
+  GetQuizResultResponse,
+  SubmitQuizResponse,
+} from "@/types/course";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-export const useCreateCertificate = <TData = Certificate>(
+export const useSubmitQuiz = <TData = SubmitQuizResponse>(
   token: string,
   courseId: string
 ) => {
@@ -11,12 +15,12 @@ export const useCreateCertificate = <TData = Certificate>(
     mutationFn: async (formData) => {
       const api = new Api();
       api.setToken(token);
-      const response = await api.createCertificate(courseId, formData);
+      const response = await api.submitQuiz(courseId, formData);
       return response.data as TData; // Ensure the correct type
     },
     onSuccess: (data) => {
       console.log("success", data);
-      toast.success("Certificate created successfully");
+      toast.success("Quiz submitted successfully");
     },
     onError: async (error: unknown) => {
       // Explicitly type as unknown

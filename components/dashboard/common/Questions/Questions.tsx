@@ -9,24 +9,31 @@ import { useGetCourseQuestions } from "@/queries/getCourseQuestions";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import CustomRadio from "@/components/ui/CustomRadio";
-import { Certificate, CourseQuestion, QuizResult } from "@/types/course";
+import {
+  Certificate,
+  CourseQuestion,
+  QuizResult,
+  SubmitQuizResponse,
+} from "@/types/course";
 import Link from "next/link";
-import { useCreateCertificate } from "@/queries/createCertificate";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { useSubmitQuiz } from "@/queries/submitQuiz";
 
 const Questions = ({
   courseId,
   result,
   setResult,
   setActivePage,
-  setCertificateId,
+  setPassed,
+  setGradePercentage,
 }: {
   courseId: string;
   result: QuizResult;
   setResult: React.Dispatch<React.SetStateAction<QuizResult>>;
   setActivePage: React.Dispatch<React.SetStateAction<number>>;
-  setCertificateId: React.Dispatch<React.SetStateAction<number | null>>;
+  setPassed: React.Dispatch<React.SetStateAction<boolean>>;
+  setGradePercentage: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const router = useRouter();
   const [isSubmitted, setIsSubmitted] = React.useState(false);
@@ -41,19 +48,20 @@ const Questions = ({
     isSuccess,
   } = useGetCourseQuestions(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     courseId
   );
 
-  const createCertificate = useCreateCertificate<Certificate>(
+  const submitQuiz = useSubmitQuiz<SubmitQuizResponse>(
     //@ts-ignore
-    session?.user.token || "",
+    session?.user.email || "",
     courseId
   );
 
   React.useEffect(() => {
     // Clear the result state when the component is mounted
     setResult({});
+    setIsSubmitted(false);
   }, []); // Empty dependency array to run the effect only once after mount
 
   React.useEffect(() => {
@@ -68,7 +76,7 @@ const Questions = ({
     return <div>Loading course questions...</div>;
   }
   //@ts-ignore
-  if (isError || !session?.user.token) {
+  if (isError || !session?.user.email) {
     // Accessing details about the error:
     console.error("Error details:", error);
     return <div>Error: {error?.message}</div>;
@@ -106,13 +114,12 @@ const Questions = ({
 
   const handleResult = async () => {
     try {
-      if (gradeInPercentage >= 70) {
-        const response = await createCertificate.mutateAsync({
-          gradeInPercentage,
-        });
-        console.log("response", response);
-        setCertificateId(response.courseId);
-      }
+      const response = await submitQuiz.mutateAsync({
+        gradeInPercentage,
+      });
+      console.log("response", response);
+      setPassed(response.passed);
+      setGradePercentage(response.gradeInPercentage);
       setActivePage(1);
     } catch (error) {
       console.error("Error creating certificate", error);
@@ -120,12 +127,12 @@ const Questions = ({
   };
 
   //@ts-ignore
-  if (session.user.token && isSuccess) {
+  if (session.user.email && isSuccess) {
     return (
       <div className="flex justify-center w-full font-neue">
         <div className="w-[89.51%] py-10">
           <div className="flex">
-            <h3>My Learnings</h3>
+            <Link href={"/dashboard/my-learnings"}>My Learnings</Link>
             <Image src={caretRight} alt="caret-right" />
             <h3>Course</h3>
           </div>
@@ -143,7 +150,7 @@ const Questions = ({
           </div>
 
           <div>
-            <pre>{JSON.stringify(result, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(result, null, 2)}</pre> */}
             {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
           </div>
           <div className="pl-2 w-5/6">
@@ -189,6 +196,7 @@ const Questions = ({
                 <QuestionAttempt
                   onAnswer={(value) => handleOnAnswer(value, question)}
                   options={question.options}
+                  isSubmitted={isSubmitted}
                 />
                 {isSubmitted &&
                   result[question.id] &&
@@ -265,9 +273,11 @@ export default Questions;
 const QuestionAttempt = ({
   onAnswer,
   options,
+  isSubmitted,
 }: {
   onAnswer: (value: number | null) => void;
   options: string[];
+  isSubmitted: boolean;
 }) => {
   const [selectedOption, setSelectedOption] = React.useState<number | null>(
     null
@@ -283,6 +293,7 @@ const QuestionAttempt = ({
               onChange={onAnswer}
               setSelectedOption={setSelectedOption}
               index={index}
+              disabled={false}
             />
             <h3 className=" leading-fifth font-medium text-greyText ml-4">
               {option}

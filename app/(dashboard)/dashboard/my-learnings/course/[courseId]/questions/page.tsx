@@ -14,7 +14,9 @@ const Quiz = ({
 }) => {
   const [activePage, setActivePage] = React.useState(0);
   const [result, setResult] = React.useState<QuizResult>({});
-  const [certificateId, setCertificateId] = React.useState<number | null>(null);
+  const [passed, setPassed] = React.useState<boolean>(false);
+  const [gradePercentage, setGradePercentage] = React.useState<number>(0);
+
   return (
     <div>
       {activePage === 0 && (
@@ -23,14 +25,17 @@ const Quiz = ({
           result={result}
           setResult={setResult}
           setActivePage={setActivePage}
-          setCertificateId={setCertificateId}
+          setPassed={setPassed}
+          setGradePercentage={setGradePercentage}
         />
       )}
       {activePage === 1 && (
         <Result
           result={result}
           setActivePage={setActivePage}
-          certificateId={certificateId}
+          courseId={params.courseId}
+          passed={passed}
+          gradePercentage={gradePercentage}
         />
       )}
     </div>

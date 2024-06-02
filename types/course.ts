@@ -102,3 +102,16 @@ interface Result {
 export interface QuizResult {
   [questionId: string]: Result;
 }
+export interface SubmitQuizResponse {
+  gradeInPercentage: number;
+  passed: boolean;
+}
+
+export interface GetQuizResultResponse {
+  id: number;
+  courseId: number;
+  userId: number;
+  gradeInPercentage: number;
+  createdAt: string;
+  updatedAt: string;
+}
