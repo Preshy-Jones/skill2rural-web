@@ -41,13 +41,17 @@ const QuestionsSection = ({ courseId }: { courseId: string }) => {
                 To pass and be issued a certificate, you need a grade point of
                 70% and above.
               </p>
-              <h1
-                className={`${
-                  data.gradeInPercentage > 70 ? "text-correct" : "text-wrong"
-                } font-semibold text-3.5xl  leading-tertiary`}
-              >
-                {data.gradeInPercentage}%
-              </h1>
+              {data?.gradeInPercentage ? (
+                <h1
+                  className={`${
+                    data.gradeInPercentage > 70 ? "text-correct" : "text-wrong"
+                  } font-semibold text-3.5xl  leading-tertiary`}
+                >
+                  {data?.gradeInPercentage}%
+                </h1>
+              ) : (
+                <Image src={hyphen} alt="hyphen" />
+              )}
             </div>
           </div>
         </div>
