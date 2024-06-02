@@ -18,14 +18,14 @@ import {
   MenubarContent,
   MenubarMenu,
   MenubarTrigger,
-} from "./ui/menubar";
-import LoggedInMenu from "./NavBar/LoggedInMenu";
+} from "../../ui/menubar";
+import LoggedInMenu from "./LoggedInMenu";
 
 const NavBar = () => {
   const { data: session, status } = useSession();
 
   return (
-    <div className="bg-white pt-3 pb-3 z-50 top-0 w-full">
+    <div className="bg-white pt-3 pb-3 z-50 top-0 w-full md:block hidden sticky">
       <div className="flex justify-between px-20">
         {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
         <Link href={"/"}>
@@ -51,7 +51,6 @@ const NavBar = () => {
               <h3 className="mr-8 font-semibold leading-fifth">Login</h3>
             </Link>
           )}
-
           {status === "authenticated" && (
             // <h3
             //   onClick={() => {
@@ -82,7 +81,6 @@ const NavBar = () => {
               </MenubarMenu>
             </Menubar>
           )}
-
           {status === "unauthenticated" && (
             <Link href={"/register"}>
               <button className="bg-primary text-white rounded-btn px-8 h-12 ">

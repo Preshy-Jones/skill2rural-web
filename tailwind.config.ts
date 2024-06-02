@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -166,6 +166,14 @@ const config: Config = {
         card: "10px 40px 40px 0px #0000001A",
         circle: "0px -2px 40px 1px #00000014",
       },
+    },
+    screens: {
+      xs: "375px",
+      iphone: "420px",
+      lgx:"1084",
+      "1.5xl": "1400px",
+      tablet: "850px",
+      ...defaultTheme.screens,
     },
   },
   plugins: [require("tailwindcss-animate")],

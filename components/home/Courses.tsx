@@ -16,13 +16,13 @@ const Courses = () => {
           The world is your classroom, Explore, Learn, Achieve knowledge knows
           no bounds. Online learning unleashed
         </p>
-        <div className="grid grid-cols-3 gap-12 mt-12">
+        <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-12 sm:grid-cols-3">
           {contentKey.map((item, index) => (
             <div
               key={index}
               className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
             >
-              <Image src={contentKey[index].image} alt={item.title} />
+              <Image src={contentKey[index].image} alt={item.title} className="w-full" />
               <div className="py-3">
                 <h2 className="font-medium text-xl leading-fourth">
                   {item.title}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/home/NavBar/NavBar";
 import Footer from "@/components/Footer";
 import Faq from "@/components/home/Faq";
 import Script from "next/script";
@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import ProgressBar from "@/components/NpProgress";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { NavigationMenuDemo } from "@/components/NavMenuExample";
+import MobileNavBar from "@/components/home/NavBar/MobileNavBar";
 
 const metadata: Metadata = {
   title: "Skill2rural app",
@@ -56,6 +57,7 @@ export default async function LandingPageLayout({
         <SessionProvider session={session}>
           <ReactQueryProvider>
             <NavBar />
+            <MobileNavBar />
             {/* <NavigationMenuDemo /> */}
             {children}
             <Faq />
