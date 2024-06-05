@@ -4,6 +4,7 @@ import twitterIcon from "@/public/twitter-icon.svg";
 import linkedinIcon from "../public/linkedIn-icon.svg";
 import instagramIcon from "@/public/instagram-icon.svg";
 import footerLogoMobile from "@/public/skill2rural-footer-logo-mobile.svg";
+import footerLogo from "@/public/skill2rural-logo-full.svg";
 import Image from "next/image";
 
 const Footer = ({ bgColor }: { bgColor?: string }) => {
@@ -20,9 +21,10 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
         <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
           <div className="grid grid-cols-footer gap-x-10">
             <div>
-              <h1 className=" text-5xl text-[3.6rem] font-light mb-6">
+              {/* <h1 className=" text-5xl text-[3.6rem] font-light mb-6">
                 Skill2Rural
-              </h1>
+              </h1> */}
+              <Image src={footerLogo} alt="footer-logo-full" className="mb-6" />
               <p className="leading-fifth font-thin">
                 We are the leading TECH EDUCATION company with students from
                 over 30 countries and a leading UK accreditation to deliver the

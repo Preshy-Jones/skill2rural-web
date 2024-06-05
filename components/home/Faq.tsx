@@ -10,7 +10,7 @@ const Faq = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="mt-28 flex justify-center font-neue">
-      <div className="w-[53.33%]">
+      <div className="sm:w-[53.33%] w-[90%]">
         <div className="mb-16">
           <h1 className="text-primaryGrey text-center text-[2.375rem] leading-eight  font-semibold">
             Frequently asked questions
