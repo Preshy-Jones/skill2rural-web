@@ -28,7 +28,7 @@ const Info = () => {
   };
   return (
     <div className="relative">
-      <div className="pb-24 bg-greyBg2 pt-72 relative overflow-hidden">
+      <div className="pb-24 bg-greyBg2 pt-20 sm:pt-72 relative overflow-hidden">
         <h2 className="font-bold text-3.5xl leading-tertiary text-center relative z-30">
           Everything you need to know about Skill2rural
         </h2>

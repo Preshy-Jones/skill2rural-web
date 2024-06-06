@@ -101,15 +101,15 @@ export default Footer;
 
 const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <div className="md:hidden block">
+    <div className="md:hidden block  mt-24 w-full">
       <div className="relative bg-primary h-40">
         <div
-          className={`absolute inset-0 rounded-bl-full rounded-br-full ${
+          className={`absolute inset-0 rounded-bl-[1000px] rounded-br-[1000px] ${
             bgColor ? bgColor : "bg-white"
           }`}
         ></div>
       </div>
-      <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
+      <div className="bg-primary text-white pt-24 pb-20 font-neue px-10">
         <div className="mb-10">
           <Image src={footerLogoMobile} alt="footer-logo" className="mb-3" />
           <p className="leading-fifth font-thin">
@@ -126,7 +126,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
             <input
               type="email"
               placeholder="Email address"
-              className="pl-3 bg-transparent w-full border border-inputBorder rounded-largeBtn placeholder-white placeholder-opacity-[87%] h-[2.8125rem]"
+              className="pl-3 bg-transparent w-full border border-inputBorder rounded-largeBtn placeholder-white placeholder-opacity-[87%] h-[2.8125rem] mb-3"
             />
             <button className="h-[2.3125rem] w-full border bg-white text-primary rounded-largeBtn px-4 font-medium leading-fifth font-clash">
               Subscribe Now
