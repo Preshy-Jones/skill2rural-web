@@ -6,45 +6,123 @@ import hamburger from "@/public/hamburger.svg";
 import skill2ruralMobileLogo from "@/public/skill2rural-logo-mobile-nav.svg";
 import closeIcon from "@/public/close-x.svg";
 import DashboardIcon from "@/public/dashboard-icon-mobile.svg";
-import SettingsIcon from "@/public/settings-icon.svg";
-import LogoutIcon from "@/public/log-out-icon.svg";
-import MyCoursesIcon from "@/public/my-courses-icon.svg";
-import AccomplishmentsIcon from "@/public/my-accomplishments.svg";
+import SettingsIcon from "@/public/settings-icon-mobile.svg";
+import LogoutIcon from "@/public/logout-icon.svg";
+import MyCoursesIcon from "@/public/course-icon.svg";
+import AccomplishmentsIcon from "@/public/accomplishments-icon.svg";
+import AboutIcon from "@/public/about-icon-nav.svg";
+import ContactIcon from "@/public/contact-icon-nav.svg";
+import CaretRight from "@/public/caret-right-mobile-nav.svg";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+
 import { signOut, useSession } from "next-auth/react";
 
 const MobileNavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-
+  const { data: session, status } = useSession();
+  const variants = {
+    open: { x: 0 },
+    closed: { x: "100%" },
+  };
   return (
     <div className="z-50 w-full sticky top-0 block md:hidden ">
       <div className="flex justify-between px-10 bg-white h-full py-3">
-        <Image src={navBarLogoMobile} alt="skill2rural" />
-        <Image src={hamburger} alt="hamburger" />
+        <Link href={"/"}>
+          <Image src={navBarLogoMobile} alt="skill2rural" />
+        </Link>
+        <Image
+          src={hamburger}
+          alt="hamburger"
+          className="cursor-pointer"
+          onClick={() => setIsOpen(true)}
+        />
       </div>
-      <div className="bg-primary absolute top-0 w-full flex justify-center">
-        <div className="w-[90%]">
-          <div className="flex justify-between">
-            <Image src={skill2ruralMobileLogo} alt="skill2rural" />
-            <Image src={closeIcon} alt="close" />
-          </div>
-          {itemData.map((item, index) => (
-            <MenuItem
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              link={item.link}
-            />
-          ))}
-        </div>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="bg-primary h-screen pt-12 absolute top-0 w-full flex justify-center"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={variants}
+            transition={{ type: "tween" }}
+          >
+            <div className="w-[90%]">
+              <div className="flex justify-between">
+                <Link href={"/"}>
+                  <Image src={skill2ruralMobileLogo} alt="skill2rural" />
+                </Link>
+                <Image
+                  src={closeIcon}
+                  alt="close"
+                  className="cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                />
+              </div>
+              {status === "authenticated" && (
+                <div className="mt-12">
+                  <div className="flex border-b-[0.5px] border-formInputBorder border-opacity-50 mb-7 pb-2">
+                    <Image
+                      className="rounded-full w-[2.375rem] h-[2.375rem] cursor-pointer mr-4"
+                      alt="profile-picture"
+                      src={session?.user.image || ""}
+                      width={38}
+                      height={38}
+                    />
+                    <div className="text-white">
+                      <h1 className="text-sm">John Doe</h1>
+                      <h2 className="text-xs">johndoe@gmail.com</h2>
+                    </div>
+                  </div>
+                  {loggedInItemsData.map((item, index) => (
+                    <MenuItem
+                      key={index}
+                      icon={item.icon}
+                      title={item.title}
+                      link={item.link}
+                    />
+                  ))}
+                  <div className="border-t-[0.5px] border-t-formInputBorder border-opacity-50">
+                    <MenuItem icon={LogoutIcon} title={"Log Out"} />
+                  </div>
+                </div>
+              )}
+              {status === "unauthenticated" && (
+                <div className="mt-12">
+                  {loggedOutItemsData.map((item, index) => (
+                    <MenuItem
+                      key={index}
+                      icon={item.icon}
+                      title={item.title}
+                      link={item.link}
+                    />
+                  ))}
+                  <div className="border-t-[0.5px] border-t-formInputBorder border-opacity-50 w-full">
+                    <Link href={"/login"} className="w-full ">
+                      <div className="bg-white px-8 h-12 mb-4 text-primary w-full flex justify-center items-center rounded-lg">
+                        <h3>Log In</h3>
+                      </div>
+                    </Link>
+                    <Link href={"/register"} className="w-full">
+                      <div className="bg-primary border border-white px-8 h-12 text-white font-semibold w-full flex justify-center items-center rounded-lg">
+                        <h3>Get Started Now</h3>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default MobileNavBar;
 
-const itemData = [
+const loggedInItemsData = [
   {
     icon: DashboardIcon,
     title: "Dashboard",
@@ -65,10 +143,28 @@ const itemData = [
     title: "Settings",
     link: "/dashboard/settings",
   },
+];
+
+const loggedOutItemsData = [
   {
-    icon: LogoutIcon,
-    title: "Log Out",
-    link: "/dashboard/courses",
+    icon: DashboardIcon,
+    title: "Home",
+    link: "/",
+  },
+  {
+    icon: MyCoursesIcon,
+    title: "Courses",
+    link: "/courses",
+  },
+  {
+    icon: AboutIcon,
+    title: "About",
+    link: "/about",
+  },
+  {
+    icon: ContactIcon,
+    title: "Contact",
+    link: "/contact",
   },
 ];
 
@@ -79,22 +175,25 @@ const MenuItem = ({
 }: {
   icon: StaticImageData;
   title: string;
-  link: string;
+  link?: string;
 }) => {
   return (
     <div>
       {title !== "Log Out" ? (
         <Link
-          href={link}
-          className="group text-white flex items-center py-3 pl-8 pr-24 cursor-pointer font-medium"
+          href={link as string}
+          className="flex justify-between py-3  cursor-pointer font-medium w-full"
         >
-          <Image src={icon} alt="dashboard-icon" className="mr-3" />
-          <h3>{title}</h3>
+          <div className="flex items-center">
+            <Image src={icon} alt="dashboard-icon" className="mr-3" />
+            <h3 className="text-white">{title}</h3>
+          </div>
+          <Image src={CaretRight} alt="caret-right" />
         </Link>
       ) : (
         //  @ts-ignore
         <div
-          className="group text-white flex items-center py-3 pl-8 pr-24 cursor-pointer font-medium"
+          className=" text-white flex items-center py-3 cursor-pointer font-medium"
           onClick={() => signOut()}
         >
           <Image src={icon} alt="dashboard-icon" className="mr-3" />
