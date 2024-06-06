@@ -110,6 +110,18 @@ class Api {
     return response.json();
   };
 
+  getSingleCoursePublic = async (id: string): Promise<any> => {
+    const url = this.baseURL + `/course/public/${id}`;
+    const response = await fetch(url, {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch course");
+    }
+    return response.json();
+  };
+
   forgotPassword = (data: { email: string }) => {
     const url = "/user/forgot-password";
     return this.publicRequest(url, METHOD.POST, data);

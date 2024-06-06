@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
-import NavBar from "@/components/home/NavBar/NavBar";
+import NavBar from "@/components/landingpage/home/NavBar/NavBar";
 import Footer from "@/components/Footer";
-import Faq from "@/components/home/Faq";
+import Faq from "@/components/landingpage/home/Faq";
 import Script from "next/script";
 import TopBar from "@/components/dashboard/TopBar";
 import { Inter } from "next/font/google";
@@ -15,7 +15,7 @@ import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "@/components/NpProgress";
-import MobileNavBar from "@/components/home/NavBar/MobileNavBar";
+import MobileNavBar from "@/components/landingpage/home/NavBar/MobileNavBar";
 
 const inter = Inter({
   subsets: ["latin"],

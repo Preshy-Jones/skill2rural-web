@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
-import NavBar from "@/components/home/NavBar/NavBar";
+import NavBar from "@/components/landingpage/home/NavBar/NavBar";
 import Footer from "@/components/Footer";
-import Faq from "@/components/home/Faq";
+import Faq from "@/components/landingpage/home/Faq";
 import Script from "next/script";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../../components/SessionProvider";
@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import ProgressBar from "@/components/NpProgress";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { NavigationMenuDemo } from "@/components/NavMenuExample";
-import MobileNavBar from "@/components/home/NavBar/MobileNavBar";
+import MobileNavBar from "@/components/landingpage/home/NavBar/MobileNavBar";
 
 import Head from "next/head";
 
@@ -60,13 +60,6 @@ export default async function LandingPageLayout({
   return (
     <html lang="en">
       <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-          integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
         <link rel="icon" href="/logo.svg" />
       </Head>
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />

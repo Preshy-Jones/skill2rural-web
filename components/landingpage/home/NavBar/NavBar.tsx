@@ -18,7 +18,7 @@ import {
   MenubarContent,
   MenubarMenu,
   MenubarTrigger,
-} from "../../ui/menubar";
+} from "../../../ui/menubar";
 import LoggedInMenu from "./LoggedInMenu";
 
 const NavBar = () => {

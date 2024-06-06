@@ -8,7 +8,6 @@ import {
   MediaPlayer,
   MediaPlayerInstance,
   MediaProvider,
-  useMediaStore,
 } from "@vidstack/react";
 import {
   defaultLayoutIcons,

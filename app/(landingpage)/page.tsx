@@ -1,9 +1,10 @@
-import Courses from "@/components/home/Courses";
-import Faq from "@/components/home/Faq";
-import Info from "@/components/home/Info";
-import Reach from "@/components/home/Reach/Reach";
-import Reviews from "@/components/home/Reviews/Reviews";
-import Hero from "@/components/home/hero";
+"use client"
+import Courses from "@/components/landingpage/home/Courses";
+import Faq from "@/components/landingpage/home/Faq";
+import Info from "@/components/landingpage/home/Info";
+import Reach from "@/components/landingpage/home/Reach/Reach";
+import Reviews from "@/components/landingpage/home/Reviews/Reviews";
+import Hero from "@/components/landingpage/home/hero";
 import Image from "next/image";
 
 export default function Home() {

@@ -18,7 +18,7 @@ const CoursesSection = ({ courses }: { courses: Course[] }) => {
           >
             <div className="w-full h-[15.75rem] relative">
               <Image
-                className=" rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
+                className="rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
                 src={item.thumbnail_image}
                 width={0}
                 height={0}
