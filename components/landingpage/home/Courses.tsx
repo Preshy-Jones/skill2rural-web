@@ -49,8 +49,8 @@ const Courses = () => {
             Courses
           </h1>
           <p className="text-center font-medium leading-fifth">
-            The world is your classroom, Explore, Learn, Achieve knowledge knows
-            no bounds. Online learning unleashed
+            The world is your classroom. Explore, reflect, and learn how you can
+            move a step forward in your career and life.
           </p>
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-12 sm:grid-cols-3">
             {courses.map((item, index) => (

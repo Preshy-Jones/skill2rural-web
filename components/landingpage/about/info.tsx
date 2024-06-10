@@ -10,8 +10,8 @@ const Info = () => {
   return (
     <div>
       <div className="flex justify-center mt-14 mb-1">
-        <div className="w-[85.56%] flex ">
-          <div className="relative mr-8">
+        <div className="w-[85.56%] flex md:flex-row flex-col ">
+          <div className="relative md:mr-8 md:mb-0 mb-6">
             <div className="bg-infoBg px-6 relative z-20 h-[12.3125rem] rounded-lgx border border-primary flex items-center">
               <div className="relative mb-8 h-[3.6875rem] w-[3.6875rem] mr-16">
                 <div className="bg-white flex justify-center w-[3.5rem] h-[3.5rem] absolute top-0 inset-x-0 mx-auto z-10">
@@ -22,7 +22,7 @@ const Info = () => {
               <p className="leading-fifth font-semibold text-primaryBlack">
                 A social enterprise that adopts blended learning (ed-tech and
                 in-person bootcamp) to prepare underserved young people in
-                Africa and the UK such as displaced young people, and young
+                Africa such as displaced young people, and young
                 people from low-income communities for the 21st-century
                 workforce.
               </p>
@@ -48,7 +48,7 @@ const Info = () => {
           </div>
         </div>
       </div>
-      <div className=" flex justify-between w-[94.44%] items-center pt-32 relative">
+      <div className=" flex justify-between w-[94.44%] items-center pt-32 relative sm:flex-row flex-col">
         <Image
           src={studentsImage}
           alt="studentsImage"
