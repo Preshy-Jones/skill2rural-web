@@ -293,7 +293,7 @@ const QuestionAttempt = ({
               onChange={onAnswer}
               setSelectedOption={setSelectedOption}
               index={index}
-              disabled={false}
+              disabled={isSubmitted && selectedOption !== index ? true : false}
             />
             <h3 className=" leading-fifth font-medium text-greyText ml-4">
               {option}

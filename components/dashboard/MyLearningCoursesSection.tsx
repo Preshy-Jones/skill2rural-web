@@ -54,7 +54,8 @@ const MyLearningCoursesSection = ({
       </div>
       <div className="grid grid-cols-3 gap-12 mt-12">
         {data.courses.map((item, index) => (
-          <div
+          <Link
+            href={`my-learnings/course/${item.id}`}
             key={index}
             className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form bg-white`}
           >
@@ -94,14 +95,14 @@ const MyLearningCoursesSection = ({
               />
             </div>
             <div className="flex justify-end items-center">
-              <Link href={`my-learnings/course/${item.id}`}>
+              <h2>
                 <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
                   Continue Watching
                 </h2>
-              </Link>
+              </h2>
               <Image alt="right-arrow" src={rightArrow} />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

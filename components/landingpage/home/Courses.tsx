@@ -54,9 +54,10 @@ const Courses = () => {
           </p>
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-12 sm:grid-cols-3">
             {courses.map((item, index) => (
-              <div
+              <Link
+                href={`/courses/${item.id}`}
                 key={index}
-                className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
+                className={`border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
               >
                 <div className="w-full h-[15.75rem] relative">
                   <Image
@@ -77,13 +78,10 @@ const Courses = () => {
                     Earn a certificate
                   </h4>
                 </div>
-                <Link
-                  href={`/courses/${item.id}`}
-                  className="text-end text-primary text-sm leading-seventh"
-                >
+                <h2 className="text-end text-primary text-sm leading-seventh">
                   View Course
-                </Link>
-              </div>
+                </h2>
+              </Link>
             ))}
           </div>
           <div className="flex justify-center mt-12">

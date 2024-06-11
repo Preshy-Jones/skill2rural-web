@@ -62,7 +62,7 @@ const VideoPlayer = ({ course }: { course: Course }) => {
         >
           <MediaProvider />
           <DefaultVideoLayout
-            thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
+            // thumbnails={course.video_url}
             icons={defaultLayoutIcons}
           />
         </MediaPlayer>
