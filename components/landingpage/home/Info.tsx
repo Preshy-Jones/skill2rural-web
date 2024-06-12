@@ -19,6 +19,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import netSmall from "@/public/net-sm.svg";
 import netBig from "@/public/net-lg.svg";
 import { UserType } from "@/types/global";
+import Link from "next/link";
 
 const Info = () => {
   const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
@@ -279,9 +280,11 @@ const StudentInfo = () => {
             </p>
           </div>
         </div>
-        <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-          Get Started Now
-        </button>
+        <Link href={"/register"}>
+          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+            Get Started Now
+          </button>
+        </Link>
       </div>
     </div>
   );
@@ -367,9 +370,11 @@ const EducatorInfo = () => {
             </p>
           </div>
         </div>
-        <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-          Get Started Now
-        </button>
+        <Link href={"/register"}>
+          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+            Get Started Now
+          </button>
+        </Link>
       </div>
     </div>
   );

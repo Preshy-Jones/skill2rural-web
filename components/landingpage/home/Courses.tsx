@@ -53,7 +53,7 @@ const Courses = () => {
             move a step forward in your career and life.
           </p>
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-12 sm:grid-cols-3">
-            {courses.map((item, index) => (
+            {courses.slice(0, 6).map((item, index) => (
               <Link
                 href={`/courses/${item.id}`}
                 key={index}
@@ -86,7 +86,9 @@ const Courses = () => {
           </div>
           <div className="flex justify-center mt-12">
             <div className="bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn flex items-center justify-center">
-              <h3 className="text-white font-semibold mr-2">See More</h3>
+              <Link href={"/courses"}>
+                <h3 className="text-white font-semibold mr-2">See More</h3>
+              </Link>
               <Image src={ArrowIcon} alt="arrow-icon" />
             </div>
           </div>

@@ -5,6 +5,7 @@ import dotDesign1Mobile from "@/public/dots-home-hero-mobile.svg";
 import arc from "@/public/arc.svg";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
@@ -42,9 +43,11 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex justify-center mt-6">
-            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
-              Get Started Now
-            </button>
+            <Link href={"/register"}>
+              <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
+                Get Started Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
