@@ -3,6 +3,7 @@ import React from "react";
 import lightBulbLogo from "@/public/light-bulb.svg";
 import arrowPracticeLogo from "@/public/arrow-target-practice.svg";
 import dotDesignPurple from "@/public/courses-dots.svg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -25,9 +26,11 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex justify-center mt-24">
-            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
-              Get Started Now
-            </button>
+            <Link href={"/register"}>
+              <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
+                Get Started Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
