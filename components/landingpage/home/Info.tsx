@@ -70,11 +70,12 @@ const Info = () => {
               <div className="bg-primary w-[5.15625rem] h-[4.375rem] absolute top-1 right-0 left-2 mx-auto z-0 rounded-tertiary"></div>
             </div>
             <h3 className="font-semibold text-base sm:text-xl leading-6 sm:mb-3 mb-1">
-              Global Community
+              Community of Support
             </h3>
             <p className="sm:leading-fifth leading-seventh text-sm sm:text-base font-medium text-primaryBlack">
-              Embrace a comprehensive learning experience that goes beyond
-              textbooks. Acquire skills that matter in the real world.
+              Be part of a community of young people across Africa who are
+              taking their personal and professional development into their own
+              hands and working to solve problems in their communities.
             </p>
             <div className="absolute h-full w-full top-0 flex justify-center">
               <div className="w-[61.041%]">
@@ -97,8 +98,10 @@ const Info = () => {
               Blended Learning
             </h3>
             <p className="sm:leading-fifth leading-seventh text-sm sm:text-base font-medium text-primaryBlack">
-              Embrace a comprehensive learning experience that goes beyond
-              textbooks. Acquire skills that matter in the real world.
+              Get an opportunity to attend an in-person bootcamp in your area
+              and take what you have learned here to the next level. You will
+              still always have access to the resources on this platform, and it
+              will always be referred to in the bootcamp.
             </p>
             <div className="absolute h-full w-full top-0 flex justify-center">
               <div className="w-[61.041%]">
