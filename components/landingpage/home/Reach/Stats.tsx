@@ -8,10 +8,10 @@ const Stats = () => {
       <div className="slide-track">
         {content.map((data, index) => (
           <div key={index} className="slide flex flex-col items-center">
-            <h3 className=" text-6xl text-primaryBlack font-bold">
+            <h3 className=" sm:text-6xl text-3.5xl text-primaryBlack font-bold">
               {data.value}
             </h3>
-            <h3 className=" text-2xl font-medium text-primaryBlack">
+            <h3 className="text-sm sm:text-2xl font-medium text-primaryBlack">
               {data.title}
             </h3>
           </div>

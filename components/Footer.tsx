@@ -13,7 +13,7 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
       <div className="md:block hidden">
         <div className="relative bg-primary h-40">
           <div
-            className={`absolute inset-0 rounded-bl-full rounded-br-full ${
+            className={`absolute inset-0 rounded-bl-[100px] rounded-br-[100px] ${
               bgColor ? bgColor : "bg-white"
             }`}
           ></div>
@@ -104,7 +104,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
     <div className="md:hidden block  mt-24 w-full">
       <div className="relative bg-primary h-40">
         <div
-          className={`absolute inset-0 rounded-bl-[1000px] rounded-br-[1000px] ${
+          className={`absolute inset-0 rounded-bl-[40px] rounded-br-[40px]    ${
             bgColor ? bgColor : "bg-white"
           }`}
         ></div>

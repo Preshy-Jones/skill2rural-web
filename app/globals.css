@@ -109,7 +109,7 @@
     }
   }
   .slider {
-    background: #f9f9f9;
+    background: #F9F9F9;
     /* box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125); */
     height: 100px;
     margin: auto;
@@ -121,7 +121,7 @@
   .slider::after {
     background: linear-gradient(
       to right,
-      white 0%,
+      #F9F9F9 0%,
       rgba(255, 255, 255, 0) 100%
     );
     content: "";

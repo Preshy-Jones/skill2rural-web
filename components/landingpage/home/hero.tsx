@@ -10,7 +10,7 @@ const Hero = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 
   return (
-    <div className="h-[80vh]  bg-white relative overflow-hidden">
+    <div className="h-[70vh] sm:h-[80vh]  bg-white relative overflow-hidden">
       <div className="flex sm:flex-col justify-center absolute sm:top-0 iphone:top-40 top-20 z-20 w-full h-full">
         <div className=" xl:mt-40">
           <div className="flex justify-center">
@@ -42,7 +42,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex justify-center mt-6">
-            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
+            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
               Get Started Now
             </button>
           </div>
