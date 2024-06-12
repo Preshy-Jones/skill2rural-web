@@ -45,7 +45,7 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
                   <h1 className="font-semibold text-3.5xl text-greyText">{course.title}</h1>
                   <p className=" text-lg text-greyText">Earn a certificate</p>
                 </div>
-                <Link href={`/dashboard/courses/course/${courseId}/`}>
+                <Link href={`/dashboard/courses/${courseId}/`}>
                   <button className="bg-primary h-[3.75rem] text-white rounded-btn w-60 ">
                     Start Course
                   </button>
