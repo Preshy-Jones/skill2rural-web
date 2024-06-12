@@ -6,6 +6,7 @@ export interface Course {
   video_url: string;
   duration: number;
   progress: CourseProgress[];
+  objectives: string[];
   createdAt: string;
   updatedAt: string;
 }

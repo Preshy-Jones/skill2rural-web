@@ -39,7 +39,7 @@ const Info = () => {
               </div>
               <p className="leading-fifth font-semibold text-primaryBlack">
                 Our story is one of passion, purpose, and a deep commitment to
-                empowering underserved youth. It aims to prepare 1 million
+                empowering underserved youth. Skill2rural aims to prepare 1 million
                 underserved young people by 2030 for the workforce and with the
                 21st-century skills needed to integrate into the workforce.
               </p>
