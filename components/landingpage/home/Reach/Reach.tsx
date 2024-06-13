@@ -31,8 +31,8 @@ const Reach = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center">
-        <Image src={collegeStudentsImage} alt="collegeStudentsImage" className="w-[90%] sm:w-full" />
+      <div className="flex justify-center ">
+        <Image src={collegeStudentsImage} alt="collegeStudentsImage" className="w-[90%] sm:w-[87.43%]" />
       </div>
       <div className="pt-16 bg-greyBg2">
         <h3 className="text-center text-lg sm:text-3.5xl leading-[2.4rem] font-semibold text-primaryBlack mb-6">
