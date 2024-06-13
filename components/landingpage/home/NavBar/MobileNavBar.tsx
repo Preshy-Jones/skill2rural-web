@@ -17,6 +17,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const MobileNavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -81,6 +82,7 @@ const MobileNavBar = () => {
                       icon={item.icon}
                       title={item.title}
                       link={item.link}
+                      setIsOpen={setIsOpen}
                     />
                   ))}
                   <div className="border-t-[0.5px] border-t-formInputBorder border-opacity-50">
@@ -96,6 +98,7 @@ const MobileNavBar = () => {
                       icon={item.icon}
                       title={item.title}
                       link={item.link}
+                      setIsOpen={setIsOpen}
                     />
                   ))}
                   <div className="border-t-[0.5px] border-t-formInputBorder border-opacity-50 w-full">
@@ -172,16 +175,29 @@ const MenuItem = ({
   icon,
   title,
   link,
+  setIsOpen,
 }: {
   icon: StaticImageData;
   title: string;
   link?: string;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (link) {
+      router.push(link);
+    }
+    if (setIsOpen) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div>
       {title !== "Log Out" ? (
-        <Link
-          href={link as string}
+        <div
+          onClick={handleClick}
           className="flex justify-between py-3  cursor-pointer font-medium w-full"
         >
           <div className="flex items-center">
@@ -189,7 +205,7 @@ const MenuItem = ({
             <h3 className="text-white">{title}</h3>
           </div>
           <Image src={CaretRight} alt="caret-right" />
-        </Link>
+        </div>
       ) : (
         //  @ts-ignore
         <div
