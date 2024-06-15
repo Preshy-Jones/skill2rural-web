@@ -31,7 +31,7 @@ export const useAddCourseReview = ({
     },
     onError: (error) => {
       console.log("error", error);
-      toast.error("Failed to add review");
+      toast.error((error as { message: string }).message);
     },
   });
 };

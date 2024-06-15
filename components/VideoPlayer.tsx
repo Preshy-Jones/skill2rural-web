@@ -16,6 +16,7 @@ import {
 import React, { forwardRef, use, useEffect, useRef } from "react";
 import expandVideoIcon from "@/public/expand-video-icon.svg";
 import Image from "next/image";
+import { useQueryClient } from "@tanstack/react-query";
 
 const VideoPlayer = ({ course }: { course: Course }) => {
   const { data: session } = useSession();
@@ -25,8 +26,24 @@ const VideoPlayer = ({ course }: { course: Course }) => {
     course.id
   );
 
+  const queryClient = useQueryClient();
+
   const handleTimeUpdate = (currentTime: any) => {
     console.log("currentTime", currentTime.currentTime);
+    console.log("duration", course);
+    const progressPercentage =
+      (currentTime.currentTime / course.duration) * 100;
+    console.log("progressPercentage", progressPercentage);
+    if (
+      progressPercentage > 90 &&
+      course.progress.length > 0 &&
+      course.progress[0].progressPercentage < 90
+    ) {
+      queryClient.invalidateQueries({
+        queryKey: ["singleCourse"],
+      });
+    }
+
     if (currentTime !== 0) {
       updateCourseProgress.mutate({ current_time: currentTime.currentTime });
     }

@@ -165,7 +165,8 @@ class Api {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to add course review");
+      const errorData = await response.json();
+      throw new Error(errorData.message);
     }
 
     return response.json();

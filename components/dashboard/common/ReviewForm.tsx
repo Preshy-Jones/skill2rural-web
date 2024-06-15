@@ -24,7 +24,7 @@ const ReviewForm = ({ courseId }: { courseId: string }) => {
   const addReview = useAddCourseReview({
     courseId,
     //@ts-ignore
-    token: session?.user.token || "",
+    token: session?.user.email || "",
     setOpen,
   });
 

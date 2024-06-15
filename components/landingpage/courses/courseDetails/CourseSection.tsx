@@ -83,12 +83,6 @@ const CoursesSection = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <div className="bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn flex items-center justify-center">
-              <h3 className="text-white font-semibold mr-2">See More</h3>
-              <Image src={ArrowIcon} alt="arrow-icon" />
-            </div>
-          </div>
         </div>
       </div>
     );

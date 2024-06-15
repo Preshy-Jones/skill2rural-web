@@ -40,11 +40,6 @@ const CourseDetailPage = ({
     //@ts-ignore
   } = useGetSingleCourse(session?.user.email || "", courseId);
 
-  // useEffect(() => {
-  //   if (playerRef.current && course && course?.progress[0]?.lastWatchedTime) {
-  //     playerRef.current.seekTo(course?.progress[0].lastWatchedTime);
-  //   }
-  // }, []);
   //@ts-ignore
   if (isLoading || !session?.user.email) {
     return <div>Loading course details</div>;
@@ -63,21 +58,8 @@ const CourseDetailPage = ({
             <h3>Course</h3>
           </div>
 
-          {/* <ReactPlayer
-            url={course.video_url}
-            controls
-            width="640"
-            height="360"
-            onProgress={onProgress}
-            ref={playerRef}
-            onSeek={(e) => {
-              console.log(e);
-            }}
-          /> */}
           <VideoPlayer course={course} />
-          {/* <Player>
-          <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-        </Player> */}
+
           <div className="w-[40%]">
             <div className="grid grid-cols-3 pt-6">
               {course &&

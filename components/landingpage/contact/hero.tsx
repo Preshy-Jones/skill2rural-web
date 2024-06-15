@@ -7,15 +7,15 @@ import dotDesign1 from "@/public/dots-home-hero.svg";
 
 const Hero = () => {
   return (
-    <div className="h-[80vh] flex flex-col justify-center font-neue relative overflow-hidden">
-      <div className="flex flex-col justify-center items-center absolute top-0 z-20 w-full h-full">
+    <div className="sm:h-[80vh] h-[45vh]  font-neue relative overflow-hidden">
+      <div className="flex sm:flex-col justify-center absolute top-0 z-20 w-full">
         <div className=" mt-24  w-full">
           <h4 className=" text-2xl leading-primary font-semibold text-center mb-4">
             Contact Us
           </h4>
           <div className="flex justify-center">
-            <div className="w-[50%] relative">
-              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
+          <div className="sm:w-[50%] relative w-full">
+            <p className=" text-[2rem] iphone:text-[3.5rem] sm:text-[4rem] iphone:leading-[3rem] leading-tertiary sm:leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack absolute top-0">
                 At Skill2Rural, Dreams find their wings
               </p>
               <Image
@@ -26,7 +26,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="w-[93%] flex justify-end">
+            <div className="w-[93%] hidden sm:flex justify-end">
               <Image
                 src={curvedArrow}
                 alt="curved-arrow"

@@ -7,12 +7,12 @@ import Image from "next/image";
 const ContactForm = () => {
   return (
     <div className=" font-neue">
-      <div className="grid grid-cols-2 w-[95%]">
+      <div className="grid sm:grid-cols-2 grid-cols-1  sm:w-[95%]">
         <div>
-          <div className="flex justify-end mr-10 mb-6">
-            <div className="w-[80%]">
-              <h1 className=" font-semibold text-[2.875rem] text-primaryBlack">
-                We’re here to help, whatever your needs
+          <div className="flex sm:justify-end sm:mr-10 mb-6 justify-center">
+            <div className="sm:w-[80%] w-[90%]">
+              <h1 className=" font-semibold text-[2.875rem] text-primaryBlack  sm:mb-0 mb-4">
+                We&apos;re here to help, whatever your needs
               </h1>
               <p className=" font-semibold text-lg leading-ninth text-greyText">
                 Whether you have questions about our programs, want to

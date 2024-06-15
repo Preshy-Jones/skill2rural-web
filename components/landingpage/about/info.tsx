@@ -10,7 +10,7 @@ const Info = () => {
   return (
     <div>
       <div className="flex justify-center mt-14 mb-1">
-        <div className="w-[85.56%] flex md:flex-row flex-col ">
+        <div className="sm:w-[85.56%] flex md:flex-row flex-col w-[95%]">
           <div className="relative md:mr-8 md:mb-0 mb-6">
             <div className="bg-infoBg px-6 relative z-20 h-[12.3125rem] rounded-lgx border border-primary flex items-center">
               <div className="relative mb-8 h-[3.6875rem] w-[3.6875rem] mr-16">
@@ -52,9 +52,9 @@ const Info = () => {
         <Image
           src={studentsImage}
           alt="studentsImage"
-          className="w-[49.78%] relative z-20"
+          className="sm:w-[49.78%] w-[80%] relative z-20 mb-6 sm:mb-0"
         />
-        <div className="w-[46.18%]">
+        <div className="sm:w-[46.18%] w-[80%]">
           <p className="font-semibold mb-8">
             Our tech platform is a simple-to-use digital platform for
             facilitators and young people to explore courses that enable them to

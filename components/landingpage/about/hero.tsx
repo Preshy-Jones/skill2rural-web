@@ -13,7 +13,7 @@ const Hero = () => {
           </h4>
           <div className="flex justify-center">
             <div className="w-[50%] relative">
-              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
+            <p className=" text-[2rem] iphone:text-[3.5rem] sm:text-[4rem] iphone:leading-[3rem] leading-tertiary sm:leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack absolute top-0">
                 At Skill2Rural, Dreams find their wings
               </p>
               <Image
