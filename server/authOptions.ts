@@ -21,6 +21,7 @@ export const authOptions: NextAuthOptions = {
 
         console.log("credentials", credentials);
 
+        //@ts-ignore
         const userType = credentials?.userType;
         console.log("userType", userType);
 
