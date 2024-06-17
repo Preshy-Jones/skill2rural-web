@@ -67,7 +67,7 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <LoginForm />
+            <LoginForm activeTab={activeTab} />
 
             <div className=" flex justify-center leading-fifth font-neue mt-8">
               <p className="mr-3 text-ash2">New to SkillHat?</p>

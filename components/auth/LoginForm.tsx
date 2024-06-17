@@ -10,8 +10,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import passwordVisibilityToggler from "@/public/show-password.svg";
+import { UserType } from "@/types/global";
 
-const LoginForm = () => {
+const LoginForm = ({ activeTab }: { activeTab: UserType }) => {
   const router = useRouter();
   const schema = z.object({
     email: z.string().email(),
@@ -57,7 +58,9 @@ const LoginForm = () => {
       email: formData.email,
       password: formData.password,
       redirect: false,
+      userType: activeTab,
     });
+
     // console.log(response);
 
     if (response?.error) {
