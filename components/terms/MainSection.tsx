@@ -4,12 +4,12 @@ const MainSection = () => {
   return (
     <div className="flex justify-center font-neue">
       <div className="w-[86.18%]">
-        <div className="flex justify-between">
-          <div className=" text-greyText font-semibold w-[15%]">
+        <div className="flex sm:flex-row flex-col justify-between">
+          <div className=" text-greyText font-semibold sm:w-[15%] w-full sm:block hidden">
             <h3>Terms & Condtion</h3>
             <h3>Privacy Policy</h3>
           </div>
-          <div className="w-[82%]">
+          <div className="sm:w-[82%] w-full">
             <div className="mb-6">
               <h1 className=" font-semibold text-3.5xl leading-tertiary mb-8">
                 Terms & Condition

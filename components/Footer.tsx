@@ -6,6 +6,7 @@ import instagramIcon from "@/public/instagram-icon.svg";
 import footerLogoMobile from "@/public/skill2rural-footer-logo-mobile.svg";
 import footerLogo from "@/public/skill2rural-logo-full.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = ({ bgColor }: { bgColor?: string }) => {
   return (
@@ -74,12 +75,11 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
                     </h1>
                     <ul>
                       {item.links.map((link, index) => (
-                        <li
-                          key={index}
-                          className="text-sm mb-2 font-thin text-white leading-seventh"
-                        >
-                          {link}
-                        </li>
+                        <Link href={link.link} key={index}>
+                          <li className="text-sm mb-2 font-thin text-white leading-seventh">
+                            {link.title}
+                          </li>
+                        </Link>
                       ))}
                     </ul>
                   </div>
@@ -140,12 +140,11 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
                 </h1>
                 <ul>
                   {item.links.map((link, index) => (
-                    <li
-                      key={index}
-                      className="text-sm mb-2 font-thin text-white leading-seventh"
-                    >
-                      {link}
-                    </li>
+                    <Link href={link.link} key={index}>
+                      <li className="text-sm mb-2 font-thin text-white leading-seventh">
+                        {link.title}
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               </div>
@@ -160,14 +159,49 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
 const footerContent = [
   {
     title: "Company",
-    links: ["About Us", "Blog", "Careers", "Community"],
+    links: [
+      {
+        title: "About Us",
+        link: "/about",
+      },
+      {
+        title: "Blog",
+        link: "#",
+      },
+      {
+        title: "Careers",
+        link: "#",
+      },
+      {
+        title: "Community",
+        link: "#",
+      },
+    ],
   },
   {
     title: "Help",
-    links: ["Contact", "FAQs"],
+    links: [
+      {
+        title: "Contact",
+        link: "/contact",
+      },
+      {
+        title: "FAQs",
+        link: "#",
+      },
+    ],
   },
   {
     title: "Legal",
-    links: ["Terms & conditions", "Privacy Policy"],
+    links: [
+      {
+        title: "Terms & conditions",
+        link: "/terms",
+      },
+      {
+        title: "Privacy Policy",
+        link: "/privacy-policy",
+      },
+    ],
   },
 ];
