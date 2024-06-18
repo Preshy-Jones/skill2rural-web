@@ -57,6 +57,7 @@ export default async function LandingPageLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession();
+  
   return (
     <html lang="en">
       <Head>

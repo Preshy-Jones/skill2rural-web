@@ -18,6 +18,7 @@ import Link from "next/link";
 
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useGetUserSettings } from "@/queries/useGetUserSettings";
 
 const MobileNavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,6 +27,15 @@ const MobileNavBar = () => {
     open: { x: 0 },
     closed: { x: "100%" },
   };
+
+  const {
+    isLoading,
+    isSuccess,
+    data: user,
+  } = useGetUserSettings(
+    //@ts-ignore
+    session?.user.email || ""
+  );
   return (
     <div className="z-50 w-full sticky top-0 block md:hidden ">
       <div className="flex justify-between px-10 bg-white h-full py-3">
@@ -67,7 +77,7 @@ const MobileNavBar = () => {
                     <Image
                       className="rounded-full w-[2.375rem] h-[2.375rem] cursor-pointer mr-4"
                       alt="profile-picture"
-                      src={session?.user.image || ""}
+                      src={user?.profile_photo || ""}
                       width={38}
                       height={38}
                     />

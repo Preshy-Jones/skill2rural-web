@@ -20,9 +20,19 @@ import {
   MenubarTrigger,
 } from "../../../ui/menubar";
 import LoggedInMenu from "./LoggedInMenu";
+import { useGetUserSettings } from "@/queries/useGetUserSettings";
 
 const NavBar = () => {
   const { data: session, status } = useSession();
+
+  const {
+    isLoading,
+    isSuccess,
+    data: user,
+  } = useGetUserSettings(
+    //@ts-ignore
+    session?.user.email || ""
+  );
 
   return (
     <div className="bg-white pt-3 pb-3 z-50 top-0 w-full md:block hidden sticky">
@@ -66,7 +76,7 @@ const NavBar = () => {
                   <Image
                     className="rounded-full w-[3.75rem] h-[3.75rem] cursor-pointer"
                     alt="profile-picture"
-                    src={session?.user.image || ""}
+                    src={user?.profile_photo || ""}
                     width={60}
                     height={60}
                   />

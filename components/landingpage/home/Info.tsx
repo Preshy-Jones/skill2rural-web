@@ -348,7 +348,15 @@ const EducatorInfo = () => {
               Enhance your facilitation skills through cascading the courses to
               your students. Facilitation skills are essential for professional
               and personal development in the 21st century. You can explore the
-              resources from SessionLab to develop your facilitation skills.
+              resources from{" "}
+              <a
+                href="https://www.sessionlab.com/blog/facilitation-skills/"
+                target="_blank"
+                className="text-primary underline font-bold"
+              >
+                SessionLab
+              </a>{" "}
+              to develop your facilitation skills.
             </p>
           </div>
           <div className="flex items-start">

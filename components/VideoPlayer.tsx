@@ -8,6 +8,7 @@ import {
   MediaPlayer,
   MediaPlayerInstance,
   MediaProvider,
+  useMediaState,
 } from "@vidstack/react";
 import {
   defaultLayoutIcons,
@@ -17,6 +18,7 @@ import React, { forwardRef, use, useEffect, useRef } from "react";
 import expandVideoIcon from "@/public/expand-video-icon.svg";
 import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
+import Link from "next/link";
 
 const VideoPlayer = ({ course }: { course: Course }) => {
   const { data: session } = useSession();
@@ -50,15 +52,19 @@ const VideoPlayer = ({ course }: { course: Course }) => {
   };
   const player = useRef<MediaPlayerInstance>(null);
 
+  const currentTime = useMediaState("currentTime", player);
+
   //  const { canFullscreen, fullscreen, currentTime } = useMediaStore(player);
 
   return (
-    <div>
+    <div className="font-neue">
       {/* <pre>{JSON.stringify(course.progress, null, 2)}</pre> */}
       <div className="flex justify-between mt-6 mb-4">
         <h2 className=" font-semibold leading-primary text-2xl">
           {course.title}
         </h2>
+        <h3>currentTime {currentTime}</h3>
+        <h3>duration {course.duration}</h3>
         <Image
           src={expandVideoIcon}
           alt="expand-video"
@@ -69,19 +75,31 @@ const VideoPlayer = ({ course }: { course: Course }) => {
           }}
         />
       </div>
-      <div>
+      <div className="relative">
         <MediaPlayer
           title={course.title}
           src={course.video_url}
           ref={player}
           onTimeUpdate={handleTimeUpdate}
           currentTime={course.progress[0]?.lastWatchedTime || 0}
+          className="relative"
         >
           <MediaProvider />
           <DefaultVideoLayout
             // thumbnails={course.video_url}
             icons={defaultLayoutIcons}
           />
+          {course.duration - currentTime < 10 && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Link
+                href={`/dashboard/my-learnings/course/${course.id}/questions`}
+              >
+                <button className="bg-primary h-[4.0625rem] text-white rounded-btn  text-sm leading-seventh px-6">
+                  Take Quiz & Earn Course Certificate
+                </button>
+              </Link>
+            </div>
+          )}
         </MediaPlayer>
       </div>
     </div>

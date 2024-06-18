@@ -75,6 +75,7 @@ export default async function DashbaordPageLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession();
+  
   return (
     <html lang="en">
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />

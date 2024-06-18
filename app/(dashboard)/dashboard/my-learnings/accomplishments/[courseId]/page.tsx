@@ -110,7 +110,8 @@ const AcommplishmentDetails = ({
               <Image
                 className="rounded-full w-full h-full "
                 alt="profile-picture"
-                src="https://preshyjonesbucket.s3.eu-west-1.amazonaws.com/photo_2023-09-29+11.13.53.jpeg"
+                //@ts-ignore
+                src={session?.user?.image}
                 width={56}
                 height={56}
               />
@@ -140,7 +141,9 @@ const AcommplishmentDetails = ({
                   Grade Achieved: {certificate.gradeInPercentage}%
                 </h2>
                 <h2 className="leading-seventh mb-2">
-                  {convertToHourseAndMinutesAndSeconds(certificate.course.duration)}{" "}
+                  {convertToHourseAndMinutesAndSeconds(
+                    certificate.course.duration
+                  )}{" "}
                   approximately{" "}
                 </h2>
               </div>
