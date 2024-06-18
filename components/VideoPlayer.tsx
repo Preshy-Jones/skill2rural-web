@@ -54,6 +54,31 @@ const VideoPlayer = ({ course }: { course: Course }) => {
 
   const currentTime = useMediaState("currentTime", player);
 
+  useEffect(() => {
+    console.log("currentTime", currentTime);
+    const progressPercentage = (currentTime / course.duration) * 100;
+    console.log("progressPercentage", progressPercentage);
+    if (
+      progressPercentage > 90 &&
+      course.progress.length > 0 &&
+      course.progress[0].progressPercentage < 90
+    ) {
+      queryClient.invalidateQueries({
+        queryKey: ["singleCourse"],
+      });
+    }
+
+    if (currentTime > 0) {
+      updateCourseProgress.mutate({ current_time: currentTime });
+    }
+  }, [
+    currentTime,
+    course.progress,
+    course.duration,
+    queryClient,
+    updateCourseProgress,
+  ]);
+
   //  const { canFullscreen, fullscreen, currentTime } = useMediaStore(player);
 
   return (
@@ -80,7 +105,7 @@ const VideoPlayer = ({ course }: { course: Course }) => {
           title={course.title}
           src={course.video_url}
           ref={player}
-          onTimeUpdate={handleTimeUpdate}
+          // onTimeUpdate={handleTimeUpdate}
           currentTime={course.progress[0]?.lastWatchedTime || 0}
           className="relative"
         >
