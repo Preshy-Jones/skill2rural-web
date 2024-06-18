@@ -44,8 +44,6 @@ const ResetPasswordForm = ({ token }: { token: string }) => {
     // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     try {
-      console.log("dfgdfdfgddfdgf");
-
       await handleSubmitQuery(data);
     } catch (error) {
       // setError("root", {
@@ -73,7 +71,7 @@ const ResetPasswordForm = ({ token }: { token: string }) => {
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      const errorMessage = handleErrorResponse(error.response.data)
+      const errorMessage = handleErrorResponse(error.response.data);
       toast.error(errorMessage);
     },
   });
