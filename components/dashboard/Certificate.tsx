@@ -25,9 +25,9 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
           />
           <div className="h-[0.09375rem] w-[60%] bg-black"></div>
           <p className="mb-12">
-            On the Completion of Course in PROJECT MANAGEMENT ipsum dolor isit
-            amet, consectetur adipiscing elit, sed du eiusmod tempor incididunt
-            ut labore
+            has now completed the short module on Design Thinking to advance
+            their knowledge and skills in preparation for the 21st-century
+            workforce.
           </p>
           <div className=" h-[1px] bg-black w-[20%]"></div>
           <div className="flex justify-between">

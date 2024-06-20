@@ -15,6 +15,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import certificateBg from "@/public/certificatebg.svg";
 import Link from "next/link";
+import officialSignature from "@/public/official-signature.png";
 
 const AcommplishmentDetails = ({
   params,
@@ -156,19 +157,19 @@ const AcommplishmentDetails = ({
                 <h2>Completed by {certificate.user.name}</h2>
               </div>
             </div>
-            <div className="w-[58.74%] ">
+            <div className="w-[58.74%] h-full">
               {/* <pre className="text-black">{JSON.stringify(certificate)}</pre> */}
               {/* <Certificate /> */}
               {/* <Image src={certificateImage} alt="certificate-bg1" /> */}
               <div className="relative h-[30rem]">
                 <div
-                  className="bg-white w-[46.625rem] h-[29.75rem] absolute top-0"
+                  className="bg-white w-[46.625rem] h-[31.75rem]  absolute top-0"
                   ref={inputRef}
                 >
                   <Image
                     src={certificateBg}
                     alt="certificateBg2"
-                    className=" right-0 absolute bottom-0"
+                    className=" right-0 absolute bottom-0 object-cover h-full"
                   />
                   <div className="pl-16 pt-16 w-[70%]">
                     <div className="mb-12">
@@ -190,12 +191,30 @@ const AcommplishmentDetails = ({
                       </div>
                       {/* <div className="h-[0.09375rem] w-[60%] bg-black"></div> */}
                     </div>
-                    <p className="mb-12 text-xxs leading-twelfth  font-avenir">
-                      On the Completion of Course in{" "}
-                      {certificate.course.title.toUpperCase()} ipsum dolor isit
-                      amet, consectetur adipiscing elit, sed du eiusmod tempor
-                      incididunt ut labore
+                    <p className="mb-10 text-xxs leading-twelfth  font-avenir">
+                      has now completed the short module on{" "}
+                      {certificate.course.title.toUpperCase()} to advance their
+                      knowledge and skills in preparation for the 21st-century
+                      workforce.
                     </p>
+                    {/* 
+                    <Image
+                      src={officialSignature}
+                      alt="officialSignature"
+                      className="w-32 h-5"
+                    /> */}
+                    <div
+                      className="w-32 h-14"
+                      style={{
+                        backgroundImage: `url(${officialSignature.src})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        // width: "8rem",
+                        // height: "2.5rem",
+                        backgroundPosition: "center",
+                      }}
+                    ></div>
+
                     <div className=" h-[1px] bg-black w-[25%] mb-1.5"></div>
                     <div className="flex justify-between">
                       <h2 className="text-xxs leading-fourteenth">
