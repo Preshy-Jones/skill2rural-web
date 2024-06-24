@@ -169,7 +169,7 @@ const AcommplishmentDetails = ({
                   <Image
                     src={certificateBg}
                     alt="certificateBg2"
-                    className=" right-0 absolute bottom-0 object-cover h-full"
+                    className=" right-0 absolute bottom-0 object-cover h-fu"
                   />
                   <div className="pl-16 pt-16 w-[70%]">
                     <div className="mb-12">

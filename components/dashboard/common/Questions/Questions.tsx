@@ -19,6 +19,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useSubmitQuiz } from "@/queries/submitQuiz";
+import { useGetSingleCoursePublic } from "@/queries/useGetSingleCoursePublic";
 
 const Questions = ({
   courseId,
@@ -51,6 +52,16 @@ const Questions = ({
     session?.user.email || "",
     courseId
   );
+
+  const {
+    isLoading: isLoadingCourse,
+    isError: isErrorCourse,
+
+    //rename data to course
+    data: course,
+    isSuccess: isSuccessCourse,
+    //@ts-ignore
+  } = useGetSingleCoursePublic(courseId);
 
   const submitQuiz = useSubmitQuiz<SubmitQuizResponse>(
     //@ts-ignore
@@ -136,11 +147,13 @@ const Questions = ({
             <Image src={caretRight} alt="caret-right" />
             <h3>Course</h3>
           </div>
-          <div className="flex justify-between mt-6 mb-16">
-            <h2 className=" font-semibold leading-primary text-2xl">
-              Design Thinking
-            </h2>
-          </div>
+          {course && (
+            <div className="flex justify-between mt-6 mb-16">
+              <h2 className=" font-semibold leading-primary text-2xl">
+                {course?.title}
+              </h2>
+            </div>
+          )}
 
           <div className=" mb-10">
             <h2 className=" font-semibold leading-ninth text-lg text-greyText font-neue mb-4">

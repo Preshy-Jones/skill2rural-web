@@ -15,6 +15,7 @@ const QuestionsSection = ({ courseId }: { courseId: string }) => {
       session?.user.email || "",
       courseId
     );
+    
 
   //@ts-ignore
   if (isLoading || !session?.user.email) {
