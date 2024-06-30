@@ -3,6 +3,9 @@ import TextField from "../../ui/icons/TextField";
 import blueRectangle from "@/public/blue-rectangle.svg";
 import sampleVideoImage from "@/public/contact-image.svg";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 const ContactForm = () => {
   return (
@@ -32,6 +35,27 @@ const ContactForm = () => {
 export default ContactForm;
 
 const Form = () => {
+  const schema = z.object({
+    name: z.string().min(3),
+    email: z.string().email(),
+  });
+
+  type FormFields = z.infer<typeof schema>;
+
+  const {
+    register,
+    handleSubmit,
+    setError,
+    watch,
+    control,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>({
+    defaultValues: {
+      email: "test@email.com",
+    },
+    resolver: zodResolver(schema),
+  });
+
   return (
     <div>
       <form

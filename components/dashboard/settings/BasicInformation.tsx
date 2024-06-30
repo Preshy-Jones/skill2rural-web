@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import imageUploadIcon from "@/public/icon.svg";
+import { getInitials } from "@/utils";
 const BasicInformation = ({ user }: { user: User }) => {
   const { data: session } = useSession();
   const updateUser = useUpdateUserSettings(
@@ -90,13 +91,21 @@ const BasicInformation = ({ user }: { user: User }) => {
       {/* <pre>{JSON.stringify(session?.user, null, 2)}</pre> */}
       {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
       <div className="px-6">
-        <Image
-          className="rounded-full w-[6.25rem] h-[6.25rem]"
-          alt="profile-picture"
-          src={user?.profile_photo || ""}
-          width={100}
-          height={100}
-        />
+        {user?.profile_photo ? (
+          <Image
+            className="rounded-full w-[6.25rem] h-[6.25rem]"
+            alt="profile-picture"
+            src={user?.profile_photo}
+            width={100}
+            height={100}
+          />
+        ) : (
+          <div className="rounded-full  w-[3.5rem] h-[3.5rem] flex justify-center items-center bg-primary">
+            <div className="text-white text-center leading-5 font-semibold">
+              {getInitials(user.name)}
+            </div>
+          </div>
+        )}
         <div className="mt-5">
           <h3>Profile photo</h3>
           <p className=" text-greyText3 text-sm leading-eleventh">

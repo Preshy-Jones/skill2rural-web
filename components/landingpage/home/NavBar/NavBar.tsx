@@ -21,6 +21,7 @@ import {
 } from "../../../ui/menubar";
 import LoggedInMenu from "./LoggedInMenu";
 import { useGetUserSettings } from "@/queries/useGetUserSettings";
+import { getInitials } from "@/utils";
 
 const NavBar = () => {
   const { data: session, status } = useSession();
@@ -73,13 +74,21 @@ const NavBar = () => {
             <Menubar className=" bg-transparent">
               <MenubarMenu>
                 <MenubarTrigger>
-                  <Image
-                    className="rounded-full w-[3.75rem] h-[3.75rem] cursor-pointer"
-                    alt="profile-picture"
-                    src={user?.profile_photo || ""}
-                    width={60}
-                    height={60}
-                  />
+                  {user?.profile_photo ? (
+                    <Image
+                      className="rounded-full w-[3.75rem] h-[3.75rem] cursor-pointer"
+                      alt="profile-picture"
+                      src={user?.profile_photo}
+                      width={60}
+                      height={60}
+                    />
+                  ) : (
+                    <div className="rounded-full  w-[3.5rem] h-[3.5rem] flex justify-center items-center bg-primary">
+                      <div className="text-white text-center leading-5 font-semibold">
+                        {user && getInitials(user.name)}
+                      </div>
+                    </div>
+                  )}
                 </MenubarTrigger>
                 <MenubarContent className="px-0">
                   <LoggedInMenu

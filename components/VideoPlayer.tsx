@@ -88,8 +88,8 @@ const VideoPlayer = ({ course }: { course: Course }) => {
         <h2 className=" font-semibold leading-primary text-2xl">
           {course.title}
         </h2>
-        <h3>currentTime {currentTime}</h3>
-        <h3>duration {course.duration}</h3>
+        {/* <h3>currentTime {currentTime}</h3>
+        <h3>duration {course.duration}</h3> */}
         <Image
           src={expandVideoIcon}
           alt="expand-video"

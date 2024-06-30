@@ -9,7 +9,11 @@ import { useSession } from "next-auth/react";
 import skill2ruralLogo from "@/public/skill2rural-logo-certificate.svg";
 import certificateOfCompletion from "@/public/certificate-of-completion.svg";
 import { useGetCertificate } from "@/queries/getCertificate";
-import { convertToHourseAndMinutesAndSeconds, formatDate } from "@/utils";
+import {
+  convertToHourseAndMinutesAndSeconds,
+  formatDate,
+  getInitials,
+} from "@/utils";
 import Certificate from "@/components/dashboard/Certificate";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
@@ -108,14 +112,29 @@ const AcommplishmentDetails = ({
 
           <div className="flex">
             <div className="relative w-[3.5rem] h-[3.5rem] mr-4">
-              <Image
-                className="rounded-full w-full h-full "
-                alt="profile-picture"
-                //@ts-ignore
-                src={session?.user?.image}
-                width={56}
-                height={56}
-              />
+              <div>
+                {certificate.user.profile_photo ? (
+                  // <Image
+                  //   src={certificate.user.profile_photo}
+                  //   alt="profile-photo"
+                  //   className="rounded-full w-full h-full"
+                  // />
+                  <Image
+                    className="rounded-full w-full h-full "
+                    alt="profile-picture"
+                    //@ts-ignore
+                    src={certificate.user.profile_photo}
+                    width={56}
+                    height={56}
+                  />
+                ) : (
+                  <div className="rounded-full  w-[3.5rem] h-[3.5rem] flex justify-center items-center bg-primary">
+                    <div className="text-white text-center leading-5 font-semibold">
+                      {getInitials(certificate.user.name)}
+                    </div>
+                  </div>
+                )}
+              </div>
               <Image
                 src={verifiedTick}
                 alt="verified-tick"

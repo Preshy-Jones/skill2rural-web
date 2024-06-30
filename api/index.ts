@@ -172,6 +172,24 @@ class Api {
     return response.json();
   };
 
+  contactUs = async (payload: any) => {
+    const url = this.baseURL + `user/contact-us`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
   getCourseQuestions = async (courseId: string): Promise<any> => {
     const url = this.baseURL + `/questions/question/${courseId}`;
     const response = await fetch(url, {

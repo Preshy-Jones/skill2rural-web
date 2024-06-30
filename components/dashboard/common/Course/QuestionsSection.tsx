@@ -19,7 +19,7 @@ const QuestionsSection = ({ courseId }: { courseId: string }) => {
 
   //@ts-ignore
   if (isLoading || !session?.user.email) {
-    return <div>Loading course reviews...</div>;
+    return <div>Loading course Questions...</div>;
   }
   if (session.user.email && isSuccess) {
     return (
