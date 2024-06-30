@@ -194,7 +194,8 @@ const AcommplishmentDetails = ({
                     <div className="mb-12">
                       <Image src={skill2ruralLogo} alt="skill2rural-logo" />
                       <h3 className="text-xxs leading-[13.66px] ml-11">
-                        Lorem ipsum dolor sit amet consectetur
+                        An initiative of Kayode Alabi Leadership and Career
+                        Initiative-KLCI
                       </h3>
                     </div>
                     <Image
