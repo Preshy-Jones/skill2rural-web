@@ -1,3 +1,4 @@
+"use client";
 import ContactForm from "@/components/landingpage/contact/form";
 import Hero from "@/components/landingpage/contact/hero";
 import gradientBg from "@/public/gradient.svg";

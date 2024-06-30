@@ -14,6 +14,8 @@ import { NavigationMenuDemo } from "@/components/NavMenuExample";
 import MobileNavBar from "@/components/landingpage/home/NavBar/MobileNavBar";
 
 import Head from "next/head";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Skill2rural Home",
@@ -57,7 +59,7 @@ export default async function LandingPageLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession();
-  
+
   return (
     <html lang="en">
       <Head>
@@ -75,6 +77,7 @@ export default async function LandingPageLayout({
             <Faq />
             <Footer />
           </ReactQueryProvider>
+          <ToastContainer />
         </SessionProvider>
         <ProgressBar
           height="4px"

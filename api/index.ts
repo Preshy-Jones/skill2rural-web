@@ -173,7 +173,7 @@ class Api {
   };
 
   contactUs = async (payload: any) => {
-    const url = this.baseURL + `user/contact-us`;
+    const url = this.baseURL + `/user/contact-us`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

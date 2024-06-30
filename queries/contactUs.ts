@@ -7,6 +7,7 @@ export const useContactUs = () => {
     mutationFn: async (formData: {
       name: string;
       email: string;
+      subject: string;
       message: string;
     }) => {
       const api = new Api();
