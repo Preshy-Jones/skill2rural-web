@@ -24,11 +24,11 @@ const Signup = () => {
         <Image
           src={studentsBackgroundImage}
           alt="african-students"
-          className=""
+          className="tablet:block hidden"
         />
 
-        <div className="absolute z-10 top-0 flex justify-end w-full">
-          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
+        <div className="absolute z-10 top-0 flex tablet:justify-end w-full justify-center">
+          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] tablet:px-12 pb-44 pt-20 w-full tablet:w-auto">
             <div className="flex flex-col items-center">
               <Link href={"/"}>
                 <Image src={logo} alt="skrural-logo-onboarding" />
@@ -44,7 +44,7 @@ const Signup = () => {
                     activeTab === UserType.EDUCATOR
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
                   onClick={() => handleTabClick(UserType.EDUCATOR)}
                 >
                   EDUCATOR
@@ -54,7 +54,7 @@ const Signup = () => {
                     activeTab === UserType.STUDENT
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
                   onClick={() => handleTabClick(UserType.STUDENT)}
                 >
                   Students

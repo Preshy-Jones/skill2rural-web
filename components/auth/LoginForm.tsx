@@ -78,10 +78,14 @@ const LoginForm = ({ activeTab }: { activeTab: UserType }) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   return (
-    <div>
-      <form action="" className="px-6 pt-16" onSubmit={handleSubmit(onSubmit)}>
+    <div className="w-full">
+      <form
+        action=""
+        className="px-6 pt-16 w-full"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
-        <div className="mb-8">
+        <div className="mb-8 w-full">
           <div className="mb-3">
             <h3 className="font-semibold">Email address</h3>
             <input
