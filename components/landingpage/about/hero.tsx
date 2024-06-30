@@ -33,11 +33,13 @@ const Hero = () => {
               />
             </div>
           </div>
-          <div className="sm:w-[60%] relative iphone:w-[80%] w-[95%] sm:mt-0 mt-12">
-            <p className="text-center leading-primary font-semibold text-2xl">
-              Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership
-              and Career Initiative:
-            </p>
+          <div className="sm:flex justify-center">
+            <div className="sm:w-[60%] relative iphone:w-[80%] w-[95%] sm:mt-0 mt-12">
+              <p className="text-center leading-primary font-semibold text-2xl">
+                Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership
+                and Career Initiative:
+              </p>
+            </div>
           </div>
         </div>
       </div>
