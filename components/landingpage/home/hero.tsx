@@ -16,7 +16,7 @@ const Hero = () => {
         <div className=" xl:mt-40">
           <div className="flex justify-center">
             <div className="sm:w-[50%] relative w-full">
-              <div className="relative h-[9.5625rem] iphone:bottom-28 lgx:bottom-10 xl:top-0">
+              <div className="relative h-[9.5625rem] iphone:bottom-28 lgx:bottom-10 1.5xl:bottom-0 xl:bottom-10">
                 <p className=" text-[2rem] iphone:text-[3.5rem] sm:text-[4rem] iphone:leading-[3rem] leading-tertiary sm:leading-[4.8rem] text-center mt-4 font-semibold text-primaryBlack absolute top-0">
                   Bridging Opportunities, Transforming Lives
                 </p>
