@@ -20,18 +20,20 @@ const MyLearningCoursesSection = ({
   return (
     <div>
       <div className="flex mt-6">
-        <div className="relative h-[6.1875rem] w-[33.4375rem]">
-          <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
-            <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-              Ongoing
-            </button>
+        <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-[21.0625rem] sm:w-[33.4375rem]">
+          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+            <div>
+              <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+                Ongoing
+              </button>
+            </div>
             <Link href={"/dashboard/my-learnings/accomplishments"}>
               <button className="text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Completed
               </button>
             </Link>
           </div>
-          <div className="h-[5.1875rem] w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-btn "></div>
+          <div className="h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-[1.25rem] sm:rounded-btn "></div>
         </div>
       </div>
       <h2 className=" font-medium text-2xl leading-primary mt-4">
@@ -52,7 +54,7 @@ const MyLearningCoursesSection = ({
           <Image src={window} alt="sort-icon" />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-12 mt-12">
+      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
         {data.courses.map((item, index) => (
           <Link
             href={`my-learnings/course/${item.id}`}

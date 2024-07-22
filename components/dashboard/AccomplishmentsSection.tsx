@@ -13,18 +13,20 @@ const AccomplishmentsSection = ({ data }: { data: GetUserCertificates }) => {
   return (
     <div>
       <div className="flex mt-6">
-        <div className="relative h-[6.1875rem] w-[33.4375rem]">
-          <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+        <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-[21.0625rem] sm:w-[33.4375rem]">
+          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
             <Link href={"/dashboard/my-learnings"}>
-              <button className="text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              <button className="text-primary bg-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Ongoing
               </button>
             </Link>
-            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-              Completed
-            </button>
+            <div>
+              <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+                Completed
+              </button>
+            </div>
           </div>
-          <div className="h-[5.1875rem] w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-btn "></div>
+          <div className="h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-[1.25rem] sm:rounded-btn "></div>
         </div>
       </div>
       <h2 className=" font-medium text-2xl leading-primary mt-4">
@@ -68,7 +70,10 @@ const AccomplishmentsSection = ({ data }: { data: GetUserCertificates }) => {
                   {accomplishment.course.progress[0].progressPercentage}%
                   Complete
                 </h3>
-                <Progress value={accomplishment.course.progress[0].progressPercentage} className="h-[0.375rem] bg-textFourth" />
+                <Progress
+                  value={accomplishment.course.progress[0].progressPercentage}
+                  className="h-[0.375rem] bg-textFourth"
+                />
               </div>
               <h3 className="text-primary font-semibold text-lg leading-ninth">
                 Free
