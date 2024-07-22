@@ -10,7 +10,7 @@ import Link from "next/link";
 const CoursesSection = ({ courses }: { courses: Course[] }) => {
   return (
     <div>
-      <div className="grid grid-cols-3 gap-12 mt-12">
+      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
         {courses.map((item, index) => (
           <Link
             href={`/dashboard/courses/${item.id}`}
