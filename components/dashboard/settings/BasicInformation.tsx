@@ -86,7 +86,7 @@ const BasicInformation = ({ user }: { user: User }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="basis-[70%] bg-white flex divide-x divide-formInputBorder  py-12 rounded-lg"
+      className="  settings2:divide-x divide-formInputBorder  py-12 rounded-lg flex settings2:flex-row flex-col w-full"
     >
       {/* <pre>{JSON.stringify(session?.user, null, 2)}</pre> */}
       {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}

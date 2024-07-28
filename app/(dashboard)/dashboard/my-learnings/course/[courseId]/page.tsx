@@ -49,7 +49,7 @@ const CourseDetailPage = ({
   if (session.user.email && isSuccess && course) {
     return (
       <div className="flex justify-center w-full">
-        <div className="w-[89.51%] py-10">
+        <div className=" w-[96%] sm:w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
 
           <div className="flex font-medium leading-fifth items-center">
@@ -60,7 +60,7 @@ const CourseDetailPage = ({
 
           <VideoPlayer course={course} />
 
-          <div className="w-[40%]">
+          <div className="sm:w-[40%] w-full">
             <div className="grid grid-cols-3 pt-6">
               {course &&
                 options.map((item, index) => {

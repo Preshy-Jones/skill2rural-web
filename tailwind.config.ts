@@ -133,6 +133,7 @@ const config: Config = {
         circle: "50%",
         btn: "6.25rem",
         largeBtn: "12.5rem",
+        review:"2.5rem"
       },
       lineHeight: {
         primary: "1.8rem",
@@ -172,6 +173,8 @@ const config: Config = {
       iphone: "420px",
       lgx: "1084",
       "1.5xl": "1400px",
+      settings: "750px",
+      settings2: "670px",
       tablet: "850px",
       tall: { raw: "(min-height: 700px)" },
       ...defaultTheme.screens,

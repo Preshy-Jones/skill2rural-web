@@ -20,8 +20,8 @@ const MyLearningCoursesSection = ({
   return (
     <div>
       <div className="flex mt-6">
-        <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-[21.0625rem] sm:w-[33.4375rem]">
-          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+        <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-full sm:w-[33.4375rem]">
+          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
             <div>
               <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Ongoing
@@ -33,7 +33,7 @@ const MyLearningCoursesSection = ({
               </button>
             </Link>
           </div>
-          <div className="h-[9.375rem] sm:h-[5.1875rem] w-[21.0625rem] sm:w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-[1.25rem] sm:rounded-btn "></div>
+          <div className="h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-[1.25rem] sm:rounded-btn "></div>
         </div>
       </div>
       <h2 className=" font-medium text-2xl leading-primary mt-4">
@@ -44,7 +44,7 @@ const MyLearningCoursesSection = ({
           {data.number_of_completed_courses} out of{" "}
           {data.total_courses_enrolled} completed
         </p>
-        <div className="flex items-center">
+        <div className="items-center sm:flex hidden">
           <p className=" tracking-[0,1px]">
             Sort by:
             <span className=" font-semibold leading-tenth">Latest item</span>

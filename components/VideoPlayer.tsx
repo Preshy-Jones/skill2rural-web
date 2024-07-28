@@ -85,7 +85,7 @@ const VideoPlayer = ({ course }: { course: Course }) => {
     <div className="font-neue">
       {/* <pre>{JSON.stringify(course.progress, null, 2)}</pre> */}
       <div className="flex justify-between mt-6 mb-4">
-        <h2 className=" font-semibold leading-primary text-2xl">
+        <h2 className=" sm:font-semibold leading-primary sm:text-2xl">
           {course.title}
         </h2>
         {/* <h3>currentTime {currentTime}</h3>

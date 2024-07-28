@@ -41,49 +41,58 @@ const ReviewForm = ({ courseId }: { courseId: string }) => {
     setComment(e.target.value);
   };
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <button className=" border border-primary text-sm p-4 rounded-btn font-neue font-semibold text-primary">
+    <div>
+      <div className="flex justify-between items-center mb-12">
+        <h1 className=" font-semibold leading-fifth ">Reviews</h1>
+        <button
+          className=" border border-primary text-sm px-4 h-11 rounded-btn font-neue font-semibold text-primary"
+          onClick={() => setOpen(true)}
+        >
           Write a review
         </button>
-      </DialogTrigger>
-      <DialogContent
-        closeButtonComponent={<Image src={xCloseButton} alt="x-close" />}
-      >
-        <DialogHeader>
-          <DialogTitle className=" text-black text-3.5xl font-neue font-medium text-center mb-4">
-            Rate this course
-          </DialogTitle>
-
-          <DialogDescription className="flex flex-col items-center justify-center">
-            <Ratings
-              rating={ratingValue}
-              variant="starColor"
-              totalStars={5}
-              size={24}
-              setRating={(rating) => setRatingValue(rating)}
-            />
-            <textarea
-              placeholder="Write a review..."
-              name=""
-              id=""
-              cols={30}
-              rows={10}
-              value={comment}
-              onChange={handleOnChange}
-              className="border border-borderGrey w-full mt-7 p-4 rounded-2xc text-primaryBlack"
-            ></textarea>
-            {error && <p className="text-red-500">{error}</p>}
-            <button
-              className="bg-primary h-[3.75rem] text-white rounded-btn w-full mt-6"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+      </div>
+      <div>
+        <Dialog open={open} onOpenChange={setOpen}>
+          {/* <DialogTrigger></DialogTrigger> */}
+          <DialogContent
+          className="w-[85.33%] sm:rounded-review rounded-3xl"
+            closeButtonComponent={<Image src={xCloseButton} alt="x-close" />}
+          >
+            <DialogHeader>
+              <DialogTitle className=" text-black text-3.5xl font-neue font-medium text-center mb-4">
+                Rate this course
+              </DialogTitle>
+              <DialogDescription className="flex flex-col items-center justify-center">
+                <Ratings
+                  rating={ratingValue}
+                  variant="starColor"
+                  totalStars={5}
+                  size={24}
+                  setRating={(rating) => setRatingValue(rating)}
+                />
+                <textarea
+                  placeholder="Write a review..."
+                  name=""
+                  id=""
+                  cols={30}
+                  rows={10}
+                  value={comment}
+                  onChange={handleOnChange}
+                  className="border border-borderGrey w-full mt-7 p-4 rounded-2xc text-primaryBlack"
+                ></textarea>
+                {error && <p className="text-red-500">{error}</p>}
+                <button
+                  className="bg-primary h-[3.75rem] text-white rounded-btn w-full mt-6"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </button>
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
   );
 };
 

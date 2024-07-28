@@ -39,7 +39,7 @@ const Settings = () => {
     return (
       <div className="flex justify-center mt-16">
         <div className="w-[90%] flex justify-between">
-          <div className="basis-[28.5%] bg-white divide-y divide-borderGrey self-start rounded-lg">
+          <div className=" settings2:block hidden settings:basis-[26.5%] basis-[19%] bg-white divide-y divide-borderGrey self-start rounded-lg ">
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
             {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
             <div
@@ -79,11 +79,13 @@ const Settings = () => {
             </div>
             <div className=" h-24"></div>
           </div>
-          {active === "basic" ? (
-            <BasicInformation user={user} />
-          ) : (
-            <ChangePassword />
-          )}
+          <div className="settings:basis-[70%] basis-[45%] bg-white w">
+            {active === "basic" ? (
+              <BasicInformation user={user} />
+            ) : (
+              <ChangePassword />
+            )}
+          </div>
         </div>
       </div>
     );
