@@ -48,7 +48,7 @@ const ChangePassword = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="py-12 pl-12 pb-48 rounded-lg"
+      className="py-12 settings2:pl-12 pb-48 rounded-lg"
     >
       <h2 className=" font-semibold leading-6 text-xl mb-6">
         Password Settings
