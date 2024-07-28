@@ -170,9 +170,10 @@ const config: Config = {
     screens: {
       xs: "375px",
       iphone: "420px",
-      lgx:"1084",
+      lgx: "1084",
       "1.5xl": "1400px",
       tablet: "850px",
+      tall: { raw: "(min-height: 700px)" },
       ...defaultTheme.screens,
     },
   },

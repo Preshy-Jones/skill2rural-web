@@ -11,9 +11,9 @@ const Hero = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 
   return (
-    <div className="h-[55vh] sm:h-[80vh]  bg-white relative overflow-hidden">
+    <div className="h-[55vh] sm:h-[80vh] hero pt-[5rem] relative  overflow-x-hidden">
       <div className="flex sm:flex-col justify-center absolute sm:top-0 iphone:top-40 top-20 z-20 w-full h-full">
-        <div className=" xl:mt-40">
+        <div className=" xl:mt-40 bridge">
           <div className="flex justify-center">
             <div className="sm:w-[50%] relative w-full">
               <div className="relative h-[9.5625rem] iphone:bottom-28 lgx:bottom-10 1.5xl:bottom-0 xl:bottom-10">
@@ -37,7 +37,7 @@ const Hero = () => {
             </div>
           </div>
           <div className=" flex justify-center">
-            <p className="sm:w-[60%] iphone:text-2xl leading-[1.8rem] text-center sm:mt-12 font-medium">
+            <p className="sm:w-[60%] iphone:text-2xl leading-[1.8rem] text-center sm:mt-16 font-medium">
               Welcome to a revolution in education! Skill2Rural Bootcamp is not
               just a program; it&apos;s a pathway to your brighter future.
             </p>
