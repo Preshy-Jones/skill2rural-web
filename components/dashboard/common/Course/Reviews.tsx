@@ -35,8 +35,8 @@ const Reviews = ({ courseId }: { courseId: string }) => {
       <div className="font-neue mt-14">
         {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
         <h1 className=" font-semibold leading-fifth">Reviews Summary</h1>
-        <div className="flex">
-          <div className="mr-4">
+        <div className="flex sm:flex-row flex-col">
+          <div className="mr-4 sm:mb-0 mb-11">
             <h1 className="text-primary text-[4rem] font-bold">
               {data.averageRating}
             </h1>
@@ -134,11 +134,7 @@ const Reviews = ({ courseId }: { courseId: string }) => {
         </div>
 
         <div className="mt-2">
-          <div className="flex justify-between items-center">
-            <h1 className=" font-semibold leading-fifth mb-12">Reviews</h1>
-
-            <ReviewForm courseId={courseId} />
-          </div>
+          <ReviewForm courseId={courseId} />
 
           <div className=" divide-y divide-formInputBorder">
             {data.reviews.length > 0 &&

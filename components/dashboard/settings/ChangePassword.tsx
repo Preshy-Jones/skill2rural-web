@@ -48,7 +48,7 @@ const ChangePassword = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="basis-[70%] bg-white py-12 pl-12 pb-48 rounded-lg"
+      className="py-12 settings2:pl-12 pb-48 rounded-lg"
     >
       <h2 className=" font-semibold leading-6 text-xl mb-6">
         Password Settings
@@ -59,7 +59,7 @@ const ChangePassword = () => {
           <h3 className="font-semibold mb-1">Current Password</h3>
           <input
             type="text"
-            placeholder=""
+            placeholder="Current Password"
             className="border border-formInputBorder w-[70%] h-[3.4375rem] rounded-btn pl-4"
             {...register("oldPassword")}
           />

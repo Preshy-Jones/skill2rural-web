@@ -15,7 +15,6 @@ const QuestionsSection = ({ courseId }: { courseId: string }) => {
       session?.user.email || "",
       courseId
     );
-    
 
   //@ts-ignore
   if (isLoading || !session?.user.email) {
@@ -31,17 +30,17 @@ const QuestionsSection = ({ courseId }: { courseId: string }) => {
             Start Quiz
           </button>
         </Link>
-        <div className="border-t border-t-formInputBorder mt-10 border-b border-b-formInputBorder py-10 font-medium w-3/4">
-          <div className="w-3/4">
-            <div className=" flex justify-between mb-4">
-              <h3 className="text-greyText leading-fifth">Receive Grade</h3>
-              <h3 className=" leading-fifth">Your grade</h3>
-            </div>
-            <div className=" flex justify-between">
+        <div className=" border-t border-t-formInputBorder mt-10 border-b border-b-formInputBorder py-10 font-medium sm:w-3/4 w-full">
+          <div className=" w-full sm:w-3/4 sm:flex flex-col justify-between">
+            <div className=" mb-4 sm:mb-0 ">
+              <h3 className="text-greyText leading-fifth mb-4">Receive Grade</h3>
               <p className="text-greyText2  text-sm leading-seventh">
                 To pass and be issued a certificate, you need a grade point of
                 70% and above.
               </p>
+            </div>
+            <div className=" ">
+              <h3 className=" leading-fifth mb-4">Your grade</h3>
               {data?.gradeInPercentage ? (
                 <h1
                   className={`${

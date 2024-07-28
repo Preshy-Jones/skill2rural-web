@@ -79,11 +79,10 @@
   }
 }
 
-@layer components{
+@layer components {
   .navmenuitem {
     @apply flex items-center py-3 pl-8 pr-24 cursor-pointer text-greyText font-medium text-sm hover:bg-primary hover:bg-opacity-20 hover:text-white;
   }
-
 }
 
 .half-circle {
@@ -109,7 +108,7 @@
     }
   }
   .slider {
-    background: #F9F9F9;
+    background: #f9f9f9;
     /* box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125); */
     height: 100px;
     margin: auto;
@@ -121,7 +120,7 @@
   .slider::after {
     background: linear-gradient(
       to right,
-      #F9F9F9 0%,
+      #f9f9f9 0%,
       rgba(255, 255, 255, 0) 100%
     );
     content: "";
@@ -205,4 +204,13 @@
 /* Show the checkmark when radio button is checked */
 .radio-input:checked + .radio-indicator::before {
   display: block;
+}
+
+@media screen and (max-height: 700px) {
+  .hero {
+    height: 120vh !important;
+  }
+  .bridge {
+    margin-top: 0px !important;
+  }
 }

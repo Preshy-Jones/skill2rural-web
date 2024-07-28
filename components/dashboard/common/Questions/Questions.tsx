@@ -141,7 +141,7 @@ const Questions = ({
   if (session.user.email && isSuccess) {
     return (
       <div className="flex justify-center w-full font-neue">
-        <div className="w-[89.51%] py-10">
+        <div className="w-[96%] sm:w-[89.51%] py-10">
           <div className="flex">
             <Link href={"/dashboard/my-learnings"}>My Learnings</Link>
             <Image src={caretRight} alt="caret-right" />
@@ -169,13 +169,13 @@ const Questions = ({
           <div className="pl-2 w-5/6">
             {questions.map((question, index) => (
               <div key={index} className="mb-16">
-                <div className="flex justify-between items-center">
+                <div className="flex sm:justify-between sm:items-center sm:flex-row flex-col sm:mb-0 mb-6">
                   <div className="mb-4 text-greyText">
                     {index + 1}. {question.question}
                   </div>
                   <div className="bg-primaryLightBg w-[3.875rem] h-[2.4375rem] flex items-center justify-center">
                     <h3 className="text-greyText font-medium leading-fifth">
-                      {question.point}
+                      {question.point} {question.point > 1 ? "points" : "point"}
                     </h3>
                   </div>
                 </div>

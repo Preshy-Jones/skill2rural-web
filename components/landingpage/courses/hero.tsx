@@ -8,7 +8,7 @@ import curvedArrow from "@/public/curved-arrow-2.svg";
 
 const Hero = () => {
   return (
-    <div className="h-[55vh] sm:h-[80vh] flex flex-col justify-center font-neue relative overflow-hidden">
+    <div className="h-[55vh] sm:h-[80vh] hero flex flex-col justify-center font-neue relative overflow-hidden">
       <div className="flex flex-col justify-center items-center absolute top-0 z-20 w-full h-full">
         <div className=" mt-24 w-full">
           <h4 className=" text-[1.2rem] iphone:text-2xl leading-primary font-semibold text-center mb-4">

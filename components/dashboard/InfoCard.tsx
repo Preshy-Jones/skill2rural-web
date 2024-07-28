@@ -6,7 +6,7 @@ import Image from "next/image";
 const InfoCard = () => {
   return (
     <div className=" text-white mt-6">
-      <div className=" bg-primary w-[64%] h-[6.8125rem] sm:h-[13.0625rem] items-end pl-4 rounded-2xc flex  justify-between">
+      <div className=" bg-primary w-full sm:w-[64%] h-[6.8125rem] sm:h-[13.0625rem] items-end pl-4 rounded-2xc flex  justify-between">
         <div className="sm:pb-[2.875rem] pb-[1.75rem]">
           <h3 className=" font-bold leading-6 text-base sm:text-xl">
             Skill2Rural Bootcamp
