@@ -52,7 +52,7 @@ const MainSection = () => {
               the Skill2rural Cookie Policy and you acknowledge that we will
               store, use and otherwise process your information in the Federal
               Republic of Nigeria or any jurisdiction where we are located.
-              References to "Skill2rural," “we” or “us” mean Skill2Rural
+              References to &apos;Skill2rural&apos; “we” or “us” mean Skill2Rural
               Bootcamp, an initiative of Kayode Alabi Leadership and Career
               Initiative, including any company that Kayode Alabi Leadership and
               Career Initiative controls (for example, projects that Kayode
@@ -164,7 +164,7 @@ const MainSection = () => {
               infrastructures where applicable, as well as secure physical
               locations for the purpose of providing seamless services to you.
               The data we collect from you may be transferred or stored in cloud
-              locations of globally accepted vendors' data center. We also
+              locations of globally accepted vendor&apos;s data center. We also
               assure you that whenever your information is transferred to other
               locations , we will take all necessary steps to ensure the
               security of your data in accordance with this privacy policy. YOUR
