@@ -60,12 +60,12 @@ const SingleCourseDetails = ({
             <Image src={caretRight} alt="caret-right" />
             <h3>{course.title}</h3>
           </div>
-       
+
           <VideoPlayer course={course} />
           {/* <Player>
           <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
         </Player> */}
-          <div className="w-[40%]">
+          <div className="sm:w-[40%] w-full">
             <div className="grid grid-cols-3 pt-6">
               {options.map((item, index) => {
                 if (

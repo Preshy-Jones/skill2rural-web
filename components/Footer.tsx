@@ -113,9 +113,8 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
         <div className="mb-10">
           <Image src={footerLogoMobile} alt="footer-logo" className="mb-3" />
           <p className="leading-fifth font-thin">
-            We are the leading TECH EDUCATION company with students from over 30
-            countries and a leading UK accreditation to deliver the best digital
-            workforce training
+            We are pioneering a tech education company with students from all
+            over Africa and preparing them for the 21st-century workforce.
           </p>
         </div>
         <div className="">

@@ -8,7 +8,7 @@ import React from "react";
 const Courses = () => {
   return (
     <div className="relative">
-      <div className=" z-50 relative">
+      <div className="  relative">
         <Hero />
         <MainSection />
       </div>

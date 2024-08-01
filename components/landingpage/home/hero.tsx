@@ -11,7 +11,7 @@ const Hero = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 
   return (
-    <div className="h-[55vh] sm:h-[80vh] hero pt-[5rem] relative  overflow-x-hidden">
+    <div className="h-[60vh] iphone:h-[70vh] iphone sm:h-[65vh] hero pt-[5rem] relative overflow-x-hidden overflow-y-hidden">
       <div className="flex sm:flex-col justify-center absolute sm:top-0 iphone:top-40 top-20 z-20 w-full h-full">
         <div className=" xl:mt-40 bridge">
           <div className="flex justify-center">

@@ -52,7 +52,7 @@ const MobileNavBar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="bg-primary h-screen pt-12 absolute top-0 w-full flex justify-center"
+            className="bg-primary h-screen pt-12 absolute top-0 w-full flex justify-center z-50"
             initial="closed"
             animate="open"
             exit="closed"
@@ -82,8 +82,8 @@ const MobileNavBar = () => {
                       height={38}
                     />
                     <div className="text-white">
-                      <h1 className="text-sm">John Doe</h1>
-                      <h2 className="text-xs">johndoe@gmail.com</h2>
+                      <h1 className="text-sm">{user?.name}</h1>
+                      <h2 className="text-xs">{user?.email}</h2>
                     </div>
                   </div>
                   {loggedInItemsData.map((item, index) => (
