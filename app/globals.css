@@ -214,3 +214,21 @@
     margin-top: 0px !important;
   }
 }
+
+
+
+@media screen and (max-height: 700px) and (max-width: 640px) {
+  .hero {
+    height: 80vh !important;
+  }
+}
+
+@media screen and (min-height: 700px) and (min-width: 1280px) {
+  .hero{
+    height: 100vh !important;
+  }
+}
+
+.max-container {
+  width: 100%;
+}

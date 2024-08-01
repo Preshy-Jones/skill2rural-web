@@ -2,7 +2,7 @@ import MainSection from "@/components/terms/MainSection";
 import Hero from "@/components/terms/hero";
 import React from "react";
 
-const TermsAndCondtions = () => {
+const PrivacyPolicy = () => {
   return (
     <div>
       <Hero />
@@ -11,4 +11,4 @@ const TermsAndCondtions = () => {
   );
 };
 
-export default TermsAndCondtions;
+export default PrivacyPolicy;

@@ -20,7 +20,7 @@ const Reach = () => {
     "Item 11",
   ];
   return (
-    <div className="font-neue">
+    <div className="font-neue relative">
       <div className="w-full flex justify-center">
         <div className="flex justify-between w-[90%]">
           <Image src={dotDesign2} alt="dotDesign2" className="sm:w-auto sm:h-auto w-[1.25rem] h-[1.25rem]" />
