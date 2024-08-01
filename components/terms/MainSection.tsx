@@ -74,7 +74,7 @@ const MainSection = () => {
             </p>
 
             <p className="text-lg leading-ninth font-medium mb-8">
-              References to "Skill2rural," “we,” or “us” mean Skill2Rural
+              References to &apos;Skill2rural,&apos; &apos;we,&apos; or &apos;us&apos; mean Skill2Rural
               Bootcamp, an initiative of Kayode Alabi Leadership and Career
               Initiative, including any company that Kayode Alabi Leadership and
               Career Initiative controls (for example, projects that Kayode
@@ -274,7 +274,7 @@ const MainSection = () => {
               servers, cloud infrastructures where applicable, as well as secure
               physical locations for the purpose of providing seamless services
               to you. The data we collect from you may be transferred or stored
-              in cloud locations of globally accepted vendors' data centers. We
+              in cloud locations of globally accepted vendor&apos;s data centers. We
               also assure you that whenever your information is transferred to
               other locations, we will take all necessary steps to ensure the
               security of your data in accordance with this privacy policy.
@@ -300,7 +300,7 @@ const MainSection = () => {
             <h2>9. Privacy of Children</h2>
             <p className="text-lg leading-ninth font-medium mb-8">
               We are committed to protecting the privacy of our subscribers.
-              While our service adequately covers young persons' needs,
+              While our service adequately covers young person&apos;s needs,
               Skill2rural website and app are not designed or intended to
               attract children under the age of 16. The Skill2rural Sites do not
               collect personal information from any person we actually know is
@@ -317,7 +317,7 @@ const MainSection = () => {
               products may also use or offer products or services from third
               parties. Where personal information is collected by third parties
               such as location data or contact details, such information will be
-              governed by the third parties' privacy practices and Skill2rural
+              governed by the third parties privacy practices and Skill2rural
               will not be liable for any breach of confidentiality or privacy of
               your information on such sites. We advise you to learn about the
               privacy practices of such sites.
@@ -395,7 +395,7 @@ const MainSection = () => {
               Any question or comment about this policy, data processing, or if
               you would like to make a complaint about a possible breach of
               local privacy laws, should be communicated by sending an e-mail or
-              submitting a request through the “Contact Us” form on our website.
+              submitting a request through the &apos;Contact Us&apos; form on our website.
             </p>
           </div>
         </div>
