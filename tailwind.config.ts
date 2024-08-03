@@ -171,7 +171,8 @@ const config: Config = {
     screens: {
       xs: "375px",
       iphone: "420px",
-      lgx: "1084",
+      mobile: "520px",
+      lgx: "1084px",
       "1.5xl": "1400px",
       settings: "750px",
       settings2: "670px",
