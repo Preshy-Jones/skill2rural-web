@@ -18,9 +18,9 @@ const ForgotPassword = () => {
           <Image
             src={studentBackgroundImage}
             alt="african-student"
-            className=""
+            className="lg:block hidden"
           />
-          <div className="absolute z-10 top-0 flex justify-end w-full h-full">
+          <div className="absolute z-10 top-0 flex justify-center lg:justify-end w-full h-full">
             <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20  h-full">
               <div className="flex flex-col items-center">
                 <Link href={"/"}>
