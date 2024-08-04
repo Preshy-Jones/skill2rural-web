@@ -4,7 +4,7 @@ import caretRight from "@/public/caret-right-plain.svg";
 import verifiedTick from "@/public/verified-tick.svg";
 import certificateImage from "@/public/certificate.svg";
 import certifiedLogo from "@/public/certified-logo.svg";
-import React, { useState } from "react";
+import React from "react";
 import { useSession } from "next-auth/react";
 import skill2ruralLogo from "@/public/skill2rural-logo-certificate.svg";
 import certificateOfCompletion from "@/public/certificate-of-completion.svg";
@@ -43,8 +43,6 @@ const AcommplishmentDetails = ({
     courseId
   );
 
-  const [certificateImage, setCertificateImage] = useState(null);
-
   const inputRef = React.useRef(null);
   const downloadCertificate = async () => {
     const input = inputRef.current;
@@ -53,7 +51,6 @@ const AcommplishmentDetails = ({
     //@ts-ignore
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png");
-    // setCertificateImage(imgData);
 
     // const pdf = new jsPDF("p", "pt", "a4");
     const pdf = new jsPDF({
@@ -151,8 +148,8 @@ const AcommplishmentDetails = ({
               </h2>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row justify-between font-neue mt-12">
-            <div className="bg-white self-start pl-5 w-full mb-6 sm:mb-0 sm:w-[38.9%] rounded-lgx py-6">
+          <div className="flex justify-between font-neue mt-12">
+            <div className="bg-white self-start pl-5 w-[38.9%] rounded-lgx py-6">
               <h2 className=" font-semibold text-lg leading-ninth mb-4">
                 {certificate.course.title}
               </h2>
@@ -185,13 +182,13 @@ const AcommplishmentDetails = ({
               {/* <Image src={certificateImage} alt="certificate-bg1" /> */}
               <div className="relative h-[30rem]">
                 <div
-                  className="bg-white w-[20rem] mobile:w-[28.125rem] tablet:w-[37.5rem]  lgx:w-[46.625rem] h-[31.75rem]  absolute top-0"
+                  className="bg-white w-[46.625rem] h-[31.75rem]  absolute top-0"
                   ref={inputRef}
                 >
                   <Image
                     src={certificateBg}
                     alt="certificateBg2"
-                    className=" right-0 absolute bottom-0 object-cover h-full"
+                    className=" right-0 absolute bottom-0 object-cover h-fu"
                   />
                   <div className="pl-16 pt-16 w-[70%]">
                     <div className="mb-12">
@@ -214,7 +211,7 @@ const AcommplishmentDetails = ({
                       </div>
                       {/* <div className="h-[0.09375rem] w-[60%] bg-black"></div> */}
                     </div>
-                    <p className="lgx:mb-10 mb-6  text-xxs leading-twelfth  font-avenir">
+                    <p className="mb-10 text-xxs leading-twelfth  font-avenir">
                       has now completed the short module on{" "}
                       {certificate.course.title.toUpperCase()} to advance their
                       knowledge and skills in preparation for the 21st-century
@@ -258,7 +255,6 @@ const AcommplishmentDetails = ({
                 Download Certificate
               </button>
             </div>
-            {/* {certificateImage &&<Image src={certificateImage} alt="ddd" />} */}
           </div>
         </div>
       </div>
