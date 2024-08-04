@@ -237,7 +237,7 @@ const StudentInfo = () => {
               alt="number2"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Have access to world-class facilitators who will bring a blend of
               lived experience and share practical experiences to thrive in the
               21st-century skills workforce. Learn from those who have gone
@@ -255,7 +255,7 @@ const StudentInfo = () => {
               alt="number3"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Engage in immersive, real-world scenarios during in-person
               bootcamps. This hands-on experience provides practical insights
               and allows students to apply their knowledge in a simulated
@@ -273,7 +273,7 @@ const StudentInfo = () => {
               alt="number4"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Gain certification through our 21st-century and life skills
               courses that would not only get you into the workforce but allow
               you to transition into more fulfilling roles.
@@ -307,7 +307,7 @@ const EducatorInfo = () => {
               alt="number1"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Support your students in acquiring essential skills demanded by
               today&apos;s job market, including critical thinking,
               problem-solving, communication, collaboration, and adaptability.
@@ -326,7 +326,7 @@ const EducatorInfo = () => {
               alt="number2"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Have access to world-class facilitators who will bring a blend of
               lived experience and share practical experiences to thrive in the
               21st-century skills workforce. Learn from those who have gone
@@ -344,7 +344,7 @@ const EducatorInfo = () => {
               alt="number3"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               Enhance your facilitation skills through cascading the courses to
               your students. Facilitation skills are essential for professional
               and personal development in the 21st century. You can explore the
@@ -370,7 +370,7 @@ const EducatorInfo = () => {
               alt="number4"
               className="mr-5 sm:hidden block"
             />
-            <p>
+            <p className="text-sm sm:text-base leading-seventh sm:leading-fifth">
               By gaining certification through the platform for your
               contribution to community and education development, you are
               creating or generating impact or projects that can be added to

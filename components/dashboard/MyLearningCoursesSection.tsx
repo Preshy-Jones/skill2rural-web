@@ -21,14 +21,14 @@ const MyLearningCoursesSection = ({
     <div>
       <div className="flex mt-6">
         <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-full sm:w-[33.4375rem]">
-          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center  px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
             <div>
-              <button className="text-white bg-primary w-full sm:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Ongoing
               </button>
             </div>
             <Link href={"/dashboard/my-learnings/accomplishments"}>
-              <button className="text-primary w-full sm:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              <button className="text-primary w-fu sm:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Completed
               </button>
             </Link>
