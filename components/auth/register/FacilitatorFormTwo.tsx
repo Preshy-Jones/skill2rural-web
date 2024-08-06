@@ -12,6 +12,7 @@ import { Checkbox } from "../../ui/checkbox";
 import { handleErrorResponse } from "@/utils";
 import { UserType } from "@/types/global";
 import passwordVisibilityToggler from "@/public/show-password.svg";
+import Link from "next/link";
 
 interface RegistrationData {
   email: string;
@@ -43,7 +44,7 @@ const FacilitatorFormTwo = () => {
     onError: (error: any) => {
       // Handle error, for example, show error message
       console.error("Error registering user:", error.response.data.message);
-      const errorMessage = handleErrorResponse(error.response.data)
+      const errorMessage = handleErrorResponse(error.response.data);
       toast.error(errorMessage);
     },
   });
@@ -329,13 +330,17 @@ const FacilitatorFormTwo = () => {
                   />
                   <p className=" leading-fifth text-ash2 text-center">
                     By clicking sign in, you agree to our{" "}
-                    <span className=" text-ash2 font-semibold">
-                      Privacy Policy
-                    </span>
-                    and
-                    <span className=" text-ash2 font-semibold">
-                      Terms of Service
-                    </span>
+                    <Link href={"/privacy-policy"}>
+                      <span className=" text-ash2 font-semibold">
+                        Privacy Policy
+                      </span>
+                    </Link>{" "}
+                    <span>and</span>{" "}
+                    <Link href={"/terms"}>
+                      <span className=" text-ash2 font-semibold">
+                        Terms of Service
+                      </span>
+                    </Link>
                   </p>
                 </div>
                 {errors2.agree && (

@@ -43,7 +43,7 @@ const CoursesSection = () => {
   }
   if (isSuccess && courses.length > 0) {
     return (
-      <div className="md:mt-56 sm:mt-60 mt-80 flex justify-center font-neue">
+      <div className="md:mt-56 sm:mt-60 mt-96 flex justify-center font-neue">
         <div className="w-[89.51%]">
           <h1 className=" text-3.5xl leading-[3.15rem] font-semibold">
             Courses
