@@ -20,7 +20,7 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
   }
   if (isSuccess && course) {
     return (
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full mb-10">
         <div className="w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
           <div className="flex mb-6">
@@ -40,10 +40,10 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
               style={{ width: "100%", height: "100%" }} // optional
             />
             <div className="mt-10 mb-12">
-              <div className="flex justify-between mb-12">
-                <div>
-                  <h1 className="font-semibold text-3.5xl text-greyText">{course.title}</h1>
-                  <p className=" text-lg text-greyText">Earn a certificate</p>
+              <div className="flex items-center sm:justify-between mb-12 sm:flex-row flex-col">
+                <div className="sm:mb-0 mb-6">
+                  <h1 className="font-semibold text-3.5xl text-greyText text-center">{course.title}</h1>
+                  <p className=" text-lg text-greyText text-center">Earn a certificate</p>
                 </div>
                 <Link href={`/dashboard/courses/${courseId}/`}>
                   <button className="bg-primary h-[3.75rem] text-white rounded-btn w-60 ">
