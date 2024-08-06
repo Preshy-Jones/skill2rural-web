@@ -51,7 +51,6 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
                   </button>
                 </Link>
               </div>
-
               <p>{course.description}</p>
             </div>
           </div>
