@@ -51,7 +51,8 @@ const CoursesSection = () => {
 
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-8 sm:grid-cols-3">
             {courses.map((item, index) => (
-              <div
+              <Link
+                href={`/courses/${item.id}`}
                 key={index}
                 className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
               >
@@ -80,7 +81,7 @@ const CoursesSection = () => {
                 >
                   View Course
                 </Link>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
