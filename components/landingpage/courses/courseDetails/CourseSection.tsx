@@ -68,7 +68,7 @@ const CoursesSection = () => {
                   />
                 </div>
                 <div className="py-3">
-                  <h2 className="font-medium text-xl leading-fourth">
+                  <h2 className="font-medium text-xl leading-fourth text-left">
                     {item.title}
                   </h2>
                   <h4 className="text-sm leading-seventh text-greyText">

@@ -42,11 +42,13 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
             <div className="mt-10 mb-12">
               <div className="flex items-center sm:justify-between mb-12 sm:flex-row flex-col">
                 <div className="sm:mb-0 mb-6">
-                  <h1 className="font-semibold text-3.5xl text-greyText text-center">{course.title}</h1>
-                  <p className=" text-lg text-greyText text-center">Earn a certificate</p>
+                  <h1 className="font-semibold text-3.5xl text-greyText">
+                    {course.title}
+                  </h1>
+                  <p className=" text-lg text-greyText">Earn a certificate</p>
                 </div>
-                <Link href={`/dashboard/courses/${courseId}/`}>
-                  <button className="bg-primary h-[3.75rem] text-white rounded-btn w-60 ">
+                <Link href={`/dashboard/courses/${courseId}/`} className="w-full">
+                  <button className="bg-primary h-[3.75rem] text-white rounded-btn sm:w-60 w-full">
                     Start Course
                   </button>
                 </Link>
