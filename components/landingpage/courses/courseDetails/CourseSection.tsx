@@ -7,6 +7,7 @@ import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useGetCourses } from "@/queries/getCourses";
 import Link from "next/link";
+import { makeFirstLettersCapital } from "@/utils";
 
 const CoursesSection = () => {
   const {
@@ -43,7 +44,7 @@ const CoursesSection = () => {
   }
   if (isSuccess && courses.length > 0) {
     return (
-      <div className=" flex justify-center font-neue mt-20">
+      <div className=" flex justify-center font-neue mt-11 sm:mt-[5.1875rem]">
         <div className="w-[89.51%]">
           <h1 className="sm:text-[2.625rem] text-lg leading-[3.15rem]  font-semibold">
             Other Courses
@@ -62,13 +63,12 @@ const CoursesSection = () => {
                     className=" rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
                     width={0}
                     height={0}
-                    
                     style={{ width: "100%", height: "100%" }} // optional
                   />
                 </div>
                 <div className="py-3">
                   <h2 className="font-medium text-xl leading-fourth text-left">
-                    {item.title}
+                    {makeFirstLettersCapital(item.title.toLowerCase())}
                   </h2>
                   <h4 className="text-sm leading-seventh text-greyText">
                     Earn a certificate

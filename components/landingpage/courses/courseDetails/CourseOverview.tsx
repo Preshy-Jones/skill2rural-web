@@ -22,7 +22,7 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
   if (isSuccess && course) {
     return (
       <div className="flex justify-center">
-        <div className="w-[89.51%] py-10">
+        <div className="w-[89.51%] pt-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
           <div className="flex mb-6 items-center">
             <Link href={"/courses"}>Courses</Link>
@@ -43,11 +43,11 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
               style={{ width: "100%", height: "100%" }} // optional
             />
           </div>
-          <div className="mt-10 mb-12">
-            <div className="flex items-center sm:justify-between mb-14 sm:flex-row flex-col w-full">
+          <div className="mt-10">
+            <div className="flex  sm:justify-between mb-14 sm:flex-row flex-col w-full">
               <div className="sm:mb-0 mb-6">
                 <h1 className="font-semibold text-3.5xl text-greyText">
-                  {course.title}
+                  {makeFirstLettersCapital(course.title.toLowerCase())}
                 </h1>
                 <p className=" text-lg text-greyText">Earn a certificate</p>
               </div>
