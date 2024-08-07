@@ -20,7 +20,7 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
   }
   if (isSuccess && course) {
     return (
-      <div className="flex justify-center w-full mb-10">
+      <div className="flex justify-center">
         <div className="w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
           <div className="flex mb-6">
@@ -29,7 +29,7 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
             <h3 className="text-primary font-semibold">{course.title}</h3>
           </div>
 
-          <div className="w-full h-[33.75rem]">
+          <div className="w-full">
             <Image
               src={course.thumbnail_image}
               alt={course.title}
@@ -39,22 +39,25 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
               sizes="100vw"
               style={{ width: "100%", height: "100%" }} // optional
             />
-            <div className="mt-10 mb-12">
-              <div className="flex items-center sm:justify-between mb-12 sm:flex-row flex-col">
-                <div className="sm:mb-0 mb-6">
-                  <h1 className="font-semibold text-3.5xl text-greyText">
-                    {course.title}
-                  </h1>
-                  <p className=" text-lg text-greyText">Earn a certificate</p>
-                </div>
-                <Link href={`/dashboard/courses/${courseId}/`} className="w-full">
-                  <button className="bg-primary h-[3.75rem] text-white rounded-btn sm:w-60 w-full">
-                    Start Course
-                  </button>
-                </Link>
+          </div>
+          <div className="mt-10 mb-12">
+            <div className="flex items-center sm:justify-between mb-14 sm:flex-row flex-col w-full">
+              <div className="sm:mb-0 mb-6">
+                <h1 className="font-semibold text-3.5xl text-greyText">
+                  {course.title}
+                </h1>
+                <p className=" text-lg text-greyText">Earn a certificate</p>
               </div>
-              <p>{course.description}</p>
+              <Link
+                href={`/dashboard/courses/${courseId}/`}
+                className="w-full sm:w-auto"
+              >
+                <button className="bg-primary h-[3.75rem] text-white rounded-btn sm:w-60 w-full">
+                  Start Course
+                </button>
+              </Link>
             </div>
+            <p>{course.description}</p>
           </div>
         </div>
       </div>

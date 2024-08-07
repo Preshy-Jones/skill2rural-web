@@ -43,12 +43,8 @@ const CoursesSection = () => {
   }
   if (isSuccess && courses.length > 0) {
     return (
-      <div className="md:mt-56 sm:mt-60 mt-96 flex justify-center font-neue">
+      <div className=" flex justify-center font-neue mt-20">
         <div className="w-[89.51%]">
-          <h1 className=" text-3.5xl leading-[3.15rem] font-semibold">
-            Courses
-          </h1>
-
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-8 sm:grid-cols-3">
             {courses.map((item, index) => (
               <Link
@@ -56,14 +52,14 @@ const CoursesSection = () => {
                 key={index}
                 className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
               >
-                <div className="w-full h-[15.75rem] relative">
+                <div className="w-full h-[15.75rem] ">
                   <Image
                     src={item.thumbnail_image}
                     alt={item.title}
                     className=" rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
                     width={0}
                     height={0}
-                    sizes="100vw"
+                    
                     style={{ width: "100%", height: "100%" }} // optional
                   />
                 </div>
