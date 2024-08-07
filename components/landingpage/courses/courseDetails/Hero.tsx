@@ -12,8 +12,8 @@ const Hero = () => {
             Courses
           </h4>
           <div className="flex justify-center">
-            <div className="w-[50%] relative">
-              <p className="text-[3rem] leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
+            <div className="sm:w-[50%] relative">
+              <p className="sm:text-[3rem] text-2xl leading-7 sm:leading-[3.6rem] w-full text-center mt-4 font-semibold text-primaryBlack">
                 At Skill2Rural, Dreams find their wings
               </p>
               <Image
@@ -34,10 +34,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <p className="text-center leading-primary font-semibold text-2xl">
-            Skill2Rural Bootcamp is an initiative of Kayode Alabi Leadership and
-            Career Initiative:
-          </p>
+     
         </div>
       </div>
       <div className="rounded-b-[70vw] absolute -top-[10%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[70vw] w-[140vw] bg-greyBg2"></div>

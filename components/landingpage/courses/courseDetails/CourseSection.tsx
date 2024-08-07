@@ -45,6 +45,9 @@ const CoursesSection = () => {
     return (
       <div className=" flex justify-center font-neue mt-20">
         <div className="w-[89.51%]">
+          <h1 className="sm:text-[2.625rem] text-lg leading-[3.15rem]  font-semibold">
+            Other Courses
+          </h1>
           <div className="grid grid-cols-1 iphone:grid-cols-2 gap-12 mt-8 sm:grid-cols-3">
             {courses.map((item, index) => (
               <Link
