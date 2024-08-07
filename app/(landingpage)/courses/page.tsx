@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import MainSection from "@/components/landingpage/courses/MainSection";
 import Hero from "@/components/landingpage/courses/hero";
 import gradientBg from "@/public/gradient.svg";
@@ -8,7 +8,7 @@ import React from "react";
 const Courses = () => {
   return (
     <div className="relative">
-      <div className="  relative z-50">
+      <div className="z-10 relative">
         <Hero />
         <MainSection />
       </div>
