@@ -13,9 +13,9 @@ const CourseDetails = ({
 }) => {
   return (
     <div>
-      {/* <Hero /> */}
+      <Hero />
       <CourseOverview courseId={params.courseId} />
-      {/* <CoursesSection /> */}
+      <CoursesSection />
     </div>
   );
 };

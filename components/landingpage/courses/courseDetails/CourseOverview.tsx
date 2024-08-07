@@ -3,6 +3,7 @@ import Link from "next/link";
 import caretRight from "@/public/caret-right-plain.svg";
 import React from "react";
 import { useGetSingleCoursePublic } from "@/queries/useGetSingleCoursePublic";
+import { makeFirstLettersCapital } from "@/utils";
 
 const CourseOverview = ({ courseId }: { courseId: string }) => {
   const {
@@ -23,10 +24,12 @@ const CourseOverview = ({ courseId }: { courseId: string }) => {
       <div className="flex justify-center">
         <div className="w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
-          <div className="flex mb-6">
+          <div className="flex mb-6 items-center">
             <Link href={"/courses"}>Courses</Link>
             <Image src={caretRight} alt="caret-right" />
-            <h3 className="text-primary font-semibold">{course.title}</h3>
+            <h3 className="text-primary font-semibold leading-fifth">
+              {makeFirstLettersCapital(course.title.toLowerCase())}
+            </h3>
           </div>
 
           <div className="w-full">

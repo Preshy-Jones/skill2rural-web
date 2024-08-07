@@ -7,6 +7,7 @@ import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useGetCourses } from "@/queries/getCourses";
 import Link from "next/link";
+import { makeFirstLettersCapital } from "@/utils";
 
 const Courses = () => {
   const {
@@ -73,7 +74,7 @@ const Courses = () => {
                   </div>
                   <div className="py-3">
                     <h2 className="font-medium text-xl leading-fourth">
-                      {item.title}
+                      {makeFirstLettersCapital(item.title.toLowerCase())}
                     </h2>
                     <h4 className="text-sm leading-seventh text-greyText">
                       Earn a certificate
