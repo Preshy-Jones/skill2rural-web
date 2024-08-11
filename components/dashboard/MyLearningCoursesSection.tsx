@@ -19,6 +19,7 @@ const MyLearningCoursesSection = ({
 }) => {
   return (
     <div>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <div className="flex mt-6">
         <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-full sm:w-[33.4375rem]">
           <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
@@ -89,7 +90,10 @@ const MyLearningCoursesSection = ({
             </div>
             <div className="mb-4">
               <h3 className=" font-medium text-xs leading-tenth">
-                {item.progress[0].progressPercentage}% complete
+                {item.progress[0].progressPercentage > 100
+                  ? 100
+                  : item.progress[0].progressPercentage}
+                % complete
               </h3>
               <Progress
                 value={item.progress[0].progressPercentage}

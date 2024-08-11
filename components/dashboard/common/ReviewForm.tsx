@@ -55,7 +55,7 @@ const ReviewForm = ({ courseId }: { courseId: string }) => {
         <Dialog open={open} onOpenChange={setOpen}>
           {/* <DialogTrigger></DialogTrigger> */}
           <DialogContent
-          className="w-[85.33%] sm:rounded-review rounded-3xl"
+            className="w-[55.33%] sm:rounded-review rounded-3xl"
             closeButtonComponent={<Image src={xCloseButton} alt="x-close" />}
           >
             <DialogHeader>

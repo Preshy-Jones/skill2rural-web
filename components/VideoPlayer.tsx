@@ -56,8 +56,11 @@ const VideoPlayer = ({ course }: { course: Course }) => {
 
   useEffect(() => {
     console.log("currentTime", currentTime);
+    console.log("course duration", course.duration);
     const progressPercentage = (currentTime / course.duration) * 100;
     console.log("progressPercentage", progressPercentage);
+    console.log("db progress", course.progress[0]?.progressPercentage);
+
     if (
       progressPercentage > 90 &&
       course.progress.length > 0 &&
@@ -68,7 +71,11 @@ const VideoPlayer = ({ course }: { course: Course }) => {
       });
     }
 
-    if (currentTime > 0) {
+    if (
+      currentTime > 0 &&
+      currentTime < course.duration &&
+      currentTime > course.progress[0]?.lastWatchedTime
+    ) {
       updateCourseProgress.mutate({ current_time: currentTime });
     }
   }, [
