@@ -17,11 +17,11 @@ export const authOptions: NextAuthOptions = {
         // Add logic here to look up the user from the credentials supplied
         const url = process.env.NEXT_PUBLIC_BASE_URL as string;
 
-        console.log("credentials", credentials);
+        // console.log("credentials", credentials);
 
         //@ts-ignore
         const userType = credentials?.userType;
-        console.log("userType", userType);
+        // console.log("userType", userType);
 
         try {
           const user = await axios.post(
