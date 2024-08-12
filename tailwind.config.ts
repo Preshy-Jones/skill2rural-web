@@ -41,6 +41,7 @@ const config: Config = {
         purpleGradient:
           "linear-gradient(175.46deg, rgba(96, 38, 158, 0.3) 3.68%, rgba(96, 38, 158, 0.09) 96.79%)",
         customGradient: "linear-gradient(to top,#60269E, white 60%)",
+        studentBackground: "url('/african-college-student-big.svg')",
       },
       colors: {
         primary: "#60269E",
@@ -133,7 +134,7 @@ const config: Config = {
         circle: "50%",
         btn: "6.25rem",
         largeBtn: "12.5rem",
-        review:"2.5rem"
+        review: "2.5rem",
       },
       lineHeight: {
         primary: "1.8rem",

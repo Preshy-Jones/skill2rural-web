@@ -26,19 +26,19 @@ const Login = () => {
   }, [router, status]);
   return (
     <div className=" font-neue">
-      <div className="relative">
-        <Image
+      <div className="h-screen tablet:bg-studentBackground bg-cover bg-center bg-no-repeat">
+        {/* <Image
           src={studentBackgroundImage}
           alt="african-student"
           className="tablet:block hidden"
           priority
-        />
+        /> */}
 
-        <div className="absolute z-10 top-0 flex tablet:justify-end w-full justify-center">
+        <div className="flex tablet:justify-end w-full justify-center h-screen">
           <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] tablet:px-12 pb-44 pt-20 w-full tablet:w-auto">
             <div className="flex flex-col items-center w-full">
               <Link href={"/"}>
-                <Image src={logo} alt="skrural-logo-onboarding" />
+                <Image src={logo} alt="skillrural-logo-onboarding" />
               </Link>
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
                 Login
