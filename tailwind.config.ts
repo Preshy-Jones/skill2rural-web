@@ -41,7 +41,7 @@ const config: Config = {
         purpleGradient:
           "linear-gradient(175.46deg, rgba(96, 38, 158, 0.3) 3.68%, rgba(96, 38, 158, 0.09) 96.79%)",
         customGradient: "linear-gradient(to top,#60269E, white 60%)",
-        studentBackground: "url('/african-college-student-big.svg')",
+        studentBackground: "url('/african-college-student-bg.png')",
       },
       colors: {
         primary: "#60269E",
