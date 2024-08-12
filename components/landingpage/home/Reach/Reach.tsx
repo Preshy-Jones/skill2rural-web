@@ -1,5 +1,5 @@
 import React from "react";
-import collegeStudentsImage from "@/public/african-college-student.svg";
+import collegeStudentsImage from "@/public/african-college-student.png";
 import dotDesign2 from "@/public/dots-home-hero-2.svg";
 import dotDesign3 from "@/public/dots-home-hero-3.svg";
 import Image from "next/image";

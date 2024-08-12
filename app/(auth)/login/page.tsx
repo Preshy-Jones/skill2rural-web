@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import studentBackgroundImage from "@/public/african-college-student-big.svg";
+import studentBackgroundImage from "@/public/african-college-student-bg.png";
 import logo from "@/public/sk2rural-logo-onboarding.svg";
 import Image from "next/image";
 import TextField from "@/components/ui/icons/TextField";
