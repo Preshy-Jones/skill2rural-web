@@ -31,6 +31,7 @@ const Login = () => {
           src={studentBackgroundImage}
           alt="african-student"
           className="tablet:block hidden"
+          priority
         />
 
         <div className="absolute z-10 top-0 flex tablet:justify-end w-full justify-center">

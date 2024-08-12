@@ -23,7 +23,11 @@ const Reach = () => {
     <div className="font-neue relative">
       <div className="w-full flex justify-center">
         <div className="flex justify-between w-[90%]">
-          <Image src={dotDesign2} alt="dotDesign2" className="sm:w-auto sm:h-auto w-[1.25rem] h-[1.25rem]" />
+          <Image
+            src={dotDesign2}
+            alt="dotDesign2"
+            className="sm:w-auto sm:h-auto w-[1.25rem] h-[1.25rem]"
+          />
           <Image
             src={dotDesign3}
             alt="dotDesign2"
@@ -32,7 +36,12 @@ const Reach = () => {
         </div>
       </div>
       <div className="flex justify-center ">
-        <Image src={collegeStudentsImage} alt="collegeStudentsImage" className="w-[90%] sm:w-[87.43%]" />
+        <Image
+          src={collegeStudentsImage}
+          alt="collegeStudentsImage"
+          className="w-[90%] sm:w-[87.43%]"
+          priority
+        />
       </div>
       <div className="pt-16 bg-greyBg2">
         <h3 className="text-center text-lg sm:text-3.5xl leading-[2.4rem] font-semibold text-primaryBlack mb-6">
