@@ -7,19 +7,16 @@ import { z } from "zod";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import passwordVisibilityToggler from "@/public/show-password.svg";
+import { UserType } from "@/types/global";
 
-const LoginForm = () => {
+const LoginForm = ({ activeTab }: { activeTab: UserType }) => {
   const router = useRouter();
   const schema = z.object({
     email: z.string().email(),
     password: z.string().min(8),
-    agree: z
-      .boolean({
-        required_error: "You must agree to the terms and conditions",
-      })
-      .refine((value) => value === true, {
-        message: "You must agree to the terms and conditions",
-      }),
   });
 
   type FormFields = z.infer<typeof schema>;
@@ -31,9 +28,7 @@ const LoginForm = () => {
     control,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
-    defaultValues: {
-      email: "test@email.com",
-    },
+    defaultValues: {},
     resolver: zodResolver(schema),
   });
 
@@ -44,8 +39,8 @@ const LoginForm = () => {
       console.log("dfgdfdfgddfdgf");
 
       const response = await handleSubmitQuery(data);
-      console.log(data);
-      console.log("submitted");
+      // console.log(data);
+      // console.log("submitted");
     } catch (error) {
       setError("root", {
         message: "This email is already taken",
@@ -56,7 +51,6 @@ const LoginForm = () => {
   const handleSubmitQuery = async (formData: {
     email: string;
     password: string;
-    agree: boolean;
   }) => {
     console.log("shshhshs");
 
@@ -64,8 +58,10 @@ const LoginForm = () => {
       email: formData.email,
       password: formData.password,
       redirect: false,
+      userType: activeTab,
     });
-    console.log(response);
+
+    // console.log(response);
 
     if (response?.error) {
       console.log(response.error);
@@ -79,11 +75,17 @@ const LoginForm = () => {
     }
   };
 
+  const [showPassword, setShowPassword] = React.useState(false);
+
   return (
-    <div>
-      <form action="" className="px-6 pt-16" onSubmit={handleSubmit(onSubmit)}>
+    <div className="w-full">
+      <form
+        action=""
+        className="px-6 pt-16 w-full"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h2 className=" font-semibold text-lg mb-8">Fill in the form below</h2>
-        <div className="mb-8">
+        <div className="mb-8 w-full">
           <div className="mb-3">
             <h3 className="font-semibold">Email address</h3>
             <input
@@ -98,12 +100,20 @@ const LoginForm = () => {
           </div>
           <div className="mb-3">
             <h3 className="font-semibold">Password</h3>
-            <input
-              placeholder="your Password"
-              type="password"
-              className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
-              {...register("password")}
-            />
+            <div className="relative">
+              <input
+                placeholder="your Password"
+                type={showPassword ? "text" : "password"}
+                className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
+                {...register("password")}
+              />
+              <Image
+                className="absolute top-1/2 transform -translate-y-1/2 right-3 cursor-pointer"
+                src={passwordVisibilityToggler}
+                alt="password-toggler"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
             {errors.password && (
               <div className="text-red-500">{errors.password?.message}</div>
             )}
@@ -116,9 +126,12 @@ const LoginForm = () => {
               Remember me
             </h3>
           </div>
-          <h3 className=" leading-fifth font-medium text-primary">
+          <Link
+            href={"/forgot-password"}
+            className=" leading-fifth font-medium text-primary"
+          >
             Forgot Password?
-          </h3>
+          </Link>
         </div>
         <button
           className="bg-primary h-[3.75rem] text-white rounded-btn w-full"
@@ -130,40 +143,6 @@ const LoginForm = () => {
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>
         )}
-        <div className="flex justify-center">
-          <div className="w-[70%] mt-4 ">
-            <div className="flex">
-              {/* <Checkbox
-                className="text-white border-ashBorder"
-                {...register("agree")}
-              /> */}
-              <Controller
-                control={control}
-                name="agree"
-                render={({ field }) => (
-                  //@ts-ignore
-                  <Checkbox
-                    className="text-white border-ashBorder"
-                    {...field}
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                )}
-              />
-              <p className=" leading-fifth text-ash2 text-center">
-                By clicking sign in, you agree to our{" "}
-                <span className=" text-ash2 font-semibold">Privacy Policy</span>
-                and
-                <span className=" text-ash2 font-semibold">
-                  Terms of Service
-                </span>
-              </p>
-            </div>
-            {errors.agree && (
-              <div className="text-red-500">{errors.agree?.message}</div>
-            )}
-          </div>
-        </div>
       </form>
     </div>
   );

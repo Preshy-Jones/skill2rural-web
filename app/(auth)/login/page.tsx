@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import studentsBackgroundImage from "@/public/african-college-student-big.svg";
+import React, { useEffect, useState } from "react";
+import studentBackgroundImage from "@/public/african-college-student-bg.png";
 import logo from "@/public/sk2rural-logo-onboarding.svg";
 import Image from "next/image";
 import TextField from "@/components/ui/icons/TextField";
@@ -8,58 +8,70 @@ import { UserType } from "@/types/global";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import LoginForm from "@/components/auth/LoginForm";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
-  const [activeTab, setActiveTab] = useState(UserType.FACILITATORS);
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard/courses");
+    }
+  }, [router, status]);
   return (
     <div className=" font-neue">
-      <div className="relative">
-        <Link href={"/"}>
-          <Image
-            src={studentsBackgroundImage}
-            alt="african-students"
-            className=""
-          />
-        </Link>
-        <div className="absolute z-10 top-0 flex justify-end w-full">
-          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
-            <div className="flex flex-col items-center">
-              <Image src={logo} alt="skrural-logo-onboarding" />
+      <div className="h-screen tablet:bg-studentBackground bg-cover bg-center bg-no-repeat">
+        {/* <Image
+          src={studentBackgroundImage}
+          alt="african-student"
+          className="tablet:block hidden"
+          priority
+        /> */}
+
+        <div className="flex tablet:justify-end w-full justify-center h-screen">
+          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] tablet:px-12 pb-44 pt-20 w-full tablet:w-auto">
+            <div className="flex flex-col items-center w-full">
+              <Link href={"/"}>
+                <Image src={logo} alt="skillrural-logo-onboarding" />
+              </Link>
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
                 Login
               </h1>
             </div>
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-12 w-full">
               <div className="border border-black rounded-btn h-[5rem] flex items-center px-4">
                 <button
                   className={`${
-                    activeTab === UserType.FACILITATORS
+                    activeTab === UserType.EDUCATOR
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.FACILITATORS)}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  onClick={() => handleTabClick(UserType.EDUCATOR)}
                 >
-                  Facilitators
+                  EDUCATOR
                 </button>
                 <button
                   className={`${
-                    activeTab === UserType.STUDENTS
+                    activeTab === UserType.STUDENT
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
-                  onClick={() => handleTabClick(UserType.STUDENTS)}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  onClick={() => handleTabClick(UserType.STUDENT)}
                 >
-                  Students
+                  Student
                 </button>
               </div>
             </div>
-            <LoginForm />
+            <LoginForm activeTab={activeTab} />
 
             <div className=" flex justify-center leading-fifth font-neue mt-8">
-              <p className="mr-3 text-ash2">New to SkillHat?</p>
+              <p className="mr-3 text-ash2">New to Skill2rural?</p>
               <Link href={"/register"}>
                 <span className="text-primary font-bold"> Sign Up</span>
               </Link>

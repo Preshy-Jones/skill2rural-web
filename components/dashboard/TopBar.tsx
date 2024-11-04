@@ -56,7 +56,8 @@ const TopBar = () => {
               )}
             </Link>
           </div>
-          <div className="pb-3">
+          <div className="pb-3 hidden sm:block">
+            {/* <pre>{JSON.stringify(session?.user, null, 2)}</pre> */}
             {session?.user?.name ? (
               <p className=" leading-fifth font-medium ">
                 Welcome Back {session?.user?.name}

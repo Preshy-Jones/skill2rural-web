@@ -79,6 +79,12 @@
   }
 }
 
+@layer components {
+  .navmenuitem {
+    @apply flex items-center py-3 pl-8 pr-24 cursor-pointer text-greyText font-medium text-sm hover:bg-primary hover:bg-opacity-20 hover:text-white;
+  }
+}
+
 .half-circle {
   border-radius: 0 0 1000px 1000px;
 }
@@ -114,7 +120,7 @@
   .slider::after {
     background: linear-gradient(
       to right,
-      white 0%,
+      #f9f9f9 0%,
       rgba(255, 255, 255, 0) 100%
     );
     content: "";
@@ -182,4 +188,47 @@
   100% {
     transform: rotate(1turn);
   }
+}
+
+.radio-indicator {
+  /* Hide default indicator */
+  background-color: transparent;
+}
+
+.radio-indicator::before {
+  content: "";
+  display: none; /* Hidden by default */
+  /* Styling for your checkmark design */
+}
+
+/* Show the checkmark when radio button is checked */
+.radio-input:checked + .radio-indicator::before {
+  display: block;
+}
+
+@media screen and (max-height: 700px) {
+  .hero {
+    height: 120vh !important;
+  }
+  .bridge {
+    margin-top: 0px !important;
+  }
+}
+
+
+
+@media screen and (max-height: 700px) and (max-width: 640px) {
+  .hero {
+    height: 80vh !important;
+  }
+}
+
+@media screen and (min-height: 700px) and (min-width: 1280px) {
+  .hero{
+    height: 100vh !important;
+  }
+}
+
+.max-container {
+  width: 100%;
 }

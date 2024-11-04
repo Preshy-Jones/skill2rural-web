@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -41,9 +41,13 @@ const config: Config = {
         purpleGradient:
           "linear-gradient(175.46deg, rgba(96, 38, 158, 0.3) 3.68%, rgba(96, 38, 158, 0.09) 96.79%)",
         customGradient: "linear-gradient(to top,#60269E, white 60%)",
+        studentBackground: "url('/african-college-student-bg.png')",
       },
       colors: {
         primary: "#60269E",
+        wrong: "#FF3B30",
+        correct: "#31AE44",
+        primaryLightBg: "#E5D6F5",
         primaryBlack: "#1E1E1E",
         pinkText: "#60269E",
         primaryGrey: "#101828",
@@ -55,8 +59,8 @@ const config: Config = {
         textTertiary: "#FFFFFF",
         textFourth: "#D9D9D9",
         infoBg: "#F5EFFB",
-        star:"#DFB300",
-        emptyStar:"#626262",
+        star: "#DFB300",
+        emptyStar: "#626262",
         greyBg: "#181821",
         greyBg2: "#F9F9F9",
         greyBg3: "#F3F3F3",
@@ -80,6 +84,7 @@ const config: Config = {
         ash: "#83898C",
         ash2: "#858181",
         ashBorder: "#CFD3D4",
+        checkbox: "#7F56D9",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",
         //   foreground: "hsl(var(--primary-foreground))",
@@ -110,6 +115,7 @@ const config: Config = {
         },
       },
       fontSize: {
+        xxs: "0.625rem",
         "2.5xl": "4.875rem",
         "3.5xl": "2rem",
       },
@@ -128,6 +134,7 @@ const config: Config = {
         circle: "50%",
         btn: "6.25rem",
         largeBtn: "12.5rem",
+        review: "2.5rem",
       },
       lineHeight: {
         primary: "1.8rem",
@@ -141,11 +148,15 @@ const config: Config = {
         ninth: "1.35rem",
         tenth: "1.3rem",
         eleventh: "1.26875rem",
+        twelfth: "0.85375rem",
+        thirteenth: "1.816rem",
+        fourteenth: "0.85375rem",
       },
       fontFamily: {
         neue: "'Neue Haas Grotesk Display Pro', sans-serif",
         clash: ["var(--font-clash)"],
         inter: ["var(--font-inter)"],
+        avenir: ["var(--font-avenir)"],
       },
       gridTemplateColumns: {
         footer: "30% 70%",
@@ -157,6 +168,18 @@ const config: Config = {
         card: "10px 40px 40px 0px #0000001A",
         circle: "0px -2px 40px 1px #00000014",
       },
+    },
+    screens: {
+      xs: "375px",
+      iphone: "420px",
+      mobile: "520px",
+      lgx: "1084px",
+      "1.5xl": "1400px",
+      settings: "750px",
+      settings2: "670px",
+      tablet: "850px",
+      tall: { raw: "(min-height: 700px)" },
+      ...defaultTheme.screens,
     },
   },
   plugins: [require("tailwindcss-animate")],
