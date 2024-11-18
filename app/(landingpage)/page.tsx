@@ -1,4 +1,5 @@
 "use client"
+import ChatBot from "@/components/home/ChatBot";
 import Courses from "@/components/landingpage/home/Courses";
 import Faq from "@/components/landingpage/home/Faq";
 import Info from "@/components/landingpage/home/Info";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="h-full">
       <Hero />
       <Reach />
+      <ChatBot />
       <Info />
       <Courses />
       <Reviews />
