@@ -4,6 +4,7 @@ import Info from "@/components/home/Info";
 import Reach from "@/components/home/Reach/Reach";
 import Reviews from "@/components/home/Reviews/Reviews";
 import Hero from "@/components/home/hero";
+import ChatBot from "@/components/home/ChatBot";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="">
       <Hero />
       <Reach />
+      <ChatBot />
       <Info />
       <Courses />
       <Reviews />
