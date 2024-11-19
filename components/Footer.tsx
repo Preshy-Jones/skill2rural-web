@@ -4,7 +4,9 @@ import twitterIcon from "@/public/twitter-icon.svg";
 import linkedinIcon from "../public/linkedIn-icon.svg";
 import instagramIcon from "@/public/instagram-icon.svg";
 import footerLogoMobile from "@/public/skill2rural-footer-logo-mobile.svg";
+import footerLogo from "@/public/skill2rural-logo-full.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = ({ bgColor }: { bgColor?: string }) => {
   return (
@@ -12,7 +14,7 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
       <div className="md:block hidden">
         <div className="relative bg-primary h-40">
           <div
-            className={`absolute inset-0 rounded-bl-full rounded-br-full ${
+            className={`absolute inset-0 rounded-bl-[100px] rounded-br-[100px] ${
               bgColor ? bgColor : "bg-white"
             }`}
           ></div>
@@ -20,13 +22,14 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
         <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
           <div className="grid grid-cols-footer gap-x-10">
             <div>
-              <h1 className=" text-5xl text-[3.6rem] font-light mb-6">
+              {/* <h1 className=" text-5xl text-[3.6rem] font-light mb-6">
                 Skill2Rural
-              </h1>
+              </h1> */}
+              <Image src={footerLogo} alt="footer-logo-full" className="mb-6" />
               <p className="leading-fifth font-thin">
-                We are the leading TECH EDUCATION company with students from
-                over 30 countries and a leading UK accreditation to deliver the
-                best digital workforce training
+                We are pioneering a tech education company with students from
+                all over Africa and preparing them for the 21st-century
+                workforce.
               </p>
             </div>
             <div>
@@ -72,12 +75,11 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
                     </h1>
                     <ul>
                       {item.links.map((link, index) => (
-                        <li
-                          key={index}
-                          className="text-sm mb-2 font-thin text-white leading-seventh"
-                        >
-                          {link}
-                        </li>
+                        <Link href={link.link} key={index}>
+                          <li className="text-sm mb-2 font-thin text-white leading-seventh">
+                            {link.title}
+                          </li>
+                        </Link>
                       ))}
                     </ul>
                   </div>
@@ -99,21 +101,20 @@ export default Footer;
 
 const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <div className="md:hidden block">
+    <div className="md:hidden block  mt-24 w-full">
       <div className="relative bg-primary h-40">
         <div
-          className={`absolute inset-0 rounded-bl-full rounded-br-full ${
+          className={`absolute inset-0 rounded-bl-[40px] rounded-br-[40px]    ${
             bgColor ? bgColor : "bg-white"
           }`}
         ></div>
       </div>
-      <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
+      <div className="bg-primary text-white pt-24 pb-20 font-neue px-10">
         <div className="mb-10">
           <Image src={footerLogoMobile} alt="footer-logo" className="mb-3" />
           <p className="leading-fifth font-thin">
-            We are the leading TECH EDUCATION company with students from over 30
-            countries and a leading UK accreditation to deliver the best digital
-            workforce training
+            We are pioneering a tech education company with students from all
+            over Africa and preparing them for the 21st-century workforce.
           </p>
         </div>
         <div className="">
@@ -124,7 +125,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
             <input
               type="email"
               placeholder="Email address"
-              className="pl-3 bg-transparent w-full border border-inputBorder rounded-largeBtn placeholder-white placeholder-opacity-[87%] h-[2.8125rem]"
+              className="pl-3 bg-transparent w-full border border-inputBorder rounded-largeBtn placeholder-white placeholder-opacity-[87%] h-[2.8125rem] mb-3"
             />
             <button className="h-[2.3125rem] w-full border bg-white text-primary rounded-largeBtn px-4 font-medium leading-fifth font-clash">
               Subscribe Now
@@ -138,12 +139,11 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
                 </h1>
                 <ul>
                   {item.links.map((link, index) => (
-                    <li
-                      key={index}
-                      className="text-sm mb-2 font-thin text-white leading-seventh"
-                    >
-                      {link}
-                    </li>
+                    <Link href={link.link} key={index}>
+                      <li className="text-sm mb-2 font-thin text-white leading-seventh">
+                        {link.title}
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               </div>
@@ -158,14 +158,49 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
 const footerContent = [
   {
     title: "Company",
-    links: ["About Us", "Blog", "Careers", "Community"],
+    links: [
+      {
+        title: "About Us",
+        link: "/about",
+      },
+      {
+        title: "Blog",
+        link: "#",
+      },
+      {
+        title: "Careers",
+        link: "#",
+      },
+      {
+        title: "Community",
+        link: "#",
+      },
+    ],
   },
   {
     title: "Help",
-    links: ["Contact", "FAQs"],
+    links: [
+      {
+        title: "Contact",
+        link: "/contact",
+      },
+      {
+        title: "FAQs",
+        link: "#",
+      },
+    ],
   },
   {
     title: "Legal",
-    links: ["Terms & conditions", "Privacy Policy"],
+    links: [
+      {
+        title: "Terms & conditions",
+        link: "/terms",
+      },
+      {
+        title: "Privacy Policy",
+        link: "/privacy-policy",
+      },
+    ],
   },
 ];

@@ -10,15 +10,16 @@ import Link from "next/link";
 const CoursesSection = ({ courses }: { courses: Course[] }) => {
   return (
     <div>
-      <div className="grid grid-cols-3 gap-12 mt-12">
+      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
         {courses.map((item, index) => (
-          <div
+          <Link
+            href={`/dashboard/courses/${item.id}`}
             key={index}
             className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form`}
           >
             <div className="w-full h-[15.75rem] relative">
               <Image
-                className=" rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
+                className="rounded-tl-lg rounded-tr-lg rounded-bl-primary rounded-br-primary"
                 src={item.thumbnail_image}
                 width={0}
                 height={0}
@@ -43,14 +44,11 @@ const CoursesSection = ({ courses }: { courses: Course[] }) => {
                   Earn a certificate
                 </h4>
               </div>
-              <Link
-                href={`/dashboard/courses/${item.id}`}
-                className="text-end text-primary text-sm leading-seventh"
-              >
+              <h2 className="text-end text-primary text-sm leading-seventh">
                 View Course
-              </Link>
+              </h2>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,5 +1,6 @@
-import ContactForm from "@/components/contact/form";
-import Hero from "@/components/contact/hero";
+"use client";
+import ContactForm from "@/components/landingpage/contact/form";
+import Hero from "@/components/landingpage/contact/hero";
 import gradientBg from "@/public/gradient.svg";
 import Image from "next/image";
 import React from "react";

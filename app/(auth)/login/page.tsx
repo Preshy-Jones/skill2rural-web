@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import studentBackgroundImage from "@/public/african-college-student-big.svg";
+import studentBackgroundImage from "@/public/african-college-student-bg.png";
 import logo from "@/public/sk2rural-logo-onboarding.svg";
 import Image from "next/image";
 import TextField from "@/components/ui/icons/TextField";
@@ -26,31 +26,32 @@ const Login = () => {
   }, [router, status]);
   return (
     <div className=" font-neue">
-      <div className="relative">
-        <Image
+      <div className="h-screen tablet:bg-studentBackground bg-cover bg-center bg-no-repeat">
+        {/* <Image
           src={studentBackgroundImage}
           alt="african-student"
-          className=""
-        />
+          className="tablet:block hidden"
+          priority
+        /> */}
 
-        <div className="absolute z-10 top-0 flex justify-end w-full">
-          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20">
-            <div className="flex flex-col items-center">
+        <div className="flex tablet:justify-end w-full justify-center h-screen">
+          <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] tablet:px-12 pb-44 pt-20 w-full tablet:w-auto">
+            <div className="flex flex-col items-center w-full">
               <Link href={"/"}>
-                <Image src={logo} alt="skrural-logo-onboarding" />
+                <Image src={logo} alt="skillrural-logo-onboarding" />
               </Link>
               <h1 className=" font-neue text-3.5xl leading-tertiary font-semibold">
                 Login
               </h1>
             </div>
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-12 w-full">
               <div className="border border-black rounded-btn h-[5rem] flex items-center px-4">
                 <button
                   className={`${
                     activeTab === UserType.EDUCATOR
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
                   onClick={() => handleTabClick(UserType.EDUCATOR)}
                 >
                   EDUCATOR
@@ -60,17 +61,17 @@ const Login = () => {
                     activeTab === UserType.STUDENT
                       ? "bg-primary text-white"
                       : "text-primary"
-                  } w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold`}
+                  } tablet:w-[15rem] w-[10rem] h-[3.75rem] py-2 rounded-btn font-bold`}
                   onClick={() => handleTabClick(UserType.STUDENT)}
                 >
                   Student
                 </button>
               </div>
             </div>
-            <LoginForm />
+            <LoginForm activeTab={activeTab} />
 
             <div className=" flex justify-center leading-fifth font-neue mt-8">
-              <p className="mr-3 text-ash2">New to SkillHat?</p>
+              <p className="mr-3 text-ash2">New to Skill2rural?</p>
               <Link href={"/register"}>
                 <span className="text-primary font-bold"> Sign Up</span>
               </Link>

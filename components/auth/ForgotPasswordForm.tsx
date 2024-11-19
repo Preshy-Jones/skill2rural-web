@@ -3,14 +3,16 @@ import { handleErrorResponse } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, set, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
 const ForgotPasswordForm = ({
   setActivePage,
+  setEmail,
 }: {
   setActivePage: React.Dispatch<React.SetStateAction<number>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const schema = z.object({
     email: z
@@ -26,7 +28,8 @@ const ForgotPasswordForm = ({
     setError,
     watch,
     control,
-    formState: { errors, isSubmitting },
+    setValue,
+    formState: { errors, isLoading, isSubmitting },
   } = useForm<FormFields>({
     defaultValues: {
       email: "",
@@ -35,15 +38,10 @@ const ForgotPasswordForm = ({
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    console.log(data);
-
-    //simulate 5 second delay
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
-
     try {
-      console.log("dfgdfdfgddfdgf");
-
-      const response = await handleSubmitQuery(data);
+      //simulate 10 seconds delay
+      // await new Promise((resolve) => setTimeout(resolve, 10000));
+      await handleSubmitQuery(data);
     } catch (error) {
       setError("root", {
         message: "This email is already taken",
@@ -58,9 +56,6 @@ const ForgotPasswordForm = ({
       return response.data;
     },
     onSuccess: (data) => {
-      console.log("forgot password success");
-      console.log("success", data);
-
       toast.success(data.message);
       setActivePage(1);
     },
@@ -73,7 +68,8 @@ const ForgotPasswordForm = ({
   });
 
   const handleSubmitQuery = async (formData: { email: string }) => {
-    forgotPassword.mutate(formData);
+    //sim
+    return await forgotPassword.mutate(formData);
   };
   return (
     <div>
@@ -85,10 +81,15 @@ const ForgotPasswordForm = ({
             placeholder="your email Address"
             className="border border-formInputBorder w-full h-[3.4375rem] rounded-btn pl-4"
             {...register("email")}
+            onChange={(e) => {
+              setValue("email", e.target.value);
+              setEmail(e.target.value);
+            }}
           />
           {errors.email && (
             <div className="text-red-500">{errors.email?.message}</div>
           )}
+
           <button
             className="bg-primary h-[3.75rem] text-white rounded-btn w-full mt-14"
             disabled={isSubmitting}

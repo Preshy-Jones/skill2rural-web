@@ -1,4 +1,9 @@
-import { Course, CourseReview, GetCourseReviewResponse } from "@/types/course";
+import {
+  Course,
+  CourseReview,
+  GetCourseReviewResponse,
+  GetQuizResultResponse,
+} from "@/types/course";
 import { ApiResponse } from "@/types/global";
 import { METHOD } from "@/types/methods";
 import { handleErrorResponse } from "@/utils";
@@ -105,6 +110,18 @@ class Api {
     return response.json();
   };
 
+  getSingleCoursePublic = async (id: string): Promise<any> => {
+    const url = this.baseURL + `/course/public/${id}`;
+    const response = await fetch(url, {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch course");
+    }
+    return response.json();
+  };
+
   forgotPassword = (data: { email: string }) => {
     const url = "/user/forgot-password";
     return this.publicRequest(url, METHOD.POST, data);
@@ -148,7 +165,26 @@ class Api {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to add course review");
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
+  contactUs = async (payload: any) => {
+    const url = this.baseURL + `/user/contact-us`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
     }
 
     return response.json();
@@ -170,13 +206,13 @@ class Api {
 
     return response.json();
   };
-  createCertificate = async (
+  submitQuiz = async (
     courseId: string,
     data: {
       gradeInPercentage: number;
     }
   ): Promise<any> => {
-    const url = this.baseURL + `/questions/certificate/${courseId}`;
+    const url = this.baseURL + `/questions/quiz/${courseId}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -186,6 +222,23 @@ class Api {
       body: JSON.stringify(data),
     });
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  };
+
+  getUserBestQuizResult = async (courseId: string): Promise<any> => {
+    const url = this.baseURL + `/questions/quiz/best/${courseId}`;
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    });
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.message);

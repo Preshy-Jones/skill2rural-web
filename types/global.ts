@@ -1,6 +1,6 @@
 export enum UserType {
   EDUCATOR = "EDUCATOR",
-  STUDENT = "student",
+  STUDENT = "STUDENT",
 }
 
 export interface ApiResponse<T> {

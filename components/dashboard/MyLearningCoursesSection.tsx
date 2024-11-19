@@ -19,19 +19,22 @@ const MyLearningCoursesSection = ({
 }) => {
   return (
     <div>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <div className="flex mt-6">
-        <div className="relative h-[6.1875rem] w-[33.4375rem]">
-          <div className="border border-black rounded-btn h-[5.1875rem] w-[33.4375rem] flex items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
-            <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-              Ongoing
-            </button>
+        <div className="relative h-[10.375rem] sm:h-[6.1875rem] w-full sm:w-[33.4375rem]">
+          <div className="border border-black sm:pt-0 pt-4 rounded-[1.25rem] sm:rounded-btn h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] flex sm:flex-row flex-col justify-center items-center px-4 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 bg-white">
+            <div>
+              <button className="text-white bg-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+                Ongoing
+              </button>
+            </div>
             <Link href={"/dashboard/my-learnings/accomplishments"}>
-              <button className="text-primary w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              <button className="text-primary w-fu sm:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
                 Completed
               </button>
             </Link>
           </div>
-          <div className="h-[5.1875rem] w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-btn "></div>
+          <div className="h-[9.375rem] sm:h-[5.1875rem] w-full sm:w-[33.4375rem] absolute top-1 left-1 bg-primary rounded-[1.25rem] sm:rounded-btn "></div>
         </div>
       </div>
       <h2 className=" font-medium text-2xl leading-primary mt-4">
@@ -42,7 +45,7 @@ const MyLearningCoursesSection = ({
           {data.number_of_completed_courses} out of{" "}
           {data.total_courses_enrolled} completed
         </p>
-        <div className="flex items-center">
+        <div className="items-center sm:flex hidden">
           <p className=" tracking-[0,1px]">
             Sort by:
             <span className=" font-semibold leading-tenth">Latest item</span>
@@ -52,9 +55,10 @@ const MyLearningCoursesSection = ({
           <Image src={window} alt="sort-icon" />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-12 mt-12">
+      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
         {data.courses.map((item, index) => (
-          <div
+          <Link
+            href={`my-learnings/course/${item.id}`}
             key={index}
             className={`cursor-pointer border border-borderGrey rounded-lg px-3 py-3 hover:shadow-form bg-white`}
           >
@@ -86,7 +90,10 @@ const MyLearningCoursesSection = ({
             </div>
             <div className="mb-4">
               <h3 className=" font-medium text-xs leading-tenth">
-                {item.progress[0].progressPercentage}% complete
+                {item.progress[0].progressPercentage > 100
+                  ? 100
+                  : item.progress[0].progressPercentage}
+                % complete
               </h3>
               <Progress
                 value={item.progress[0].progressPercentage}
@@ -94,14 +101,14 @@ const MyLearningCoursesSection = ({
               />
             </div>
             <div className="flex justify-end items-center">
-              <Link href={`my-learnings/course/${item.id}`}>
+              <h2>
                 <h2 className="text-end text-primary text-xs leading-[14px] font-semibold">
                   Continue Watching
                 </h2>
-              </Link>
+              </h2>
               <Image alt="right-arrow" src={rightArrow} />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

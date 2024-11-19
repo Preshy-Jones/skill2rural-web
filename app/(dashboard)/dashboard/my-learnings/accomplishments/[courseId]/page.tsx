@@ -9,12 +9,17 @@ import { useSession } from "next-auth/react";
 import skill2ruralLogo from "@/public/skill2rural-logo-certificate.svg";
 import certificateOfCompletion from "@/public/certificate-of-completion.svg";
 import { useGetCertificate } from "@/queries/getCertificate";
-import { convertToHourseAndMinutes, formatDate } from "@/utils";
+import {
+  convertToHourseAndMinutesAndSeconds,
+  formatDate,
+  getInitials,
+} from "@/utils";
 import Certificate from "@/components/dashboard/Certificate";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import certificateBg from "@/public/certificatebg.svg";
 import Link from "next/link";
+import officialSignature from "@/public/official-signature.png";
 
 const AcommplishmentDetails = ({
   params,
@@ -107,13 +112,29 @@ const AcommplishmentDetails = ({
 
           <div className="flex">
             <div className="relative w-[3.5rem] h-[3.5rem] mr-4">
-              <Image
-                className="rounded-full w-full h-full "
-                alt="profile-picture"
-                src="https://preshyjonesbucket.s3.eu-west-1.amazonaws.com/photo_2023-09-29+11.13.53.jpeg"
-                width={56}
-                height={56}
-              />
+              <div>
+                {certificate.user.profile_photo ? (
+                  // <Image
+                  //   src={certificate.user.profile_photo}
+                  //   alt="profile-photo"
+                  //   className="rounded-full w-full h-full"
+                  // />
+                  <Image
+                    className="rounded-full w-full h-full "
+                    alt="profile-picture"
+                    //@ts-ignore
+                    src={certificate.user.profile_photo}
+                    width={56}
+                    height={56}
+                  />
+                ) : (
+                  <div className="rounded-full  w-[3.5rem] h-[3.5rem] flex justify-center items-center bg-primary">
+                    <div className="text-white text-center leading-5 font-semibold">
+                      {getInitials(certificate.user.name)}
+                    </div>
+                  </div>
+                )}
+              </div>
               <Image
                 src={verifiedTick}
                 alt="verified-tick"
@@ -140,7 +161,9 @@ const AcommplishmentDetails = ({
                   Grade Achieved: {certificate.gradeInPercentage}%
                 </h2>
                 <h2 className="leading-seventh mb-2">
-                  {convertToHourseAndMinutes(certificate.course.duration)}{" "}
+                  {convertToHourseAndMinutesAndSeconds(
+                    certificate.course.duration
+                  )}{" "}
                   approximately{" "}
                 </h2>
               </div>
@@ -153,25 +176,26 @@ const AcommplishmentDetails = ({
                 <h2>Completed by {certificate.user.name}</h2>
               </div>
             </div>
-            <div className="w-[58.74%] ">
+            <div className="w-[58.74%] h-full">
               {/* <pre className="text-black">{JSON.stringify(certificate)}</pre> */}
               {/* <Certificate /> */}
               {/* <Image src={certificateImage} alt="certificate-bg1" /> */}
               <div className="relative h-[30rem]">
                 <div
-                  className="bg-white w-[46.625rem] h-[29.75rem] absolute top-0"
+                  className="bg-white w-[46.625rem] h-[31.75rem]  absolute top-0"
                   ref={inputRef}
                 >
                   <Image
                     src={certificateBg}
                     alt="certificateBg2"
-                    className=" right-0 absolute bottom-0"
+                    className=" right-0 absolute bottom-0 object-cover h-fu"
                   />
                   <div className="pl-16 pt-16 w-[70%]">
                     <div className="mb-12">
                       <Image src={skill2ruralLogo} alt="skill2rural-logo" />
                       <h3 className="text-xxs leading-[13.66px] ml-11">
-                        Lorem ipsum dolor sit amet consectetur
+                        An initiative of Kayode Alabi Leadership and Career
+                        Initiative-KLCI
                       </h3>
                     </div>
                     <Image
@@ -187,12 +211,30 @@ const AcommplishmentDetails = ({
                       </div>
                       {/* <div className="h-[0.09375rem] w-[60%] bg-black"></div> */}
                     </div>
-                    <p className="mb-12 text-xxs leading-twelfth  font-avenir">
-                      On the Completion of Course in{" "}
-                      {certificate.course.title.toUpperCase()} ipsum dolor isit
-                      amet, consectetur adipiscing elit, sed du eiusmod tempor
-                      incididunt ut labore
+                    <p className="mb-10 text-xxs leading-twelfth  font-avenir">
+                      has now completed the short module on{" "}
+                      {certificate.course.title.toUpperCase()} to advance their
+                      knowledge and skills in preparation for the 21st-century
+                      workforce.
                     </p>
+                    {/* 
+                    <Image
+                      src={officialSignature}
+                      alt="officialSignature"
+                      className="w-32 h-5"
+                    /> */}
+                    <div
+                      className="w-32 h-14"
+                      style={{
+                        backgroundImage: `url(${officialSignature.src})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        // width: "8rem",
+                        // height: "2.5rem",
+                        backgroundPosition: "center",
+                      }}
+                    ></div>
+
                     <div className=" h-[1px] bg-black w-[25%] mb-1.5"></div>
                     <div className="flex justify-between">
                       <h2 className="text-xxs leading-fourteenth">

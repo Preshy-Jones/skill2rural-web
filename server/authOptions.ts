@@ -6,27 +6,29 @@ export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   session: {
     strategy: "jwt",
-    // 3 hours
-    maxAge: 3 * 60 * 60,
-
-    // maxAge: 10,
+    // 1 day
+    maxAge: 24 * 60 * 60,
   },
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {},
       async authorize(credentials, req) {
-        console.log("hello helloe");
         // Add logic here to look up the user from the credentials supplied
         const url = process.env.NEXT_PUBLIC_BASE_URL as string;
 
-        // console.log("hello heloo adele");
+        // console.log("credentials", credentials);
 
-        // console.log("base", url);
+        //@ts-ignore
+        const userType = credentials?.userType;
+        // console.log("userType", userType);
 
-        // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
         try {
-          const user = await axios.post(`${url}/auth/login/user`, credentials);
+          const user = await axios.post(
+            `${url}/auth/login/${userType}`,
+            credentials
+          );
+
           // console.log(user);
           return {
             id: user.data.data.user.id,

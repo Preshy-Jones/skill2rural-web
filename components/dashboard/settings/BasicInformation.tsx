@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import imageUploadIcon from "@/public/icon.svg";
+import { getInitials } from "@/utils";
 const BasicInformation = ({ user }: { user: User }) => {
   const { data: session } = useSession();
   const updateUser = useUpdateUserSettings(
@@ -85,18 +86,26 @@ const BasicInformation = ({ user }: { user: User }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="basis-[70%] bg-white flex divide-x divide-formInputBorder  py-12 rounded-lg"
+      className="settings:divide-x divide-formInputBorder  py-12 rounded-lg flex settings2:flex-row flex-col w-full"
     >
       {/* <pre>{JSON.stringify(session?.user, null, 2)}</pre> */}
       {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
-      <div className="px-6">
-        <Image
-          className="rounded-full w-[6.25rem] h-[6.25rem]"
-          alt="profile-picture"
-          src={user?.profile_photo || ""}
-          width={100}
-          height={100}
-        />
+      <div className="px-6 mb-20 settings2:mb-0">
+        {user?.profile_photo ? (
+          <Image
+            className="rounded-full w-[6.25rem] h-[6.25rem]"
+            alt="profile-picture"
+            src={user?.profile_photo}
+            width={100}
+            height={100}
+          />
+        ) : (
+          <div className="rounded-full  w-[3.5rem] h-[3.5rem] flex justify-center items-center bg-primary">
+            <div className="text-white text-center leading-5 font-semibold">
+              {getInitials(user.name)}
+            </div>
+          </div>
+        )}
         <div className="mt-5">
           <h3>Profile photo</h3>
           <p className=" text-greyText3 text-sm leading-eleventh">
@@ -129,7 +138,7 @@ const BasicInformation = ({ user }: { user: User }) => {
         />
       </div>
       <div className="w-full px-6 pb-48">
-        <div className="mb-3">
+        <div className="mb-4">
           <h3 className="font-semibold mb-1">Full Name</h3>
           <input
             type="text"
@@ -141,7 +150,7 @@ const BasicInformation = ({ user }: { user: User }) => {
             <div className="text-red-500">{errors.name?.message}</div>
           )}
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <h3 className="font-semibold mb-1">Email Address</h3>
           <input
             type="email"
@@ -154,7 +163,7 @@ const BasicInformation = ({ user }: { user: User }) => {
           )}
         </div>
         {user.type === UserType.EDUCATOR && (
-          <div className="mb-3">
+          <div className="mb-4">
             <h3 className="font-semibold mb-1">Organisation</h3>
             <input
               type="text"

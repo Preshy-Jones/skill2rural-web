@@ -9,6 +9,8 @@ import checkMark from "@/public/checkmark.svg";
 
 const ForgotPassword = () => {
   const [activePage, setActivePage] = useState(0);
+  const [email, setEmail] = useState("");
+
   return (
     <div className=" font-neue">
       {activePage === 0 && (
@@ -16,10 +18,9 @@ const ForgotPassword = () => {
           <Image
             src={studentBackgroundImage}
             alt="african-student"
-            className=""
+            className="lg:block hidden"
           />
-
-          <div className="absolute z-10 top-0 flex justify-end w-full h-full">
+          <div className="absolute z-10 top-0 flex justify-center lg:justify-end w-full h-full">
             <div className="bg-white rounded-tl-[4.375rem] rounded-bl-[4.375rem] px-12 pb-44 pt-20  h-full">
               <div className="flex flex-col items-center">
                 <Link href={"/"}>
@@ -36,7 +37,10 @@ const ForgotPassword = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-12"></div>
-              <ForgotPasswordForm setActivePage={setActivePage} />
+              <ForgotPasswordForm
+                setActivePage={setActivePage}
+                setEmail={setEmail}
+              />
               <div className=" flex justify-center leading-fifth font-neue mt-8">
                 <p className="mr-3 text-ash2">Already have an account?</p>
                 <Link href={"/login"}>
@@ -53,10 +57,9 @@ const ForgotPassword = () => {
             <Image src={checkMark} alt="checkmark" />
             <h1 className=" font-semibold mt-3">Check your email</h1>
             <p className="mt-5 text-center">
-              We&apos;ve sent an email to <strong>emmanuel@gamil.com</strong>{" "}
-              with instructions to reset your password. If it doesn&apos;t show
-              up soon, check your spam folder or{" "}
-              <strong>Contact Help Desk</strong>
+              We&apos;ve sent an email to <strong>{email}</strong> with
+              instructions to reset your password. If it doesn&apos;t show up
+              soon, check your spam folder or <strong>Contact Help Desk</strong>
             </p>
 
             <Link

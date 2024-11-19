@@ -6,6 +6,7 @@ export interface Course {
   video_url: string;
   duration: number;
   progress: CourseProgress[];
+  objectives: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -51,6 +52,7 @@ interface User {
   id: number;
   name: string;
   email: string;
+  profile_photo: string;
 }
 export interface GetCourseReviewResponse {
   reviews: CourseReview[];
@@ -101,4 +103,17 @@ interface Result {
 
 export interface QuizResult {
   [questionId: string]: Result;
+}
+export interface SubmitQuizResponse {
+  gradeInPercentage: number;
+  passed: boolean;
+}
+
+export interface GetQuizResultResponse {
+  id: number;
+  courseId: number;
+  userId: number;
+  gradeInPercentage: number;
+  createdAt: string;
+  updatedAt: string;
 }

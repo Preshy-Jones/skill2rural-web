@@ -40,21 +40,16 @@ const CourseDetailPage = ({
     //@ts-ignore
   } = useGetSingleCourse(session?.user.email || "", courseId);
 
-  // useEffect(() => {
-  //   if (playerRef.current && course && course?.progress[0]?.lastWatchedTime) {
-  //     playerRef.current.seekTo(course?.progress[0].lastWatchedTime);
-  //   }
-  // }, []);
   //@ts-ignore
-  if (isLoading || !session?.user.token) {
+  if (isLoading || !session?.user.email) {
     return <div>Loading course details</div>;
   }
 
   //@ts-ignore
-  if (session.user.token && isSuccess && course) {
+  if (session.user.email && isSuccess && course) {
     return (
       <div className="flex justify-center w-full">
-        <div className="w-[89.51%] py-10">
+        <div className=" w-[96%] sm:w-[89.51%] py-10">
           {/* <pre>{JSON.stringify(course, null, 2)}</pre> */}
 
           <div className="flex font-medium leading-fifth items-center">
@@ -62,28 +57,10 @@ const CourseDetailPage = ({
             <Image src={caretRight} alt="caret-right" />
             <h3>Course</h3>
           </div>
-          <div className="flex justify-between mt-6 mb-4">
-            <h2 className=" font-semibold leading-primary text-2xl">
-              {course.title}
-            </h2>
-            <Image src={expandVideoIcon} alt="expand-video" />
-          </div>
-          {/* <ReactPlayer
-            url={course.video_url}
-            controls
-            width="640"
-            height="360"
-            onProgress={onProgress}
-            ref={playerRef}
-            onSeek={(e) => {
-              console.log(e);
-            }}
-          /> */}
+
           <VideoPlayer course={course} />
-          {/* <Player>
-          <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-        </Player> */}
-          <div className="w-[40%]">
+
+          <div className="sm:w-[40%] w-full">
             <div className="grid grid-cols-3 pt-6">
               {course &&
                 options.map((item, index) => {

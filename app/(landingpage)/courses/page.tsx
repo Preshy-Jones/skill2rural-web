@@ -1,5 +1,6 @@
-import MainSection from "@/components/courses/MainSection";
-import Hero from "@/components/courses/hero";
+"use client";
+import MainSection from "@/components/landingpage/courses/MainSection";
+import Hero from "@/components/landingpage/courses/hero";
 import gradientBg from "@/public/gradient.svg";
 import Image from "next/image";
 import React from "react";
