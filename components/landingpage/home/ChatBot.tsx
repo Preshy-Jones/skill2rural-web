@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const ChatBot = () => {
   return (
-    <div className="md:flex bg-greyBg2 p-[5rem] justify-between items-center">
+    <div className="md:flex bg-greyBg2 p-[1.5rem] md:p-[5rem] justify-between items-center">
       <div className="md:w-1/2 space-y-6">
         <div className="bg-primary text-white rounded-btn w-fit px-7 py-[2px] text-[16px] font-thin">
           Skill2Rural Chatbot
@@ -34,7 +34,7 @@ const ChatBot = () => {
           alt="Chat bot"
           width={600}
           height={400}
-          className="w-[600px] h-[400px]"
+          className="w-[700px] h-[400px] md:h-[500px]"
         />
       </div>
     </div>
