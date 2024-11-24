@@ -6,8 +6,10 @@ import arc from "@/public/arc.svg";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Hero = () => {
+  const { status } = useSession();
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 
   return (
@@ -43,11 +45,19 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex justify-center mt-6">
-            <Link href={"/register"}>
-              <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
-                Get Started Now
-              </button>
-            </Link>
+            {status === "authenticated" ? (
+              <Link href={"/dashboard/courses"}>
+                <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
+                  View Dashboard
+                </button>
+              </Link>
+            ) : (
+              <Link href={"/register"}>
+                <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
+                  Get Started Now
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
