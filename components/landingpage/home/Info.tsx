@@ -20,9 +20,12 @@ import netSmall from "@/public/net-sm.svg";
 import netBig from "@/public/net-lg.svg";
 import { UserType } from "@/types/global";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Info = () => {
   const [activeTab, setActiveTab] = useState(UserType.EDUCATOR);
+  const { status } = useSession();
+  console.log(status);
   const handleTabClick = (tab: UserType) => {
     setActiveTab(tab);
   };
@@ -189,7 +192,7 @@ const Info = () => {
                   variants={variants}
                   transition={{ duration: 0.5 }}
                 >
-                  <EducatorInfo />
+                  <EducatorInfo status={status} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -290,7 +293,7 @@ const StudentInfo = () => {
   );
 };
 
-const EducatorInfo = () => {
+const EducatorInfo = ({ status }: { status: any }) => {
   return (
     <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-y-0 gap-y-8">
       <Image src={womanWithComputer} alt="womanComputer" height={716} />
@@ -378,11 +381,19 @@ const EducatorInfo = () => {
             </p>
           </div>
         </div>
-        <Link href={"/register"}>
-          <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-            Get Started Now
-          </button>
-        </Link>
+        {status === "authenticated" ? (
+          <Link href={"/dashboard/courses"}>
+            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              View Dashboard
+            </button>
+          </Link>
+        ) : (
+          <Link href={"/register"}>
+            <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              Get Started Now
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
