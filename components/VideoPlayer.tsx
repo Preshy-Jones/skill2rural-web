@@ -60,6 +60,7 @@ const VideoPlayer = ({ course }: { course: Course }) => {
     const progressPercentage = (currentTime / course.duration) * 100;
     console.log("progressPercentage", progressPercentage);
     console.log("db progress", course.progress[0]?.progressPercentage);
+    console.log("db lastWatchedTime", course.progress[0]?.lastWatchedTime);
 
     if (
       progressPercentage > 90 &&
@@ -71,12 +72,14 @@ const VideoPlayer = ({ course }: { course: Course }) => {
       });
     }
 
-    if (
-      currentTime > 0 &&
-      currentTime < course.duration &&
-      currentTime > course.progress[0]?.lastWatchedTime
-    ) {
-      updateCourseProgress.mutate({ current_time: currentTime });
+    if (currentTime > 0 && currentTime < course.duration) {
+      if (course.progress[0]?.lastWatchedTime) {
+        if (currentTime > course.progress[0]?.lastWatchedTime) {
+          updateCourseProgress.mutate({ current_time: currentTime });
+        }
+      } else {
+        updateCourseProgress.mutate({ current_time: currentTime });
+      }
     }
   }, [
     currentTime,
