@@ -61,8 +61,6 @@ const LoginForm = ({ activeTab }: { activeTab: UserType }) => {
       userType: activeTab,
     });
 
-    // console.log(response);
-
     if (response?.error) {
       console.log(response.error);
 
