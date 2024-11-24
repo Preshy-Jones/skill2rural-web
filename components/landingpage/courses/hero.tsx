@@ -5,8 +5,10 @@ import arrowPracticeLogo from "@/public/arrow-target-practice.svg";
 import dotDesignPurple from "@/public/courses-dots.svg";
 import Link from "next/link";
 import curvedArrow from "@/public/curved-arrow-2.svg";
+import { useSession } from "next-auth/react";
 
 const Hero = () => {
+  const { status } = useSession();
   return (
     <div className="h-[60vh] iphone:h-[70vh] iphone sm:h-[65vh] hero pt-[5rem] relative overflow-x-hidden overflow-y-hidden">
       <div className="flex flex-col justify-center items-center absolute top-0 z-20 w-full h-full">
@@ -36,11 +38,19 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex justify-center mt-24">
-            <Link href={"/register"}>
-              <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
-                Get Started Now
-              </button>
-            </Link>
+            {status === "authenticated" ? (
+              <Link href={"/dashboard/courses"}>
+                <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
+                  View Dashboard
+                </button>
+              </Link>
+            ) : (
+              <Link href={"/register"}>
+                <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold">
+                  Get Started Now
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
