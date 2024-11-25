@@ -11,7 +11,7 @@ const ChatBot = () => {
         </div>
         <div className="space-y-3">
           <h1 className="text-[32px] font-semibold leading-[40px]">
-            Meet “Rafiki”, Skill2Rural AI personalized career buddy powrered by
+            Meet “Rafiki”, Skill2Rural AI personalized career buddy powered by
             ISLP model
           </h1>
           <p className="text-[16px] font-thin">
