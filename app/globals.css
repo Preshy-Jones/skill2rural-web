@@ -146,7 +146,7 @@
   }
   .slider .slide {
     height: 100px;
-    width: 250px;
+    width: 300px;
   }
 }
 
@@ -215,8 +215,6 @@
   }
 }
 
-
-
 @media screen and (max-height: 700px) and (max-width: 640px) {
   .hero {
     height: 80vh !important;
@@ -224,7 +222,7 @@
 }
 
 @media screen and (min-height: 700px) and (min-width: 1280px) {
-  .hero{
+  .hero {
     height: 100vh !important;
   }
 }

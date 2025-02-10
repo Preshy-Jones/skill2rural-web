@@ -1,21 +1,31 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
 const Stats = () => {
   return (
-    <div className="slider">
-      <div className="slide-track">
-        {content.map((data, index) => (
-          <div key={index} className="slide flex flex-col items-center">
-            <h3 className=" sm:text-6xl text-3.5xl text-primaryBlack font-bold">
-              {data.value}
-            </h3>
-            <h3 className="text-sm sm:text-2xl font-medium text-primaryBlack">
-              {data.title}
-            </h3>
-          </div>
-        ))}
+    <div>
+      <div>
+        <Marquee
+          className="flex gap-10"
+          gradientColor="black"
+          gradientWidth="200px"
+        >
+          {content.map((data, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center w-[150px] md:w-[240px]"
+            >
+              <h3 className=" sm:text-6xl text-3.5xl text-primaryBlack font-bold">
+                {data.value}
+              </h3>
+              <h3 className="text-sm sm:text-2xl font-medium text-primaryBlack text-center">
+                {data.title}
+              </h3>
+            </div>
+          ))}
+        </Marquee>
       </div>
     </div>
   );
@@ -25,16 +35,16 @@ export default Stats;
 
 const content = [
   {
-    title: "Students reached",
-    value: "50+",
-  },
-  {
-    title: "Students reached",
-    value: "7550+",
-  },
-  {
     title: "Facilitators onboarded",
     value: "10+",
+  },
+  {
+    title: "Communities",
+    value: "17+",
+  },
+  {
+    title: "Students & Youths",
+    value: "100k+",
   },
   {
     title: "Courses uploaded",
@@ -49,11 +59,11 @@ const content = [
     value: "13+",
   },
   {
-    title: "Workshops",
-    value: "30+",
+    title: "Students reached",
+    value: "50+",
   },
   {
-    title: "Communities",
-    value: "17+",
+    title: "Workshops",
+    value: "30+",
   },
 ];
