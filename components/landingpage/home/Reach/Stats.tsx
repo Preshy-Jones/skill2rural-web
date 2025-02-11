@@ -59,8 +59,8 @@ const content = [
     value: "13+",
   },
   {
-    title: "Students reached",
-    value: "50+",
+    title: "Educators reached",
+    value: "150+",
   },
   {
     title: "Workshops",
