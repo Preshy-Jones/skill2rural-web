@@ -54,25 +54,18 @@ const Reviews = () => {
       color: "bg-cardAsh",
       image: animoji1,
     },
-
-    // {
-    //   name: "Emmanuel Adebayo",
-    //   review:
-    //     "orem ipsum dolor sit amet consectetur. Libero adipiscing lacus tellus proin feugiat pharetra facilisis lectus. Nunc viverra eget venenatis libero amet. Fermentum aenean commodo imperdiet vitae pulvinar duis. Felis auctor feugiat porttitor tincidunt proin non quam accumsan sed.",
-    //   color: "bg-cardPurple",
-    // },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPreviousSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 3 : prevIndex - 3
+      prevIndex === 0 ? reviews.length - 3 : prevIndex - 3,
     );
   };
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 3 ? 0 : prevIndex + 3
+      prevIndex === reviews.length - 3 ? 0 : prevIndex + 3,
     );
   };
   return (
