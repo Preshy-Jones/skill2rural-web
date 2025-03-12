@@ -34,7 +34,7 @@ const MobileNavBar = () => {
     data: user,
   } = useGetUserSettings(
     //@ts-ignore
-    session?.user.email || ""
+    session?.user.email || "",
   );
   return (
     <div className="z-50 w-full sticky top-0 block md:hidden ">
@@ -165,11 +165,11 @@ const loggedOutItemsData = [
     link: "/",
   },
 
-  {
-    icon: DashboardIcon,
-    title: "Rafiki",
-    link: "/rafiki",
-  },
+  // {
+  //   icon: DashboardIcon,
+  //   title: "Rafiki",
+  //   link: "/rafiki",
+  // },
 
   {
     icon: MyCoursesIcon,
