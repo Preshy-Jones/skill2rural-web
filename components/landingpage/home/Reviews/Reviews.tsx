@@ -2,79 +2,16 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import animoji1 from "@/public/animoji-1.svg";
-import animoji2 from "@/public/animoji-2.svg";
-import animoji3 from "@/public/animoji-3.svg";
-import CaretLeftIcon from "@/public/caret-left.svg";
-import CaretRightIcon from "@/public/caret-right.svg";
-import { motion, AnimatePresence } from "framer-motion";
+
 import { CarouselSpacing } from "./carousel";
+import { rafikiReviews, reviews } from "@/data/review";
+import { usePathname } from "next/navigation";
 
 const Reviews = () => {
-  const reviews = [
-    {
-      name: "Adekunle Ahmed",
-      review:
-        '"The money management session exposed me to the need to properly manage how I spend the funds I get from family and friends. Now, I plan to start saving after this boot camp"',
-      color: "bg-cardBlue",
-      image: animoji1,
-    },
-    {
-      name: "Abdulahi Nimat",
-      review:
-        '"Before, I didn\'t keep my money when I got money from my parents. I spend them immediately. Now, I understand the difference between savings, income, and investment. I know what I should put into assets and liabilities"',
-      color: "bg-cardRed",
-      image: animoji2,
-    },
-    {
-      name: "Haruna Khadijat",
-      review:
-        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
-      color: "bg-cardAsh",
-      image: animoji3,
-    },
-    {
-      name: "Haruna Khadijat",
-      review:
-        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
-      color: "bg-cardAsh",
-      image: animoji3,
-    },
-    {
-      name: "Haruna Khadijat",
-      review:
-        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
-      color: "bg-cardAsh",
-      image: animoji2,
-    },
-    {
-      name: "Haruna Khadijat",
-      review:
-        '"I learned the differences between assets and liabilities. Now, I know how to save from the money my parents give me for my upkeep."',
-      color: "bg-cardAsh",
-      image: animoji1,
-    },
-
-    // {
-    //   name: "Emmanuel Adebayo",
-    //   review:
-    //     "orem ipsum dolor sit amet consectetur. Libero adipiscing lacus tellus proin feugiat pharetra facilisis lectus. Nunc viverra eget venenatis libero amet. Fermentum aenean commodo imperdiet vitae pulvinar duis. Felis auctor feugiat porttitor tincidunt proin non quam accumsan sed.",
-    //   color: "bg-cardPurple",
-    // },
-  ];
+  const pathname = usePathname();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPreviousSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 3 : prevIndex - 3
-    );
-  };
-
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 3 ? 0 : prevIndex + 3
-    );
-  };
+  const currentReview = pathname.includes("rafiki") ? rafikiReviews : reviews;
   return (
     <div className="flex justify-center mt-36 font-neue">
       <div className="w-[90.69%]">
@@ -110,7 +47,7 @@ const Reviews = () => {
               ))}
           </div> */}
           <div className="relative w-full">
-            <CarouselSpacing reviews={reviews} />
+            <CarouselSpacing reviews={currentReview} />
           </div>
 
           <div className="absolute z-40 flex justify-end w-full top-1/2 transform -translate-y-1/2">

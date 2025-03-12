@@ -164,6 +164,13 @@ const loggedOutItemsData = [
     title: "Home",
     link: "/",
   },
+
+  {
+    icon: DashboardIcon,
+    title: "Rafiki",
+    link: "/rafiki",
+  },
+
   {
     icon: MyCoursesIcon,
     title: "Courses",

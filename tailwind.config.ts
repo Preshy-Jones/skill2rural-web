@@ -157,6 +157,7 @@ const config: Config = {
         clash: ["var(--font-clash)"],
         inter: ["var(--font-inter)"],
         avenir: ["var(--font-avenir)"],
+        pinkBloom: "PinkBloom",
       },
       gridTemplateColumns: {
         footer: "30% 70%",

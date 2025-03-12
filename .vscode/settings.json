@@ -1,0 +1,4 @@
+{
+  "vscode_custom_css.imports": ["file:///Users/me/Desktop/custom-vscode.css"],
+  "postman.settings.dotenv-detection-notification-visibility": false
+}
