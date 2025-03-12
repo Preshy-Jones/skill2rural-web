@@ -53,4 +53,9 @@ export const rafikiFaqOptions = [
     summary:
       "Rafiki.AI is built with an African-focused approach, considering local job markets, skill demands, and real-life career challenges that young people face. It learns from user interactions to improve its recommendations, ensuring that the advice is practical, realistic, and tailored to your environment.",
   },
+  {
+    title: "Does Rafiki support multiple languages?",
+    summary:
+      "Yes! 🌍 Rafiki is designed to be accessible to a diverse audience, supporting multiple languages to ensure a seamless learning experience for everyone. Whether you're more comfortable with English, French, Swahili, or other languages, Rafiki provides localized content to help you learn effectively.",
+  },
 ];

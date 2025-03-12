@@ -1,6 +1,3 @@
-import Image from "next/image";
-import dotDesign1 from "@/public/dots-home-hero.svg";
-import Link from "next/link";
 import React from "react";
 import HeroText from "./HeroText";
 import HalfCircle from "../halfCircle";
@@ -14,7 +11,7 @@ export default function Hero() {
           <MobileHalfCircle />
           <HalfCircle />
         </div>
-        <div className="flex flex-col justify-end lg:h-[300px] xl:h-[430px]">
+        <div className="flex flex-col justify-end lg:h-[400px] xl:h-[50vh] 2xl:h-[60vh]">
           <div className="relative flex items-center justify-center">
             <div className="">
               <div className="h-auto mt-10 md:mt-[4rem] lg:mt-0">
@@ -31,7 +28,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-[5rem] z-30">
+      <div className="flex justify-center mt-[5rem] z-40">
         <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
           Try Rafiki Now
         </button>

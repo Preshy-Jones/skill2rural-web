@@ -2,6 +2,7 @@ import React from "react";
 import bgImage from "../../../public/action-section-bg.svg";
 import Image from "next/image";
 import hammed from "../../../public/hammed.svg";
+import Link from "next/link";
 
 const ActionSection = () => {
   return (
@@ -33,9 +34,12 @@ const ActionSection = () => {
           <button className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px]">
             Try Rafiki Now
           </button>
-          <button className="border w-full md:w-fit px-10 py-3 rounded-[100px]">
-            Sign up on Skill2Rural
-          </button>
+
+          <Link href={"/register"}>
+            <button className="border w-full md:w-fit px-10 py-3 rounded-[100px]">
+              Sign up on Skill2Rural
+            </button>
+          </Link>
         </div>
       </div>
     </div>

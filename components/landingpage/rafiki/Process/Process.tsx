@@ -1,39 +1,11 @@
 "use client";
-import verification from "../../../../public/verification.svg";
-import verificationMobile from "../../../../public/verificationMobile.svg";
+import mockup from "../../../../public/phoneMockup.png";
+import verificationMobile from "../../../../public/phoneMockupMobile.png";
 import Image from "next/image";
 import Step from "./Step";
 import bot from "../../../../public/bot2.svg";
 import { useEffect, useState } from "react";
-
-const steps = [
-  {
-    number: 1,
-    title: "Tell us about your interest",
-    text: "Share what excites and motivates you.",
-  },
-  {
-    number: 2,
-    title: "Highlight your Strenghts",
-    text: "Identify what you’re naturally good at.",
-  },
-  {
-    number: 3,
-    title: "Acknowledge your Limitations",
-    text: "Recognize challenges to find the right fit",
-  },
-
-  {
-    number: 4,
-    title: "Define your Purpose",
-    text: "Clarify the impact you want to make.",
-  },
-  {
-    number: 5,
-    title: "Get Personalised Career Options!",
-    text: "Explore career paths tailored to you.",
-  },
-];
+import { steps } from "@/data/steps";
 
 export default function Process() {
   const [visibleSteps, setVisibleSteps] = useState(1);
@@ -65,11 +37,7 @@ export default function Process() {
         style={{ zIndex: 0 }}
       />
       <div className="flex justify-center">
-        <Image
-          src={verification}
-          alt=""
-          className="w-full hidden  md:flex h-auto"
-        />
+        <Image src={mockup} alt="" className="w-full hidden  md:flex h-auto" />
         <Image
           src={verificationMobile}
           alt=""

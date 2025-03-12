@@ -7,17 +7,21 @@ import footerLogoMobile from "@/public/skill2rural-footer-logo-mobile.svg";
 import footerLogo from "@/public/skill2rural-logo-full.svg";
 import Image from "next/image";
 import Link from "next/link";
+import bot from "../public/footerBot.svg";
 
 const Footer = ({ bgColor }: { bgColor?: string }) => {
   return (
     <div>
       <div className="md:block hidden">
-        <div className="relative bg-primary h-40">
+        <div className="relative bg-primary h-[250px] overflow-hidden">
           <div
             className={`absolute inset-0 rounded-bl-[100px] rounded-br-[100px] ${
               bgColor ? bgColor : "bg-white"
             }`}
-          ></div>
+          />
+          <div className="left-[40%] absolute top-0">
+            <Image src={bot} alt="footerBot" className="w-[230px] h-[320px]" />
+          </div>
         </div>
         <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
           <div className="grid grid-cols-footer gap-x-10">
@@ -101,13 +105,16 @@ export default Footer;
 
 const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <div className="md:hidden block  mt-24 w-full">
-      <div className="relative bg-primary h-40">
+    <div className="md:hidden block  w-full">
+      <div className="relative bg-primary h-[250px] overflow-hidden">
         <div
           className={`absolute inset-0 rounded-bl-[40px] rounded-br-[40px]    ${
             bgColor ? bgColor : "bg-white"
           }`}
-        ></div>
+        />
+        <div className="left-[30%] absolute top-0">
+          <Image src={bot} alt="footerBot" className="w-[200px] h-[320px]" />
+        </div>
       </div>
       <div className="bg-primary text-white pt-24 pb-20 font-neue px-10">
         <div className="mb-10">
