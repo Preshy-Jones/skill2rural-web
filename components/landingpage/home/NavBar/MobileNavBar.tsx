@@ -165,11 +165,11 @@ const loggedOutItemsData = [
     link: "/",
   },
 
-  // {
-  //   icon: DashboardIcon,
-  //   title: "Rafiki",
-  //   link: "/rafiki",
-  // },
+  {
+    icon: DashboardIcon,
+    title: "Rafiki",
+    link: "/rafiki",
+  },
 
   {
     icon: MyCoursesIcon,

@@ -1,6 +1,6 @@
 "use client";
-import mockup from "../../../../public/phoneMockup.png";
-import verificationMobile from "../../../../public/phoneMockupMobile.png";
+import mockup from "../../../../public/phoneMockUpWithoutQRCode.png";
+import verificationMobile from "../../../../public/phoneMockupMobileWithoutQRCode.png";
 import Image from "next/image";
 import Step from "./Step";
 import bot from "../../../../public/bot2.svg";
@@ -33,15 +33,15 @@ export default function Process() {
       <Image
         src={bot}
         alt=""
-        className="hidden lg:flex absolute right-0 top-0 z-0"
+        className="absolute top-0 right-0 z-0 hidden lg:flex"
         style={{ zIndex: 0 }}
       />
       <div className="flex justify-center">
-        <Image src={mockup} alt="" className="w-full hidden  md:flex h-auto" />
+        <Image src={mockup} alt="" className="hidden w-full h-full md:flex" />
         <Image
           src={verificationMobile}
           alt=""
-          className="w-full flex md:hidden"
+          className="flex w-full md:hidden"
         />
       </div>
       <div className="flex flex-col justify-between">
@@ -60,7 +60,7 @@ export default function Process() {
           ))}
         </div>
         <button className="bg-primary text-white w-[200px] h-[48px] md:w-[15rem] md:h-[3.75rem] mt-10 py-2 rounded-btn font-semibold text-[9px] md:text-base text-sm sm:leading-fifth leading-seventh">
-          Try Rafiki Now
+          Coming Soon
         </button>
       </div>
     </div>
