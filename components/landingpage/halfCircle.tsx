@@ -3,7 +3,7 @@ import React from "react";
 const HalfCircle = () => {
   return (
     <svg
-      className="hidden md:flex"
+      className="hidden md:flex h-[45vh] w-[100vw]"
       viewBox="0 0 1440 462"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

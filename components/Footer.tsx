@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import facebookIcon from "@/public/facebook-icon.svg";
 import twitterIcon from "@/public/twitter-icon.svg";
@@ -8,8 +9,10 @@ import footerLogo from "@/public/skill2rural-logo-full.svg";
 import Image from "next/image";
 import Link from "next/link";
 import bot from "../public/footerBot.svg";
+import { usePathname } from "next/navigation";
 
 const Footer = ({ bgColor }: { bgColor?: string }) => {
+  const pathName = usePathname();
   return (
     <div>
       <div className="md:block hidden">
@@ -19,9 +22,15 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
               bgColor ? bgColor : "bg-white"
             }`}
           />
-          <div className="left-[40%] absolute top-0">
-            <Image src={bot} alt="footerBot" className="w-[230px] h-[320px]" />
-          </div>
+          {pathName.includes("rafiki") && (
+            <div className="absolute top-0 w-[100vw] flex justify-center items-center">
+              <Image
+                src={bot}
+                alt="footerBot"
+                className="w-[230px] h-[320px]"
+              />
+            </div>
+          )}
         </div>
         <div className="bg-primary text-white pt-24 pb-20 font-neue px-20">
           <div className="grid grid-cols-footer gap-x-10">
@@ -112,7 +121,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
             bgColor ? bgColor : "bg-white"
           }`}
         />
-        <div className="left-[30%] absolute top-0">
+        <div className="w-[100vw] flex justify-center items-center absolute top-0">
           <Image src={bot} alt="footerBot" className="w-[200px] h-[320px]" />
         </div>
       </div>

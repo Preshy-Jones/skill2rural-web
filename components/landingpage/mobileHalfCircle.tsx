@@ -3,7 +3,7 @@ import React from "react";
 const MobileHalfCircle = () => {
   return (
     <svg
-      className="flex md:hidden"
+      className="flex md:hidden h-[40vh] max-w-[100vw]"
       viewBox="0 0 1440 462"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

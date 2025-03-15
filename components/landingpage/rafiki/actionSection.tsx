@@ -15,13 +15,13 @@ const ActionSection = () => {
       }}
     >
       {/* <Image src={bgImage} alt="" className="absolute z-10" /> */}
-      <div className="flex flex-col justify-center items-center text-white">
+      <div className="flex flex-col items-center justify-center text-white">
         <h1 className="w-[90%] md:w-[70%] text-center text-[20px] md:text-[32px] font-semibold text-white leading-9">
           If you need a career companion, coach, advisor or counsellor, Rafiki
           can be all for you and can walk with you on your career journey. You
           do not have to walk alone
         </h1>
-        <div className="my-5 flex gap-5 items-center">
+        <div className="flex items-center gap-5 my-5">
           <Image src={hammed} alt="" />
           <div>
             <p className="font-pinkBloom text-[40px]">Hammed Kayode Alabi</p>
@@ -32,7 +32,7 @@ const ActionSection = () => {
         </div>
         <div className="font-semibold text-[16px] md:space-x-5 space-x-0  mt-6 space-y-5">
           <button className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px]">
-            Try Rafiki Now
+            Coming Soon
           </button>
 
           <Link href={"/register"}>

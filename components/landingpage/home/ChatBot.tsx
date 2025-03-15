@@ -1,6 +1,7 @@
 import React from "react";
 import chatBot_banner from "@/public/chatBot-banner.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const ChatBot = () => {
   return (
@@ -23,10 +24,16 @@ const ChatBot = () => {
             goals. Start your journey to a fulfilling career today
           </p>
         </div>
-
-        <button className="bg-primary text-white w-full md:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-          Coming Soon
-        </button>
+        <div className="flex flex-col gap-5 lg:flex-row">
+          <button className="bg-primary text-white w-full md:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+            Coming Soon
+          </button>
+          <Link href="/rafiki">
+            <button className="border border-primary text-primary w-full md:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
+              Learn More
+            </button>
+          </Link>
+        </div>
       </div>
       <div className="md:w-[55%] flex justify-center items-center">
         <Image

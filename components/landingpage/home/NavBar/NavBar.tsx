@@ -46,10 +46,12 @@ const NavBar = () => {
           <Link href={"/"}>
             <h3 className="mr-12 font-semibold leading-fifth">Home</h3>
           </Link>
-          {/* <Link href={"/rafiki"} className='relative'>
-            <span className="text-primary text-sm font-bold absolute top-[-15px] right-6">New</span>
+          <Link href={"/rafiki"} className="relative">
+            <span className="text-primary text-sm font-bold absolute top-[-15px] right-6">
+              New
+            </span>
             <h3 className="mr-12 font-semibold leading-fifth">Rafiki</h3>
-          </Link> */}
+          </Link>
           <Link href={"/courses"}>
             <h3 className="mr-12 font-semibold leading-fifth">Courses</h3>
           </Link>
