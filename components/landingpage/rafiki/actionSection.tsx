@@ -1,12 +1,12 @@
 import React from "react";
 import bgImage from "../../../public/action-section-bg.svg";
 import Image from "next/image";
-import hammed from "../../../public/hammed.svg";
+import hammed from "../../../public/hammed.jpeg";
 import Link from "next/link";
 
 const ActionSection = () => {
   return (
-    <div
+    <section
       className="mx-[1rem] lg:mx-[4rem] my-[4rem] md:h-[470px] p-5 rounded-[20px] flex flex-col justify-center items-center py-10 mt-[7rem]"
       style={{
         backgroundImage: `url(${bgImage.src})`,
@@ -22,27 +22,27 @@ const ActionSection = () => {
           do not have to walk alone
         </h1>
         <div className="flex items-center gap-5 my-5">
-          <Image src={hammed} alt="" />
+          <Image src={hammed} alt="" width={30} height={40} className="rounded-full w-[80px] h-[70px]  md:w-[70px] md:h-[70px]"/>
           <div>
-            <p className="font-pinkBloom text-[40px]">Hammed Kayode Alabi</p>
+            <p className="font-pinkBloom text-[40px] leading-tight">Hammed Kayode Alabi</p>
             <p className="text-[14px] font-semibold">
               FOUNDER & CEO, SKILL2RURAL
             </p>
           </div>
         </div>
-        <div className="font-semibold text-[16px] md:space-x-5 space-x-0  mt-6 space-y-5">
+        <div className="font-semibold text-[16px] space-x-0 md:space-x-5 mt-6 ">
           <button className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px]">
             Coming Soon
           </button>
 
           <Link href={"/register"}>
-            <button className="border w-full md:w-fit px-10 py-3 rounded-[100px]">
+            <button className="border mt-[10px] md:mt-0 w-full md:w-fit px-10 py-3 rounded-[100px]">
               Sign up on Skill2Rural
             </button>
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

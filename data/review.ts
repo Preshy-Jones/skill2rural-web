@@ -1,6 +1,11 @@
 import animoji1 from "@/public/animoji-1.svg";
 import animoji2 from "@/public/animoji-2.svg";
 import animoji3 from "@/public/animoji-3.svg";
+import user1 from "@/public/user1.svg";
+import user2 from "@/public/user2.svg";
+import user3 from "@/public/user3.svg";
+import user4 from "@/public/user4.svg";
+import user5 from "@/public/user5.svg";
 
 export const reviews = [
   {
@@ -49,38 +54,38 @@ export const reviews = [
 
 export const rafikiReviews = [
   {
-    name: "John Doe",
+    name: "User 1",
     review:
       "“The response time is great, and accurate. It follows through your discussion. This is great.”",
     color: "bg-cardBlue",
-    image: animoji1,
+    image: user1,
   },
   {
-    name: "Jane Doe",
+    name: "User 2",
     review:
-      '"I love that its response time is fast, seeks a lot of clarification, and  provides specific examples of the clarity it seeks to guide the user. "',
+      '"I love that its response time is fast, seeks a lot of clarification, and provides specific examples of the clarity it seeks to guide the user. "',
     color: "bg-cardRed",
-    image: animoji2,
+    image: user2,
   },
   {
-    name: "John Doe",
+    name: "User 3",
     review:
       '"I love how it follows up with the previous conversations with the necessary help."',
     color: "bg-cardAsh",
-    image: animoji3,
+    image: user3,
   },
   {
-    name: "John Doe",
+    name: "User 4",
     review:
       '"I have tested it. I love it. It is great. It did give ideas on different career path I could take if I do my Phd in Citizen Centred AI. It give me ideas on what I want to do after my degree aside academia. "',
     color: "bg-cardAsh",
-    image: animoji3,
+    image: user4,
   },
   {
-    name: "Jane Doe",
+    name: "User 5",
     review:
       "\"I've been playing with it since yesterday and it's been a really engaging and versatile experience\"",
     color: "bg-cardAsh",
-    image: animoji2,
+    image: user5,
   },
 ];

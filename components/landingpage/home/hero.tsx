@@ -22,7 +22,7 @@ const Hero = () => {
       </div>
       <div>
         <div
-          className="relative h-[35vh] md:h-[40vh] lg:h-[45vh] flex justify-end flex-col pb-[2rem] lg:pb-[5rem] items-center"
+          className="relative h-[32vh] md:h-[40vh] lg:h-[45vh] flex justify-end flex-col pb-[2rem] lg:pb-[5rem] items-center"
           style={{ zIndex: 10 }}
         >
           <HomeHeroText />
@@ -33,7 +33,7 @@ const Hero = () => {
         </div>
 
         {/* Button  */}
-        <div className="flex justify-center md:mt-6">
+        <div className="flex justify-center md:mt-6 relative">
           {status === "authenticated" ? (
             <Link href={"/dashboard/courses"}>
               <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">

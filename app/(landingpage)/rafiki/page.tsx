@@ -11,7 +11,7 @@ export default function Rafiki() {
       <Hero />
       <Bot />
       <div
-        className="absolute top-[0vh] left-0 md:top-[20vh]"
+        className="absolute -top-[40vh] left-0 md:top-[20vh]"
         style={{ zIndex: 0 }}
       >
         <BackgroundVector />

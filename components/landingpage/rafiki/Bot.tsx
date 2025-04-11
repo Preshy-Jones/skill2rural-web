@@ -5,7 +5,12 @@ import bot from "../../../public/bot.svg";
 const Bot = () => {
   return (
     <div className="flex justify-center items-center mb-[7rem]">
-      <Image src={bot} alt="Chat Bot" style={{ zIndex: 40 }} />
+      <Image
+        src={bot}
+        alt="Chat Bot"
+        style={{ zIndex: 40 }}
+        className="w-[60rem]"
+      />
     </div>
   );
 };
