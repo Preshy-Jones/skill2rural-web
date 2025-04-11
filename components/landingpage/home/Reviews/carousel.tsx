@@ -34,6 +34,7 @@ export function CarouselSpacing({
                 src={review.image}
                 alt={review.name}
                 className=" mb-5 rounded-tertiary border border-primary relative z-20"
+                loading="lazy"
               />
               <div className="relative -mt-12  z-0 ml-8 h-[12rem]">
                 <div className="absolute h-[10.8125rem] z-10 w-[98%] bg-white border  border-black rounded-2xl px-8 py-10 flex flex-col justify-between ">

@@ -14,7 +14,7 @@ import { usePathname } from "next/navigation";
 const Footer = ({ bgColor }: { bgColor?: string }) => {
   const pathName = usePathname();
   return (
-    <div>
+    <footer>
       <div className="md:block hidden">
         <div className="relative bg-primary h-[250px] overflow-hidden">
           <div
@@ -28,6 +28,7 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
                 src={bot}
                 alt="footerBot"
                 className="w-[230px] h-[320px]"
+                loading="lazy"
               />
             </div>
           )}
@@ -106,7 +107,7 @@ const Footer = ({ bgColor }: { bgColor?: string }) => {
         </div>
       </div>
       <MobileFooter bgColor={bgColor} />
-    </div>
+    </footer>
   );
 };
 
@@ -114,7 +115,7 @@ export default Footer;
 
 const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <div className="md:hidden block  w-full">
+    <footer className="md:hidden block  w-full">
       <div className="relative bg-primary h-[250px] overflow-hidden">
         <div
           className={`absolute inset-0 rounded-bl-[40px] rounded-br-[40px]    ${
@@ -122,7 +123,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
           }`}
         />
         <div className="w-[100vw] flex justify-center items-center absolute top-0">
-          <Image src={bot} alt="footerBot" className="w-[200px] h-[320px]" />
+          <Image src={bot} alt="footerBot" className="w-[200px] h-[320px]" loading="lazy" />
         </div>
       </div>
       <div className="bg-primary text-white pt-24 pb-20 font-neue px-10">
@@ -167,7 +168,7 @@ const MobileFooter = ({ bgColor }: { bgColor?: string }) => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

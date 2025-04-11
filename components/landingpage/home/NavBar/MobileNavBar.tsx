@@ -6,6 +6,7 @@ import hamburger from "@/public/hamburger.svg";
 import skill2ruralMobileLogo from "@/public/skill2rural-logo-mobile-nav.svg";
 import closeIcon from "@/public/close-x.svg";
 import DashboardIcon from "@/public/dashboard-icon-mobile.svg";
+import RafikiIcon from "@/public/rafiki-icon-mobile.svg";
 import SettingsIcon from "@/public/settings-icon-mobile.svg";
 import LogoutIcon from "@/public/logout-icon.svg";
 import MyCoursesIcon from "@/public/course-icon.svg";
@@ -34,7 +35,7 @@ const MobileNavBar = () => {
     data: user,
   } = useGetUserSettings(
     //@ts-ignore
-    session?.user.email || "",
+    session?.user.email || ""
   );
   return (
     <div className="z-50 w-full sticky top-0 block md:hidden ">
@@ -166,7 +167,7 @@ const loggedOutItemsData = [
   },
 
   {
-    icon: DashboardIcon,
+    icon: RafikiIcon,
     title: "Rafiki",
     link: "/rafiki",
   },

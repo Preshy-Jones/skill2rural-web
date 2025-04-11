@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
-
 import { CarouselSpacing } from "./carousel";
 import { rafikiReviews, reviews } from "@/data/review";
 import { usePathname } from "next/navigation";
@@ -13,7 +11,7 @@ const Reviews = () => {
 
   const currentReview = pathname.includes("rafiki") ? rafikiReviews : reviews;
   return (
-    <div className="flex justify-center mt-36 font-neue">
+    <section className="flex justify-center mt-36 font-neue">
       <div className="w-[90.69%]">
         <div className="mb-28">
           <h5 className="text-primary leading-fifth font-semibold text-center">
@@ -66,7 +64,7 @@ const Reviews = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
