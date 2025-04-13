@@ -30,7 +30,14 @@ export default function Hero() {
 
       <div className="z-40 flex justify-center mt-8">
         <button className="bg-primary text-white w-[15rem] h-[3.75rem] py-2 rounded-btn font-semibold sm:text-base text-sm sm:leading-fifth leading-seventh">
-          Coming Soon
+          <a
+            href={
+              "https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
+            }
+            target="blank"
+          >
+            Try it now
+          </a>
         </button>
       </div>
     </div>

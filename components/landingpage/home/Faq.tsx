@@ -20,7 +20,8 @@ const Faq = () => {
               Frequently asked questions
             </h1>
             <h3 className="text-lightGrey text-center text-xl leading-[1.875rem] font-medium">
-              Everything you need to know about Skill2Rural
+              Everything you need to know about{" "}
+              {pathname.includes("rafiki") ? "Rafiki" : "Skill2Rural"}
             </h3>
           </div>
           <div className="divide-y">
