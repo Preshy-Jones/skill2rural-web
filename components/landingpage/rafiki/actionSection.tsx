@@ -22,9 +22,17 @@ const ActionSection = () => {
           do not have to walk alone
         </h1>
         <div className="flex items-center gap-5 my-5">
-          <Image src={hammed} alt="" width={30} height={40} className="rounded-full w-[80px] h-[70px]  md:w-[70px] md:h-[70px]"/>
+          <Image
+            src={hammed}
+            alt=""
+            width={30}
+            height={40}
+            className="rounded-full w-[80px] h-[70px]  md:w-[70px] md:h-[70px]"
+          />
           <div>
-            <p className="font-pinkBloom text-[40px] leading-tight">Hammed Kayode Alabi</p>
+            <p className="font-pinkBloom text-[40px] leading-tight">
+              Hammed Kayode Alabi
+            </p>
             <p className="text-[14px] font-semibold">
               FOUNDER & CEO, SKILL2RURAL
             </p>
@@ -32,7 +40,14 @@ const ActionSection = () => {
         </div>
         <div className="font-semibold text-[16px] space-x-0 md:space-x-5 mt-6 ">
           <button className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px]">
-            Coming Soon
+            <a
+                href={
+                  "https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
+                }
+                target="blank"
+            >
+              Try it now
+            </a>
           </button>
 
           <Link href={"/register"}>

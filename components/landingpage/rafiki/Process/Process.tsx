@@ -4,8 +4,9 @@ import verificationMobile from "../../../../public/phoneMockupMobileWithoutQRCod
 import Image from "next/image";
 import Step from "./Step";
 import bot from "../../../../public/bot2.svg";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { steps } from "@/data/steps";
+import Link from "next/link";
 
 export default function Process() {
   const [visibleSteps, setVisibleSteps] = useState(1);
@@ -60,7 +61,14 @@ export default function Process() {
           ))}
         </div>
         <button className="bg-primary text-white w-[200px] h-[48px] md:w-[15rem] md:h-[3.75rem] mt-10 py-2 rounded-btn font-semibold text-[9px] md:text-base text-sm sm:leading-fifth leading-seventh">
-          Coming Soon
+          <a
+              href={
+                "https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
+              }
+              target="blank"
+          >
+            Try it now
+          </a>
         </button>
       </div>
     </div>

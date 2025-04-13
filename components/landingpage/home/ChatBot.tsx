@@ -19,14 +19,21 @@ const ChatBot = () => {
             Meet Rafiki, your AI personalized career companion, here to make
             career discovery inspiring and straightforward. With the ISLP
             model—Interest, Strength, Limitation, and Purpose—Rafiki is designed
-            to understand you. Whether you’re exploring new paths or seeking
-            clarity, Rafiki will help map out options that match your skills and
-            goals. Start your journey to a fulfilling career today
+            to understand you. Whether you&apos;re exploring new paths or
+            seeking clarity, Rafiki will help map out options that match your
+            skills and goals. Start your journey to a fulfilling career today
           </p>
         </div>
         <div className="flex flex-col gap-5 lg:flex-row">
           <button className="bg-primary text-white w-full md:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
-            Coming Soon
+            <a
+              href={
+                "https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
+              }
+              target="blank"
+            >
+              Try it Now
+            </a>
           </button>
           <Link href="/rafiki">
             <button className="border border-primary text-primary w-full md:w-[15rem] h-[3.75rem] py-2 rounded-btn font-bold">
