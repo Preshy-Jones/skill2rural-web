@@ -7,11 +7,12 @@ import Link from "next/link";
 const ActionSection = () => {
   return (
     <section
-      className="mx-[1rem] lg:mx-[4rem] my-[4rem] md:h-[470px] p-5 rounded-[20px] flex flex-col justify-center items-center py-10 mt-[7rem]"
+      className="mx-[1rem] lg:mx-[4rem] my-[4rem] md:h-[470px] p-5 rounded-[20px] flex flex-col justify-center items-center py-10 mt-[7rem] relative"
       style={{
         backgroundImage: `url(${bgImage.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        zIndex: 50,
       }}
     >
       {/* <Image src={bgImage} alt="" className="absolute z-10" /> */}
@@ -39,16 +40,14 @@ const ActionSection = () => {
           </div>
         </div>
         <div className="font-semibold text-[16px] space-x-0 md:space-x-5 mt-6 ">
-          <button className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px]">
-            <a
-                href={
-                  "https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
-                }
-                target="blank"
-            >
-              Try it now
-            </a>
-          </button>
+          <a
+            href="https://wa.me/+15557228341?text=Hello%20Rafiki%2C%20I%20need%20career%20guidance"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary w-full md:w-fit bg-white px-[5rem] py-3 rounded-[100px] inline-block text-center"
+          >
+            Try it now
+          </a>
 
           <Link href={"/register"}>
             <button className="border mt-[10px] md:mt-0 w-full md:w-fit px-10 py-3 rounded-[100px]">
