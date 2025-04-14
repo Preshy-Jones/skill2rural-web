@@ -9,6 +9,7 @@ const Bot = () => {
         src={bot}
         alt="Chat Bot"
         style={{ zIndex: 40 }}
+        priority
         className="w-[60rem]"
       />
     </div>
