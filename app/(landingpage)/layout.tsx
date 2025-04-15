@@ -64,6 +64,7 @@ export default async function LandingPageLayout({
     <html lang="en">
       <Head>
         <link rel="icon" href="/logo.svg" />
+        <link rel="preload" href="/bot.svg" as="image" />
       </Head>
       <Script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" />
 
