@@ -163,8 +163,6 @@ const CarouselContent = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { carouselRef, orientation, slidesInView } = useCarousel();
 
-  console.log(slidesInView);
-
   return (
     <div ref={carouselRef} className="overflow-hidden">
       {/* <pre>{JSON.stringify(slidesInView, null, 2)}</pre> */}

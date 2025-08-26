@@ -1,10 +1,5 @@
 import Api from "@/api";
-import {
-  Course,
-  CourseReview,
-  GetCourseReviewResponse,
-  GetUserEnrolledCourses,
-} from "@/types/course";
+import { GetUserEnrolledCourses } from "@/types/course";
 import { useQuery } from "@tanstack/react-query";
 
 interface ApiError {

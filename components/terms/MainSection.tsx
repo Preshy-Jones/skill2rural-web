@@ -5,397 +5,503 @@ const MainSection = () => {
     <div className="flex justify-center font-neue">
       <div className="w-[86.18%]">
         <div className="flex sm:flex-row flex-col justify-between">
-          <div className=" text-greyText font-semibold sm:w-[15%] w-full sm:block hidden">
-            <h3>Privacy Policy</h3>
+          <div className="text-greyText font-semibold sm:w-[15%] w-full sm:block hidden">
+            <h3>Privacy Notice</h3>
           </div>
+
           <div className="sm:w-[82%] w-full">
             <div className="mb-6">
-              <h1 className=" font-semibold text-3.5xl leading-tertiary mb-8">
-                Privacy Policy
+              <h1 className="font-semibold text-3xl leading-snug mb-4">
+                Skill2Rural Upgraded Privacy Notice
               </h1>
-              <h3 className="text-lg leading-ninth font-bold">
-                Last updated: February 20th, 2024
+              <h3 className="text-lg leading-snug font-bold">
+                Effective Date: April 9th, 2025
               </h3>
             </div>
-            {/* <p className="text-lg leading-ninth font-medium mb-8">
-              Welcome to Skill2rural a free education platform dedicated to
-              providing quality learning via ed-tech and in-person bootcamp to
-              prepare underserved young people in Africa such as displaced young
-              people, and young people from low-income communities for the
-              21st-century workforce. Our tech platform is a simple-to-use
-              digital platform for facilitators and young people to explore
-              courses that enable them to develop life and 21st-century skills.
-            </p> */}
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Welcome to Skill2rural, a free education platform dedicated to
-              providing quality learning via ed-tech and in-person bootcamp to
-              prepare underserved young people in Africa, such as displaced
-              young people and young people from low-income communities, for the
-              21st-century workforce. Our tech platform is a simple-to-use
-              digital platform for facilitators and young people to explore
-              courses that enable them to develop life and 21st-century skills.
+
+            <h2 className="font-semibold text-xl mb-4">1. Introduction</h2>
+            <p className="text-lg leading-relaxed mb-8">
+              Skill2Rural is a nonprofit organization dedicated to empowering
+              rural communities through education and skill-building programs,
+              with a particular focus on children&apos;s development. We are
+              committed to protecting the privacy of all our users, especially
+              children, and operate in compliance with the Nigeria Data
+              Protection Act (2023) and other applicable data protection laws.
+            </p>
+            <p className="text-lg leading-relaxed mb-8">
+              This Privacy Notice explains what personal information we collect,
+              how we use and protect this information, your rights regarding
+              your personal data, and special protections for children&apos;s
+              data.
+            </p>
+            <p className="text-lg leading-relaxed mb-8">
+              We collect only the information necessary to provide our services
+              and implement robust safeguards to protect all personal data in
+              our care. For children under 13, we require verifiable parental
+              consent before collecting any personal information.
             </p>
 
-            <p className="text-lg leading-ninth font-medium mb-8">
-              For us at Skill2rural, we understand how important the privacy of
-              personal information is to our users. We are committed to
-              protecting the privacy and security of our users. Your privacy is
-              important to us. We consider transparency and integrity important
-              issues to consider in the processing of your personal data. This
-              Privacy Policy will tell you what information we collect from you
-              and about your use of Skill2rural and its services. It will
-              explain the choices you have about how your personal information
-              is used and how we protect that information. We urge you to read
-              this Privacy Policy carefully. This Privacy Policy applies to
-              websites owned and operated by Skill2rural. Except where noted,
-              statements in this Privacy Policy concerning the Skill2rural
-              websites also apply to its Apps and software. We observe the
-              provisions of data protection law.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              In compliance with data protection regulations, we process your
-              data only if permitted by law or you have given your consent. This
-              also applies to the processing of personal data for advertising
-              and marketing purposes. If you do not want us to collect, use, or
-              disclose information about you and your use of the services as
-              described in this Privacy Policy, then you should not use the
-              Services. By using the services, you must agree to the Skill2rural
-              Terms and Conditions of Use, which is the contract between us and
-              users of our Services.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              By accepting the Skill2rural Terms of Use, you confirm that you
-              have read and understand this Privacy Policy and the Skill2rural
-              Cookie Policy and you acknowledge that we will store, use, and
-              otherwise process your information in the Federal Republic of
-              Nigeria or any jurisdiction where we are located.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              References to &apos;Skill2rural,&apos; &apos;we,&apos; or &apos;us&apos; mean Skill2Rural
-              Bootcamp, an initiative of Kayode Alabi Leadership and Career
-              Initiative, including any company that Kayode Alabi Leadership and
-              Career Initiative controls (for example, projects that Kayode
-              Alabi Leadership and Career Initiative owns or undertakes) or is
-              associated with for purposes of service delivery. Skill2rural may
-              share information among its subsidiaries or websites, software,
-              and applications that it owns or controls, but information
-              collected under this Privacy Policy is always protected under the
-              terms of this Privacy Policy. Except as otherwise noted in this
-              Privacy Policy, Skill2rural is the data controller responsible for
-              the processing of your personal information as described in this
-              Privacy Policy.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Your Privacy is our priority at Skill2rural. We treat your
-              personal information as private and confidential and consequently
-              safeguard the privacy of personal information that is either
-              provided to us or collected by us with the highest level of
-              security. This privacy policy will provide you with information on
-              how your data is collected, processed, used, protected, shared,
-              and retained. It will also inform you as to your rights and our
-              privacy policy changes. Kindly read this privacy policy carefully
-              to understand how we interact with your personal data. Please note
-              that by continuing to visit our website (Skill2rural) and other
-              Skill2rural Technology Services Limited Apps, you accept and
-              consent to the way your data is processed according to this
-              privacy policy.
-            </p>
-
-            <h2>1. Personal Data We Collect</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We use data that you provide to us as well as information about
-              you collected by third parties to ensure access to services and
-              products that help meet your unique needs. The data we collect may
-              include identity verification, services consumed, mode of
-              consumption, preferences, location, and transactions relating to
-              the services. Please note that the third-party sources are not
-              controlled by Skill2rural as such, we are not liable to how they
-              use it. Some of our Services do not retain your personal
-              information, while others may, and certain of our
-              registration-only websites/Apps store your personal information in
-              accordance with this Privacy Policy for the purpose of performing
-              the functions of the app.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              You may be required to provide certain personal information, such
-              as your name, address, telephone number, gender, email address,
-              date of birth, and a username and password, or any other related
-              information when you register on our website and to access your
-              Skill2rural account. You are responsible for ensuring the accuracy
-              of the personal information that you submit to Skill2rural.
-            </p>
-
-            <h2>2. Non-Personal Information We Collect</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              In a bid to provide you with optimal tracking services, we collect
-              certain information based on your interaction with our online
-              platforms, mobile applications, and website to utilize the data
-              analytics in improving user experience and our services generally.
-            </p>
-
-            <h2>3. Use of Personal Data</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Skill2rural provides you with a secure place to gather, store,
-              manage, and share your personal information and provides tools and
-              services to keep track of your activities on our
-              website/Portal/App. You are required to register/subscribe with
-              Skill2rural to use Skill2rural and can use information that you
-              provide to send you personalized emails or secure electronic
-              messages.
-            </p>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              However, Skill2rural does not allow any third parties to gather
-              any data about you in connection with your use of Skill2rural,
-              including through the use of cookies and other tracking
-              technologies. Furthermore, Skill2rural does not use any
-              information that you submit in connection with Skill2rural to
-              deliver any advertisements to you on or off of the Skill2rural
-              Sites.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              The collection, processing, and usage of your data will only be
-              employed for authorized usage in connection with our services
-              generally. We use your data in the following ways:
-            </p>
-            <ul className="pl-6 list-disc">
+            <h2 className="font-semibold text-xl mb-4">
+              2. Who Does This Statement Apply To?
+            </h2>
+            <ul className="pl-6 list-disc mb-8">
               <li>
-                Establishing your identity and assessing applications for our
-                products and services
+                Children participating in our programs (with special protections
+                for those under 13)
               </li>
-              <li>Managing our relationship with you</li>
-              <li>To offer lead generation service</li>
-              <li>To develop new products, services, features</li>
-              <li>To administer your account</li>
-              <li>For the administration of our products and services</li>
-              <li>Risk management</li>
-              <li>Updating and enhancing Skill2rural’s records</li>
+              <li>Parents/Legal Guardians of participating children</li>
               <li>
-                Compliance with our legal obligations in providing lawful
-                assistance to government and law enforcement agencies and
-                regulators
+                General Users of our website (www.skill2rural.org), mobile
+                applications, online services, and in-person programs
               </li>
-              <li>Marketing our products and services to you</li>
+              <li>Donors and Partners who interact with our organization</li>
             </ul>
 
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Any personal information provided by you to Skill2rural will be
-              used with your consent or for other lawful means which may not
-              require consent which includes:
+            <h2 className="font-semibold text-xl mb-4">
+              3. What Personal Information Do We Collect?
+            </h2>
+
+            <p className="text-lg leading-relaxed mb-4">
+              We collect only necessary data to provide our services. For
+              children under 16, we obtain verifiable parental consent before
+              collection.
             </p>
-            <ul className="pl-6 list-disc">
+
+            <div className="overflow-x-auto mb-8">
+              <table className="table-auto border border-gray-300 w-full text-left text-lg">
+                <thead className="bg-gray-100 font-semibold">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Category
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Example
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Purpose
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Contact Information
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Name, email, phone, postal address
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Account creation, service delivery, parental consent
+                      verification
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Demographic Data
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Age, gender, school/community details
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Age verification, program customization
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Sensitive Data
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Health/disability info (if relevant)
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Accessibility accommodation (collected only with consent)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Technical Data
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      IP address, cookies, device info
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Website functionality, security, analytics
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Transaction Data
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Donation/payment details
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Program funding, reporting
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-lg leading-relaxed mb-8">
+              <strong>Information sources include:</strong> directly from you,
+              automatically through website interactions, and from third parties
+              such as professional bodies, government agencies, or publicly
+              available sources.
+            </p>
+
+            <h3 className="font-semibold text-lg mb-2">
+              Information sources include:
+            </h3>
+            <ul className="list-disc pl-6 text-lg leading-relaxed mb-8">
+              <li>Directly from you</li>
+              <li>Automatically through website interactions</li>
               <li>
-                Cases where processing of personal data is required for the
-                fulfillment of a contractual obligation.
-              </li>
-              <li>
-                Cases where processing of personal data is required for
-                compliance with legal or regulatory requirements.
-              </li>
-              <li>
-                Cases where processing of personal information is required to
-                protect your interest or that of any other natural person.
-              </li>
-              <li>
-                Cases where processing is required for an activity to be carried
-                out for public interest.
-              </li>
-              <li>
-                Cases where processing is necessary for the exercise of official
-                public mandate vested on Skill2rural.
+                From third parties, such as professional bodies, government
+                agencies, or publicly available sources
               </li>
             </ul>
 
-            <h2>4. Automated Processing</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We may from time to time use automated systems and software to
-              evaluate your preferences, process your data, grant you access to
-              some of our products and services, make decisions about you with
-              regards to credit eligibility, and carry out security, anti-fraud,
-              and anti-money laundering precautionary measures. The automated
-              processing of your data is carried out under lawful grounds,
-              however, you can contact us to request that the automated
-              processing be reviewed by our personnel if you detect any
-              inaccuracies in your personal data.
+            <h2 className="font-semibold text-xl mb-4">
+              4. How Do We Use Your Information?
+            </h2>
+            <p className="text-lg leading-relaxed mb-4">
+              We use your personal data for the following purposes:
             </p>
 
-            <h2>5. Information We Share</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We may share your personal information collected by us or given to
-              us to the extent permitted by the law with the following:
-            </p>
-            <ul className="pl-6 list-disc">
-              <li>Skill2rural, Subsidiaries and affiliates</li>
-              <li>Regulators/Supervisors</li>
-              <li>Government Agencies</li>
-              <li>Courts</li>
-              <li>External Auditors</li>
-              <li>Skill2rural staff</li>
-              <li>Credit Agencies</li>
-              <li>Correspondent Banks</li>
-              <li>Skill2rural partners and service providers</li>
-            </ul>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We may also disclose information about you where such disclosure
-              is necessary for the security of our operations and users and to
-              enforce our terms and conditions. We may also transfer any and all
-              of your personal information in the event of a reorganization,
-              merger, or sale to the relevant third party. We do not share your
-              information with third parties for marketing purposes.
+            <div className="overflow-x-auto mb-8">
+              <table className="table-auto border border-gray-300 w-full text-left text-lg">
+                <thead className="bg-gray-100 font-semibold">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Purpose
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Program Registration
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We collect names, ages, and contact details to enroll
+                      participants in our programs and verify eligibility. For
+                      children under 13, we require parental consent.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Service Delivery
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We use personal data (e.g., school information, progress
+                      records) to provide educational services, track
+                      participation, and ensure child safety during activities.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Communication
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We send program updates, emergency alerts, and parental
+                      notifications via email/SMS. Parents can opt out of
+                      non-essential messages.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Safety and Security
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We monitor account activity and use technical data (e.g.,
+                      IP addresses) to prevent fraud, abuse, or unauthorized
+                      access to children’s accounts.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Legal Compliance
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We retain records required by law (e.g., incident reports,
+                      consent forms) and share data with authorities only when
+                      legally obligated (e.g., child protection cases).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Donor Transaction
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We process payment details securely to manage donations,
+                      issue receipts, and comply with financial regulations.
+                      Donor data is never used for unrelated purposes.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Program Improvement
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We analyze anonymized data (e.g., survey responses) to
+                      evaluate program impact and enhance services—never
+                      identifying individuals publicly.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Parental Controls
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Parents/guardians can review, update, or delete their
+                      child’s data upon request, as mandated by privacy laws.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 className="font-semibold text-xl mb-4">
+              5. Legal Basis for Processing
+            </h2>
+
+            <p className="text-lg leading-relaxed mb-4">
+              We process your personal data based on one or more of the
+              following legal grounds:
             </p>
 
-            <h2>6. How We Protect Your Data</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We are committed to protecting your personal information. We
-              utilize administrative, technical, and physical safeguards to
-              protect your data from unauthorized access, disclosure, use, and
-              modification. We ensure the continuous review and up-to-date
-              processes to keep your data safe. However, we would like to inform
-              you that we cannot guarantee the complete security of your
-              information while being transmitted over the internet. We strongly
-              advise that you protect your password, ensure that you log out of
-              shared devices after each use, and that you also take other
-              precautionary measures to ensure the security of your data. We
-              also take extra measures to ensure your personal information is
-              not modified, lost, damaged, or destroyed, nor do we disclose
-              information about your usage of our website, software, or
-              application with unaffiliated third parties without your express
-              consent.
+            <div className="overflow-x-auto mb-8">
+              <table className="table-auto border border-gray-300 w-full text-left text-lg">
+                <thead className="bg-gray-100 font-semibold">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Purpose
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Consent
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We require explicit parental consent for minors. For
+                      adults/teens, processing is necessary to deliver requested
+                      services.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Legal Obligations
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We comply with legal requirements to honor parental
+                      control over children’s data.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Legitimate Interests
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We process data to run programs effectively while ensuring
+                      child safety and operational integrity.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Vital Interests
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      We may share limited data in emergencies to protect a
+                      participant’s well-being.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 className="font-semibold text-xl mb-4">
+              6. How Do We Share Your Information?
+            </h2>
+
+            <p className="text-lg leading-relaxed mb-4">
+              We only share personal information when necessary, and we
+              implement strict safeguards to protect your data. Below are the
+              circumstances under which we may share information:
             </p>
 
-            <h2>7. Where We Store Your Information</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              All personal information you provide to us is stored on our secure
-              servers, cloud infrastructures where applicable, as well as secure
-              physical locations for the purpose of providing seamless services
-              to you. The data we collect from you may be transferred or stored
-              in cloud locations of globally accepted vendor&apos;s data centers. We
-              also assure you that whenever your information is transferred to
-              other locations, we will take all necessary steps to ensure the
-              security of your data in accordance with this privacy policy.
-            </p>
-
-            <h2>8. Your Rights</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              By subscribing to our services, you are entitled to some rights
-              although not absolute. These rights may include the following:
-            </p>
-            <ul className="pl-6 list-disc">
+            <ul className="pl-6 list-disc text-lg leading-relaxed mb-8">
               <li>
-                You may request that your data in our custody be corrected where
-                found to be inaccurate or incomplete
+                <strong>With Parents/Guardians:</strong> We share children’s
+                program updates, progress reports, and important notices with
+                verified parents or legal guardians.
               </li>
               <li>
-                You may request to update your personal information with
-                Skill2rural Technology Services Limited at any time
+                <strong>With School and Community Partners:</strong> We may
+                share necessary information (e.g., attendance records, emergency
+                contacts) with trusted partners to ensure safe and effective
+                program delivery.
               </li>
-              <li>You may request that your data in our system be erased</li>
+              <li>
+                <strong>With Service Providers:</strong> We engage third-party
+                providers (e.g., IT support, payment processors) to assist in
+                operations. These providers are contractually bound to protect
+                data and use it only for the services we request.
+              </li>
+              <li>
+                <strong>For Legal and Safety Reasons:</strong> We may disclose
+                information if required by law, such as in response to a court
+                order, government request, or to protect the safety of a child
+                or other individuals.
+              </li>
+              <li>
+                <strong>In Case of Organizational Changes:</strong> If
+                Skill2Rural undergoes a merger, acquisition, or transition of
+                services, we may transfer information as part of that process,
+                ensuring the recipient maintains the same privacy protections.
+              </li>
+              <li>
+                <strong>For Research and Impact Reporting:</strong> We may share
+                anonymized, aggregated data with research partners to evaluate
+                program effectiveness. No personally identifiable information is
+                included in these reports.
+              </li>
             </ul>
 
-            <h2>9. Privacy of Children</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We are committed to protecting the privacy of our subscribers.
-              While our service adequately covers young person&apos;s needs,
-              Skill2rural website and app are not designed or intended to
-              attract children under the age of 16. The Skill2rural Sites do not
-              collect personal information from any person we actually know is
-              under the age of 16. We do not knowingly collect personal
-              information from children under the age of 16 without parental
-              consent. If you believe we have collected such information, please
-              contact us to request deletion.
+            <h3 className="font-semibold text-lg mb-2">We Do Not:</h3>
+            <ul className="list-disc pl-6 text-lg leading-relaxed mb-8">
+              <li>Sell or rent personal information to third parties.</li>
+              <li>
+                Share children’s data for marketing or advertising purposes.
+              </li>
+              <li>
+                Disclose information beyond what is necessary for the intended
+                purpose.
+              </li>
+            </ul>
+
+            <h2 className="font-semibold text-xl mb-4">
+              7. Will Your Data Be Processed Internationally?
+            </h2>
+            <p className="text-lg leading-relaxed mb-8">
+              If data must be transferred outside Nigeria, we ensure appropriate
+              safeguards are in place to meet legal requirements, including
+              obtaining parental consent when children’s data is involved.
             </p>
 
-            <h2>10. Third-Party Sites and Services</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Skill2rural websites, products, software, and applications may
-              contain links to third-party websites, products, and services. Our
-              products may also use or offer products or services from third
-              parties. Where personal information is collected by third parties
-              such as location data or contact details, such information will be
-              governed by the third parties privacy practices and Skill2rural
-              will not be liable for any breach of confidentiality or privacy of
-              your information on such sites. We advise you to learn about the
-              privacy practices of such sites.
+            <h2 className="font-semibold text-xl mb-4">8. Data Security</h2>
+            <p className="text-lg leading-relaxed mb-8">
+              We implement technical and organizational measures to protect your
+              personal data from unauthorized access, disclosure, alteration, or
+              destruction. These measures include encryption, access controls,
+              and regular security assessments.
             </p>
 
-            <h2>11. Maintaining Accurate Information</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Keeping your personal information accurate and up to date is very
-              important to us. If you ever discover any inaccuracies in your
-              personal information, kindly notify us promptly via any of our
-              branch networks or contact centers with the required documentary
-              evidence to enable us to implement the necessary updates or
-              changes.
+            <h2 className="font-semibold text-xl mb-4">9. Data Retention</h2>
+            <p className="text-lg leading-relaxed mb-8">
+              We retain personal information only for as long as necessary to
+              fulfill the purposes outlined in this privacy notice, unless a
+              longer retention period is required or permitted by law (such as
+              for tax, legal, or child protection reasons). When no longer
+              needed, we securely delete or anonymize your data.
             </p>
 
-            <h2>12. Social Media Platforms</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Skill2rural may interact with registered users of social media
-              platforms including Facebook, Twitter, Google+, LinkedIn, and
-              Instagram. Please note that any content you upload on such social
-              media platforms and any personal information you make available to
-              users of such platforms is subject to the platform’s terms of use
-              and privacy policies.
+            <h2 className="font-semibold text-xl mb-4">10. Your Data Rights</h2>
+
+            <div className="overflow-x-auto mb-8">
+              <table className="table-auto border border-gray-300 w-full text-left text-lg">
+                <thead className="bg-gray-100 font-semibold">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2">Right</th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">Access</td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Request a copy of the personal data we hold about you
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Correction
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Request correction of inaccurate or incomplete data
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Deletion
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Request data deletion when there is no legitimate reason
+                      for us to keep it
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Restriction
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Limit how we process your data
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Objection
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Object to processing based on legitimate interests
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Data Portability
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Request transfer of your data to another provider where
+                      applicable
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Withdraw Consent
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      Where we process data based on consent, you can withdraw
+                      consent at any time
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-lg leading-relaxed mb-8">
+              To exercise these rights, please contact us at [insert contact
+              information]. We may require verification of your identity before
+              processing your request.
             </p>
 
-            <h2>13. Promotional Messages</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Skill2rural may sometimes send you promotional messages containing
-              products or services that we think may be of interest to you.
-            </p>
-
-            <h2>14. Privacy Policy Changes</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              We reserve the right to change or modify this Privacy Policy and
-              any of our Services at any time and any changes will be effective
-              upon being posted unless we advise otherwise. If we make any
-              material changes to this Privacy Policy, we will notify you by
-              means of a notice on the Skill2rural Sites or by email to our
-              registered users (sent to the email address specified when you
-              register). By continuing to use the Services after changes are
-              made to this Privacy Policy, you agree to such changes. We
-              encourage you to periodically review this Privacy Policy for the
-              latest information on our privacy practices. If you do not accept
-              the terms of this Privacy Policy, we ask that you do not register
-              with us and that you do not use Skill2rural. Please exit the
-              Skill2rural Sites immediately if you do not agree to the terms of
-              this Privacy Policy.
-            </p>
-
-            <h2>15. Applicability of This Privacy Policy</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              This privacy policy shall be applicable to Skill2rural.
-            </p>
-
-            <h2>16. How Can You Contact Us About This Policy?</h2>
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Skill2rural Chief Data can be contacted by email at{" "}
-              <a href="mailto:info@skill2rural.org">info@skill2rural.org</a>.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              When a privacy question or access request is received, we have a
-              dedicated team that triages the contacts and seeks to address the
-              specific concern or query raised. Where your issue may be more
-              substantive in nature, more information may be sought from you.
-              All such substantive contacts receive a response. If you are
-              unsatisfied with the reply received, you may refer your complaint
-              to the relevant Supervisory Authority in your Country. If you ask
-              us, we will endeavor to provide you with information about
-              relevant complaint avenues which may be applicable to your
-              circumstances.
-            </p>
-
-            <p className="text-lg leading-ninth font-medium mb-8">
-              Any question or comment about this policy, data processing, or if
-              you would like to make a complaint about a possible breach of
-              local privacy laws, should be communicated by sending an e-mail or
-              submitting a request through the &apos;Contact Us&apos; form on our website.
+            <h2 className="font-semibold text-xl mb-4">
+              11. Changes to This Policy
+            </h2>
+            <p className="text-lg leading-relaxed mb-8">
+              We may update this Privacy Statement from time to time. Any
+              changes will be posted on our intranet or communicated to you
+              directly, along with the updated effective date. We encourage you
+              to review this policy periodically.
             </p>
           </div>
         </div>
