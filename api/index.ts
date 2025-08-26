@@ -1,13 +1,5 @@
-import {
-  Course,
-  CourseReview,
-  GetCourseReviewResponse,
-  GetQuizResultResponse,
-} from "@/types/course";
-import { ApiResponse } from "@/types/global";
 import { METHOD } from "@/types/methods";
-import { handleErrorResponse } from "@/utils";
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios from "axios";
 
 class Api {
   baseURL: string;
