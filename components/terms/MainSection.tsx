@@ -489,9 +489,9 @@ const MainSection = () => {
             </div>
 
             <p className="text-lg leading-relaxed mb-8">
-              To exercise these rights, please contact us at [insert contact
-              information]. We may require verification of your identity before
-              processing your request.
+              To exercise these rights, please contact us at
+              Info@skill2rural.org. We may require verification of your identity
+              before processing your request.
             </p>
 
             <h2 className="font-semibold text-xl mb-4">
