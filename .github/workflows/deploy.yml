@@ -3,7 +3,7 @@ name: CI/CD for NestJS
 on:
   push:
     branches:
-      - staging  # Trigger on pushes to the main branch
+      - staging # Trigger on pushes to the main branch
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: |
@@ -38,4 +38,19 @@ jobs:
             git pull origin staging
             npm install
             npm run build
-            pm2 restart skill2rural-web
+
+            # Create logs directory if it doesn't exist
+            mkdir -p logs
+
+            # Stop and delete existing processes to prevent duplicates
+            pm2 stop skill2rural-web || true
+            pm2 delete skill2rural-web || true
+
+            # Start fresh process using ecosystem config
+            pm2 start ecosystem.config.js
+
+            # Save PM2 configuration
+            pm2 save
+
+            # Show status for verification
+            pm2 status
